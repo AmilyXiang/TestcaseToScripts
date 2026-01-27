@@ -1,0 +1,8 @@
+pandas
+openpyxl
+pytest
+paramiko
+pyyaml
+
+# AI-assisted mapping (optional)
+openai

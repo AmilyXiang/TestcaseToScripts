@@ -1,0 +1,28 @@
+# Natural language step -> SSH commands mapping for ALE VoIP Phone
+# Pattern: Python regex to match test steps
+# Commands: SSH commands using actual ALE device command formats
+
+rules:
+  # Key press operations
+  - pattern: "(?i)(short|long)?\\s*press\\s+.*(emergency|guard|operator|menu|hangup|hold|release|new call|switch|silence|reject)"
+    commands:
+      - "aommgr shortpress 0 KP_MENU"
+    description: "Button press operations (need to map button names to actual KP_ keys)"
+  
+  # Check call log
+  - pattern: "(?i)check.*call log"
+    commands:
+      - "sqlite3 /data/ICTApplication/sipapp/db/database.db \"select * from calllogs\""
+    description: "Verify call log entries"
+  
+  # Check screen display
+  - pattern: "(?i)(display|show|check).*screen"
+    commands:
+      - "screen_dump | grep '{{TEXT}}'"
+    description: "Verify screen displays specific text or icon"
+  
+  # Reboot
+  - pattern: "(?i)restart|reboot"
+    commands:
+      - "reboot"
+    description: "Restart the phone"
