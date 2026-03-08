@@ -24,6 +24,17 @@ Convert raw `action` and `expected_result` text into natural, concise, automatio
 9. Do not output keyword-like fragments (forbidden: `press emergencycall`, `display create key screen`).
 10. Prefer one or two clear sentences per field.
 
+## Semantic Canonicalization Rules
+1. If two phrases are semantically equivalent in this test domain, normalize them to the same canonical sentence.
+2. Remove non-essential modifiers when they do not change behavior (for example, `normal incoming call` -> `incoming call`).
+3. Keep action polarity strict. Do not merge opposite actions (`pick up` and `hang up` must stay different).
+4. Use one stable canonical verb per intent when possible:
+- Use `Receive` for inbound call arrival events.
+- Use `Press` for key/button interactions.
+- Use `Check` for verification-only steps.
+5. Keep explicit entities and channels (phone/addon/screen/OXE) when they affect execution context.
+6. Keep numbers and protocol literals unchanged.
+
 ## Output Schema
 Return strict JSON only:
 
@@ -51,3 +62,11 @@ Output action: `Press the on-screen Hold key or the physical Hold button.`
 
 Input expected: `no action， can't hold the call`
 Output expected: `No action occurs, and the call is not put on hold.`
+
+Input action A: `Receive a normal incoming call on the phone.`
+Input action B: `Receive an incoming call on the phone.`
+Canonical output for both: `Receive an incoming call on the phone.`
+
+Input action A: `Press the silence button.`
+Input action B: `Press the Silence button.`
+Canonical output for both: `Press the Silence button.`

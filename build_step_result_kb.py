@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+import re
 import time
 from pathlib import Path
 from typing import Any, Dict, List
@@ -31,9 +32,40 @@ def build_prompt(skill_text: str, case_obj: Dict[str, Any]) -> str:
         "- Use imperative sentence for normalized_action.\\n"
         "- Use verifiable assertion sentence for normalized_expected_result.\\n"
         "- Never output keyword-only fragments.\\n\\n"
+        "Canonicalization requirement:\\n"
+        "- Semantically equivalent phrasings must be normalized to the same sentence.\\n"
+        "- Example: 'Receive a normal incoming call on the phone.' and 'Receive an incoming call on the phone.' must map to 'Receive an incoming call on the phone.'.\\n"
+        "- Do not merge opposite actions (e.g., pick up vs hang up).\\n\\n"
         "Input case:\\n"
         f"{json.dumps(case_obj, ensure_ascii=False)}"
     )
+
+
+def canonicalize_action_text(text: Any) -> Any:
+    if not isinstance(text, str):
+        return text
+
+    normalized = re.sub(r"\s+", " ", text.strip())
+
+    # Canonicalize equivalent incoming-call phrasings.
+    normalized = re.sub(
+        r"\bReceive a normal incoming call on the phone\.?$",
+        "Receive an incoming call on the phone.",
+        normalized,
+        flags=re.IGNORECASE,
+    )
+
+    # Normalize capitalization variants for common button names.
+    normalized = re.sub(r"\bPress the silence button\.?$", "Press the Silence button.", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bPress the switch button\.?$", "Press the Switch button.", normalized, flags=re.IGNORECASE)
+
+    return normalized
+
+
+def canonicalize_expected_text(text: Any) -> Any:
+    if not isinstance(text, str):
+        return text
+    return re.sub(r"\s+", " ", text.strip())
 
 
 def call_deepseek_case(
@@ -158,6 +190,11 @@ def main() -> None:
                 skill_text=skill_text,
                 case_obj=case_obj,
             )
+
+            for item in normalized_case.get("steps", []):
+                item["normalized_action"] = canonicalize_action_text(item.get("normalized_action"))
+                item["normalized_expected_result"] = canonicalize_expected_text(item.get("normalized_expected_result"))
+
             normalized_payload[sheet_name][case_id] = normalized_case
             print(f"Normalized case: {case_id}")
 

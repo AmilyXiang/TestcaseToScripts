@@ -1,0 +1,1423 @@
+[
+  {
+    "cluster_id": 1,
+    "examples": [
+      "Press the reject button or turn to voicemail button.",
+      "Press the Reject button or Turn to Voicemail button."
+    ],
+    "pattern": {
+      "pattern": "Press the {button_name} button or {button_name_2} button.",
+      "regex": "Press the (.*?) button or (.*?) button\\.?",
+      "parameters": [
+        "button_name",
+        "button_name_2"
+      ]
+    }
+  },
+  {
+    "cluster_id": 2,
+    "examples": [
+      "Pick up the handset.",
+      "Hang up the handset."
+    ],
+    "pattern": {
+      "pattern": "{action} up the handset.",
+      "regex": "(Pick|Hang) up the handset\\.",
+      "parameters": [
+        "action"
+      ]
+    }
+  },
+  {
+    "cluster_id": 3,
+    "examples": [
+      "Repeat steps 5 through 8.",
+      "Repeat steps 4 through 7.",
+      "Repeat steps 2 to 4.",
+      "Repeat steps 2-4."
+    ],
+    "pattern": {
+      "pattern": "Repeat steps {start} {connector} {end}",
+      "regex": "Repeat steps (\\d+)(?:\\s+(?:through|to|\\-)\\s+)(\\d+)",
+      "parameters": [
+        "start",
+        "end"
+      ]
+    }
+  },
+  {
+    "cluster_id": 4,
+    "examples": [
+      "Ensure the OXE does not configure the hard keys on the phone, then connect the phone to the OXE and navigate to the hard keys menu at User/Device/Hard keys.",
+      "Reset the phone flash, then connect the phone to OXE again. Short press the defined hard key and check the hard key menu, then long press the defined hard key and check the hard key menu."
+    ],
+    "pattern": {
+      "pattern": "{action_1} the {object_1} {action_2} {object_2} {action_3} {object_3} {action_4} {object_4} {action_5} {object_5} {action_6} {object_6} {action_7} {object_7} {action_8} {object_8} {action_9} {object_9} {action_10} {object_10} {action_11} {object_11} {action_12} {object_12} {action_13} {object_13} {action_14} {object_14} {action_15} {object_15} {action_16} {object_16} {action_17} {object_17} {action_18} {object_18} {action_19} {object_19} {action_20} {object_20} {action_21} {object_21} {action_22} {object_22} {action_23} {object_23} {action_24} {object_24} {action_25} {object_25} {action_26} {object_26} {action_27} {object_27} {action_28} {object_28} {action_29} {object_29} {action_30} {object_30} {action_31} {object_31} {action_32} {object_32} {action_33} {object_33} {action_34} {object_34} {action_35} {object_35} {action_36} {object_36} {action_37} {object_37} {action_38} {object_38}",
+      "regex": "(.*) the (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "action_1",
+        "object_1",
+        "action_2",
+        "object_2",
+        "action_3",
+        "object_3",
+        "action_4",
+        "object_4",
+        "action_5",
+        "object_5",
+        "action_6",
+        "object_6",
+        "action_7",
+        "object_7",
+        "action_8",
+        "object_8",
+        "action_9",
+        "object_9",
+        "action_10",
+        "object_10",
+        "action_11",
+        "object_11",
+        "action_12",
+        "object_12",
+        "action_13",
+        "object_13",
+        "action_14",
+        "object_14",
+        "action_15",
+        "object_15",
+        "action_16",
+        "object_16",
+        "action_17",
+        "object_17",
+        "action_18",
+        "object_18",
+        "action_19",
+        "object_19",
+        "action_20",
+        "object_20",
+        "action_21",
+        "object_21",
+        "action_22",
+        "object_22",
+        "action_23",
+        "object_23",
+        "action_24",
+        "object_24",
+        "action_25",
+        "object_25",
+        "action_26",
+        "object_26",
+        "action_27",
+        "object_27",
+        "action_28",
+        "object_28",
+        "action_29",
+        "object_29",
+        "action_30",
+        "object_30",
+        "action_31",
+        "object_31",
+        "action_32",
+        "object_32",
+        "action_33",
+        "object_33",
+        "action_34",
+        "object_34",
+        "action_35",
+        "object_35",
+        "action_36",
+        "object_36",
+        "action_37",
+        "object_37",
+        "action_38",
+        "object_38"
+      ]
+    }
+  },
+  {
+    "cluster_id": 5,
+    "examples": [
+      "After the call is released, check the call log.",
+      "Check the call log after the call is released.",
+      "After releasing the call, check the call log.",
+      "Check the call log.",
+      "Release the call and check the call log."
+    ],
+    "pattern": {
+      "pattern": "{action_1} {action_2}",
+      "regex": "(?:After (?:the call is released|releasing the call), )?(?:Check the call log|Release the call and check the call log)",
+      "parameters": [
+        "action_1",
+        "action_2"
+      ]
+    }
+  },
+  {
+    "cluster_id": 6,
+    "examples": [
+      "Check the call log after the conference call is released.",
+      "After the conference call is released, check the call log.",
+      "After releasing the conference call, check the call log."
+    ],
+    "pattern": {
+      "pattern": "After {action} the conference call, {task} the call log.",
+      "regex": "After (\\w+) the conference call, (\\w+) the call log\\.",
+      "parameters": [
+        "action",
+        "task"
+      ]
+    }
+  },
+  {
+    "cluster_id": 7,
+    "examples": [
+      "Press the Transfer button.",
+      "Press the Transfer key."
+    ],
+    "pattern": {
+      "pattern": "Press the Transfer {param_1}.",
+      "regex": "Press the Transfer (\\w+)\\.",
+      "parameters": [
+        "param_1"
+      ]
+    }
+  },
+  {
+    "cluster_id": 8,
+    "examples": [
+      "Select the defined key and define both keys to another function.",
+      "Select the defined key and define the two keys to their default function."
+    ],
+    "pattern": {
+      "pattern": "Select the defined key and define {param_1} {param_2} to {param_3}",
+      "regex": "Select the defined key and define (\\w+) (\\w+) to (\\w+)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3"
+      ]
+    }
+  },
+  {
+    "cluster_id": 9,
+    "examples": [
+      "Press the Operator call option.",
+      "Press the Operator program key on the phone or addon.",
+      "Press the Operator call log, Operator contact, or dial the Operator number."
+    ],
+    "pattern": {
+      "pattern": "Press the Operator {action}",
+      "regex": "Press the Operator (call option|program key on the phone or addon|call log, Operator contact, or dial the Operator number)",
+      "parameters": [
+        "action"
+      ]
+    }
+  },
+  {
+    "cluster_id": 10,
+    "examples": [
+      "Press the Guard call option.",
+      "Press the Guard program key on the phone or addon.",
+      "Press the Guard call log, Guard contact, or dial the Guard number."
+    ],
+    "pattern": {
+      "pattern": "Press the Guard {target}",
+      "regex": "Press the Guard (call option|program key on the phone or addon|call log, Guard contact, or dial the Guard number)",
+      "parameters": [
+        "target"
+      ]
+    }
+  },
+  {
+    "cluster_id": 11,
+    "examples": [
+      "Establish a call with the Guard on the phone.",
+      "Establish a call with the Guard from the phone.",
+      "Make a new outgoing call to the Guard number from the phone."
+    ],
+    "pattern": {
+      "pattern": "{action} a {call_type} call {preposition} {target} {source}",
+      "regex": "(Establish|Make) a (new outgoing|) call (with|to) (the Guard|the Guard number) (on|from) (the phone)",
+      "parameters": [
+        "action",
+        "call_type",
+        "preposition",
+        "target",
+        "source"
+      ]
+    }
+  },
+  {
+    "cluster_id": 12,
+    "examples": [
+      "Receive an answer from the remote side.",
+      "Receive an incoming call on the remote side.",
+      "Receive an answer to the call from the remote side.",
+      "Receive an incoming call on the phone.",
+      "Receive an answer from the remote side for the call.",
+      "Do not press the Transfer button and have the remote side answer the call."
+    ],
+    "pattern": {
+      "pattern": "{action} {target} {source}",
+      "regex": "(Receive|Do not press the Transfer button and have) (an answer|an incoming call|an answer to the call) (from the remote side|on the remote side|on the phone|for the call)",
+      "parameters": [
+        "action",
+        "target",
+        "source"
+      ]
+    }
+  },
+  {
+    "cluster_id": 13,
+    "examples": [
+      "Receive a rejection from the remote side for the call.",
+      "Have the remote side reject the call."
+    ],
+    "pattern": {
+      "pattern": "{action} {target} from {source}",
+      "regex": "(Receive|Have) (a rejection|the remote side reject) (the call|the call)",
+      "parameters": [
+        "action",
+        "target",
+        "source"
+      ]
+    }
+  },
+  {
+    "cluster_id": 14,
+    "examples": [
+      "Check the Emergency outgoing call screen, hold screen, and conversation screen.",
+      "Check the Guard outgoing call screen, hold screen, conversation screen, and conference screen.",
+      "Check the Operator outgoing call screen, hold screen, conversation screen, and conference screen."
+    ],
+    "pattern": {
+      "pattern": "Check the {role} outgoing call screen, hold screen{additional_screens}",
+      "regex": "Check the (\\w+) outgoing call screen, hold screen(?:, (?:and )?\\w+ screen)*",
+      "parameters": [
+        "role",
+        "additional_screens"
+      ]
+    }
+  },
+  {
+    "cluster_id": 15,
+    "examples": [
+      "Unselect the two defined keys.",
+      "Select the two keys again."
+    ],
+    "pattern": {
+      "pattern": "{action} the two {adjective} {noun}.",
+      "regex": "(\\w+) the two (\\w+) (\\w+)\\.",
+      "parameters": [
+        "action",
+        "adjective",
+        "noun"
+      ]
+    }
+  },
+  {
+    "cluster_id": 16,
+    "examples": [
+      "Make a new normal outgoing call on the phone.",
+      "Make a new normal outgoing call from the phone.",
+      "Make a new outgoing call from the phone.",
+      "Make a new outgoing call to the Operator on the phone."
+    ],
+    "pattern": {
+      "pattern": "Make a new {call_type} {direction} call {target} {device}",
+      "regex": "Make a new (\\w+)?\\s*(outgoing)?\\s*call\\s*(to\\s+[\\w\\s]+)?\\s*(on|from)\\s+the\\s+phone",
+      "parameters": [
+        "call_type",
+        "direction",
+        "target",
+        "device"
+      ]
+    }
+  },
+  {
+    "cluster_id": 17,
+    "examples": [
+      "Establish a call with the Operator from the phone.",
+      "Establish a call with the Operator on the phone."
+    ],
+    "pattern": {
+      "pattern": "Establish a call with the Operator {param_1} the phone.",
+      "regex": "Establish a call with the Operator (from|on) the phone\\.",
+      "parameters": [
+        "param_1"
+      ]
+    }
+  },
+  {
+    "cluster_id": 18,
+    "examples": [
+      "Establish a call with the Emergency number on the phone.",
+      "Establish an emergency call from the phone.",
+      "Make a new outgoing call to Emergency from the phone."
+    ],
+    "pattern": {
+      "pattern": "{action} {call_type} call {target} {device}",
+      "regex": "(Establish|Make) (a|an|a new outgoing)? (emergency|Emergency)? call (with|to|from)? (the|an)? (Emergency|emergency)? (number)? (on|from)? (the)? (phone)?",
+      "parameters": [
+        "action",
+        "call_type",
+        "target",
+        "device"
+      ]
+    }
+  },
+  {
+    "cluster_id": 19,
+    "examples": [
+      "Press the Emergency call option.",
+      "Press the Emergency program key on the phone or addon.",
+      "Press the Emergency call log, Emergency contact, or dial the Emergency number."
+    ],
+    "pattern": {
+      "pattern": "Press the Emergency {target}",
+      "regex": "Press the Emergency (.*)",
+      "parameters": [
+        "target"
+      ]
+    }
+  },
+  {
+    "cluster_id": 20,
+    "examples": [
+      "In OXE, program key 123 with phone A number on position 1 and set mnemo to position1, then update the phone configuration file.",
+      "In OXE, program key 124 with phone B number on position 2 and set mnemo to position_2, then update the phone configuration file.",
+      "In OXE, program key 123 with phone C number on position 1 and set mnemo to position 1, then update the phone configuration file.",
+      "In OXE, program key 124 with phone D number on position 2 and set mnemo to POSITION2, then update the phone configuration file."
+    ],
+    "pattern": {
+      "pattern": "In OXE, program key {key} with phone {phone} number on position {position} and set mnemo to {mnemo}, then update the phone configuration file.",
+      "regex": "In OXE, program key (\\d+) with phone ([A-Z]) number on position (\\d+) and set mnemo to ([\\w_]+), then update the phone configuration file\\.",
+      "parameters": [
+        "key",
+        "phone",
+        "position",
+        "mnemo"
+      ]
+    }
+  },
+  {
+    "cluster_id": 21,
+    "examples": [
+      "Press the on-screen Hold key or the physical Hold button.",
+      "Press the on-screen Hold key or the physical Hold key.",
+      "Press the on-screen Hold key or the physical Hold key again."
+    ],
+    "pattern": {
+      "pattern": "Press the on-screen Hold key or the physical Hold {button_or_key} {optional_again}",
+      "regex": "Press the on-screen Hold key or the physical Hold (button|key)(?: again)?",
+      "parameters": [
+        "button_or_key",
+        "optional_again"
+      ]
+    }
+  },
+  {
+    "cluster_id": 22,
+    "examples": [
+      "Press the on-screen Release key or the physical Release button.",
+      "Press the on-screen release key or the physical release button."
+    ],
+    "pattern": {
+      "pattern": "Press the on-screen {key_name} key or the physical {button_name} button.",
+      "regex": "Press the on-screen (.*?) key or the physical (.*?) button\\.",
+      "parameters": [
+        "key_name",
+        "button_name"
+      ]
+    }
+  },
+  {
+    "cluster_id": 23,
+    "examples": [
+      "Press the exit or release button.",
+      "Press the Exit or Release button."
+    ],
+    "pattern": {
+      "pattern": "Press the {button_1} or {button_2} button.",
+      "regex": "Press the (\\w+) or (\\w+) button\\.?",
+      "parameters": [
+        "button_1",
+        "button_2"
+      ]
+    }
+  },
+  {
+    "cluster_id": 24,
+    "examples": [
+      "Check the two keys on the OXE.",
+      "Check the two keys of the OXE."
+    ],
+    "pattern": {
+      "pattern": "Check the two keys {param_1} the OXE.",
+      "regex": "Check the two keys (\\w+) the OXE\\.",
+      "parameters": [
+        "param_1"
+      ]
+    }
+  },
+  {
+    "cluster_id": 25,
+    "examples": [
+      "Check the defined key in OXE.",
+      "Check the defined key on the OXE."
+    ],
+    "pattern": {
+      "pattern": "Check the defined key {preposition} {system}",
+      "regex": "Check the defined key (in|on) (OXE)",
+      "parameters": [
+        "preposition",
+        "system"
+      ]
+    }
+  },
+  {
+    "cluster_id": 26,
+    "examples": [
+      "On OXE, program key 123 with phone A on position 1 and enable the lock parameter, then update the phone configuration file.",
+      "On OXE, program key 124 with the Emergency function on position 2 and disable the lock parameter, then update the phone configuration file.",
+      "On OXE, program key 124 with the Guard function on position 3 and disable the lock parameter, then update the phone configuration file.",
+      "On OXE, program key 123 with the Emergency function on position 1 and key 124 with the Guard function on position 2, then enable the lock parameter and update the phone configuration file.",
+      "On OXE, program key 123 with the Emergency function on position 1 and key 124 with the Guard function on position 3, with all lock parameters disabled, then update the phone configuration file."
+    ],
+    "pattern": {
+      "pattern": "On OXE, program key {key1} with {function1} on position {position1}{additional_keys}{lock_parameter}, then update the phone configuration file.",
+      "regex": "On OXE, program key (\\d+) with (?:phone (\\w+)|the (\\w+) function) on position (\\d+)(?: and key (\\d+) with the (\\w+) function on position (\\d+))?(?: and (enable|disable) the lock parameter)?(?:, with all lock parameters disabled)?, then update the phone configuration file\\.",
+      "parameters": [
+        "key1",
+        "function1",
+        "position1",
+        "additional_keys",
+        "lock_parameter"
+      ]
+    }
+  },
+  {
+    "cluster_id": 27,
+    "examples": [
+      "On OXE, program key 124 as Not Assigned.",
+      "On OXE, set program key 124 to Not Assigned.",
+      "On OXE, set program keys 123 and 124 to Not Assigned.",
+      "On the OXE, set program keys 123 and 124 to Not Assigned."
+    ],
+    "pattern": {
+      "pattern": "On {system}, {action} program key(s) {key_numbers} to {value}.",
+      "regex": "On (the )?(OXE), (program|set) program key(s)? (\\d+(?: and \\d+)*) (?:as|to) (Not Assigned)\\.",
+      "parameters": [
+        "system",
+        "action",
+        "key_numbers",
+        "value"
+      ]
+    }
+  },
+  {
+    "cluster_id": 28,
+    "examples": [
+      "On ALE-500, establish a call with phone B, then press the Triangle key.",
+      "On ALE-500, establish a call with phone B and press the Circle key.",
+      "On ALE-500, establish a call with phone B, then press the Square key.",
+      "On ALE-500, establish a call with phone B, then press the Triangle or Circle key.",
+      "On ALE-500, with the phone on a call with phone B, press the Triangle or Circle key.",
+      "On ALE-500, with a call established with phone B, press the Triangle or Square key."
+    ],
+    "pattern": {
+      "pattern": "On ALE-500, {call_action} with phone B, {press_action} the {key_name} key.",
+      "regex": "On ALE-500, (?:establish a call|with (?:the phone on a call|a call established)) with phone B, (?:then )?(?:press|and press) the (Triangle|Circle|Square|Triangle or Circle|Triangle or Square) key\\.",
+      "parameters": [
+        "call_action",
+        "press_action",
+        "key_name"
+      ]
+    }
+  },
+  {
+    "cluster_id": 29,
+    "examples": [
+      "Check the Triangle, Circle, and Square keys on the ALE-500.",
+      "On ALE-500, check the Triangle, Circle, and Square keys.",
+      "On ALE-500, check the Triangle and Square keys."
+    ],
+    "pattern": {
+      "pattern": "On {device}, check the {keys}.",
+      "regex": "On (ALE-500), check the ((?:Triangle|Circle|Square)(?:, (?:Triangle|Circle|Square))*?(?: and (?:Triangle|Circle|Square))?).",
+      "parameters": [
+        "device",
+        "keys"
+      ]
+    }
+  },
+  {
+    "cluster_id": 30,
+    "examples": [
+      "Check the F1, F2, and F3 functions on the ALE-500.",
+      "Check the F1, F2, and F3 functions on ALE-500."
+    ],
+    "pattern": {
+      "pattern": "Check the F1, F2, and F3 functions on {device}",
+      "regex": "Check the F1, F2, and F3 functions on ([A-Za-z0-9-]+)",
+      "parameters": [
+        "device"
+      ]
+    }
+  },
+  {
+    "cluster_id": 31,
+    "examples": [
+      "With the phone in idle mode and the LED of F1, F2, or F3 off, enable or disable the lock, then press the F1 key.",
+      "With the phone in idle mode and the LEDs of F1, F2, and F3 off, enable or disable the lock, then press the F1 key."
+    ],
+    "pattern": {
+      "pattern": "With the phone in idle mode and the {param_1} of F1, F2, {param_2} F3 off, enable or disable the lock, then press the F1 key.",
+      "regex": "With the phone in idle mode and the (.*) of F1, F2, (.*) F3 off, enable or disable the lock, then press the F1 key\\.",
+      "parameters": [
+        "param_1",
+        "param_2"
+      ]
+    }
+  },
+  {
+    "cluster_id": 32,
+    "examples": [
+      "Establish a call and during the conversation, press the F2 key.",
+      "Establish a call on the phone, then during the conversation, press the F3 key.",
+      "Establish a call on the phone, then during the conversation, press the F2 key."
+    ],
+    "pattern": {
+      "pattern": "Establish a call {optional_on_the_phone}, then during the conversation, press the {key} key.",
+      "regex": "Establish a call (?:on the phone, )?then during the conversation, press the (F[23]) key\\.",
+      "parameters": [
+        "optional_on_the_phone",
+        "key"
+      ]
+    }
+  },
+  {
+    "cluster_id": 33,
+    "examples": [
+      "In OXE, program keys 123 and 124 with the Lock parameter enabled.",
+      "In OXE, program keys 123 and 124 with all lock parameters disabled."
+    ],
+    "pattern": {
+      "pattern": "In OXE, program keys 123 and 124 with {lock_parameter} {enabled_disabled}.",
+      "regex": "In OXE, program keys 123 and 124 with (the )?Lock parameter (enabled|disabled)\\.",
+      "parameters": [
+        "lock_parameter",
+        "enabled_disabled"
+      ]
+    }
+  },
+  {
+    "cluster_id": 34,
+    "examples": [
+      "Program keys 123 and 124 on the OXE, with one key locked and one key unlocked.",
+      "In OXE, program keys 123 and 124, with one key locked and one key unlocked."
+    ],
+    "pattern": {
+      "pattern": "Program keys {key1} and {key2} on the OXE, with one key locked and one key unlocked.",
+      "regex": "Program keys (\\d+) and (\\d+) on the OXE, with one key locked and one key unlocked\\.",
+      "parameters": [
+        "key1",
+        "key2"
+      ]
+    }
+  },
+  {
+    "cluster_id": 35,
+    "examples": [
+      "Press the hard key.",
+      "Press the two hard keys."
+    ],
+    "pattern": {
+      "pattern": "Press the {key_count} {key_type} key{plural}",
+      "regex": "Press the (\\w+) (\\w+) key(s?)",
+      "parameters": [
+        "key_count",
+        "key_type",
+        "plural"
+      ]
+    }
+  },
+  {
+    "cluster_id": 36,
+    "examples": [
+      "With the phone in idle mode, press the F2 key.",
+      "With the phone in idle mode, press the F3 key."
+    ],
+    "pattern": {
+      "pattern": "With the phone in idle mode, press the {key_name} key.",
+      "regex": "With the phone in idle mode, press the (F[0-9]) key\\.",
+      "parameters": [
+        "key_name"
+      ]
+    }
+  },
+  {
+    "cluster_id": 37,
+    "examples": [
+      "With the phone in idle mode and the LEDs of F1, F2, and F3 off, press the F1 key.",
+      "With the phone in idle mode and the LEDs of F1, F2, and F3 off, press the F2 key.",
+      "With the phone in idle mode and the LEDs of F1, F2, and F3 off, press the F3 key."
+    ],
+    "pattern": {
+      "pattern": "With the phone in idle mode and the LEDs of F1, F2, and F3 off, press the {key_name} key.",
+      "regex": "With the phone in idle mode and the LEDs of F1, F2, and F3 off, press the (F[123]) key\\.",
+      "parameters": [
+        "key_name"
+      ]
+    }
+  },
+  {
+    "cluster_id": 38,
+    "examples": [
+      "With the phone on a normal call, press the F2 key.",
+      "With the phone on a normal call, press the F3 key."
+    ],
+    "pattern": {
+      "pattern": "With the phone on a normal call, press the {key_name} key.",
+      "regex": "With the phone on a normal call, press the (F[0-9]) key\\.",
+      "parameters": [
+        "key_name"
+      ]
+    }
+  },
+  {
+    "cluster_id": 39,
+    "examples": [
+      "Check the function of the two keys.",
+      "Check the function of the defined key.",
+      "Check the new function of the hard key.",
+      "Check the new function of the key.",
+      "Check the function of the key to its default state."
+    ],
+    "pattern": {
+      "pattern": "Check the {optional_new} function of the {key_description} key {optional_state}",
+      "regex": "Check the (?:new )?function of the (.*?) key(?: to its default state)?",
+      "parameters": [
+        "optional_new",
+        "key_description",
+        "optional_state"
+      ]
+    }
+  },
+  {
+    "cluster_id": 40,
+    "examples": [
+      "Press the on-screen Create Key button or the phone's OK key.",
+      "Press the Create Key button on the screen or the OK key on the phone."
+    ],
+    "pattern": {
+      "pattern": "Press the {button_name} button {location_1} or the {key_name} key {location_2}.",
+      "regex": "Press the (.+?) button (?:on the (.+?) )?or the (.+?) key (?:on the (.+?) )?\\.",
+      "parameters": [
+        "button_name",
+        "location_1",
+        "key_name",
+        "location_2"
+      ]
+    }
+  },
+  {
+    "cluster_id": 41,
+    "examples": [
+      "Establish two normal calls with the LED of F1 off and the LEDs of F2 and F3 on, then press the F2 key.",
+      "Establish two normal calls with the LED of F1 off and the LEDs of F2 and F3 on, then press the F3 key.",
+      "Establish two normal calls with the LEDs of F1 and F3 on, then press the F3 key."
+    ],
+    "pattern": {
+      "pattern": "Establish two normal calls with the LED of F1 {f1_state} and the LED{optional_f2} of F2 {f2_state} and F3 {f3_state}, then press the {key} key.",
+      "regex": "Establish two normal calls with the LED of F1 (off|on) and the LED(?:s)? of F2 (off|on) and F3 (off|on), then press the (F[23]) key\\.",
+      "parameters": [
+        "f1_state",
+        "f2_state",
+        "f3_state",
+        "key"
+      ]
+    }
+  },
+  {
+    "cluster_id": 42,
+    "examples": [
+      "Establish a normal call on the phone with the LED of the F1 key on, then press the F1 key, and press the F1 key again.",
+      "Establish a normal call on the phone with the LED of F1 on, then press the F1 key.",
+      "With the phone on a normal call and the LED of F1 on, press the F1 key."
+    ],
+    "pattern": {
+      "pattern": "Establish a normal call on the phone with the LED of {key_name} on, then press the {key_name} key{optional_action}.",
+      "regex": "Establish a normal call on the phone with the LED of (\\w+) on, then press the \\1 key(?:, and press the \\1 key again)?\\.",
+      "parameters": [
+        "key_name",
+        "optional_action"
+      ]
+    }
+  },
+  {
+    "cluster_id": 43,
+    "examples": [
+      "With the phone having one normal call established and the LEDs of F1, F2, and F3 off, press the F1 key.",
+      "With the phone having one normal call established and the LEDs of F1, F2, and F3 off, press the F3 key.",
+      "With the phone having two normal calls established, the LED of F2 on and LEDs of F1 and F3 off, press the F2 key."
+    ],
+    "pattern": {
+      "pattern": "With the phone having {call_count} normal call(s) established, the LED(s) of {led_states}, press the {key} key.",
+      "regex": "With the phone having (\\d+|one|two) normal call(?:s)? established, the LED(?:s)? of (F[1-3](?:, F[1-3])* (?:on|off)(?:, (?:on|off))*), press the (F[1-3]) key\\.",
+      "parameters": [
+        "call_count",
+        "led_states",
+        "key"
+      ]
+    }
+  },
+  {
+    "cluster_id": 44,
+    "examples": [
+      "Establish two normal calls on the phone with the LED of the F1, F2, and F3 keys on, then press the F2 key.",
+      "Establish two normal calls on the phone with the LED of the F1, F2, and F3 keys on, then press the F3 key.",
+      "Establish two normal calls on the phone with the LEDs of F1 and F2 on and F3 off, then press the F2 key.",
+      "Establish two normal calls on the phone with the LED of F3 on and the LED of F1 and F2 off, then press the F3 key."
+    ],
+    "pattern": {
+      "pattern": "Establish two normal calls on the phone with the {led_state} of {keys_state}, then press the {key_to_press} key.",
+      "regex": "Establish two normal calls on the phone with the (LED|LEDs) of (F1, F2, and F3 keys on|F1 and F2 on and F3 off|F3 on and F1 and F2 off), then press the (F2|F3) key\\.",
+      "parameters": [
+        "led_state",
+        "keys_state",
+        "key_to_press"
+      ]
+    }
+  },
+  {
+    "cluster_id": 45,
+    "examples": [
+      "Enter the hard keys menu via User/Device/Hard keys or long press the hard key, then select an undefined key and press the + button.",
+      "Define one key by selecting the undefined key and pressing the + button.",
+      "Press an undefined key, then press the + button."
+    ],
+    "pattern": {
+      "pattern": "{action} {key_name} {button_name}",
+      "regex": "(.*?) (undefined key) (\\+ button)",
+      "parameters": [
+        "action",
+        "key_name",
+        "button_name"
+      ]
+    }
+  },
+  {
+    "cluster_id": 46,
+    "examples": [
+      "On ALE-300 or ALE-400, press the i icon.",
+      "For ALE-300/400, press the i icon."
+    ],
+    "pattern": {
+      "pattern": "On {model}, press the {icon} icon.",
+      "regex": "On\\s+([A-Z]+-\\d+(?:\\s*or\\s*[A-Z]+-\\d+)?(?:\\s*\\/\\s*[A-Z]+-\\d+)?),\\s+press\\s+the\\s+(\\w+)\\s+icon\\.",
+      "parameters": [
+        "model",
+        "icon"
+      ]
+    }
+  },
+  {
+    "cluster_id": 47,
+    "examples": [
+      "Navigate to the hard keys menu via User/Device/Hard keys or long press a hard key, then select the unlocked defined key and press the + button.",
+      "Enter the hard keys menu via User/Device/Hard keys or long press a hard key, then press the edit button of an unlocked defined key."
+    ],
+    "pattern": {
+      "pattern": "Navigate to the hard keys menu via User/Device/Hard keys or long press a hard key, then {action}.",
+      "regex": "Navigate to the hard keys menu via User/Device/Hard keys or long press a hard key, then (select the unlocked defined key and press the \\+ button|press the edit button of an unlocked defined key).",
+      "parameters": [
+        "action"
+      ]
+    }
+  },
+  {
+    "cluster_id": 48,
+    "examples": [
+      "On ALE-300, ALE-400, or ALE-500, press the remaining key.",
+      "On ALE-300/400/500, press the remaining key.",
+      "For ALE-300/400/500, press the remaining key."
+    ],
+    "pattern": {
+      "pattern": "On {models}, press the {key_name} key.",
+      "regex": "On (ALE-(?:300|400|500)(?:, ALE-(?:300|400|500))* or ALE-(?:300|400|500)|ALE-(?:300|400|500)(?:\\/(?:300|400|500))+), press the (\\w+) key\\.",
+      "parameters": [
+        "models",
+        "key_name"
+      ]
+    }
+  },
+  {
+    "cluster_id": 49,
+    "examples": [
+      "Long press F1/F2 on ALE-30, F1/F2/F3 on ALE-300/400, or Triangle/Circle/Square on ALE-500.",
+      "For ALE-30, long press F1 or F2; for ALE-300/400, long press F1, F2, or F3; for ALE-500, long press Triangle, Circle, or Square.",
+      "For ALE-30, long press F1 or F2. For ALE-300/400, long press F1, F2, or F3. For ALE-500, long press Triangle, Circle, or Square."
+    ],
+    "pattern": {
+      "pattern": "Long press {buttons} on {models}.",
+      "regex": "Long press (.+?) on (.+?)\\.",
+      "parameters": [
+        "buttons",
+        "models"
+      ]
+    }
+  },
+  {
+    "cluster_id": 50,
+    "examples": [
+      "Press the F1 key on ALE-30/300/400 or the Triangle key on ALE-500.",
+      "Press the F2 key on ALE-30/300/400 or the Circle key on ALE-500.",
+      "Press the F1 or F2 key on ALE-30, F1/F2/F3 key on ALE-300/400, or Triangle/Circle key on ALE-500.",
+      "Long press the F1/F2 keys on ALE-30, F1/F2/F3 on ALE-300/400, or Triangle/Circle/Square on ALE-500."
+    ],
+    "pattern": {
+      "pattern": "{action} {keys} on {models}",
+      "regex": "(Long press|Press) (the )?(F[0-9]+(?:\\/F[0-9]+)*(?: or F[0-9]+)?(?: key)?(?:s)?|Triangle(?:\\/Circle(?:\\/Square)?)?(?: key)?(?:s)?) on (ALE-[0-9]+(?:\\/[0-9]+)*(?:, ALE-[0-9]+(?:\\/[0-9]+)*)*)",
+      "parameters": [
+        "action",
+        "keys",
+        "models"
+      ]
+    }
+  },
+  {
+    "cluster_id": 51,
+    "examples": [
+      "On ALE-30, long press the F1 or F2 key. On ALE-300/400, long press the F1, F2, or F3 key. On ALE-500, long press the Triangle, Circle, or Square key.",
+      "For ALE-30, long press the F1 or F2 key. For ALE-300/400, long press the F1, F2, or F3 key. For ALE-500, long press the Triangle, Circle, or Square key."
+    ],
+    "pattern": {
+      "pattern": "{prefix} ALE-30, long press the F1 or F2 key. {prefix} ALE-300/400, long press the F1, F2, or F3 key. {prefix} ALE-500, long press the Triangle, Circle, or Square key.",
+      "regex": "(On|For) ALE\\-30, long press the F1 or F2 key\\. (On|For) ALE\\-300/400, long press the F1, F2, or F3 key\\. (On|For) ALE\\-500, long press the Triangle, Circle, or Square key\\.",
+      "parameters": [
+        "prefix"
+      ]
+    }
+  },
+  {
+    "cluster_id": 52,
+    "examples": [
+      "Short press the defined hard key and check the hard key menu. Then long press the defined hard key and check the hard key menu.",
+      "Short press the defined hard key and check the hard key menu, then long press the defined hard key and check the hard key menu."
+    ],
+    "pattern": {
+      "pattern": "Short press the defined hard key and check the hard key menu, then long press the defined hard key and check the hard key menu.",
+      "regex": "Short press the defined hard key and check the hard key menu, then long press the defined hard key and check the hard key menu\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 53,
+    "examples": [
+      "Configure the phone with two hard keys and enter the hard keys menu via User/Device/Hard keys.",
+      "Configure two hard keys on the phone and enter the hard keys menu via User/Device/Hard keys.",
+      "Configure the phone with two hard keys and enter the hard keys menu at User/Device/Hard keys."
+    ],
+    "pattern": {
+      "pattern": "Configure {phone} with {number} hard keys and enter the hard keys menu {preposition} User/Device/Hard keys.",
+      "regex": "Configure (?:the )?phone (?:with )?(\\w+) hard keys? and enter the hard keys menu (via|at) User/Device/Hard keys\\.",
+      "parameters": [
+        "number",
+        "preposition"
+      ]
+    }
+  },
+  {
+    "cluster_id": 54,
+    "examples": [
+      "Configure the phone with 2 hard keys, then long press the defined hard key.",
+      "Configure the phone with 2 hard keys, then long press the hard key."
+    ],
+    "pattern": {
+      "pattern": "Configure the phone with 2 hard keys, then long press the {hard_key_description}",
+      "regex": "Configure the phone with 2 hard keys, then long press the (.*)",
+      "parameters": [
+        "hard_key_description"
+      ]
+    }
+  },
+  {
+    "cluster_id": 55,
+    "examples": [
+      "Navigate to the hard keys menu via User/Device/Hard keys on the phone.",
+      "On the phone, navigate to the hard keys menu via User/Device/Hard keys."
+    ],
+    "pattern": {
+      "pattern": "{preposition} {target} {action} {menu_path}",
+      "regex": "(?:Navigate to|On the phone, navigate to) the hard keys menu via User/Device/Hard keys",
+      "parameters": [
+        "preposition",
+        "target",
+        "action",
+        "menu_path"
+      ]
+    }
+  },
+  {
+    "cluster_id": 56,
+    "examples": [
+      "Enter the hard keys menu via User/Device/Hard keys.",
+      "Navigate to the hard keys menu via User/Device/Hard keys."
+    ],
+    "pattern": {
+      "pattern": "{action} the hard keys menu via User/Device/Hard keys.",
+      "regex": "(Enter|Navigate) the hard keys menu via User/Device/Hard keys\\.",
+      "parameters": [
+        "action"
+      ]
+    }
+  },
+  {
+    "cluster_id": 57,
+    "examples": [
+      "Enter the hard keys menu via User/Device/Hard keys or long press the F1, F2, F3, Triangle, Circle, or Square key.",
+      "Navigate to the hard keys menu via User/Device/Hard keys or long press the F1, F2, F3, Triangle, Circle, or Square key."
+    ],
+    "pattern": {
+      "pattern": "{action} the hard keys menu via User/Device/Hard keys or long press the {keys}.",
+      "regex": "(Enter|Navigate) the hard keys menu via User\\/Device\\/Hard keys or long press the (F1, F2, F3, Triangle, Circle, or Square key)\\.?",
+      "parameters": [
+        "action",
+        "keys"
+      ]
+    }
+  },
+  {
+    "cluster_id": 58,
+    "examples": [
+      "On the phone, navigate to the hard keys menu via User/Device/Hard keys or long press the F1, F2, F3, Triangle, Circle, or Square key.",
+      "On the phone, navigate to the hard keys menu via User/Device/Hard keys, or long press the F1, F2, F3, Triangle, Circle, or Square key."
+    ],
+    "pattern": {
+      "pattern": "On the phone, navigate to the hard keys menu via User/Device/Hard keys {method} {keys}",
+      "regex": "On the phone, navigate to the hard keys menu via User/Device/Hard keys (?:via User/Device/Hard keys,? or long press|or long press) (F1, F2, F3, Triangle, Circle, or Square key\\.?)",
+      "parameters": [
+        "method",
+        "keys"
+      ]
+    }
+  },
+  {
+    "cluster_id": 59,
+    "examples": [
+      "Short press or long press the empty program key on the phone or addon."
+    ],
+    "pattern": {
+      "pattern": "Short press or long press the empty program key on the phone or addon.",
+      "regex": "Short\\ press\\ or\\ long\\ press\\ the\\ empty\\ program\\ key\\ on\\ the\\ phone\\ or\\ addon\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 60,
+    "examples": [
+      "Press the emergency avatar."
+    ],
+    "pattern": {
+      "pattern": "Press the emergency avatar.",
+      "regex": "Press\\ the\\ emergency\\ avatar\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 61,
+    "examples": [
+      "Press the new call button."
+    ],
+    "pattern": {
+      "pattern": "Press the new call button.",
+      "regex": "Press\\ the\\ new\\ call\\ button\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 62,
+    "examples": [
+      "Dial 911 or 112."
+    ],
+    "pattern": {
+      "pattern": "Dial 911 or 112.",
+      "regex": "Dial\\s+911\\s+or\\s+112\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 63,
+    "examples": [
+      "Press the Switch button."
+    ],
+    "pattern": {
+      "pattern": "Press the Switch button.",
+      "regex": "Press\\ the\\ Switch\\ button\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 64,
+    "examples": [
+      "Answer the new call."
+    ],
+    "pattern": {
+      "pattern": "Answer the new call.",
+      "regex": "Answer\\ the\\ new\\ call\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 65,
+    "examples": [
+      "Press the Silence button."
+    ],
+    "pattern": {
+      "pattern": "Press the Silence button.",
+      "regex": "Press\\ the\\ Silence\\ button\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 66,
+    "examples": [
+      "Press the Guard avatar."
+    ],
+    "pattern": {
+      "pattern": "Press the Guard avatar.",
+      "regex": "Press\\ the\\ Guard\\ avatar\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 67,
+    "examples": [
+      "Press the Operator avatar."
+    ],
+    "pattern": {
+      "pattern": "Press the Operator avatar.",
+      "regex": "Press\\ the\\ Operator\\ avatar\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 68,
+    "examples": [
+      "Hang up the handset or press the on-screen Release key or the physical Release button."
+    ],
+    "pattern": {
+      "pattern": "Hang up the handset or press the on-screen Release key or the physical Release button.",
+      "regex": "Hang\\ up\\ the\\ handset\\ or\\ press\\ the\\ on\\-screen\\ Release\\ key\\ or\\ the\\ physical\\ Release\\ button\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 69,
+    "examples": [
+      "Press the Switch button and check the two-call screen."
+    ],
+    "pattern": {
+      "pattern": "Press the Switch button and check the two-call screen.",
+      "regex": "Press\\ the\\ Switch\\ button\\ and\\ check\\ the\\ two\\-call\\ screen\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 70,
+    "examples": [
+      "Press the Conference button."
+    ],
+    "pattern": {
+      "pattern": "Press the Conference button.",
+      "regex": "Press\\ the\\ Conference\\ button\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 71,
+    "examples": [
+      "Navigate to Settings, then Device, then Appearance, and select Light/Dark Mode."
+    ],
+    "pattern": {
+      "pattern": "Navigate to Settings, then Device, then Appearance, and select Light/Dark Mode.",
+      "regex": "Navigate\\ to\\ Settings,\\ then\\ Device,\\ then\\ Appearance,\\ and\\ select\\ Light/Dark\\ Mode\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 72,
+    "examples": [
+      "Long press the F1, F2, F3, Triangle, Circle, or Square key."
+    ],
+    "pattern": {
+      "pattern": "Long press the F1, F2, F3, Triangle, Circle, or Square key.",
+      "regex": "Long\\s+press\\s+the\\s+(?:F1|F2|F3|Triangle|Circle|Square)\\s+key\\.",
+      "parameters": [
+        "key"
+      ]
+    }
+  },
+  {
+    "cluster_id": 73,
+    "examples": [
+      "Ensure the phone is in idle mode with the LED of the F1, F2, and F3 keys off, then press the F1 key."
+    ],
+    "pattern": {
+      "pattern": "Ensure the phone is in idle mode with the LED of the F1, F2, and F3 keys off, then press the F1 key.",
+      "regex": "Ensure the phone is in idle mode with the LED of the F1, F2, and F3 keys off, then press the F1 key\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 74,
+    "examples": [
+      "In OXE, program keys 123 and 124 with mnemo strings different from \"position1\", \"position2\", or \"position3\"."
+    ],
+    "pattern": {
+      "pattern": "In OXE, program keys 123 and 124 with mnemo strings different from \"position1\", \"position2\", or \"position3\".",
+      "regex": "In OXE, program keys 123 and 124 with mnemo strings different from \"position1\", \"position2\", or \"position3\"\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 75,
+    "examples": [
+      "Verify the screen displays the title \"Edit maximum 2 keys\", the reset to default icon is grey, all options show radio buttons, only F1 hard key is selected, and all hard key names are grey. For ALE-30, two options appear: F1 cap icon/Phone A and transfer cap icon/Transfer. For ALE-300/400, three options appear: F1 cap icon/Phone A, transfer cap icon/Transfer, and conference cap icon/Conference. For ALE-500, three options appear: Triangle cap icon/Phone A, Circle cap icon/Home, and Square cap icon/Low power. On ALE-300/400, the i icon displays at the upper right corner of the screen."
+    ],
+    "pattern": {
+      "pattern": "Verify the screen displays the title \"Edit maximum 2 keys\", the reset to default icon is grey, all options show radio buttons, only F1 hard key is selected, and all hard key names are grey. For ALE-30, two options appear: F1 cap icon/Phone A and transfer cap icon/Transfer. For ALE-300/400, three options appear: F1 cap icon/Phone A, transfer cap icon/Transfer, and conference cap icon/Conference. For ALE-500, three options appear: Triangle cap icon/Phone A, Circle cap icon/Home, and Square cap icon/Low power. On ALE-300/400, the i icon displays at the upper right corner of the screen.",
+      "regex": "Verify the screen displays the title \"Edit maximum 2 keys\", the reset to default icon is grey, all options show radio buttons, only F1 hard key is selected, and all hard key names are grey\\. For ALE-30, two options appear: F1 cap icon/Phone A and transfer cap icon/Transfer\\. For ALE-300/400, three options appear: F1 cap icon/Phone A, transfer cap icon/Transfer, and conference cap icon/Conference\\. For ALE-500, three options appear: Triangle cap icon/Phone A, Circle cap icon/Home, and Square cap icon/Low power\\. On ALE-300/400, the i icon displays at the upper right corner of the screen\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 76,
+    "examples": [
+      "Establish a call with phone B, then press the F1 key."
+    ],
+    "pattern": {
+      "pattern": "Establish a call with phone B, then press the F1 key.",
+      "regex": "Establish a call with phone B, then press the F1 key\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 77,
+    "examples": [
+      "Establish a normal call with the LED of F1 on, then press the F1 key."
+    ],
+    "pattern": {
+      "pattern": "Establish a normal call with the LED of F1 on, then press the F1 key.",
+      "regex": "Establish a normal call with the LED of F1 on, then press the F1 key\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 78,
+    "examples": [
+      "Long press the F1, F2, or F3 key."
+    ],
+    "pattern": {
+      "pattern": "Long press the F1, F2, or F3 key.",
+      "regex": "Long\\ press\\ the\\ F1,\\ F2,\\ or\\ F3\\ key\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 79,
+    "examples": [
+      "Establish a call on the phone, then during the conversation, press the F1 key."
+    ],
+    "pattern": {
+      "pattern": "Establish a call on the phone, then during the conversation, press the F1 key.",
+      "regex": "Establish\\ a\\ call\\ on\\ the\\ phone,\\ then\\ during\\ the\\ conversation,\\ press\\ the\\ F1\\ key\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 80,
+    "examples": [
+      "On the OXE, program key 123 with the Emergency function on position 3 and disable the lock parameter, and program key 124 with the Guard function on position 2 and enable the lock parameter."
+    ],
+    "pattern": {
+      "pattern": "On the OXE, program key {key1} with the {function1} function on position {position1} and {lock1} the lock parameter, and program key {key2} with the {function2} function on position {position2} and {lock2} the lock parameter.",
+      "regex": "On the OXE, program key (\\d+) with the (\\w+) function on position (\\d+) and (enable|disable) the lock parameter, and program key (\\d+) with the (\\w+) function on position (\\d+) and (enable|disable) the lock parameter\\.",
+      "parameters": [
+        "key1",
+        "function1",
+        "position1",
+        "lock1",
+        "key2",
+        "function2",
+        "position2",
+        "lock2"
+      ]
+    }
+  },
+  {
+    "cluster_id": 81,
+    "examples": [
+      "Establish two normal calls on the phone."
+    ],
+    "pattern": {
+      "pattern": "Establish two normal calls on the phone.",
+      "regex": "Establish\\ two\\ normal\\ calls\\ on\\ the\\ phone\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 82,
+    "examples": [
+      "Define only one of program keys 123 or 124 with the Lock parameter enabled in OXE."
+    ],
+    "pattern": {
+      "pattern": "Define only one of program keys {key1} or {key2} with the Lock parameter enabled in OXE.",
+      "regex": "Define\\ only\\ one\\ of\\ program\\ keys\\ (\\d+)\\ or\\ (\\d+)\\ with\\ the\\ Lock\\ parameter\\ enabled\\ in\\ OXE\\.",
+      "parameters": [
+        "key1",
+        "key2"
+      ]
+    }
+  },
+  {
+    "cluster_id": 83,
+    "examples": [
+      "Select one key type."
+    ],
+    "pattern": {
+      "pattern": "Select one key type.",
+      "regex": "Select\\ one\\ key\\ type\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 84,
+    "examples": [
+      "Press the reset to default icon."
+    ],
+    "pattern": {
+      "pattern": "Press the reset to default icon.",
+      "regex": "Press\\ the\\ reset\\ to\\ default\\ icon\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 85,
+    "examples": [
+      "Long press an unlocked hard key and repeat steps 4 through 7."
+    ],
+    "pattern": {
+      "pattern": "Long press an unlocked hard key and repeat steps {start} through {end}.",
+      "regex": "Long\\s+press\\s+an\\s+unlocked\\s+hard\\s+key\\s+and\\s+repeat\\s+steps\\s+(\\d+)\\s+through\\s+(\\d+)\\.",
+      "parameters": [
+        "start",
+        "end"
+      ]
+    }
+  },
+  {
+    "cluster_id": 86,
+    "examples": [
+      "On OXE, do not configure the hard keys. On ALE-30, long press the F1 or F2 key. On ALE-300 or ALE-400, long press the F1, F2, or F3 key. On ALE-500, long press the Triangle, Circle, or Square key."
+    ],
+    "pattern": {
+      "pattern": "On OXE, do not configure the hard keys. On ALE-30, long press the F1 or F2 key. On ALE-300 or ALE-400, long press the F1, F2, or F3 key. On ALE-500, long press the Triangle, Circle, or Square key.",
+      "regex": "On OXE, do not configure the hard keys\\. On ALE-30, long press the (F1|F2) key\\. On ALE-(300|400), long press the (F1|F2|F3) key\\. On ALE-500, long press the (Triangle|Circle|Square) key\\.",
+      "parameters": [
+        "ALE-30_key",
+        "ALE-300_400_key",
+        "ALE-500_key"
+      ]
+    }
+  },
+  {
+    "cluster_id": 87,
+    "examples": [
+      "Select one key type and press the + button."
+    ],
+    "pattern": {
+      "pattern": "Select one key type and press the + button.",
+      "regex": "Select\\ one\\ key\\ type\\ and\\ press\\ the\\ \\+\\ button\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 88,
+    "examples": [
+      "Check the cap icon when the hard key is not defined."
+    ],
+    "pattern": {
+      "pattern": "Check the cap icon when the hard key is not defined.",
+      "regex": "Check\\ the\\ cap\\ icon\\ when\\ the\\ hard\\ key\\ is\\ not\\ defined\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 89,
+    "examples": [
+      "Define the key to phone number, Immediate forward, Deactivate forward, Welcome desk, Operator, Voicemail, Redial, Last caller, Cleaning mode, Meet me, Guard, Do not disturb, Lock, Auto answer, or Hunting group, then check the cap icon and function."
+    ],
+    "pattern": {
+      "pattern": "Define the key to {option}, then check the cap icon and function.",
+      "regex": "Define\\ the\\ key\\ to\\ (?:phone\\ number|Immediate\\ forward|Deactivate\\ forward|Welcome\\ desk|Operator|Voicemail|Redial|Last\\ caller|Cleaning\\ mode|Meet\\ me|Guard|Do\\ not\\ disturb|Lock|Auto\\ answer|Hunting\\ group),\\ then\\ check\\ the\\ cap\\ icon\\ and\\ function\\.",
+      "parameters": [
+        "option"
+      ]
+    }
+  },
+  {
+    "cluster_id": 90,
+    "examples": [
+      "Define the key to Hold, Transfer, or Conference, then check the cap icon and function."
+    ],
+    "pattern": {
+      "pattern": "Define the key to Hold, Transfer, or Conference, then check the cap icon and function.",
+      "regex": "Define\\ the\\ key\\ to\\ (Hold|Transfer|Conference),\\ then\\ check\\ the\\ cap\\ icon\\ and\\ function\\.",
+      "parameters": [
+        "action"
+      ]
+    }
+  },
+  {
+    "cluster_id": 91,
+    "examples": [
+      "Define the key to Emergency, then check the cap icon and function."
+    ],
+    "pattern": {
+      "pattern": "Define the key to {target}, then check the {element1} icon and {element2}.",
+      "regex": "Define\\ the\\ key\\ to\\ (\\w+),\\ then\\ check\\ the\\ (\\w+)\\ icon\\ and\\ (\\w+)\\.",
+      "parameters": [
+        "target",
+        "element1",
+        "element2"
+      ]
+    }
+  },
+  {
+    "cluster_id": 92,
+    "examples": [
+      "Restart the phone. Then short press the defined hard key and check the hard key menu. Then long press the defined hard key and check the hard key menu."
+    ],
+    "pattern": {
+      "pattern": "Restart the phone. Then {action1} press the defined hard key and check the hard key menu. Then {action2} press the defined hard key and check the hard key menu.",
+      "regex": "Restart the phone\\. Then (short|long) press the defined hard key and check the hard key menu\\. Then (short|long) press the defined hard key and check the hard key menu\\.",
+      "parameters": [
+        "action1",
+        "action2"
+      ]
+    }
+  },
+  {
+    "cluster_id": 93,
+    "examples": [
+      "Check the undefined key."
+    ],
+    "pattern": {
+      "pattern": "Check the undefined key.",
+      "regex": "Check\\ the\\ undefined\\ key\\.",
+      "parameters": []
+    }
+  }
+]

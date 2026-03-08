@@ -6,3 +6,7 @@ pyyaml
 
 # AI-assisted mapping (optional)
 openai
+
+# Step clustering
+sentence-transformers
+hdbscan
