@@ -1,0 +1,3545 @@
+{
+  "meta": {
+    "total_entries": 197,
+    "description": "Knowledge base entries for normalized test steps and expected results."
+  },
+  "entries": [
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350713",
+      "title": "N_106_01_Phone_lock_Method_by_Progkey",
+      "precondition_raw": "<p>Settings---user---device---lock</p>\n\n<p>Enable the lock feature.</p>",
+      "normalized_precondition": "Settings---user---device---lock Enable the lock feature.",
+      "step_no": 1,
+      "raw_action": "<p>On Sip device create a \"Lock\" Progkey </p>",
+      "raw_expected_result": "<p>The Progkey is created with : dedicated icon, default name \"Lock\"</p>",
+      "normalized_action": "Create a Lock Progkey on the SIP device.",
+      "normalized_expected_result": "The Progkey is created with a dedicated icon and the default name Lock.",
+      "keywords": [
+        "lock",
+        "progkey",
+        "sip-device",
+        "ui-configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350713",
+      "title": "N_106_01_Phone_lock_Method_by_Progkey",
+      "precondition_raw": "<p>Settings---user---device---lock</p>\n\n<p>Enable the lock feature.</p>",
+      "normalized_precondition": "Settings---user---device---lock Enable the lock feature.",
+      "step_no": 2,
+      "raw_action": "<p>This \"Lock\" ProKey can be: moved, copied, modified (renamed), deleted <br />Try each of these options.</p>",
+      "raw_expected_result": "<p>The progkey works as expected.</p>",
+      "normalized_action": "Move, copy, modify, and delete the Lock Progkey.",
+      "normalized_expected_result": "The Progkey works as expected for all operations.",
+      "keywords": [
+        "lock",
+        "progkey",
+        "move",
+        "copy",
+        "modify",
+        "delete",
+        "ui-operation"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350713",
+      "title": "N_106_01_Phone_lock_Method_by_Progkey",
+      "precondition_raw": "<p>Settings---user---device---lock</p>\n\n<p>Enable the lock feature.</p>",
+      "normalized_precondition": "Settings---user---device---lock Enable the lock feature.",
+      "step_no": 3,
+      "raw_action": "<p>Press the \"Lock\" Progkey to enable the lock function.</p>",
+      "raw_expected_result": "<p>The device shows the locked screen.<br />LOCK icon in the center of the screen.<br />LOCK icon, next to the time in the topbar.<br />LOCK icon a the top left of the screen to Lock or unlock the device.<br />The screensaver starts between 1 minute and 1 hour, depending on the screen saver settings.<br />The screen saver bubble is visible and shows only the closed LOCK icon, the date and the time.<br />If other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)<br />The bubble alternately appears with the closed LOCK icon and the with company’s custom icon.</p>",
+      "normalized_action": "Press the Lock Progkey to enable the lock function.",
+      "normalized_expected_result": "The device shows the locked screen with a LOCK icon in the center, next to the time in the topbar, and at the top left to lock or unlock the device. The screensaver starts between 1 minute and 1 hour, depending on settings, displaying a bubble with the closed LOCK icon, date, and time. Other event notifications, such as missed and voice messages, are displayed next to the LOCK icon. The bubble alternately appears with the closed LOCK icon and the company's custom icon.",
+      "keywords": [
+        "lock",
+        "progkey",
+        "lock-screen",
+        "screensaver",
+        "ui-display"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350713",
+      "title": "N_106_01_Phone_lock_Method_by_Progkey",
+      "precondition_raw": "<p>Settings---user---device---lock</p>\n\n<p>Enable the lock feature.</p>",
+      "normalized_precondition": "Settings---user---device---lock Enable the lock feature.",
+      "step_no": 4,
+      "raw_action": "<p>To unlock the phone, Press the dedicated Lock icon on the top left of the screen or use another method.</p>",
+      "raw_expected_result": "<p>The unlock \"code input screen\" is directly displayed.</p>\n\n<p><span class=\"markdown-img-container\"><img src='index.php?/attachments/get/42749' class='fr-fic fr-dib fr-fil markdown-img' width='300' id='attachment-42749' data-attachment-id='42749' data-entity-id='10350713' /></span></p>",
+      "normalized_action": "Press the dedicated Lock icon at the top left of the screen or use another method to unlock the phone.",
+      "normalized_expected_result": "The unlock code input screen is directly displayed.",
+      "keywords": [
+        "unlock",
+        "lock-icon",
+        "code-input",
+        "ui-navigation"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350714",
+      "title": "pense N_106_02_Phone_lock_Method_by_Screen_saver",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Settings---user---device---lock\nenable lock and auto lock\n\nthe auto lock delay is : x minutes or x hour",
+      "raw_expected_result": "can save the configuration successfully",
+      "normalized_action": "Navigate to Settings, User, Device, and Lock. Enable lock and auto lock. Set the auto lock delay to x minutes or x hours.",
+      "normalized_expected_result": "The configuration is saved successfully.",
+      "keywords": [
+        "settings",
+        "user",
+        "device",
+        "lock",
+        "auto-lock",
+        "configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350714",
+      "title": "pense N_106_02_Phone_lock_Method_by_Screen_saver",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Wait x minutes or x hour \nCheck that the device is locked.",
+      "raw_expected_result": "The device shows the locked screen.\nLOCK icon in the center of the screen.\nLOCK icon, next to the time in the topbar.\nLOCK icon a the top left of the screen to Lock or unlock the device.\nThe screensaver starts between 1 minute and 1 hour, depending on the screen saver settings.\nThe screen saver bubble is visible and shows only the closed LOCK icon, the date and the time.\nIf other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)\nThe bubble alternately appears with the closed LOCK icon and the with company’s custom icon.",
+      "normalized_action": "Wait x minutes or x hours. Check that the device is locked.",
+      "normalized_expected_result": "The device shows the locked screen. The LOCK icon is displayed in the center of the screen, next to the time in the topbar, and at the top left of the screen to lock or unlock the device. The screensaver starts between 1 minute and 1 hour, depending on the screensaver settings. The screensaver bubble is visible and shows only the closed LOCK icon, the date, and the time. If other event notifications are present, they are displayed next to the LOCK icon, such as the number of missed and voice messages. The bubble alternately appears with the closed LOCK icon and the company's custom icon.",
+      "keywords": [
+        "lock",
+        "screensaver",
+        "bubble",
+        "notification",
+        "ui-display"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350714",
+      "title": "pense N_106_02_Phone_lock_Method_by_Screen_saver",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Settings---user---device---lock\n\nmidify the auto lock timer",
+      "raw_expected_result": "can save the configuration successfully",
+      "normalized_action": "Navigate to Settings, User, Device, and Lock. Modify the auto lock timer.",
+      "normalized_expected_result": "The configuration is saved successfully.",
+      "keywords": [
+        "settings",
+        "user",
+        "device",
+        "lock",
+        "auto-lock",
+        "configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350714",
+      "title": "pense N_106_02_Phone_lock_Method_by_Screen_saver",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Wait x minutes or x hour \nCheck that the device is locked.",
+      "raw_expected_result": "The device shows the locked screen.\nLOCK icon in the center of the screen.\nLOCK icon, next to the time in the topbar.\nLOCK icon a the top left of the screen to Lock or unlock the device.\nThe screensaver starts between 1 minute and 1 hour, depending on the screen saver settings.\nThe screen saver bubble is visible and shows only the closed LOCK icon, the date and the time.\nIf other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)\nThe bubble alternately appears with the closed LOCK icon and the with company’s custom icon.",
+      "normalized_action": "Wait x minutes or x hours. Check that the device is locked.",
+      "normalized_expected_result": "The device shows the locked screen. The LOCK icon is displayed in the center of the screen, next to the time in the topbar, and at the top left of the screen to lock or unlock the device. The screensaver starts between 1 minute and 1 hour, depending on the screensaver settings. The screensaver bubble is visible and shows only the closed LOCK icon, the date, and the time. If other event notifications are present, they are displayed next to the LOCK icon, such as the number of missed and voice messages. The bubble alternately appears with the closed LOCK icon and the company's custom icon.",
+      "keywords": [
+        "lock",
+        "screensaver",
+        "bubble",
+        "notification",
+        "ui-display"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350714",
+      "title": "pense N_106_02_Phone_lock_Method_by_Screen_saver",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "To unlock the phone, wake up it and press the dedicated Lock icon on the top left of the screen or use another method.",
+      "raw_expected_result": "The unlock \"code input screen\" is directly displayed.\n![](index.php?/attachments/get/42750)",
+      "normalized_action": "To unlock the phone, wake it up and press the dedicated Lock icon at the top left of the screen or use another method.",
+      "normalized_expected_result": "The unlock code input screen is directly displayed.",
+      "keywords": [
+        "unlock",
+        "lock-icon",
+        "code-input",
+        "ui-navigation"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350715",
+      "title": "N_106_03_Phone_lock_Method_by_Minikeyboard",
+      "precondition_raw": "Settings---user---device---lock\n\nEnable the lock feature.",
+      "normalized_precondition": "Settings---user---device---lock Enable the lock feature.",
+      "step_no": 1,
+      "raw_action": "Press the dedicated Lock key on Mini Keyboard.\n![](index.php?/attachments/get/42147)",
+      "raw_expected_result": "The device is locked.\nThe device shows the locked screen.\nLOCK icon in the center of the screen.\nLOCK icon, next to the time in the topbar.\nLOCK icon a the top left of the screen to Lock or unlock the device.\nThe screensaver starts between 1 minute and 1 hour, depending on the screen saver settings.\nThe screen saver bubble is visible and shows only the closed LOCK icon, the date and the time.\nIf other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)\nThe bubble alternately appears with the closed LOCK icon and the with company’s custom icon.",
+      "normalized_action": "Press the dedicated Lock key on the Mini Keyboard.",
+      "normalized_expected_result": "The device is locked and displays the locked screen with a LOCK icon in the center, next to the time in the topbar, and at the top left. The screensaver activates between 1 minute and 1 hour, showing a bubble with the closed LOCK icon, date, and time, alternating with the company's custom icon, and other event notifications like missed and voice messages are displayed next to the LOCK icon.",
+      "keywords": [
+        "lock",
+        "mini-keyboard",
+        "screensaver",
+        "ui-display"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350715",
+      "title": "N_106_03_Phone_lock_Method_by_Minikeyboard",
+      "precondition_raw": "Settings---user---device---lock\n\nEnable the lock feature.",
+      "normalized_precondition": "Settings---user---device---lock Enable the lock feature.",
+      "step_no": 2,
+      "raw_action": "Press the dedicated Lock key on Mini Keyboard again or use another method.",
+      "raw_expected_result": "The unlock \"code input screen\" is directly displayed.\n![](index.php?/attachments/get/42751)",
+      "normalized_action": "Press the dedicated Lock key on the Mini Keyboard again or use another method.",
+      "normalized_expected_result": "The unlock code input screen is directly displayed.",
+      "keywords": [
+        "unlock",
+        "code-input",
+        "ui-navigation"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350716",
+      "title": "N_106_04_Phone_lock_Method_by_Hold_key",
+      "precondition_raw": "Settings---user---device---lock\n\nEnable the lock feature.",
+      "normalized_precondition": "Settings---user---device---lock Enable the lock feature.",
+      "step_no": 1,
+      "raw_action": "In IDLE, press the Hold key.",
+      "raw_expected_result": "The device shows the locked screen.\nLOCK icon in the center of the screen.\nLOCK icon, next to the time in the topbar.\nLOCK icon a the top left of the screen to Lock or unlock the device.\nThe screensaver starts between 1 minute and 1 hour, depending on the screen saver settings.\nThe screen saver bubble is visible and shows only the closed LOCK icon, the date and the time.\nIf other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)\nThe bubble alternately appears with the closed LOCK icon and the with company’s custom icon.",
+      "normalized_action": "Press the Hold key when the phone is idle.",
+      "normalized_expected_result": "The device shows the locked screen with a LOCK icon in the center, next to the time in the topbar, and at the top left to lock or unlock the device. The screensaver starts between 1 minute and 1 hour, depending on the screen saver settings, and the screen saver bubble is visible, showing only the closed LOCK icon, the date, and the time. If other event notifications are present, they are displayed next to the LOCK icon, such as the number of missed and voice messages, and the bubble alternately appears with the closed LOCK icon and the company's custom icon.",
+      "keywords": [
+        "hold-key",
+        "lock",
+        "screensaver",
+        "idle-state"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350716",
+      "title": "N_106_04_Phone_lock_Method_by_Hold_key",
+      "precondition_raw": "Settings---user---device---lock\n\nEnable the lock feature.",
+      "normalized_precondition": "Settings---user---device---lock Enable the lock feature.",
+      "step_no": 2,
+      "raw_action": "To unlock the phone, Press the Hold key or use another method.",
+      "raw_expected_result": "The unlock \"code input screen\" is directly displayed.\n![](index.php?/attachments/get/42752)",
+      "normalized_action": "Press the Hold key or use another method to unlock the phone.",
+      "normalized_expected_result": "The unlock code input screen is directly displayed.",
+      "keywords": [
+        "hold-key",
+        "unlock",
+        "code-input"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350742",
+      "title": "N_106_05_Phone_lock_Method_by_Order_Code",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "To lock the device, enter the \"order code\".\nThis information is available on OXE.\nThe default is frequently \"45\".",
+      "raw_expected_result": "The device is locked.\nThe device shows the locked screen during 10 seconds, then starts the screen saver.\nThe screen saver bubble is visible and shows only the closed LOCK icon, the date and the time in the topbar.\nIf other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)",
+      "normalized_action": "Enter the order code to lock the device.",
+      "normalized_expected_result": "The device is locked. The device shows the locked screen for 10 seconds, then starts the screen saver. The screen saver bubble is visible and shows only the closed LOCK icon, the date, and the time in the topbar. If other event notifications are present, they are displayed next to the LOCK icon, such as the number of missed and voice messages.",
+      "keywords": [
+        "lock",
+        "order-code",
+        "screen-saver",
+        "lock-icon"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350742",
+      "title": "N_106_05_Phone_lock_Method_by_Order_Code",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "To unlock the device, enter the \"order code\".\nThis information is available on OXE.\nThe default is frequently \"45\".\n!!!!!This approach was dropped for security reasons!!!!!",
+      "raw_expected_result": null,
+      "normalized_action": "Enter the order code to unlock the device.",
+      "normalized_expected_result": "The device is unlocked.",
+      "keywords": [
+        "unlock",
+        "order-code"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350718",
+      "title": "N_106_06_Phone_lock_Lock_remains_after_reboot",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Use any method to lock the device.",
+      "raw_expected_result": "Device is locked.\nThe device is locked.\nThe device shows the locked screen.\nLOCK icon in the center of the screen.\nLOCK icon, next to the time in the topbar.\nLOCK icon a the top left of the screen to Lock or unlock the device.\nThe screensaver starts between 1 minute and 1 hour, depending on the screen saver settings.\nThe screen saver bubble is visible and shows only the closed LOCK icon, the date and the time.\nIf other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)",
+      "normalized_action": "Lock the device using any method.",
+      "normalized_expected_result": "The device is locked, showing the locked screen with a LOCK icon in the center, next to the time in the topbar, and at the top left to lock or unlock the device. The screensaver starts between 1 minute and 1 hour, depending on the screensaver settings, displaying a bubble with only the closed LOCK icon, date, and time. If other event notifications are present, they are displayed next to the LOCK icon, such as the number of missed and voice messages.",
+      "keywords": [
+        "lock",
+        "device",
+        "screensaver",
+        "notification"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350718",
+      "title": "N_106_06_Phone_lock_Lock_remains_after_reboot",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "On SIP phone, trigger a power loss. (Unplug and plug the phone's power supply)",
+      "raw_expected_result": "SIP phone restarts",
+      "normalized_action": "Trigger a power loss on the SIP phone by unplugging and plugging the power supply.",
+      "normalized_expected_result": "The SIP phone restarts.",
+      "keywords": [
+        "power-loss",
+        "reboot",
+        "sip-phone"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350718",
+      "title": "N_106_06_Phone_lock_Lock_remains_after_reboot",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Check that the lock state remains after reboot",
+      "raw_expected_result": "Device is locked.\nThe device is locked.\nThe device shows the locked screen.\nLOCK icon in the center of the screen.\nLOCK icon, next to the time in the topbar.\nLOCK icon a the top left of the screen to Lock or unlock the device.\nThe screensaver starts between 1 minute and 1 hour, depending on the screen saver settings.\nThe screen saver bubble is visible and shows only the closed LOCK icon, the date and the time.\nIf other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)",
+      "normalized_action": "Check that the lock state remains after reboot.",
+      "normalized_expected_result": "The device is locked, showing the locked screen with a LOCK icon in the center, next to the time in the topbar, and at the top left to lock or unlock the device. The screensaver starts between 1 minute and 1 hour, depending on the screensaver settings, displaying a bubble with only the closed LOCK icon, date, and time. If other event notifications are present, they are displayed next to the LOCK icon, such as the number of missed and voice messages.",
+      "keywords": [
+        "lock-state",
+        "reboot",
+        "verification"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350719",
+      "title": "N_106_07_Phone_lock_Incoming_Call_to_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Incoming call to the locked phone, the device ring.\nStep:1",
+      "raw_expected_result": "The phone rings",
+      "normalized_action": "phone receives an incoming call.",
+      "normalized_expected_result": "The phone rings.",
+      "keywords": [
+        "incoming-call",
+        "ringing"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350719",
+      "title": "N_106_07_Phone_lock_Incoming_Call_to_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Incoming call to the locked phone, it's possible to take the call as long as the phone is locked.\nTest all standard call pickup methods and check that all are possible.\nStep:1",
+      "raw_expected_result": "Possible to take the call.",
+      "normalized_action": "Answer the call using all standard call pickup methods.",
+      "normalized_expected_result": "The call is answered successfully.",
+      "keywords": [
+        "answer-call",
+        "call-pickup",
+        "locked-phone"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350719",
+      "title": "N_106_07_Phone_lock_Incoming_Call_to_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Incoming call to the locked phone, show the phone Unlock Pin Request screen\nStep:2",
+      "raw_expected_result": "Unlock pin request screen on device.",
+      "normalized_action": "Check the phone screen during the incoming call.",
+      "normalized_expected_result": "The Unlock Pin Request screen is displayed on the device.",
+      "keywords": [
+        "unlock-pin",
+        "screen-display",
+        "locked-phone"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350719",
+      "title": "N_106_07_Phone_lock_Incoming_Call_to_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Incoming call to the locked phone, do not display the caller's identity.\nStep:2",
+      "raw_expected_result": "No caller identity information on screen.",
+      "normalized_action": "Check the phone screen during the incoming call.",
+      "normalized_expected_result": "No caller identity information is displayed on the screen.",
+      "keywords": [
+        "caller-identity",
+        "screen-display",
+        "locked-phone"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350730",
+      "title": "N_106_08_Phone_lock_Incoming_Call_to_Locked_Phone_from_Critical_Number_??????",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "<p>Lock the phone by progarm key / hold key / minikeyboard</p>",
+      "raw_expected_result": "<p>Phone is locked</p>",
+      "normalized_action": "Lock the phone by program key, Hold key, or mini keyboard.",
+      "normalized_expected_result": "The phone is locked.",
+      "keywords": [
+        "lock",
+        "program-key",
+        "hold-key",
+        "mini-keyboard"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350730",
+      "title": "N_106_08_Phone_lock_Incoming_Call_to_Locked_Phone_from_Critical_Number_??????",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "<p>Phone receives the incoming call from the normal number or emergency /guard</p>",
+      "raw_expected_result": "<p>1.NOT present the caller identity (no name or number)<br />2.show the unlock PIN request </p>",
+      "normalized_action": "phone receives an incoming call from a normal number or Emergency/Guard.",
+      "normalized_expected_result": "The caller identity is not presented, and the unlock PIN request is shown.",
+      "keywords": [
+        "incoming-call",
+        "caller-identity",
+        "unlock-pin"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350730",
+      "title": "N_106_08_Phone_lock_Incoming_Call_to_Locked_Phone_from_Critical_Number_??????",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "<p>check the incoming screen:</p>",
+      "raw_expected_result": "<p>1.The user can take the call, stop the ringing or deflect to voicemail (if available). <br />2.No other deflect, no info.</p>",
+      "normalized_action": "Check the incoming screen.",
+      "normalized_expected_result": "The user can answer the call, stop the ringing, or deflect to voicemail if available, with no other deflect options or information.",
+      "keywords": [
+        "incoming-screen",
+        "answer",
+        "stop-ringing",
+        "deflect",
+        "voicemail"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350730",
+      "title": "N_106_08_Phone_lock_Incoming_Call_to_Locked_Phone_from_Critical_Number_??????",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "<p>Answer the call and check the screen</p>",
+      "raw_expected_result": "<p>The user can put on hold (only with the hardware button) or hook-on. (no information, no new call icon, no back)</p>",
+      "normalized_action": "Answer the call and check the screen.",
+      "normalized_expected_result": "The user can put the call on hold only with the hardware button or end the call, with no information, new call icon, or back option.",
+      "keywords": [
+        "answer",
+        "hold",
+        "hardware-button",
+        "end-call"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350730",
+      "title": "N_106_08_Phone_lock_Incoming_Call_to_Locked_Phone_from_Critical_Number_??????",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "<p>If input correct pincode during the incoming or the conversation:</p>",
+      "raw_expected_result": "<p>Phone display the full features of the standard :<br />the remote side's information: avatar / number</p>",
+      "normalized_action": "If the correct PIN code is input during the incoming call or conversation.",
+      "normalized_expected_result": "The phone displays the full features of the standard, including the remote side's information such as avatar or number.",
+      "keywords": [
+        "pin-code",
+        "full-features",
+        "remote-side-info",
+        "avatar",
+        "number"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350722",
+      "title": "N_106_09_Phone_lock_Phone_Unlock_PIN_Request_Screen_Display",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Settings---user---device---lock\nEnable the lock feature.\n\nAnd lock the phone by program key / hold button / minikeyboard ...",
+      "raw_expected_result": "Phone is locked",
+      "normalized_action": "Enable the lock feature in Settings under user and device.",
+      "normalized_expected_result": "The phone is locked.",
+      "keywords": [
+        "lock",
+        "settings",
+        "device-configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350722",
+      "title": "N_106_09_Phone_lock_Phone_Unlock_PIN_Request_Screen_Display",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "To Unlock the device, first wake it up, then press the \"Closed lock\" icon top left.",
+      "raw_expected_result": "The Phone Unlock Pin Request screen is displayed.",
+      "normalized_action": "Wake up the device and press the Closed lock icon at the top left.",
+      "normalized_expected_result": "The Phone Unlock Pin Request screen is displayed.",
+      "keywords": [
+        "unlock",
+        "pin-request",
+        "ui-navigation"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350722",
+      "title": "N_106_09_Phone_lock_Phone_Unlock_PIN_Request_Screen_Display",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "To Unlock the device, first wake it up, then press the \"Hold key\" first left key.",
+      "raw_expected_result": "The Phone Unlock Pin Request screen is displayed.",
+      "normalized_action": "Wake up the device and press the Hold key as the first left key.",
+      "normalized_expected_result": "The Phone Unlock Pin Request screen is displayed.",
+      "keywords": [
+        "unlock",
+        "pin-request",
+        "hold-key"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350722",
+      "title": "N_106_09_Phone_lock_Phone_Unlock_PIN_Request_Screen_Display",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "To Unlock the device, first wake it up, then press the \"Lock key\" on minikbd",
+      "raw_expected_result": "The Phone Unlock Pin Request screen is displayed.",
+      "normalized_action": "Wake up the device and press the Lock key on the minikbd.",
+      "normalized_expected_result": "The Phone Unlock Pin Request screen is displayed.",
+      "keywords": [
+        "unlock",
+        "pin-request",
+        "minikbd"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350724",
+      "title": "N_106_10_Phone_lock_Switch_between_PIN_Secret_Mode_and_Visualization_Mode_on_Unlock_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Check that the password is always hidden at Unlock Pin request screen apparition.",
+      "raw_expected_result": "The PIN code is hidden (only stars are displayed)",
+      "normalized_action": "Check that the password is always hidden at the Unlock PIN request screen appearance.",
+      "normalized_expected_result": "The PIN code is hidden and only stars are displayed.",
+      "keywords": [
+        "unlock-pin",
+        "password-hidden",
+        "ui-check"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350724",
+      "title": "N_106_10_Phone_lock_Switch_between_PIN_Secret_Mode_and_Visualization_Mode_on_Unlock_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "When Unlock Pin request screen is displayed select the eye icon to show the PIN code you have entered or you will enter.",
+      "raw_expected_result": "A new icon appears Eyes with a hat. And now the pin code is visible",
+      "normalized_action": "Select the eye icon to show the PIN code when the Unlock PIN request screen is displayed.",
+      "normalized_expected_result": "A new icon appears as eyes with a hat and the PIN code is visible.",
+      "keywords": [
+        "eye-icon",
+        "pin-visible",
+        "ui-interaction"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350724",
+      "title": "N_106_10_Phone_lock_Switch_between_PIN_Secret_Mode_and_Visualization_Mode_on_Unlock_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Now press the Eyes with hat icon to hidd again the PIN code",
+      "raw_expected_result": "The PIN code is hidden (only stars are displayed)",
+      "normalized_action": "Press the eyes with hat icon to hide the PIN code again.",
+      "normalized_expected_result": "The PIN code is hidden and only stars are displayed.",
+      "keywords": [
+        "hide-pin",
+        "password-hidden",
+        "ui-interaction"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350725",
+      "title": "N_106_11_Phone_lock_Secret_PIN_Mode_by_Default_on_Unlock_Screen_after_Reboot",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "After device reboot. Check that the password is always hidden at Unlock Pin request screen apparition.",
+      "raw_expected_result": "The PIN code is hidden (only stars are displayed)",
+      "normalized_action": "Check that the password is hidden at the Unlock Pin request screen after device reboot.",
+      "normalized_expected_result": "The PIN code is hidden and only stars are displayed.",
+      "keywords": [
+        "password",
+        "unlock-pin",
+        "screen",
+        "reboot",
+        "hidden"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350770",
+      "title": "N_106_12_Phone_lock_Secret_PIN_Mode_by_Default_on_Unlock_Screen_after_Screen_Saver",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "<p>Lock device.</p>",
+      "raw_expected_result": "<p>Device is locked and displays the lock screen.</p>",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the lock screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350770",
+      "title": "N_106_12_Phone_lock_Secret_PIN_Mode_by_Default_on_Unlock_Screen_after_Screen_Saver",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "<p>Press the lock icon.</p>",
+      "raw_expected_result": "<p>Device displays the phone unlock PIN request screen.<br />Device is in secret PIN mode.</p>",
+      "normalized_action": "Press the lock icon.",
+      "normalized_expected_result": "The device displays the phone unlock PIN request screen and is in secret PIN mode.",
+      "keywords": [
+        "lock-icon",
+        "phone-unlock",
+        "pin-request",
+        "secret-pin-mode"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350770",
+      "title": "N_106_12_Phone_lock_Secret_PIN_Mode_by_Default_on_Unlock_Screen_after_Screen_Saver",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "<p>Switch to PIN visualisation mode and start to enter first PIN digits.</p>",
+      "raw_expected_result": "<p>PIN digits are visible.</p>",
+      "normalized_action": "Switch to PIN visualization mode and start entering the first PIN digits.",
+      "normalized_expected_result": "The PIN digits are visible.",
+      "keywords": [
+        "pin-visualization",
+        "pin-digits",
+        "visible"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350770",
+      "title": "N_106_12_Phone_lock_Secret_PIN_Mode_by_Default_on_Unlock_Screen_after_Screen_Saver",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "<p>Wait until screensaver triggers.</p>",
+      "raw_expected_result": "<p>Device displays screensaver on screen.</p>",
+      "normalized_action": "Wait until the screensaver triggers.",
+      "normalized_expected_result": "The device displays the screensaver on the screen.",
+      "keywords": [
+        "screensaver",
+        "trigger",
+        "display"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350770",
+      "title": "N_106_12_Phone_lock_Secret_PIN_Mode_by_Default_on_Unlock_Screen_after_Screen_Saver",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "<p>Exit screensaver and go to the phone unlock PIN request screen.</p>",
+      "raw_expected_result": "<p>Device displays the phone unlock PIN request screen in secret PIN mode (you can enter several digits to confirm that they are hidden).</p>",
+      "normalized_action": "Exit the screensaver and go to the phone unlock PIN request screen.",
+      "normalized_expected_result": "The device displays the phone unlock PIN request screen in secret PIN mode.",
+      "keywords": [
+        "exit-screensaver",
+        "phone-unlock",
+        "pin-request",
+        "secret-pin-mode"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350775",
+      "title": "N_106_13_Phone_lock_Enter_Incomplete_PIN",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "<p>Lock device.</p>",
+      "raw_expected_result": "<p>Device is locked and displays the lock screen.</p>",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the lock screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350775",
+      "title": "N_106_13_Phone_lock_Enter_Incomplete_PIN",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "<p>Press the lock icon.</p>",
+      "raw_expected_result": "<p>Device displays the phone unlock PIN request screen.<br />Device is in secret PIN mode.</p>",
+      "normalized_action": "Press the lock icon.",
+      "normalized_expected_result": "The device displays the phone unlock PIN request screen and is in secret PIN mode.",
+      "keywords": [
+        "lock-icon",
+        "pin-request",
+        "secret-pin"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350775",
+      "title": "N_106_13_Phone_lock_Enter_Incomplete_PIN",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "<p>Enter incomplet PIN code. ex: only 4 PIN digitsand wait.</p>",
+      "raw_expected_result": "<p>Device keeps displaying the digits until screen timout is reached and goes back to lock display : device is locked and displays the lock screen.</p>",
+      "normalized_action": "Enter an incomplete PIN code, for example only 4 PIN digits, and wait.",
+      "normalized_expected_result": "The device keeps displaying the digits until the screen timeout is reached and goes back to the lock display: the device is locked and displays the lock screen.",
+      "keywords": [
+        "incomplete-pin",
+        "screen-timeout",
+        "lock-display"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350774",
+      "title": "N_106_14_Phone_lock_Dial_Unlock_Order_Code_Followed_by_Incomplete_PIN",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked and displays the lock screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the lock screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350774",
+      "title": "N_106_14_Phone_lock_Dial_Unlock_Order_Code_Followed_by_Incomplete_PIN",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Enter Lock order code on dial pad followed by incomplet PIN code. ex: only 4 PIN digits.",
+      "raw_expected_result": "Device keeps displaying the digits until screen timeout is reached and goes back to lock display : device is locked and displays the lock screen.",
+      "normalized_action": "Enter the lock order code on the dial pad followed by an incomplete PIN code, for example only 4 PIN digits.",
+      "normalized_expected_result": "The device keeps displaying the digits until the screen timeout is reached and goes back to the lock display: the device is locked and displays the lock screen.",
+      "keywords": [
+        "lock-order-code",
+        "dial-pad",
+        "pin",
+        "screen-timeout",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350720",
+      "title": "N_106_15_Phone_lock_Unlock_Try_With_Wrong_PIN",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked and displays the lock screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the lock screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350720",
+      "title": "N_106_15_Phone_lock_Unlock_Try_With_Wrong_PIN",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Press the lock icon.",
+      "raw_expected_result": "Device displays the phone unlock PIN request screen.\nDevice is in secret PIN mode.",
+      "normalized_action": "Press the lock icon.",
+      "normalized_expected_result": "The device displays the phone unlock PIN request screen and is in secret PIN mode.",
+      "keywords": [
+        "lock-icon",
+        "pin-request",
+        "secret-pin"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350720",
+      "title": "N_106_15_Phone_lock_Unlock_Try_With_Wrong_PIN",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Enter a bad 6 digits pin code",
+      "raw_expected_result": "Device erase the bad digits. New pin code can be enter.",
+      "normalized_action": "Enter a bad 6-digit PIN code.",
+      "normalized_expected_result": "The device erases the bad digits and allows a new PIN code to be entered.",
+      "keywords": [
+        "pin-code",
+        "bad-pin",
+        "erase-digits"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350720",
+      "title": "N_106_15_Phone_lock_Unlock_Try_With_Wrong_PIN",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "No second PIN conde is entered.",
+      "raw_expected_result": "Until the screen timeout is reached, the device goes back to the lock display: the device remains locked and shows the lock screen.",
+      "normalized_action": "Do not enter a second PIN code.",
+      "normalized_expected_result": "After the screen timeout is reached, the device goes back to the lock display, remains locked, and shows the lock screen.",
+      "keywords": [
+        "screen-timeout",
+        "lock-display",
+        "locked"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350721",
+      "title": "N_106_16_Phone_lock_5_Wrong_Unlock_Attempts",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked and displays the lock screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the lock screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350721",
+      "title": "N_106_16_Phone_lock_5_Wrong_Unlock_Attempts",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Press the lock icon.",
+      "raw_expected_result": "Device displays the phone unlock PIN request screen.\nDevice is in secret PIN mode.",
+      "normalized_action": "Press the lock icon.",
+      "normalized_expected_result": "The device displays the phone unlock PIN request screen and is in secret PIN mode.",
+      "keywords": [
+        "lock-icon",
+        "unlock",
+        "pin-request",
+        "secret-pin"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350721",
+      "title": "N_106_16_Phone_lock_5_Wrong_Unlock_Attempts",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Enter a wrong PIN code.\n\nRepeat 4 more time.",
+      "raw_expected_result": "Device is still locked.\nCounter of bad attempts is incremented each time : 1/5, 2/5, 3/5, 4/5 and 5/5.\n\nDevice is now blocked, displaying the info \"Wait 5 minutes before the next trial\" on screen.",
+      "normalized_action": "Enter a wrong PIN code. Repeat this four more times.",
+      "normalized_expected_result": "The device remains locked. The counter of bad attempts increments each time: 1/5, 2/5, 3/5, 4/5, and 5/5. The device is now blocked and displays the message 'Wait 5 minutes before the next trial' on the screen.",
+      "keywords": [
+        "wrong-pin",
+        "bad-attempts",
+        "counter",
+        "blocked",
+        "wait-message"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350734",
+      "title": "N_106_17_Phone_lock_Phone_Unlock_after_5_Wrong_Unlock_Attempts_Timer",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked and displays the lock screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the lock screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350734",
+      "title": "N_106_17_Phone_lock_Phone_Unlock_after_5_Wrong_Unlock_Attempts_Timer",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Press the lock icon.",
+      "raw_expected_result": "Device displays the phone unlock PIN request screen.\nDevice is in secret PIN mode.",
+      "normalized_action": "Press the lock icon.",
+      "normalized_expected_result": "The device displays the phone unlock PIN request screen and is in secret PIN mode.",
+      "keywords": [
+        "lock-icon",
+        "pin-request",
+        "secret-pin-mode"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350734",
+      "title": "N_106_17_Phone_lock_Phone_Unlock_after_5_Wrong_Unlock_Attempts_Timer",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Enter a wrong PIN code.\n\nRepeat 4 more time.",
+      "raw_expected_result": "Device is still locked.\nCounter of bad attempts is incremented each time : 1/5, 2/5, 3/5, 4/5 and 5/5.\n\nDevice is now blocked, displaying the info \"Wait 5 minutes before the next trial\" on screen.",
+      "normalized_action": "Enter a wrong PIN code. Repeat this action four more times.",
+      "normalized_expected_result": "The device remains locked. The counter of bad attempts increments each time: 1/5, 2/5, 3/5, 4/5, and 5/5. The device is now blocked and displays the message 'Wait 5 minutes before the next trial' on the screen.",
+      "keywords": [
+        "wrong-pin",
+        "bad-attempts",
+        "blocked",
+        "timer"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350734",
+      "title": "N_106_17_Phone_lock_Phone_Unlock_after_5_Wrong_Unlock_Attempts_Timer",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Wait 3 min and wake device up.",
+      "raw_expected_result": "Device is still blocked, displaying the info \"Your phone is blocked\" on screen.",
+      "normalized_action": "Wait 3 minutes and wake the device up.",
+      "normalized_expected_result": "The device is still blocked and displays the message 'Your phone is blocked' on the screen.",
+      "keywords": [
+        "wait",
+        "wake",
+        "blocked"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350734",
+      "title": "N_106_17_Phone_lock_Phone_Unlock_after_5_Wrong_Unlock_Attempts_Timer",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "Press the lock icon.",
+      "raw_expected_result": "Device is still blocked, displaying the info \"Wait 2 minutes before the next trial\" on screen.",
+      "normalized_action": "Press the lock icon.",
+      "normalized_expected_result": "The device is still blocked and displays the message 'Wait 2 minutes before the next trial' on the screen.",
+      "keywords": [
+        "lock-icon",
+        "blocked",
+        "timer"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350734",
+      "title": "N_106_17_Phone_lock_Phone_Unlock_after_5_Wrong_Unlock_Attempts_Timer",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 6,
+      "raw_action": "Wait for at least 2 min more (to make 5 min and reach the 5 wrong unlock attempts timer) and wake the device up.",
+      "raw_expected_result": "Device is locked and displays the lock screen.",
+      "normalized_action": "Wait for at least 2 more minutes to reach the 5-minute timer and wake the device up.",
+      "normalized_expected_result": "The device is locked and displays the lock screen.",
+      "keywords": [
+        "wait",
+        "timer",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350734",
+      "title": "N_106_17_Phone_lock_Phone_Unlock_after_5_Wrong_Unlock_Attempts_Timer",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 7,
+      "raw_action": "Press the lock icon.",
+      "raw_expected_result": "Device displays the phone unlock PIN request screen.\nDevice is in secret PIN mode.",
+      "normalized_action": "Press the lock icon.",
+      "normalized_expected_result": "The device displays the phone unlock PIN request screen and is in secret PIN mode.",
+      "keywords": [
+        "lock-icon",
+        "pin-request",
+        "secret-pin-mode"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350734",
+      "title": "N_106_17_Phone_lock_Phone_Unlock_after_5_Wrong_Unlock_Attempts_Timer",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 8,
+      "raw_action": "Enter the correct PIN code.",
+      "raw_expected_result": "Device is unlocked and idle.",
+      "normalized_action": "Enter the correct PIN code.",
+      "normalized_expected_result": "The device is unlocked and idle.",
+      "keywords": [
+        "correct-pin",
+        "unlock",
+        "idle"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351791",
+      "title": "N_106_18_Phone_lock_Authorized_Actions_on_Blocked_Device",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked and displays the lock screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the lock screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351791",
+      "title": "N_106_18_Phone_lock_Authorized_Actions_on_Blocked_Device",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Press the lock icon.\nEnter a wrong PIN code.\nRepeat 4 more time.",
+      "raw_expected_result": "Device is still locked.\nCounter of bad attempts is incremented each time : 1/5, 2/5, 3/5, 4/5 and 5/5.\nDevice is now blocked, displaying the info \"Your phone is blocked\" on screen.",
+      "normalized_action": "Press the lock icon. Enter a wrong PIN code. Repeat this four more times.",
+      "normalized_expected_result": "The device remains locked. The counter of bad attempts increments each time: 1/5, 2/5, 3/5, 4/5, and 5/5. The device is now blocked and displays the message \"Your phone is blocked\" on the screen.",
+      "keywords": [
+        "lock-icon",
+        "pin",
+        "wrong-attempts",
+        "blocked",
+        "counter"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351791",
+      "title": "N_106_18_Phone_lock_Authorized_Actions_on_Blocked_Device",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Dial 911 on blocked device.\nAnd then release the call.",
+      "raw_expected_result": "Outgoing call is automatically launched to 911 (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call to 911.\nUser has no other option than to end the call.\nAfter releasing the call device is still blocked, displaying the info \"Your phone is blocked\" on screen.",
+      "normalized_action": "Dial 911 on the blocked device. Then end the call.",
+      "normalized_expected_result": "The outgoing call is automatically launched to 911. The tested device displays an outgoing call to 911. The user has no other option than to end the call. After ending the call, the device remains blocked and displays the message \"Your phone is blocked\" on the screen.",
+      "keywords": [
+        "dial",
+        "911",
+        "blocked",
+        "outgoing-call",
+        "emergency"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351791",
+      "title": "N_106_18_Phone_lock_Authorized_Actions_on_Blocked_Device",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Dial 112 on blocked device.\nAnd then release the call.",
+      "raw_expected_result": "Outgoing call is automatically launched to 112 (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call to 112.\nUser has no other option than to end the call.\nAfter releasing the call device is still blocked, displaying the info \"Your phone is blocked\" on screen.",
+      "normalized_action": "Dial 112 on the blocked device. Then end the call.",
+      "normalized_expected_result": "The outgoing call is automatically launched to 112. The tested device displays an outgoing call to 112. The user has no other option than to end the call. After ending the call, the device remains blocked and displays the message \"Your phone is blocked\" on the screen.",
+      "keywords": [
+        "dial",
+        "112",
+        "blocked",
+        "outgoing-call",
+        "emergency"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351791",
+      "title": "N_106_18_Phone_lock_Authorized_Actions_on_Blocked_Device",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "Dial the Emergency number on blocked device.\nAnd then release the call.",
+      "raw_expected_result": "Outgoing call is automatically launched to Emergency (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call.\nUser has no other option than to end the call.\nAfter releasing the call device is still blocked, displaying the info \"Your phone is blocked\" on screen.",
+      "normalized_action": "Dial the Emergency number on the blocked device. Then end the call.",
+      "normalized_expected_result": "The outgoing call is automatically launched to the Emergency number. The tested device displays an outgoing call. The user has no other option than to end the call. After ending the call, the device remains blocked and displays the message \"Your phone is blocked\" on the screen.",
+      "keywords": [
+        "dial",
+        "emergency-number",
+        "blocked",
+        "outgoing-call"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351791",
+      "title": "N_106_18_Phone_lock_Authorized_Actions_on_Blocked_Device",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 6,
+      "raw_action": "Dial the Guard number on blocked device.\nAnd then release the call.",
+      "raw_expected_result": "Outgoing call is automatically launched to Guard (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call to Guard.\nUser has no other option than to end the call.\nAfter releasing the call device is still blocked, displaying the info \"Your phone is blocked\" on screen.",
+      "normalized_action": "Dial the Guard number on the blocked device. Then end the call.",
+      "normalized_expected_result": "The outgoing call is automatically launched to the Guard number. The tested device displays an outgoing call to Guard. The user has no other option than to end the call. After ending the call, the device remains blocked and displays the message \"Your phone is blocked\" on the screen.",
+      "keywords": [
+        "dial",
+        "guard-number",
+        "blocked",
+        "outgoing-call"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351791",
+      "title": "N_106_18_Phone_lock_Authorized_Actions_on_Blocked_Device",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 7,
+      "raw_action": "Dial the Operator number on blocked device.\nAnd then release the call.",
+      "raw_expected_result": "Outgoing call is automatically launched to Operator (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call.\nUser has no other option than to end the call.\nAfter releasing the call device is still blocked, displaying the info \"Your phone is blocked\" on screen.",
+      "normalized_action": "Dial the Operator number on the blocked device. Then end the call.",
+      "normalized_expected_result": "The outgoing call is automatically launched to the Operator number. The tested device displays an outgoing call. The user has no other option than to end the call. After ending the call, the device remains blocked and displays the message \"Your phone is blocked\" on the screen.",
+      "keywords": [
+        "dial",
+        "operator-number",
+        "blocked",
+        "outgoing-call"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351791",
+      "title": "N_106_18_Phone_lock_Authorized_Actions_on_Blocked_Device",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 8,
+      "raw_action": "Press the Guard progkey (ALE-400/ALE-500) or the physical key associated to (ALE-20/ALE-30/ALE-300).\nAnd then release the call.",
+      "raw_expected_result": "Call is launched.\nDevice displays an outgoing call to Guard, the only capability for the device is to end the call.\nAfter releasing the call device is still blocked, displaying the info \"Your phone is blocked\" on screen.",
+      "normalized_action": "Press the Guard progkey on ALE-400 or ALE-500, or press the physical key associated with Guard on ALE-20, ALE-30, or ALE-300. Then end the call.",
+      "normalized_expected_result": "The call is launched. The device displays an outgoing call to Guard, and the only capability for the device is to end the call. After ending the call, the device remains blocked and displays the message \"Your phone is blocked\" on the screen.",
+      "keywords": [
+        "guard-progkey",
+        "ale-400",
+        "ale-500",
+        "physical-key",
+        "ale-20",
+        "ale-30",
+        "ale-300",
+        "outgoing-call"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351791",
+      "title": "N_106_18_Phone_lock_Authorized_Actions_on_Blocked_Device",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 9,
+      "raw_action": "Press the Emergency progkey (ALE-400/ALE-500) or the physical key associated to (ALE-20/ALE-30/ALE-300).\nAnd then release the call.",
+      "raw_expected_result": "Call is launched.\nDevice displays an outgoing call to Emergency, the only capability for the device is to end the call.\nAfter releasing the call device is still blocked, displaying the info \"Your phone is blocked\" on screen.",
+      "normalized_action": "Press the Emergency progkey on ALE-400 or ALE-500, or press the physical key associated with Emergency on ALE-20, ALE-30, or ALE-300. Then end the call.",
+      "normalized_expected_result": "The call is launched. The device displays an outgoing call to Emergency, and the only capability for the device is to end the call. After ending the call, the device remains blocked and displays the message \"Your phone is blocked\" on the screen.",
+      "keywords": [
+        "emergency-progkey",
+        "ale-400",
+        "ale-500",
+        "physical-key",
+        "ale-20",
+        "ale-30",
+        "ale-300",
+        "outgoing-call"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350776",
+      "title": "N_106_19_Phone_lock_2_Wrong_Unlock_Attempts_and_Wait",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked and displays the lock screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the lock screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350776",
+      "title": "N_106_19_Phone_lock_2_Wrong_Unlock_Attempts_and_Wait",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Press the lock icon.",
+      "raw_expected_result": "Device displays the phone unlock PIN request screen.\nDevice is in secret PIN mode.",
+      "normalized_action": "Press the lock icon.",
+      "normalized_expected_result": "The device displays the phone unlock PIN request screen and is in secret PIN mode.",
+      "keywords": [
+        "lock-icon",
+        "unlock",
+        "pin-request",
+        "secret-pin"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350776",
+      "title": "N_106_19_Phone_lock_2_Wrong_Unlock_Attempts_and_Wait",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Enter a wrong PIN code.",
+      "raw_expected_result": "Device is still locked.\nCounter of bad attempts is incremented : 1/5.",
+      "normalized_action": "Enter a wrong PIN code.",
+      "normalized_expected_result": "The device is still locked and the counter of bad attempts is incremented to 1/5.",
+      "keywords": [
+        "wrong-pin",
+        "bad-attempts",
+        "counter"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350776",
+      "title": "N_106_19_Phone_lock_2_Wrong_Unlock_Attempts_and_Wait",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Enter a wrong PIN code.",
+      "raw_expected_result": "Device is still locked.\nCounter of bad attempts is incremented : 2/5.",
+      "normalized_action": "Enter a wrong PIN code.",
+      "normalized_expected_result": "The device is still locked and the counter of bad attempts is incremented to 2/5.",
+      "keywords": [
+        "wrong-pin",
+        "bad-attempts",
+        "counter"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350776",
+      "title": "N_106_19_Phone_lock_2_Wrong_Unlock_Attempts_and_Wait",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "Wait almost 7 min.\nPress the lock icon.\nEnter a wrong PIN code.",
+      "raw_expected_result": "Device is still locked.\nCounter of bad attempts is incremented : 3/5.",
+      "normalized_action": "Wait almost 7 minutes, press the lock icon, and enter a wrong PIN code.",
+      "normalized_expected_result": "The device is still locked and the counter of bad attempts is incremented to 3/5.",
+      "keywords": [
+        "wait",
+        "lock-icon",
+        "wrong-pin",
+        "bad-attempts",
+        "counter"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351788",
+      "title": "N_106_20_Phone_lock_2_Wrong_Unlock_Attempts_and_Reboot",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked and displays the lock screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the lock screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351788",
+      "title": "N_106_20_Phone_lock_2_Wrong_Unlock_Attempts_and_Reboot",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Press the lock icon.",
+      "raw_expected_result": "Device displays the phone unlock PIN request screen.\nDevice is in secret PIN mode.",
+      "normalized_action": "Press the lock icon.",
+      "normalized_expected_result": "The device displays the phone unlock PIN request screen and is in secret PIN mode.",
+      "keywords": [
+        "lock-icon",
+        "unlock",
+        "pin-request",
+        "secret-pin"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351788",
+      "title": "N_106_20_Phone_lock_2_Wrong_Unlock_Attempts_and_Reboot",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Enter a wrong PIN code.",
+      "raw_expected_result": "Device is still locked.\nCounter of bad attempts is incremented : 1/5.",
+      "normalized_action": "Enter a wrong PIN code.",
+      "normalized_expected_result": "The device is still locked and the counter of bad attempts is incremented to 1/5.",
+      "keywords": [
+        "wrong-pin",
+        "bad-attempts",
+        "counter"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351788",
+      "title": "N_106_20_Phone_lock_2_Wrong_Unlock_Attempts_and_Reboot",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Enter a wrong PIN code.",
+      "raw_expected_result": "Device is still locked.\nCounter of bad attempts is incremented : 2/5.",
+      "normalized_action": "Enter a wrong PIN code.",
+      "normalized_expected_result": "The device is still locked and the counter of bad attempts is incremented to 2/5.",
+      "keywords": [
+        "wrong-pin",
+        "bad-attempts",
+        "counter"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351788",
+      "title": "N_106_20_Phone_lock_2_Wrong_Unlock_Attempts_and_Reboot",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "Reboot device.",
+      "raw_expected_result": "Device is locked and displays the lock screen.",
+      "normalized_action": "Reboot the device.",
+      "normalized_expected_result": "The device is locked and displays the lock screen.",
+      "keywords": [
+        "reboot",
+        "device",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351788",
+      "title": "N_106_20_Phone_lock_2_Wrong_Unlock_Attempts_and_Reboot",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 6,
+      "raw_action": "Press the lock icon.\nEnter a wrong PIN code.",
+      "raw_expected_result": "Device is still locked.\nCounter of bad attempts is incremented : 3/5.",
+      "normalized_action": "Press the lock icon and enter a wrong PIN code.",
+      "normalized_expected_result": "The device is still locked and the counter of bad attempts is incremented to 3/5.",
+      "keywords": [
+        "lock-icon",
+        "wrong-pin",
+        "bad-attempts",
+        "counter"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350773",
+      "title": "N_106_21_Phone_lock_Dial_Lock_Order_Code_Followed_By_Wrong_PIN",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked, displaying the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350773",
+      "title": "N_106_21_Phone_lock_Dial_Lock_Order_Code_Followed_By_Wrong_PIN",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Dial the Lock/Unlock code order followed by an uncorrect user PIN code.\n!!!!!!This approach was dropped for security reasons!!!!!",
+      "raw_expected_result": null,
+      "normalized_action": "Dial the Lock/Unlock code order followed by an incorrect user PIN code.",
+      "normalized_expected_result": "This approach was dropped for security reasons.",
+      "keywords": [
+        "dial",
+        "lock",
+        "unlock",
+        "code",
+        "pin",
+        "security"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350726",
+      "title": "N_106_22_Phone_lock_PIN_Reset_Request_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked and displays the lock screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the lock screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350726",
+      "title": "N_106_22_Phone_lock_PIN_Reset_Request_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Press the lock icon.",
+      "raw_expected_result": "Device displays the phone unlock PIN request screen.\nDevice is in secret PIN mode.",
+      "normalized_action": "Press the lock icon.",
+      "normalized_expected_result": "The device displays the phone unlock PIN request screen and is in secret PIN mode.",
+      "keywords": [
+        "lock-icon",
+        "pin-request",
+        "secret-pin-mode"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350726",
+      "title": "N_106_22_Phone_lock_PIN_Reset_Request_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Press the Admin icon.",
+      "raw_expected_result": "Device displays the admin Authentication request screen.\nDevice ask password.",
+      "normalized_action": "Press the Admin icon.",
+      "normalized_expected_result": "The device displays the admin authentication request screen and asks for the password.",
+      "keywords": [
+        "admin-icon",
+        "authentication",
+        "password"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350726",
+      "title": "N_106_22_Phone_lock_PIN_Reset_Request_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Enter the Admin password",
+      "raw_expected_result": "Device displays create a PIN code request screen.\nDevice is in secret PIN mode.",
+      "normalized_action": "Enter the admin password.",
+      "normalized_expected_result": "The device displays the create a PIN code request screen and is in secret PIN mode.",
+      "keywords": [
+        "admin-password",
+        "pin-code-request",
+        "secret-pin-mode"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350726",
+      "title": "N_106_22_Phone_lock_PIN_Reset_Request_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "Enter a new PIN code\nSelect the eye icon to show the PIN code you have entered.\nErase some digits and enter other digits.",
+      "raw_expected_result": "PIN code is not visible (stars are displayed)\nA new icon appears Eyes with a hat. And now the pin code is visible.\nThe digits can be erased and enter again.",
+      "normalized_action": "Enter a new PIN code, select the eye icon to show the PIN code, erase some digits, and enter other digits.",
+      "normalized_expected_result": "The PIN code is not visible, stars are displayed, a new icon appears with eyes and a hat, the PIN code becomes visible, and the digits can be erased and entered again.",
+      "keywords": [
+        "pin-code",
+        "eye-icon",
+        "visibility",
+        "digits"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350726",
+      "title": "N_106_22_Phone_lock_PIN_Reset_Request_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 6,
+      "raw_action": "Valide the PIN code and Confirm the new PIN code\nSelect the eye icon to show the PIN code you have entered.\nErase some digits and enter other digits.\nPress OK",
+      "raw_expected_result": "The new PIN code is now available",
+      "normalized_action": "Validate the PIN code, confirm the new PIN code, select the eye icon to show the PIN code, erase some digits, enter other digits, and press OK.",
+      "normalized_expected_result": "The new PIN code is now available.",
+      "keywords": [
+        "validate",
+        "confirm",
+        "pin-code",
+        "ok"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350726",
+      "title": "N_106_22_Phone_lock_PIN_Reset_Request_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 7,
+      "raw_action": "Select the Auto-lock option and set the delay,\nor uncheck the Auto-lock option.\nConfirm your choice.\nPress OK",
+      "raw_expected_result": "New PIN code is available and Auto Lock also/or not.",
+      "normalized_action": "Select the auto-lock option and set the delay or uncheck the auto-lock option, confirm your choice, and press OK.",
+      "normalized_expected_result": "The new PIN code is available and auto-lock is also or not set.",
+      "keywords": [
+        "auto-lock",
+        "delay",
+        "confirm",
+        "ok"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350726",
+      "title": "N_106_22_Phone_lock_PIN_Reset_Request_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 8,
+      "raw_action": "Test the new PIN code to unlock the device",
+      "raw_expected_result": "New PIN code works",
+      "normalized_action": "Test the new PIN code to unlock the device.",
+      "normalized_expected_result": "The new PIN code works.",
+      "keywords": [
+        "test",
+        "pin-code",
+        "unlock"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350728",
+      "title": "N_106_24_Phone_lock_Lock_Order_Code_Modification_OXE_Side_Idle_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Device is idle.",
+      "raw_expected_result": null,
+      "normalized_action": "Ensure the device is idle.",
+      "normalized_expected_result": "The device is idle.",
+      "keywords": [
+        "device",
+        "idle"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350728",
+      "title": "N_106_24_Phone_lock_Lock_Order_Code_Modification_OXE_Side_Idle_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "On OXE server modify the lock code order.",
+      "raw_expected_result": "Code order is modified on OXE.",
+      "normalized_action": "On the OXE server, modify the lock order code.",
+      "normalized_expected_result": "The lock order code is modified on the OXE server.",
+      "keywords": [
+        "oxe",
+        "server",
+        "lock-order-code",
+        "modify"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350728",
+      "title": "N_106_24_Phone_lock_Lock_Order_Code_Modification_OXE_Side_Idle_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Dial the new Lock/Unlock code order.",
+      "raw_expected_result": "Device is locked.\nDevice displays the locked device screen.",
+      "normalized_action": "Dial the new lock or unlock order code.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "dial",
+        "lock-order-code",
+        "unlock-order-code",
+        "device-locked",
+        "locked-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350729",
+      "title": "N_106_25_Phone_lock_Lock_Order_Code_Modification_OXE_Side",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "On OXE server modify the lock code order.",
+      "raw_expected_result": "Code order is modified on OXE.",
+      "normalized_action": "On OXE server, modify the lock order code.",
+      "normalized_expected_result": "The lock order code is modified on OXE.",
+      "keywords": [
+        "lock-order-code",
+        "oxe-server",
+        "modify"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350729",
+      "title": "N_106_25_Phone_lock_Lock_Order_Code_Modification_OXE_Side",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Lock device",
+      "raw_expected_result": "Device is locked.\nDevice displays the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "locked-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350729",
+      "title": "N_106_25_Phone_lock_Lock_Order_Code_Modification_OXE_Side",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Press the lock icon (ALE-400/ALE-500) or the physical key associated to this icon (ALE-20/ALE-30/ALE-300).",
+      "raw_expected_result": "PIN code is asked",
+      "normalized_action": "Press the lock icon on ALE-400 or ALE-500, or press the physical key associated with this icon on ALE-20, ALE-30, or ALE-300.",
+      "normalized_expected_result": "The PIN code is requested.",
+      "keywords": [
+        "lock-icon",
+        "physical-key",
+        "pin-code",
+        "ale-20",
+        "ale-30",
+        "ale-300",
+        "ale-400",
+        "ale-500"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350729",
+      "title": "N_106_25_Phone_lock_Lock_Order_Code_Modification_OXE_Side",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Enter the correct PIN code.",
+      "raw_expected_result": "Device is unlocked and idle.",
+      "normalized_action": "Enter the correct PIN code.",
+      "normalized_expected_result": "The device is unlocked and idle.",
+      "keywords": [
+        "pin-code",
+        "unlock",
+        "idle"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350729",
+      "title": "N_106_25_Phone_lock_Lock_Order_Code_Modification_OXE_Side",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked.\nDevice displays the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "locked-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350729",
+      "title": "N_106_25_Phone_lock_Lock_Order_Code_Modification_OXE_Side",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 6,
+      "raw_action": "On OXE server modify the lock code order.",
+      "raw_expected_result": "Code order is modified on OXE.",
+      "normalized_action": "On OXE server, modify the lock order code.",
+      "normalized_expected_result": "The lock order code is modified on OXE.",
+      "keywords": [
+        "lock-order-code",
+        "oxe-server",
+        "modify"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350729",
+      "title": "N_106_25_Phone_lock_Lock_Order_Code_Modification_OXE_Side",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 7,
+      "raw_action": "Lock device",
+      "raw_expected_result": "Device is locked.\nDevice displays the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "locked-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350733",
+      "title": "N_106_26_Phone_lock_Dial_Allowed_Number_911_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked.\nDevice displays the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350733",
+      "title": "N_106_26_Phone_lock_Dial_Allowed_Number_911_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Dial 911 on locked device.",
+      "raw_expected_result": "Outgoing call is automatically launched to 911 (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call to 911.\nUser has no other option than to end the call.",
+      "normalized_action": "Dial 911 on the locked device.",
+      "normalized_expected_result": "An outgoing call to 911 is automatically launched without requiring additional actions. The tested device displays an outgoing call to 911, and the user has no other option than to end the call.",
+      "keywords": [
+        "dial",
+        "911",
+        "outgoing-call",
+        "locked-device"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350735",
+      "title": "N_106_27_Phone_lock_Dial_Allowed_Number_112_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked.\nDevice displays the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350735",
+      "title": "N_106_27_Phone_lock_Dial_Allowed_Number_112_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Dial 112 on locked device.",
+      "raw_expected_result": "Outgoing call is automatically launched to 112 (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call to 112.\nUser has no other option than to end the call.",
+      "normalized_action": "Dial 112 on the locked device.",
+      "normalized_expected_result": "An outgoing call to 112 is automatically launched without requiring additional actions. The tested device displays an outgoing call to 112, and the user has no other option than to end the call.",
+      "keywords": [
+        "dial",
+        "112",
+        "outgoing-call",
+        "locked-device"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350736",
+      "title": "N_106_28_Phone_lock_Press_Guard_Progkey_on_Locked_Phone_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock the phone.",
+      "raw_expected_result": "Device is locked, displaying the locked device screen.\nEmergency progkey is displayed on the right progkey location.",
+      "normalized_action": "Lock the phone.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen. The Emergency progkey is displayed on the right progkey location.",
+      "keywords": [
+        "lock",
+        "emergency-progkey",
+        "ui-display"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350736",
+      "title": "N_106_28_Phone_lock_Press_Guard_Progkey_on_Locked_Phone_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Press the Guard progkey (ALE-400/ALE-500) or the physical key associated to (ALE-20/ALE-30/ALE-300).",
+      "raw_expected_result": "Call is launched.\nDevice displays an outgoing call to Guard, the only capability for the device is to end the call.",
+      "normalized_action": "Press the Guard progkey on ALE-400 or ALE-500, or press the physical key associated with Guard on ALE-20, ALE-30, or ALE-300.",
+      "normalized_expected_result": "A call is launched. The device displays an outgoing call to Guard, and the only capability for the device is to end the call.",
+      "keywords": [
+        "guard-progkey",
+        "outgoing-call",
+        "ui-display"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350736",
+      "title": "N_106_28_Phone_lock_Press_Guard_Progkey_on_Locked_Phone_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Guard device takes the call.",
+      "raw_expected_result": "Call is ongoing.\nDevice displays an ongoing call to Guard, the only capability for the device is to end the call.",
+      "normalized_action": "Guard device answers the call.",
+      "normalized_expected_result": "The call is ongoing. The device displays an ongoing call to Guard, and the only capability for the device is to end the call.",
+      "keywords": [
+        "guard-device",
+        "ongoing-call",
+        "ui-display"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350736",
+      "title": "N_106_28_Phone_lock_Press_Guard_Progkey_on_Locked_Phone_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "End the call.",
+      "raw_expected_result": "Device is locked, displaying the locked device screen.",
+      "normalized_action": "End the call.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "end-call",
+        "lock",
+        "ui-display"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350737",
+      "title": "N_106_29_Phone_lock_Press_Emergency_Progkey_on_Locked_Phone_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock the phone.",
+      "raw_expected_result": "Device is locked, displaying the locked device screen.\nEmergency progkey is displayed on the right progkey location.",
+      "normalized_action": "Lock the phone.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen. The Emergency progkey is displayed on the right progkey location.",
+      "keywords": [
+        "lock",
+        "emergency-progkey",
+        "ui-display"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350737",
+      "title": "N_106_29_Phone_lock_Press_Emergency_Progkey_on_Locked_Phone_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Press the Emergency progkey (ALE-400/ALE-500) or the physical key associated to (ALE-20/ALE-30/ALE-300).",
+      "raw_expected_result": "Call is launched.\nDevice displays an outgoing call to Emergency, the only capability for the device is to end the call.",
+      "normalized_action": "Press the Emergency progkey on ALE-400 or ALE-500, or press the physical key associated with Emergency on ALE-20, ALE-30, or ALE-300.",
+      "normalized_expected_result": "The call is launched. The device displays an outgoing call to Emergency, and the only capability for the device is to end the call.",
+      "keywords": [
+        "emergency-progkey",
+        "ale-20",
+        "ale-30",
+        "ale-300",
+        "ale-400",
+        "ale-500",
+        "outgoing-call"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350737",
+      "title": "N_106_29_Phone_lock_Press_Emergency_Progkey_on_Locked_Phone_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Emergency  device takes the call.",
+      "raw_expected_result": "Call is ongoing.\nDevice displays an ongoing call to Emergency, the only capability for the device is to end the call.",
+      "normalized_action": "Emergency device answers the call.",
+      "normalized_expected_result": "The call is ongoing. The device displays an ongoing call to Emergency, and the only capability for the device is to end the call.",
+      "keywords": [
+        "emergency-device",
+        "answer-call",
+        "ongoing-call"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350737",
+      "title": "N_106_29_Phone_lock_Press_Emergency_Progkey_on_Locked_Phone_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "End the call.",
+      "raw_expected_result": "Device is locked, displaying the locked device screen.",
+      "normalized_action": "End the call.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "end-call",
+        "lock"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350738",
+      "title": "N_106_30_Phone_lock_Dial_Emergency_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Define an Emergency number on DM profile which device belongs to.",
+      "raw_expected_result": "Emergency number is defined.",
+      "normalized_action": "Define an Emergency number on the DM profile which the device belongs to.",
+      "normalized_expected_result": "The Emergency number is defined.",
+      "keywords": [
+        "emergency",
+        "dm-profile",
+        "configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350738",
+      "title": "N_106_30_Phone_lock_Dial_Emergency_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked.\nDevice displays the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "ui-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350738",
+      "title": "N_106_30_Phone_lock_Dial_Emergency_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Dial the Emergency number on locked device.",
+      "raw_expected_result": "Outgoing call is automatically launched to Emergency (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call.\nUser has no other option than to end the call.",
+      "normalized_action": "Dial the Emergency number on the locked device.",
+      "normalized_expected_result": "An outgoing call is automatically launched to the Emergency number, the tested device displays an outgoing call, and the user has no other option than to end the call.",
+      "keywords": [
+        "dial",
+        "emergency",
+        "outgoing-call",
+        "locked-device"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350738",
+      "title": "N_106_30_Phone_lock_Dial_Emergency_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Emergency takes the call.",
+      "raw_expected_result": "Call is established, tested device displays an outgoing call to Emergency.\nUser has no other option than to end the call.",
+      "normalized_action": "Remote side answers the call.",
+      "normalized_expected_result": "The call is established, the tested device displays an outgoing call to the Emergency number, and the user has no other option than to end the call.",
+      "keywords": [
+        "answer",
+        "call-established",
+        "emergency",
+        "outgoing-call"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350738",
+      "title": "N_106_30_Phone_lock_Dial_Emergency_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "End the call.",
+      "raw_expected_result": "Device displays the lock device screen.",
+      "normalized_action": "End the call.",
+      "normalized_expected_result": "The device displays the locked device screen.",
+      "keywords": [
+        "end-call",
+        "lock",
+        "ui-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350738",
+      "title": "N_106_30_Phone_lock_Dial_Emergency_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 6,
+      "raw_action": "Suppress the previously created Emergency number on OXE configuration (DM profile).",
+      "raw_expected_result": "Emergency number is not defined anymore.",
+      "normalized_action": "Suppress the previously created Emergency number on the OXE configuration in the DM profile.",
+      "normalized_expected_result": "The Emergency number is not defined anymore.",
+      "keywords": [
+        "suppress",
+        "emergency",
+        "oxe",
+        "dm-profile",
+        "configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350738",
+      "title": "N_106_30_Phone_lock_Dial_Emergency_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 7,
+      "raw_action": "Try to dial the previously defined Emergency number.",
+      "raw_expected_result": "As soon as device detect a unauthorized number :\n- device displays the information message \"Unauthorized number\" on top orange banner\n- the lock icon shakes to emphase that action did not trigger the unlock.\nAfter 1 second, the numbering field is cleared.",
+      "normalized_action": "Try to dial the previously defined Emergency number.",
+      "normalized_expected_result": "As soon as the device detects an unauthorized number, it displays the information message 'Unauthorized number' on the top orange banner, the lock icon shakes to emphasize that the action did not trigger the unlock, and after 1 second, the numbering field is cleared.",
+      "keywords": [
+        "dial",
+        "emergency",
+        "unauthorized-number",
+        "ui-message",
+        "lock-icon"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350739",
+      "title": "N_106_31_Phone_lock_Dial_Guard_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Define a Guard number on DM profile which device belongs to.",
+      "raw_expected_result": "Guard number is defined.",
+      "normalized_action": "Define a Guard number on the DM profile which the device belongs to.",
+      "normalized_expected_result": "The Guard number is defined.",
+      "keywords": [
+        "guard-number",
+        "dm-profile",
+        "configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350739",
+      "title": "N_106_31_Phone_lock_Dial_Guard_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked.\nDevice displays the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "device-lock",
+        "ui-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350739",
+      "title": "N_106_31_Phone_lock_Dial_Guard_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Dial the Guard number on locked device.",
+      "raw_expected_result": "Outgoing call is automatically launched to Guard (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call to Guard.\nUser has no other option than to end the call.",
+      "normalized_action": "Dial the Guard number on the locked device.",
+      "normalized_expected_result": "An outgoing call is automatically launched to the Guard number, the tested device displays an outgoing call to Guard, and the user has no other option than to end the call.",
+      "keywords": [
+        "dial",
+        "guard-number",
+        "outgoing-call",
+        "locked-device"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350739",
+      "title": "N_106_31_Phone_lock_Dial_Guard_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Guard takes the call.",
+      "raw_expected_result": "Call is established, tested device displays an outgoing call to Guard.\nUser has no other option than to end the call.",
+      "normalized_action": "Guard takes the call.",
+      "normalized_expected_result": "The call is established, the tested device displays an outgoing call to Guard, and the user has no other option than to end the call.",
+      "keywords": [
+        "call-established",
+        "guard",
+        "outgoing-call"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350739",
+      "title": "N_106_31_Phone_lock_Dial_Guard_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "End the call.",
+      "raw_expected_result": "Device displays the lock device screen.",
+      "normalized_action": "End the call.",
+      "normalized_expected_result": "The device displays the locked device screen.",
+      "keywords": [
+        "end-call",
+        "device-lock"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350739",
+      "title": "N_106_31_Phone_lock_Dial_Guard_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 6,
+      "raw_action": "Suppress the previously created Guard number on OXE configuration (DM profile).",
+      "raw_expected_result": "Guard number is not defined anymore.",
+      "normalized_action": "Suppress the previously created Guard number on the OXE configuration in the DM profile.",
+      "normalized_expected_result": "The Guard number is not defined anymore.",
+      "keywords": [
+        "guard-number",
+        "oxe",
+        "dm-profile",
+        "configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350739",
+      "title": "N_106_31_Phone_lock_Dial_Guard_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 7,
+      "raw_action": "Try to dial the previously defined Guard number.",
+      "raw_expected_result": "As soon as device detect a unauthorized number :\n- device displays the information message \"Unauthorized number\" on top orange banner\n- the lock icon shakes to emphase that action did not trigger the unlock.\nAfter 1 second, the numbering field is cleared.",
+      "normalized_action": "Try to dial the previously defined Guard number.",
+      "normalized_expected_result": "As soon as the device detects an unauthorized number, it displays the information message 'Unauthorized number' on the top orange banner, the lock icon shakes to emphasize that the action did not trigger the unlock, and after 1 second, the numbering field is cleared.",
+      "keywords": [
+        "dial",
+        "guard-number",
+        "unauthorized-number",
+        "ui-message",
+        "device-lock"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350740",
+      "title": "N_106_32_Phone_lock_Dial_Operator_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Define an Operator number on DM profile which device belongs to.",
+      "raw_expected_result": "Operator number is defined.",
+      "normalized_action": "Define an Operator number on DM profile which device belongs to.",
+      "normalized_expected_result": "Operator number is defined.",
+      "keywords": [
+        "operator-number",
+        "dm-profile",
+        "configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350740",
+      "title": "N_106_32_Phone_lock_Dial_Operator_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked.\nDevice displays the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "Device is locked and displays the locked device screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "ui-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350740",
+      "title": "N_106_32_Phone_lock_Dial_Operator_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Dial the Operator number on locked device.",
+      "raw_expected_result": "Outgoing call is automatically launched to Operator (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call.\nUser has no other option than to end the call.",
+      "normalized_action": "Dial the Operator number on the locked device.",
+      "normalized_expected_result": "Outgoing call is automatically launched to Operator. Tested device displays an outgoing call, and user has no other option than to end the call.",
+      "keywords": [
+        "dial",
+        "operator-number",
+        "locked-device",
+        "outgoing-call"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350740",
+      "title": "N_106_32_Phone_lock_Dial_Operator_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Operator takes the call.",
+      "raw_expected_result": "Call is established, tested device displays an outgoing call to Operator.\nUser has no other option than to end the call.",
+      "normalized_action": "Operator answers the call.",
+      "normalized_expected_result": "Call is established, tested device displays an outgoing call to Operator, and user has no other option than to end the call.",
+      "keywords": [
+        "operator",
+        "answer-call",
+        "call-established"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350740",
+      "title": "N_106_32_Phone_lock_Dial_Operator_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "End the call.",
+      "raw_expected_result": "Device displays the lock device screen.",
+      "normalized_action": "End the call.",
+      "normalized_expected_result": "Device displays the lock device screen.",
+      "keywords": [
+        "end-call",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350740",
+      "title": "N_106_32_Phone_lock_Dial_Operator_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 6,
+      "raw_action": "Suppress the previously created Operator number on OXE configuration (DM profile).",
+      "raw_expected_result": "Operator number is not defined anymore.",
+      "normalized_action": "Suppress the previously created Operator number on OXE configuration (DM profile).",
+      "normalized_expected_result": "Operator number is not defined anymore.",
+      "keywords": [
+        "suppress",
+        "operator-number",
+        "oxe",
+        "dm-profile"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350740",
+      "title": "N_106_32_Phone_lock_Dial_Operator_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 7,
+      "raw_action": "Try to dial the previously defined Operator number.",
+      "raw_expected_result": "As soon as device detect a unauthorized number :\n- device displays the information message \"Unauthorized number\" on top orange banner\n- the lock icon shakes to emphase that action did not trigger the unlock.\nAfter 1 second, the numbering field is cleared.",
+      "normalized_action": "Dial the previously defined Operator number.",
+      "normalized_expected_result": "Device displays the information message 'Unauthorized number' on top orange banner, the lock icon shakes to emphasize that action did not trigger the unlock, and after 1 second, the numbering field is cleared.",
+      "keywords": [
+        "dial",
+        "operator-number",
+        "unauthorized-number",
+        "lock-icon",
+        "ui-feedback"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350741",
+      "title": "N_106_33_Phone_lock_Dial_Unallowed_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked.\nDevice displays the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350741",
+      "title": "N_106_33_Phone_lock_Dial_Unallowed_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Start to dial another user phone number on locked phone.",
+      "raw_expected_result": "As soon as device detect a unauthorized number (not Operator, Emergency, Guard, 911, 112) : \n- device displays the information message \"Unauthorized number\" on top orange banner\n- the lock icon shakes to emphase that action did not trigger the unlock.\nAfter 1 second, the numbering field is cleared.",
+      "normalized_action": "Dial another user phone number on the locked phone.",
+      "normalized_expected_result": "As soon as the device detects an unauthorized number (not Operator, Emergency, Guard, 911, 112), the device displays the information message \"Unauthorized number\" on the top orange banner and the lock icon shakes to emphasize that the action did not trigger the unlock. After 1 second, the numbering field is cleared.",
+      "keywords": [
+        "dial",
+        "unauthorized-number",
+        "message",
+        "lock-icon",
+        "numbering-field"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350741",
+      "title": "N_106_33_Phone_lock_Dial_Unallowed_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Start to dial an external number on locked phone.",
+      "raw_expected_result": "As soon as device detect a unauthorized number (not Operator, Emergency, Guard, 911, 112) : \n- device displays the information message \"Unauthorized number\" on top orange banner\n- the lock icon shakes to emphase that action did not trigger the unlock.\nAfter 1 second, the numbering field is cleared.",
+      "normalized_action": "Dial an external number on the locked phone.",
+      "normalized_expected_result": "As soon as the device detects an unauthorized number (not Operator, Emergency, Guard, 911, 112), the device displays the information message \"Unauthorized number\" on the top orange banner and the lock icon shakes to emphasize that the action did not trigger the unlock. After 1 second, the numbering field is cleared.",
+      "keywords": [
+        "dial",
+        "external-number",
+        "unauthorized-number",
+        "message",
+        "lock-icon",
+        "numbering-field"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350741",
+      "title": "N_106_33_Phone_lock_Dial_Unallowed_Number_on_Locked_Phone",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Dial the 2 first digits of an authorized number (for exemple : 11 or 91) and launch call (press OK, handset key, picking up the handset, ...).",
+      "raw_expected_result": "- device displays the information message \"Unauthorized number\" on top orange banner.\n- the lock icon shakes to emphase that action did not trigger the unlock.\nAfter 1 second, the numbering field is cleared.",
+      "normalized_action": "Dial the first two digits of an authorized number (for example: 11 or 91) and launch the call by pressing OK, the handset key, or picking up the handset.",
+      "normalized_expected_result": "The device displays the information message \"Unauthorized number\" on the top orange banner and the lock icon shakes to emphasize that the action did not trigger the unlock. After 1 second, the numbering field is cleared.",
+      "keywords": [
+        "dial",
+        "authorized-number",
+        "launch-call",
+        "unauthorized-number",
+        "message",
+        "lock-icon",
+        "numbering-field"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350743",
+      "title": "N_106_34_Phone_lock_Unlock_Phone_By_Dialing_Order_Code_and_Correct_PIN",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked, displaying the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350743",
+      "title": "N_106_34_Phone_lock_Unlock_Phone_By_Dialing_Order_Code_and_Correct_PIN",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Dial the Lock/Unlock code order followed by the correct user PIN code.\n!!!!This approach was dropped for security reasons!!!!!!",
+      "raw_expected_result": null,
+      "normalized_action": "Dial the Lock/Unlock order code followed by the correct user PIN code.",
+      "normalized_expected_result": "This approach was dropped for security reasons.",
+      "keywords": [
+        "dial",
+        "lock",
+        "unlock",
+        "order-code",
+        "pin"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350744",
+      "title": "N_106_35_Phone_lock_Unlock_Phone_by_Entering_PIN_on_Phone_Unlock_PIN_Request_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked, displaying the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350744",
+      "title": "N_106_35_Phone_lock_Unlock_Phone_by_Entering_PIN_on_Phone_Unlock_PIN_Request_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Press the physical key associated to the lock icon (ALE-20/ALE-30/ALE-300) or press lock icon (ALE-400/ALE-500).",
+      "raw_expected_result": "Device displays the \"phone unlock PIN request screen\".",
+      "normalized_action": "Press the physical key associated with the lock icon on ALE-20, ALE-30, or ALE-300, or press the lock icon on ALE-400 or ALE-500.",
+      "normalized_expected_result": "The device displays the phone unlock PIN request screen.",
+      "keywords": [
+        "lock-icon",
+        "physical-key",
+        "phone-unlock-pin-request-screen",
+        "ale-20",
+        "ale-30",
+        "ale-300",
+        "ale-400",
+        "ale-500"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350744",
+      "title": "N_106_35_Phone_lock_Unlock_Phone_by_Entering_PIN_on_Phone_Unlock_PIN_Request_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Enter the correct user PIN code.",
+      "raw_expected_result": "Once the 6 digits correct PIN is entered phone is unlocked and idle.",
+      "normalized_action": "Enter the correct user PIN code.",
+      "normalized_expected_result": "After entering the six-digit correct PIN, the phone is unlocked and idle.",
+      "keywords": [
+        "pin",
+        "unlock",
+        "idle"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351768",
+      "title": "N_106_36_Phone_lock_Delete_and_Correct_PIN_Digits",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked, displaying the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351768",
+      "title": "N_106_36_Phone_lock_Delete_and_Correct_PIN_Digits",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Press the lock icon (ALE-400/ALE-500) or the physical key associated to this icon (ALE-20/ALE-30/ALE-300).",
+      "raw_expected_result": "Device displays the \"phone unlock PIN request screen\".",
+      "normalized_action": "Press the lock icon on ALE-400 or ALE-500, or press the physical key associated with the lock icon on ALE-20, ALE-30, or ALE-300.",
+      "normalized_expected_result": "The device displays the phone unlock PIN request screen.",
+      "keywords": [
+        "lock-icon",
+        "physical-key",
+        "pin-request",
+        "screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351768",
+      "title": "N_106_36_Phone_lock_Delete_and_Correct_PIN_Digits",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Start to enter PIN code.",
+      "raw_expected_result": "\"*\" are displayed in the boxes.",
+      "normalized_action": "Start entering the PIN code.",
+      "normalized_expected_result": "Asterisks are displayed in the boxes.",
+      "keywords": [
+        "pin-code",
+        "enter",
+        "asterisks",
+        "boxes"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351768",
+      "title": "N_106_36_Phone_lock_Delete_and_Correct_PIN_Digits",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Press the delete arrow (ALE-400/ALE-500) or the physical key associated to the icon (ALE-20/ALE-30/ALE-300) to deleted several \".\".",
+      "raw_expected_result": "\"*\" are deleted according to the number of time arrow is pressed.",
+      "normalized_action": "Press the delete arrow on ALE-400 or ALE-500, or press the physical key associated with the delete icon on ALE-20, ALE-30, or ALE-300, to delete several asterisks.",
+      "normalized_expected_result": "Asterisks are deleted according to the number of times the delete arrow or key is pressed.",
+      "keywords": [
+        "delete-arrow",
+        "physical-key",
+        "asterisks",
+        "delete"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351768",
+      "title": "N_106_36_Phone_lock_Delete_and_Correct_PIN_Digits",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "Switch to PIN visualisation mode and enter digits.",
+      "raw_expected_result": "Numbers are displayed in the boxes.",
+      "normalized_action": "Switch to PIN visualization mode and enter digits.",
+      "normalized_expected_result": "Numbers are displayed in the boxes.",
+      "keywords": [
+        "pin-visualization",
+        "enter",
+        "digits",
+        "numbers",
+        "boxes"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351768",
+      "title": "N_106_36_Phone_lock_Delete_and_Correct_PIN_Digits",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 6,
+      "raw_action": "Press the delete arrow (ALE-400/ALE-500) or the physical key associated to the icon (ALE-20/ALE-30/ALE-300) to deleted several numbers.",
+      "raw_expected_result": "Numbers are deleted according to the number of time arrow is pressed.",
+      "normalized_action": "Press the delete arrow on ALE-400 or ALE-500, or press the physical key associated with the delete icon on ALE-20, ALE-30, or ALE-300, to delete several numbers.",
+      "normalized_expected_result": "Numbers are deleted according to the number of times the delete arrow or key is pressed.",
+      "keywords": [
+        "delete-arrow",
+        "physical-key",
+        "numbers",
+        "delete"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10351768",
+      "title": "N_106_36_Phone_lock_Delete_and_Correct_PIN_Digits",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 7,
+      "raw_action": "Enter the correct PIN code.",
+      "raw_expected_result": "Device is unlocked and idle.",
+      "normalized_action": "Enter the correct PIN code.",
+      "normalized_expected_result": "The device is unlocked and idle.",
+      "keywords": [
+        "pin-code",
+        "enter",
+        "unlock",
+        "device",
+        "idle"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350745",
+      "title": "N_106_37_Phone_lock_Device_still_Locked_After_Reset_to_Factory_and_Rebooting_on_Same_System",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked, displaying lock screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the lock screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350745",
+      "title": "N_106_37_Phone_lock_Device_still_Locked_After_Reset_to_Factory_and_Rebooting_on_Same_System",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Access to device settings and browse to \"Advanced\", \"Maintenance\", \"Reset to factory\" and launch the reset to factory.",
+      "raw_expected_result": "Device processes the reset to factory.",
+      "normalized_action": "Access the device settings, navigate to Advanced, then Maintenance, then Reset to factory, and launch the reset to factory.",
+      "normalized_expected_result": "The device processes the reset to factory.",
+      "keywords": [
+        "device-settings",
+        "advanced",
+        "maintenance",
+        "reset-to-factory"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350745",
+      "title": "N_106_37_Phone_lock_Device_still_Locked_After_Reset_to_Factory_and_Rebooting_on_Same_System",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Let device reboot on same system.",
+      "raw_expected_result": "The lock feature is disabled default",
+      "normalized_action": "Let the device reboot on the same system.",
+      "normalized_expected_result": "The lock feature is disabled by default.",
+      "keywords": [
+        "reboot",
+        "lock-feature",
+        "default"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350812",
+      "title": "N_106_38_Phone_lock_Device_not_Locked_Anymore_After_Reset_to_Factory_and_Rebooting_on_Other_System",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked, displaying lock screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the lock screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350812",
+      "title": "N_106_38_Phone_lock_Device_not_Locked_Anymore_After_Reset_to_Factory_and_Rebooting_on_Other_System",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Unplug and plug device back.",
+      "raw_expected_result": "Device reboots.",
+      "normalized_action": "Unplug and plug the device back.",
+      "normalized_expected_result": "The device reboots.",
+      "keywords": [
+        "unplug",
+        "plug",
+        "reboot",
+        "device"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350812",
+      "title": "N_106_38_Phone_lock_Device_not_Locked_Anymore_After_Reset_to_Factory_and_Rebooting_on_Other_System",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "During device boot, access to device settings and browse to \"Advanced\", \"Maintenance\", \"Reset to factory\" and launch the reset to factory.",
+      "raw_expected_result": "input correct admin passowrd\nDevice processes the reset to factory.",
+      "normalized_action": "During device boot, access device settings, browse to Advanced, Maintenance, and Reset to factory, then launch the reset to factory.",
+      "normalized_expected_result": "Input the correct admin password. The device processes the reset to factory.",
+      "keywords": [
+        "boot",
+        "settings",
+        "advanced",
+        "maintenance",
+        "reset-to-factory",
+        "admin-password"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350812",
+      "title": "N_106_38_Phone_lock_Device_not_Locked_Anymore_After_Reset_to_Factory_and_Rebooting_on_Other_System",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Before device boots, unplug device from system and plug it on another network (or power it up out of any network).",
+      "raw_expected_result": "Device is not locked anymore.\nPersonnal user data have been erased from device.",
+      "normalized_action": "Before the device boots, unplug the device from the system and plug it on another network or power it up out of any network.",
+      "normalized_expected_result": "The device is not locked anymore. Personal user data have been erased from the device.",
+      "keywords": [
+        "boot",
+        "unplug",
+        "network",
+        "lock",
+        "data-erasure"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350746",
+      "title": "N_106_39_Phone_lock_Lock_Information_Displayed_on_Add_Ons",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Define several prokeys on tested device (\"Number\", \"Voicemail\", \"Immediate forward\", ...).",
+      "raw_expected_result": "Progkeys are displayed on device and on add-on(s).",
+      "normalized_action": "Define several progkeys on the tested device, such as Number, Voicemail, and Immediate forward.",
+      "normalized_expected_result": "Progkeys are displayed on the device and on the add-on(s).",
+      "keywords": [
+        "progkeys",
+        "device",
+        "add-on",
+        "configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350746",
+      "title": "N_106_39_Phone_lock_Lock_Information_Displayed_on_Add_Ons",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Lock tested device.",
+      "raw_expected_result": "Device displays the lock screen.\nAdd-on(s) only dislay(s) the locked device information : previously created progkeys are not displayed on add-on(s).",
+      "normalized_action": "Lock the tested device.",
+      "normalized_expected_result": "The device displays the lock screen. The add-on(s) only display the locked device information, and previously created progkeys are not displayed on the add-on(s).",
+      "keywords": [
+        "lock",
+        "device",
+        "add-on",
+        "progkeys",
+        "display"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350746",
+      "title": "N_106_39_Phone_lock_Lock_Information_Displayed_on_Add_Ons",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Unplug add-on(s), plug them back and wait until they are \"up\".",
+      "raw_expected_result": "Device displays the lock screen.\nAdd-on(s) only dislay(s) the locked device information : previously created progkeys are not displayed on add-on(s).",
+      "normalized_action": "Unplug the add-on(s), plug them back, and wait until they are up.",
+      "normalized_expected_result": "The device displays the lock screen. The add-on(s) only display the locked device information, and previously created progkeys are not displayed on the add-on(s).",
+      "keywords": [
+        "add-on",
+        "unplug",
+        "plug",
+        "device",
+        "lock",
+        "progkeys"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350747",
+      "title": "N_106_40_Phone_lock_Add_Ons_are_Blocked_When_Device_is_Locked",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Define several prokeys on tested device (\"Number\", \"Voicemail\", \"Immediate forward\", ...).",
+      "raw_expected_result": "Progkeys are displayed on device and on add-on(s).",
+      "normalized_action": "Define several progkeys on the tested device, such as Number, Voicemail, and Immediate forward.",
+      "normalized_expected_result": "Progkeys are displayed on the device and on the add-ons.",
+      "keywords": [
+        "progkeys",
+        "device",
+        "add-ons",
+        "configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350747",
+      "title": "N_106_40_Phone_lock_Add_Ons_are_Blocked_When_Device_is_Locked",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Lock tested device.",
+      "raw_expected_result": "Device is locked.\nthe screen of the phone and addon: is opaque\n\nphone display the lock icon but addon don't display the lock icon",
+      "normalized_action": "Lock the tested device.",
+      "normalized_expected_result": "The device is locked. The screen of the phone and add-on is opaque. The phone displays the lock icon, but the add-on does not display the lock icon.",
+      "keywords": [
+        "lock",
+        "device",
+        "screen",
+        "opaque",
+        "lock-icon",
+        "add-on"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350747",
+      "title": "N_106_40_Phone_lock_Add_Ons_are_Blocked_When_Device_is_Locked",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Press the add-on (s) physical keys associated to previously created progkeys even if it's in screen saver.",
+      "raw_expected_result": "No action is triggered by the press.",
+      "normalized_action": "Press the physical keys on the add-on associated with the previously created progkeys, even if it is in screen saver.",
+      "normalized_expected_result": "No action is triggered by the press.",
+      "keywords": [
+        "press",
+        "add-on",
+        "physical-keys",
+        "progkeys",
+        "screen-saver"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350756",
+      "title": "N_106_41_Phone_lock_Lock_Screen_Progkeys_Display",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Define \"Emergency\" and \"Guard\" numbers on OXE system for the DM profile the device belongs to.\n\nLock device.",
+      "raw_expected_result": "Device is locked, displaying the locked device screen.\nGuard progkey is displayed on the left progkey.\nEmergency progkey is displayed on the right progkey.",
+      "normalized_action": "Define Emergency and Guard numbers on OXE system for the DM profile the device belongs to. Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen. Guard progkey is displayed on the left progkey. Emergency progkey is displayed on the right progkey.",
+      "keywords": [
+        "emergency",
+        "guard",
+        "progkey",
+        "lock-screen",
+        "oxe-configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350756",
+      "title": "N_106_41_Phone_lock_Lock_Screen_Progkeys_Display",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Delete \"Guard\" number on OXE system for the DM profile the device belongs to.",
+      "raw_expected_result": "Device is still locked, displaying the locked device screen.\nEmergency progkey is displayed on the right progkey.\nLeft progkey is blank.",
+      "normalized_action": "Delete Guard number on OXE system for the DM profile the device belongs to.",
+      "normalized_expected_result": "The device is still locked and displays the locked device screen. Emergency progkey is displayed on the right progkey. Left progkey is blank.",
+      "keywords": [
+        "guard",
+        "progkey",
+        "lock-screen",
+        "oxe-configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350756",
+      "title": "N_106_41_Phone_lock_Lock_Screen_Progkeys_Display",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Delete \"Emergency\" number on OXE system for the DM profile the device belongs to.",
+      "raw_expected_result": "Device is still locked, displaying the locked device screen.\nLeft and right progkeys are blank.",
+      "normalized_action": "Delete Emergency number on OXE system for the DM profile the device belongs to.",
+      "normalized_expected_result": "The device is still locked and displays the locked device screen. Left and right progkeys are blank.",
+      "keywords": [
+        "emergency",
+        "progkey",
+        "lock-screen",
+        "oxe-configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350756",
+      "title": "N_106_41_Phone_lock_Lock_Screen_Progkeys_Display",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Define \"Guard\" number on OXE system for the DM profile the device belongs to.",
+      "raw_expected_result": "Device is still locked, displaying the locked device screen.\nGuard progkey is displayed on the left progkey.\nRight progkey is blank.",
+      "normalized_action": "Define Guard number on OXE system for the DM profile the device belongs to.",
+      "normalized_expected_result": "The device is still locked and displays the locked device screen. Guard progkey is displayed on the left progkey. Right progkey is blank.",
+      "keywords": [
+        "guard",
+        "progkey",
+        "lock-screen",
+        "oxe-configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350756",
+      "title": "N_106_41_Phone_lock_Lock_Screen_Progkeys_Display",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "Define \"Emergency\" number on OXE system for the DM profile the device belongs to.",
+      "raw_expected_result": "Device is still locked, displaying the locked device screen.\nGuard progkey is displayed on the left progkey.\nEmergency progkey is displayed on the right progkey.",
+      "normalized_action": "Define Emergency number on OXE system for the DM profile the device belongs to.",
+      "normalized_expected_result": "The device is still locked and displays the locked device screen. Guard progkey is displayed on the left progkey. Emergency progkey is displayed on the right progkey.",
+      "keywords": [
+        "emergency",
+        "guard",
+        "progkey",
+        "lock-screen",
+        "oxe-configuration"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350757",
+      "title": "N_106_42_Phone_lock_Locked_Phone_Upgrade_by_FTP",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked, displaying the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350757",
+      "title": "N_106_42_Phone_lock_Locked_Phone_Upgrade_by_FTP",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Copy new version on TFTP server and wait until define upgrade time comes.",
+      "raw_expected_result": "Device upgrade itself.",
+      "normalized_action": "Copy the new version to the TFTP server and wait until the defined upgrade time arrives.",
+      "normalized_expected_result": "The device upgrades itself.",
+      "keywords": [
+        "copy",
+        "tftp",
+        "server",
+        "upgrade",
+        "device"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350757",
+      "title": "N_106_42_Phone_lock_Locked_Phone_Upgrade_by_FTP",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Wait until device upgrades itself and reboots.",
+      "raw_expected_result": "Device is still locked.\nCheck that new version has correctly been installed on device (by unlocking and goign in settings or with ssh connection and \"id\" command).",
+      "normalized_action": "Wait until the device upgrades itself and reboots.",
+      "normalized_expected_result": "The device is still locked. Check that the new version has been correctly installed on the device by unlocking it and going into settings or using an SSH connection with the \"id\" command.",
+      "keywords": [
+        "wait",
+        "upgrade",
+        "reboot",
+        "lock",
+        "version",
+        "install",
+        "settings",
+        "ssh"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350811",
+      "title": "N_106_43_Phone_lock_Locked_Phone_Upgrade_by_USB",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Copy the new version on USB key, and upgrade.auto empty file in root directory.",
+      "raw_expected_result": "USB is ready for the test.",
+      "normalized_action": "Copy the new version on USB key and upgrade.auto empty file in root directory.",
+      "normalized_expected_result": "USB is ready for the test.",
+      "keywords": [
+        "usb",
+        "upgrade",
+        "root-directory"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350811",
+      "title": "N_106_43_Phone_lock_Locked_Phone_Upgrade_by_USB",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Plug USB key to device and reboot device.",
+      "raw_expected_result": "Device upgrade itself with new software.",
+      "normalized_action": "Plug USB key to device and reboot device.",
+      "normalized_expected_result": "Device upgrades itself with new software.",
+      "keywords": [
+        "usb",
+        "reboot",
+        "upgrade"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350811",
+      "title": "N_106_43_Phone_lock_Locked_Phone_Upgrade_by_USB",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Let device upgrade itself and reboot.",
+      "raw_expected_result": "Device is still locked after upgrade.\nCheck that new version has correctly been installed on device (by unlocking and goign in settings or with ssh connection and \"id\" command).",
+      "normalized_action": "Let device upgrade itself and reboot.",
+      "normalized_expected_result": "Device is still locked after upgrade. Check that new version has correctly been installed on device by unlocking and going in settings or with ssh connection and \"id\" command.",
+      "keywords": [
+        "upgrade",
+        "reboot",
+        "locked",
+        "version-check"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350758",
+      "title": "N_106_44_Phone_lock_Access_to_Admin_Settings_During_Boot",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked and displays the lock screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the lock screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "lock-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350758",
+      "title": "N_106_44_Phone_lock_Access_to_Admin_Settings_During_Boot",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Unplug device power and plug it back.",
+      "raw_expected_result": "Device reboots.",
+      "normalized_action": "Unplug the device power and plug it back.",
+      "normalized_expected_result": "The device reboots.",
+      "keywords": [
+        "power",
+        "reboot",
+        "device"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350758",
+      "title": "N_106_44_Phone_lock_Access_to_Admin_Settings_During_Boot",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "During boot try to access to device ADMIN settings.",
+      "raw_expected_result": "Admin Settings are available during boot.",
+      "normalized_action": "During boot, try to access the device ADMIN settings.",
+      "normalized_expected_result": "Admin Settings are available during boot.",
+      "keywords": [
+        "admin-settings",
+        "boot",
+        "access"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350771",
+      "title": "N_106_45_Phone_lock_PIN_Modification_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Phone has the pincode and enable the lock feature\nSettings---user---device---lock---edit the pincode",
+      "raw_expected_result": "turn to the current pincode screen",
+      "normalized_action": "Navigate to Settings, User, Device, Lock, and edit the PIN code.",
+      "normalized_expected_result": "The current PIN code screen is displayed.",
+      "keywords": [
+        "settings",
+        "user",
+        "device",
+        "lock",
+        "pin-code",
+        "ui-navigation"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350771",
+      "title": "N_106_45_Phone_lock_PIN_Modification_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "input incorrect current pincode then press the ok key",
+      "raw_expected_result": "Popup  \"Attempty incorrect x/5\"\nAnd can input pincode again",
+      "normalized_action": "Input an incorrect current PIN code and press the OK key.",
+      "normalized_expected_result": "A popup displays \"Attempt incorrect x/5\" and allows input of the PIN code again.",
+      "keywords": [
+        "pin-code",
+        "incorrect",
+        "popup",
+        "ok-key",
+        "error-message"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350771",
+      "title": "N_106_45_Phone_lock_PIN_Modification_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Input correct current  pincode then press the ok key",
+      "raw_expected_result": "Turn to the create pincode screen",
+      "normalized_action": "Input the correct current PIN code and press the OK key.",
+      "normalized_expected_result": "The create PIN code screen is displayed.",
+      "keywords": [
+        "pin-code",
+        "correct",
+        "ok-key",
+        "create-pin-code",
+        "ui-navigation"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350771",
+      "title": "N_106_45_Phone_lock_PIN_Modification_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "If press the later key",
+      "raw_expected_result": "will not modify the pincode",
+      "normalized_action": "Press the Later key.",
+      "normalized_expected_result": "The PIN code is not modified.",
+      "keywords": [
+        "later-key",
+        "pin-code",
+        "modification",
+        "cancel"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350771",
+      "title": "N_106_45_Phone_lock_PIN_Modification_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "If input new pincode then press the ok key",
+      "raw_expected_result": "Turn to the confirm screen",
+      "normalized_action": "Input a new PIN code and press the OK key.",
+      "normalized_expected_result": "The confirm screen is displayed.",
+      "keywords": [
+        "pin-code",
+        "new",
+        "ok-key",
+        "confirm-screen",
+        "ui-navigation"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350771",
+      "title": "N_106_45_Phone_lock_PIN_Modification_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 6,
+      "raw_action": "Input correct new pincode then press ok key",
+      "raw_expected_result": "turn to the auto-lock configuration screen",
+      "normalized_action": "Input the correct new PIN code and press the OK key.",
+      "normalized_expected_result": "The auto-lock configuration screen is displayed.",
+      "keywords": [
+        "pin-code",
+        "new",
+        "correct",
+        "ok-key",
+        "auto-lock",
+        "configuration",
+        "ui-navigation"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350771",
+      "title": "N_106_45_Phone_lock_PIN_Modification_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 7,
+      "raw_action": "Enable/ disable auto lock \nor modify the auto-lock timer\nthen press the ok key",
+      "raw_expected_result": "Save the configuration",
+      "normalized_action": "Enable or disable auto-lock, or modify the auto-lock timer, and press the OK key.",
+      "normalized_expected_result": "The configuration is saved.",
+      "keywords": [
+        "auto-lock",
+        "enable",
+        "disable",
+        "timer",
+        "ok-key",
+        "save"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10350771",
+      "title": "N_106_45_Phone_lock_PIN_Modification_STEP1",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 8,
+      "raw_action": "Check the lock menu and new pincode",
+      "raw_expected_result": "auto-lock : save successfully\n\nMust input new pincode can unlock the phone",
+      "normalized_action": "Check the lock menu and the new PIN code.",
+      "normalized_expected_result": "Auto-lock is saved successfully, and the new PIN code must be input to unlock the phone.",
+      "keywords": [
+        "lock-menu",
+        "pin-code",
+        "new",
+        "auto-lock",
+        "save",
+        "unlock",
+        "verification"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10353624",
+      "title": "N_106_47_Phone_lock_User_Can_Lock_Device_With_Order_Code",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Try to lock the device, by entering the \"order code\" on dial pad.\nThis information is available on OXE.\nThe default is frequently \"45\".",
+      "raw_expected_result": "Device is locked.",
+      "normalized_action": "Lock the device by entering the order code on the dial pad.",
+      "normalized_expected_result": "The device is locked.",
+      "keywords": [
+        "lock",
+        "order-code",
+        "dial-pad",
+        "device-security"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10353625",
+      "title": "N_106_48_Phone_lock_User_Cant_Unlock_Device_With_Order_Code",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked, displaying the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10353625",
+      "title": "N_106_48_Phone_lock_User_Cant_Unlock_Device_With_Order_Code",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Dial the Lock/Unlock code order followed by the correct user PIN code.",
+      "raw_expected_result": "phone is still locked",
+      "normalized_action": "Dial the lock/unlock code order followed by the correct user PIN code.",
+      "normalized_expected_result": "The phone remains locked.",
+      "keywords": [
+        "dial",
+        "lock",
+        "unlock",
+        "code",
+        "pin",
+        "phone"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10353665",
+      "title": "N_106_49_Phone_lock_Receiving_Call_When_Entering_PIN_on_Phone_Unlock_PIN_Request_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked, displaying the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "lock",
+        "device",
+        "screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10353665",
+      "title": "N_106_49_Phone_lock_Receiving_Call_When_Entering_PIN_on_Phone_Unlock_PIN_Request_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Press the physical key associated to the lock icon (ALE-20/ALE-30/ALE-300) or press lock icon (ALE-400/ALE-500).",
+      "raw_expected_result": "Device displays the \"phone unlock PIN request screen\".",
+      "normalized_action": "Press the physical key associated with the lock icon on ALE-20, ALE-30, or ALE-300, or press the lock icon on ALE-400 or ALE-500.",
+      "normalized_expected_result": "The device displays the phone unlock PIN request screen.",
+      "keywords": [
+        "lock-icon",
+        "physical-key",
+        "phone-unlock-pin-request-screen",
+        "ale-20",
+        "ale-30",
+        "ale-300",
+        "ale-400",
+        "ale-500"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10353665",
+      "title": "N_106_49_Phone_lock_Receiving_Call_When_Entering_PIN_on_Phone_Unlock_PIN_Request_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Start to enter the correct user PIN code.",
+      "raw_expected_result": "\"*\" are displayed in the boxes.",
+      "normalized_action": "Start entering the correct user PIN code.",
+      "normalized_expected_result": "Asterisks are displayed in the boxes.",
+      "keywords": [
+        "pin-code",
+        "enter",
+        "asterisks",
+        "boxes"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10353665",
+      "title": "N_106_49_Phone_lock_Receiving_Call_When_Entering_PIN_on_Phone_Unlock_PIN_Request_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Make a call to device from critical number.",
+      "raw_expected_result": "Device display incoming call.",
+      "normalized_action": "Dial the device from a critical number.",
+      "normalized_expected_result": "The device displays an incoming call.",
+      "keywords": [
+        "dial",
+        "critical-number",
+        "incoming-call"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10353665",
+      "title": "N_106_49_Phone_lock_Receiving_Call_When_Entering_PIN_on_Phone_Unlock_PIN_Request_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 5,
+      "raw_action": "Cancel call.",
+      "raw_expected_result": "Device is locked, displaying the locked device screen.",
+      "normalized_action": "End the call.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "end-call",
+        "lock",
+        "device",
+        "screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10353665",
+      "title": "N_106_49_Phone_lock_Receiving_Call_When_Entering_PIN_on_Phone_Unlock_PIN_Request_Screen",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 6,
+      "raw_action": "Make the same steps from step 2 but when call is established instead of cancelled.",
+      "raw_expected_result": "After ending the call.\nDevice is locked, displaying the locked device screen.",
+      "normalized_action": "Repeat steps 2 through 4, but establish the call instead of ending it.",
+      "normalized_expected_result": "After ending the call, the device is locked and displays the locked device screen.",
+      "keywords": [
+        "repeat-steps",
+        "establish-call",
+        "end-call",
+        "lock",
+        "device",
+        "screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10353666",
+      "title": "N_106_50_Phone_lock_PIN_Code_Modification_in_Device_Settings",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 1,
+      "raw_action": "Browse device to User Settings and modify PIN code to a new value.\nGo back to homepage.\nSettings --> Device --> Lock --> Edit PIN code",
+      "raw_expected_result": "Device is idle.",
+      "normalized_action": "Browse to User Settings in the device and modify the PIN code to a new value.",
+      "normalized_expected_result": "The device is idle.",
+      "keywords": [
+        "user-settings",
+        "pin-code",
+        "modification",
+        "device-idle"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10353666",
+      "title": "N_106_50_Phone_lock_PIN_Code_Modification_in_Device_Settings",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 2,
+      "raw_action": "Lock device.",
+      "raw_expected_result": "Device is locked, displaying the locked device screen.",
+      "normalized_action": "Lock the device.",
+      "normalized_expected_result": "The device is locked and displays the locked device screen.",
+      "keywords": [
+        "device-lock",
+        "locked-screen"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10353666",
+      "title": "N_106_50_Phone_lock_PIN_Code_Modification_in_Device_Settings",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 3,
+      "raw_action": "Press the physical key associated to the lock icon (ALE-20/ALE-30/ALE-300) or press lock icon (ALE-400/ALE-500).",
+      "raw_expected_result": "Device displays the \"phone unlock PIN request screen\".",
+      "normalized_action": "Press the physical key associated with the lock icon on ALE-20, ALE-30, or ALE-300, or press the lock icon on ALE-400 or ALE-500.",
+      "normalized_expected_result": "The device displays the phone unlock PIN request screen.",
+      "keywords": [
+        "lock-icon",
+        "physical-key",
+        "pin-request-screen",
+        "ale-20",
+        "ale-30",
+        "ale-300",
+        "ale-400",
+        "ale-500"
+      ]
+    },
+    {
+      "sheet": "Worksheet",
+      "case_id": "C10353666",
+      "title": "N_106_50_Phone_lock_PIN_Code_Modification_in_Device_Settings",
+      "precondition_raw": null,
+      "normalized_precondition": null,
+      "step_no": 4,
+      "raw_action": "Enter the new PIN code.",
+      "raw_expected_result": "Device is unlocked and idle.",
+      "normalized_action": "Enter the new PIN code.",
+      "normalized_expected_result": "The device is unlocked and idle.",
+      "keywords": [
+        "pin-code",
+        "device-unlock",
+        "device-idle"
+      ]
+    }
+  ]
+}

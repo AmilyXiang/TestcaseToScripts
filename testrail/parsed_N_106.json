@@ -1,0 +1,1387 @@
+{
+  "Worksheet": [
+    {
+      "case_id": "C10350713",
+      "title": "N_106_01_Phone_lock_Method_by_Progkey",
+      "description": "<p>0.Prerequisites</p>\n\n<p>For this test you need a PLEIADES device in SIP mode running on an OXE server.</p>\n\n<p>1.Objective</p>\n\n<p>The aim of this test is to check that user can lock the device by using creating and using a specific lock progkey, that correct information are displayed on lock screen</p>\n\n<p>2.Configuration</p>\n\n<p>System config field give information about the context of the test :<br />SIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20</p>",
+      "preconditions": "<p>Settings---user---device---lock</p>\n\n<p>Enable the lock feature.</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>On Sip device create a \"Lock\" Progkey </p>",
+          "expected_result": "<p>The Progkey is created with : dedicated icon, default name \"Lock\"</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>This \"Lock\" ProKey can be: moved, copied, modified (renamed), deleted <br />Try each of these options.</p>",
+          "expected_result": "<p>The progkey works as expected.</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>Press the \"Lock\" Progkey to enable the lock function.</p>",
+          "expected_result": "<p>The device shows the locked screen.<br />LOCK icon in the center of the screen.<br />LOCK icon, next to the time in the topbar.<br />LOCK icon a the top left of the screen to Lock or unlock the device.<br />The screensaver starts between 1 minute and 1 hour, depending on the screen saver settings.<br />The screen saver bubble is visible and shows only the closed LOCK icon, the date and the time.<br />If other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)<br />The bubble alternately appears with the closed LOCK icon and the with company’s custom icon.</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>To unlock the phone, Press the dedicated Lock icon on the top left of the screen or use another method.</p>",
+          "expected_result": "<p>The unlock \"code input screen\" is directly displayed.</p>\n\n<p><span class=\"markdown-img-container\"><img src='index.php?/attachments/get/42749' class='fr-fic fr-dib fr-fil markdown-img' width='300' id='attachment-42749' data-attachment-id='42749' data-entity-id='10350713' /></span></p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10350714",
+      "title": "pense N_106_02_Phone_lock_Method_by_Screen_saver",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server, that screensaver give the information that device is locked and that correct information are displayed on lock screen (when exiting screen saver mode).\n\n1.Objective\n\nThe aim of this test is to check that user can define the device lock by screensaver triggering to \"\"true\"\" and that screensaver triggering actually locks the device.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Settings---user---device---lock\nenable lock and auto lock\n\nthe auto lock delay is : x minutes or x hour",
+          "expected_result": "can save the configuration successfully"
+        },
+        {
+          "step_no": 2,
+          "action": "Wait x minutes or x hour \nCheck that the device is locked.",
+          "expected_result": "The device shows the locked screen.\nLOCK icon in the center of the screen.\nLOCK icon, next to the time in the topbar.\nLOCK icon a the top left of the screen to Lock or unlock the device.\nThe screensaver starts between 1 minute and 1 hour, depending on the screen saver settings.\nThe screen saver bubble is visible and shows only the closed LOCK icon, the date and the time.\nIf other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)\nThe bubble alternately appears with the closed LOCK icon and the with company’s custom icon."
+        },
+        {
+          "step_no": 3,
+          "action": "Settings---user---device---lock\n\nmidify the auto lock timer",
+          "expected_result": "can save the configuration successfully"
+        },
+        {
+          "step_no": 4,
+          "action": "Wait x minutes or x hour \nCheck that the device is locked.",
+          "expected_result": "The device shows the locked screen.\nLOCK icon in the center of the screen.\nLOCK icon, next to the time in the topbar.\nLOCK icon a the top left of the screen to Lock or unlock the device.\nThe screensaver starts between 1 minute and 1 hour, depending on the screen saver settings.\nThe screen saver bubble is visible and shows only the closed LOCK icon, the date and the time.\nIf other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)\nThe bubble alternately appears with the closed LOCK icon and the with company’s custom icon."
+        },
+        {
+          "step_no": 5,
+          "action": "To unlock the phone, wake up it and press the dedicated Lock icon on the top left of the screen or use another method.",
+          "expected_result": "The unlock \"code input screen\" is directly displayed.\n![](index.php?/attachments/get/42750)"
+        }
+      ]
+    },
+    {
+      "case_id": "C10350715",
+      "title": "N_106_03_Phone_lock_Method_by_Minikeyboard",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can lock a device by using the minikeyboard (blue arrow + lock key), that correct information are displayed on lock screen, that once device is locked screensaver is activated after 10 seconds and that screensaver give the information that device is locked.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": "Settings---user---device---lock\n\nEnable the lock feature.",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Press the dedicated Lock key on Mini Keyboard.\n![](index.php?/attachments/get/42147)",
+          "expected_result": "The device is locked.\nThe device shows the locked screen.\nLOCK icon in the center of the screen.\nLOCK icon, next to the time in the topbar.\nLOCK icon a the top left of the screen to Lock or unlock the device.\nThe screensaver starts between 1 minute and 1 hour, depending on the screen saver settings.\nThe screen saver bubble is visible and shows only the closed LOCK icon, the date and the time.\nIf other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)\nThe bubble alternately appears with the closed LOCK icon and the with company’s custom icon."
+        },
+        {
+          "step_no": 2,
+          "action": "Press the dedicated Lock key on Mini Keyboard again or use another method.",
+          "expected_result": "The unlock \"code input screen\" is directly displayed.\n![](index.php?/attachments/get/42751)"
+        }
+      ]
+    },
+    {
+      "case_id": "C10350716",
+      "title": "N_106_04_Phone_lock_Method_by_Hold_key",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can lock a device by using the hold physical key when phone is idle, that correct information are displayed on lock screen, that once device is locked screensaver is activated after 10 seconds and that screensaver give the information that device is locked..\nWe will also check that using the hold physical key when device has an ongoing call holds the call and does not lock the phone.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": "Settings---user---device---lock\n\nEnable the lock feature.",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "In IDLE, press the Hold key.",
+          "expected_result": "The device shows the locked screen.\nLOCK icon in the center of the screen.\nLOCK icon, next to the time in the topbar.\nLOCK icon a the top left of the screen to Lock or unlock the device.\nThe screensaver starts between 1 minute and 1 hour, depending on the screen saver settings.\nThe screen saver bubble is visible and shows only the closed LOCK icon, the date and the time.\nIf other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)\nThe bubble alternately appears with the closed LOCK icon and the with company’s custom icon."
+        },
+        {
+          "step_no": 2,
+          "action": "To unlock the phone, Press the Hold key or use another method.",
+          "expected_result": "The unlock \"code input screen\" is directly displayed.\n![](index.php?/attachments/get/42752)"
+        }
+      ]
+    },
+    {
+      "case_id": "C10350742",
+      "title": "N_106_05_Phone_lock_Method_by_Order_Code",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can lock a device by using the OXE lock order codet, hat correct information are displayed on lock screen, that once device is locked screensaver is activated after 10 seconds and that screensaver give the information that device is locked..\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "To lock the device, enter the \"order code\".\nThis information is available on OXE.\nThe default is frequently \"45\".",
+          "expected_result": "The device is locked.\nThe device shows the locked screen during 10 seconds, then starts the screen saver.\nThe screen saver bubble is visible and shows only the closed LOCK icon, the date and the time in the topbar.\nIf other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)"
+        },
+        {
+          "step_no": 2,
+          "action": "To unlock the device, enter the \"order code\".\nThis information is available on OXE.\nThe default is frequently \"45\".\n!!!!!This approach was dropped for security reasons!!!!!",
+          "expected_result": null
+        }
+      ]
+    },
+    {
+      "case_id": "C10350718",
+      "title": "N_106_06_Phone_lock_Lock_remains_after_reboot",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that a lock device that reboots is still locked when reboot is finished.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Use any method to lock the device.",
+          "expected_result": "Device is locked.\nThe device is locked.\nThe device shows the locked screen.\nLOCK icon in the center of the screen.\nLOCK icon, next to the time in the topbar.\nLOCK icon a the top left of the screen to Lock or unlock the device.\nThe screensaver starts between 1 minute and 1 hour, depending on the screen saver settings.\nThe screen saver bubble is visible and shows only the closed LOCK icon, the date and the time.\nIf other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)"
+        },
+        {
+          "step_no": 2,
+          "action": "On SIP phone, trigger a power loss. (Unplug and plug the phone's power supply)",
+          "expected_result": "SIP phone restarts"
+        },
+        {
+          "step_no": 3,
+          "action": "Check that the lock state remains after reboot",
+          "expected_result": "Device is locked.\nThe device is locked.\nThe device shows the locked screen.\nLOCK icon in the center of the screen.\nLOCK icon, next to the time in the topbar.\nLOCK icon a the top left of the screen to Lock or unlock the device.\nThe screensaver starts between 1 minute and 1 hour, depending on the screen saver settings.\nThe screen saver bubble is visible and shows only the closed LOCK icon, the date and the time.\nIf other events notification are present they are displayed next to the LOCK icon. (number of missed and voice messages)"
+        }
+      ]
+    },
+    {
+      "case_id": "C10350719",
+      "title": "N_106_07_Phone_lock_Incoming_Call_to_Locked_Phone",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that a lock device behavior when receiving an incoming call (from a non critical number).\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Incoming call to the locked phone, the device ring.\nStep:1",
+          "expected_result": "The phone rings"
+        },
+        {
+          "step_no": 2,
+          "action": "Incoming call to the locked phone, it's possible to take the call as long as the phone is locked.\nTest all standard call pickup methods and check that all are possible.\nStep:1",
+          "expected_result": "Possible to take the call."
+        },
+        {
+          "step_no": 3,
+          "action": "Incoming call to the locked phone, show the phone Unlock Pin Request screen\nStep:2",
+          "expected_result": "Unlock pin request screen on device."
+        },
+        {
+          "step_no": 4,
+          "action": "Incoming call to the locked phone, do not display the caller's identity.\nStep:2",
+          "expected_result": "No caller identity information on screen."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350730",
+      "title": "N_106_08_Phone_lock_Incoming_Call_to_Locked_Phone_from_Critical_Number_??????",
+      "description": "<p>0.Prerequisites</p>\n\n<p>For this test you need a PLEIADES device in SIP mode running on an OXE server.</p>\n\n<p>1.Objective</p>\n\n<p>The aim of this test is to check that a lock device behavior when receiving an incoming call from a critical number.</p>\n\n<p>2.Configuration</p>\n\n<p>System config field give information about the context of the test :<br />SIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20</p>",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Lock the phone by progarm key / hold key / minikeyboard</p>",
+          "expected_result": "<p>Phone is locked</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Phone receives the incoming call from the normal number or emergency /guard</p>",
+          "expected_result": "<p>1.NOT present the caller identity (no name or number)<br />2.show the unlock PIN request </p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>check the incoming screen:</p>",
+          "expected_result": "<p>1.The user can take the call, stop the ringing or deflect to voicemail (if available). <br />2.No other deflect, no info.</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>Answer the call and check the screen</p>",
+          "expected_result": "<p>The user can put on hold (only with the hardware button) or hook-on. (no information, no new call icon, no back)</p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>If input correct pincode during the incoming or the conversation:</p>",
+          "expected_result": "<p>Phone display the full features of the standard :<br />the remote side's information: avatar / number</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10350722",
+      "title": "N_106_09_Phone_lock_Phone_Unlock_PIN_Request_Screen_Display",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can access to unlock PIN request screen on a lock device.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Settings---user---device---lock\nEnable the lock feature.\n\nAnd lock the phone by program key / hold button / minikeyboard ...",
+          "expected_result": "Phone is locked"
+        },
+        {
+          "step_no": 2,
+          "action": "To Unlock the device, first wake it up, then press the \"Closed lock\" icon top left.",
+          "expected_result": "The Phone Unlock Pin Request screen is displayed."
+        },
+        {
+          "step_no": 3,
+          "action": "To Unlock the device, first wake it up, then press the \"Hold key\" first left key.",
+          "expected_result": "The Phone Unlock Pin Request screen is displayed."
+        },
+        {
+          "step_no": 4,
+          "action": "To Unlock the device, first wake it up, then press the \"Lock key\" on minikbd",
+          "expected_result": "The Phone Unlock Pin Request screen is displayed."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350724",
+      "title": "N_106_10_Phone_lock_Switch_between_PIN_Secret_Mode_and_Visualization_Mode_on_Unlock_Screen",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can switch between secret and visualization mode on unlock PIN request screen in order to hide or see the entered PIN code digits.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Check that the password is always hidden at Unlock Pin request screen apparition.",
+          "expected_result": "The PIN code is hidden (only stars are displayed)"
+        },
+        {
+          "step_no": 2,
+          "action": "When Unlock Pin request screen is displayed select the eye icon to show the PIN code you have entered or you will enter.",
+          "expected_result": "A new icon appears Eyes with a hat. And now the pin code is visible"
+        },
+        {
+          "step_no": 3,
+          "action": "Now press the Eyes with hat icon to hidd again the PIN code",
+          "expected_result": "The PIN code is hidden (only stars are displayed)"
+        }
+      ]
+    },
+    {
+      "case_id": "C10350725",
+      "title": "N_106_11_Phone_lock_Secret_PIN_Mode_by_Default_on_Unlock_Screen_after_Reboot",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that secret PIN code mode is the default visualisation mode.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "After device reboot. Check that the password is always hidden at Unlock Pin request screen apparition.",
+          "expected_result": "The PIN code is hidden (only stars are displayed)"
+        }
+      ]
+    },
+    {
+      "case_id": "C10350770",
+      "title": "N_106_12_Phone_lock_Secret_PIN_Mode_by_Default_on_Unlock_Screen_after_Screen_Saver",
+      "description": "<p>0.Prerequisites</p>\n\n<p>For this test you need a PLEIADES device in SIP mode running on an OXE server.</p>\n\n<p>1.Objective</p>\n\n<p>The aim of this test is to check that visualisation mode automatically switches back to secret PIN code mode (the default visualisation mode) after screensaver.</p>\n\n<p>2.Configuration</p>\n\n<p>System config field give information about the context of the test :<br />SIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20</p>",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Lock device.</p>",
+          "expected_result": "<p>Device is locked and displays the lock screen.</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Press the lock icon.</p>",
+          "expected_result": "<p>Device displays the phone unlock PIN request screen.<br />Device is in secret PIN mode.</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>Switch to PIN visualisation mode and start to enter first PIN digits.</p>",
+          "expected_result": "<p>PIN digits are visible.</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>Wait until screensaver triggers.</p>",
+          "expected_result": "<p>Device displays screensaver on screen.</p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>Exit screensaver and go to the phone unlock PIN request screen.</p>",
+          "expected_result": "<p>Device displays the phone unlock PIN request screen in secret PIN mode (you can enter several digits to confirm that they are hidden).</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10350775",
+      "title": "N_106_13_Phone_lock_Enter_Incomplete_PIN",
+      "description": "<p>0.Prerequisites</p>\n\n<p>For this test you need a PLEIADES device in SIP mode running on an OXE server.</p>\n\n<p>1.Objective</p>\n\n<p>The aim of this test is to check device behavior when user enters an incomplete PIN code (4 first digits for exemple).</p>\n\n<p>2.Configuration</p>\n\n<p>System config field give information about the context of the test :<br />SIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20</p>",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Lock device.</p>",
+          "expected_result": "<p>Device is locked and displays the lock screen.</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Press the lock icon.</p>",
+          "expected_result": "<p>Device displays the phone unlock PIN request screen.<br />Device is in secret PIN mode.</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>Enter incomplet PIN code. ex: only 4 PIN digitsand wait.</p>",
+          "expected_result": "<p>Device keeps displaying the digits until screen timout is reached and goes back to lock display : device is locked and displays the lock screen.</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10350774",
+      "title": "N_106_14_Phone_lock_Dial_Unlock_Order_Code_Followed_by_Incomplete_PIN",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that locked device behavior after 5 wrong unlock attempts.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked and displays the lock screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Enter Lock order code on dial pad followed by incomplet PIN code. ex: only 4 PIN digits.",
+          "expected_result": "Device keeps displaying the digits until screen timeout is reached and goes back to lock display : device is locked and displays the lock screen."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350720",
+      "title": "N_106_15_Phone_lock_Unlock_Try_With_Wrong_PIN",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that device remains locked when user enters a wrong PIN code.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked and displays the lock screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Press the lock icon.",
+          "expected_result": "Device displays the phone unlock PIN request screen.\nDevice is in secret PIN mode."
+        },
+        {
+          "step_no": 3,
+          "action": "Enter a bad 6 digits pin code",
+          "expected_result": "Device erase the bad digits. New pin code can be enter."
+        },
+        {
+          "step_no": 4,
+          "action": "No second PIN conde is entered.",
+          "expected_result": "Until the screen timeout is reached, the device goes back to the lock display: the device remains locked and shows the lock screen."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350721",
+      "title": "N_106_16_Phone_lock_5_Wrong_Unlock_Attempts",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that locked device behavior after 5 wrong unlock attempts.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked and displays the lock screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Press the lock icon.",
+          "expected_result": "Device displays the phone unlock PIN request screen.\nDevice is in secret PIN mode."
+        },
+        {
+          "step_no": 3,
+          "action": "Enter a wrong PIN code.\n\nRepeat 4 more time.",
+          "expected_result": "Device is still locked.\nCounter of bad attempts is incremented each time : 1/5, 2/5, 3/5, 4/5 and 5/5.\n\nDevice is now blocked, displaying the info \"Wait 5 minutes before the next trial\" on screen."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350734",
+      "title": "N_106_17_Phone_lock_Phone_Unlock_after_5_Wrong_Unlock_Attempts_Timer",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can unlock device after 5 wrong unlock attempts timer.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked and displays the lock screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Press the lock icon.",
+          "expected_result": "Device displays the phone unlock PIN request screen.\nDevice is in secret PIN mode."
+        },
+        {
+          "step_no": 3,
+          "action": "Enter a wrong PIN code.\n\nRepeat 4 more time.",
+          "expected_result": "Device is still locked.\nCounter of bad attempts is incremented each time : 1/5, 2/5, 3/5, 4/5 and 5/5.\n\nDevice is now blocked, displaying the info \"Wait 5 minutes before the next trial\" on screen."
+        },
+        {
+          "step_no": 4,
+          "action": "Wait 3 min and wake device up.",
+          "expected_result": "Device is still blocked, displaying the info \"Your phone is blocked\" on screen."
+        },
+        {
+          "step_no": 5,
+          "action": "Press the lock icon.",
+          "expected_result": "Device is still blocked, displaying the info \"Wait 2 minutes before the next trial\" on screen."
+        },
+        {
+          "step_no": 6,
+          "action": "Wait for at least 2 min more (to make 5 min and reach the 5 wrong unlock attempts timer) and wake the device up.",
+          "expected_result": "Device is locked and displays the lock screen."
+        },
+        {
+          "step_no": 7,
+          "action": "Press the lock icon.",
+          "expected_result": "Device displays the phone unlock PIN request screen.\nDevice is in secret PIN mode."
+        },
+        {
+          "step_no": 8,
+          "action": "Enter the correct PIN code.",
+          "expected_result": "Device is unlocked and idle."
+        }
+      ]
+    },
+    {
+      "case_id": "C10351791",
+      "title": "N_106_18_Phone_lock_Authorized_Actions_on_Blocked_Device",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\"\"Emergency\"\" number is defined on DM profile which device belongs to.\n\"\"Guard\"\" number is defined on DM profile which device belongs to.\n\"\"Operator\"\" number is defined on the DM profile to which device belongs.\n\n\n1.Objective\n\nThe aim of this test is to check that locked device behavior after 5 wrong unlock attempts.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked and displays the lock screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Press the lock icon.\nEnter a wrong PIN code.\nRepeat 4 more time.",
+          "expected_result": "Device is still locked.\nCounter of bad attempts is incremented each time : 1/5, 2/5, 3/5, 4/5 and 5/5.\nDevice is now blocked, displaying the info \"Your phone is blocked\" on screen."
+        },
+        {
+          "step_no": 3,
+          "action": "Dial 911 on blocked device.\nAnd then release the call.",
+          "expected_result": "Outgoing call is automatically launched to 911 (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call to 911.\nUser has no other option than to end the call.\nAfter releasing the call device is still blocked, displaying the info \"Your phone is blocked\" on screen."
+        },
+        {
+          "step_no": 4,
+          "action": "Dial 112 on blocked device.\nAnd then release the call.",
+          "expected_result": "Outgoing call is automatically launched to 112 (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call to 112.\nUser has no other option than to end the call.\nAfter releasing the call device is still blocked, displaying the info \"Your phone is blocked\" on screen."
+        },
+        {
+          "step_no": 5,
+          "action": "Dial the Emergency number on blocked device.\nAnd then release the call.",
+          "expected_result": "Outgoing call is automatically launched to Emergency (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call.\nUser has no other option than to end the call.\nAfter releasing the call device is still blocked, displaying the info \"Your phone is blocked\" on screen."
+        },
+        {
+          "step_no": 6,
+          "action": "Dial the Guard number on blocked device.\nAnd then release the call.",
+          "expected_result": "Outgoing call is automatically launched to Guard (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call to Guard.\nUser has no other option than to end the call.\nAfter releasing the call device is still blocked, displaying the info \"Your phone is blocked\" on screen."
+        },
+        {
+          "step_no": 7,
+          "action": "Dial the Operator number on blocked device.\nAnd then release the call.",
+          "expected_result": "Outgoing call is automatically launched to Operator (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call.\nUser has no other option than to end the call.\nAfter releasing the call device is still blocked, displaying the info \"Your phone is blocked\" on screen."
+        },
+        {
+          "step_no": 8,
+          "action": "Press the Guard progkey (ALE-400/ALE-500) or the physical key associated to (ALE-20/ALE-30/ALE-300).\nAnd then release the call.",
+          "expected_result": "Call is launched.\nDevice displays an outgoing call to Guard, the only capability for the device is to end the call.\nAfter releasing the call device is still blocked, displaying the info \"Your phone is blocked\" on screen."
+        },
+        {
+          "step_no": 9,
+          "action": "Press the Emergency progkey (ALE-400/ALE-500) or the physical key associated to (ALE-20/ALE-30/ALE-300).\nAnd then release the call.",
+          "expected_result": "Call is launched.\nDevice displays an outgoing call to Emergency, the only capability for the device is to end the call.\nAfter releasing the call device is still blocked, displaying the info \"Your phone is blocked\" on screen."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350776",
+      "title": "N_106_19_Phone_lock_2_Wrong_Unlock_Attempts_and_Wait",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that locked device behavior after 2 wrong unlock attempts and waiting (to see that wrong attempts counter is not reseted after the 5 wrong attempt timer).\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked and displays the lock screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Press the lock icon.",
+          "expected_result": "Device displays the phone unlock PIN request screen.\nDevice is in secret PIN mode."
+        },
+        {
+          "step_no": 3,
+          "action": "Enter a wrong PIN code.",
+          "expected_result": "Device is still locked.\nCounter of bad attempts is incremented : 1/5."
+        },
+        {
+          "step_no": 4,
+          "action": "Enter a wrong PIN code.",
+          "expected_result": "Device is still locked.\nCounter of bad attempts is incremented : 2/5."
+        },
+        {
+          "step_no": 5,
+          "action": "Wait almost 7 min.\nPress the lock icon.\nEnter a wrong PIN code.",
+          "expected_result": "Device is still locked.\nCounter of bad attempts is incremented : 3/5."
+        }
+      ]
+    },
+    {
+      "case_id": "C10351788",
+      "title": "N_106_20_Phone_lock_2_Wrong_Unlock_Attempts_and_Reboot",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that locked device behavior after 2 wrong unlock attempts and reboot (to see that wrong attempts counter is reseted after reboot).\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked and displays the lock screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Press the lock icon.",
+          "expected_result": "Device displays the phone unlock PIN request screen.\nDevice is in secret PIN mode."
+        },
+        {
+          "step_no": 3,
+          "action": "Enter a wrong PIN code.",
+          "expected_result": "Device is still locked.\nCounter of bad attempts is incremented : 1/5."
+        },
+        {
+          "step_no": 4,
+          "action": "Enter a wrong PIN code.",
+          "expected_result": "Device is still locked.\nCounter of bad attempts is incremented : 2/5."
+        },
+        {
+          "step_no": 5,
+          "action": "Reboot device.",
+          "expected_result": "Device is locked and displays the lock screen."
+        },
+        {
+          "step_no": 6,
+          "action": "Press the lock icon.\nEnter a wrong PIN code.",
+          "expected_result": "Device is still locked.\nCounter of bad attempts is incremented : 3/5."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350773",
+      "title": "N_106_21_Phone_lock_Dial_Lock_Order_Code_Followed_By_Wrong_PIN",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check device behavior after user dial the unlock order code followed by a wrong PIN code (wrong attempt increment).\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked, displaying the locked device screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Dial the Lock/Unlock code order followed by an uncorrect user PIN code.\n!!!!!!This approach was dropped for security reasons!!!!!",
+          "expected_result": null
+        }
+      ]
+    },
+    {
+      "case_id": "C10350726",
+      "title": "N_106_22_Phone_lock_PIN_Reset_Request_STEP1",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that admin can define a new PIN code on locked device.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked and displays the lock screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Press the lock icon.",
+          "expected_result": "Device displays the phone unlock PIN request screen.\nDevice is in secret PIN mode."
+        },
+        {
+          "step_no": 3,
+          "action": "Press the Admin icon.",
+          "expected_result": "Device displays the admin Authentication request screen.\nDevice ask password."
+        },
+        {
+          "step_no": 4,
+          "action": "Enter the Admin password",
+          "expected_result": "Device displays create a PIN code request screen.\nDevice is in secret PIN mode."
+        },
+        {
+          "step_no": 5,
+          "action": "Enter a new PIN code\nSelect the eye icon to show the PIN code you have entered.\nErase some digits and enter other digits.",
+          "expected_result": "PIN code is not visible (stars are displayed)\nA new icon appears Eyes with a hat. And now the pin code is visible.\nThe digits can be erased and enter again."
+        },
+        {
+          "step_no": 6,
+          "action": "Valide the PIN code and Confirm the new PIN code\nSelect the eye icon to show the PIN code you have entered.\nErase some digits and enter other digits.\nPress OK",
+          "expected_result": "The new PIN code is now available"
+        },
+        {
+          "step_no": 7,
+          "action": "Select the Auto-lock option and set the delay,\nor uncheck the Auto-lock option.\nConfirm your choice.\nPress OK",
+          "expected_result": "New PIN code is available and Auto Lock also/or not."
+        },
+        {
+          "step_no": 8,
+          "action": "Test the new PIN code to unlock the device",
+          "expected_result": "New PIN code works"
+        }
+      ]
+    },
+    {
+      "case_id": "C10350727",
+      "title": "N_106_23_Phone_lock_PIN_Reset_Request_STEP2?????",
+      "description": "<p>0.Prerequisites</p>\n\n<p>For this test you need a PLEIADES device in SIP mode running on an OXE server.</p>\n\n<p>1.Objective</p>\n\n<p>The aim of this test is to check that user can ask for a temporary PIN code on locked device (which be sent by mail and will be valid for a limited amount of time (tbd)) in order to set a new personnal PIN code.</p>\n\n<p>2.Configuration</p>\n\n<p>System config field give information about the context of the test :<br />SIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20</p>",
+      "preconditions": null,
+      "steps": []
+    },
+    {
+      "case_id": "C10350728",
+      "title": "N_106_24_Phone_lock_Lock_Order_Code_Modification_OXE_Side_Idle_Phone",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\nA lock progkey must be defined on device.\n\n1.Objective\n\nThe aim of this test is to check that lock feature (by progkey or order code) is still working after lock order code is modified on OXE side.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Device is idle.",
+          "expected_result": null
+        },
+        {
+          "step_no": 2,
+          "action": "On OXE server modify the lock code order.",
+          "expected_result": "Code order is modified on OXE."
+        },
+        {
+          "step_no": 3,
+          "action": "Dial the new Lock/Unlock code order.",
+          "expected_result": "Device is locked.\nDevice displays the locked device screen."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350729",
+      "title": "N_106_25_Phone_lock_Lock_Order_Code_Modification_OXE_Side",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\nA lock progkey must be defined on device.\n\n1.Objective\n\nThe aim of this test is to check that user can still lock device after lock order code is modified on OXE side.\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "On OXE server modify the lock code order.",
+          "expected_result": "Code order is modified on OXE."
+        },
+        {
+          "step_no": 2,
+          "action": "Lock device",
+          "expected_result": "Device is locked.\nDevice displays the locked device screen."
+        },
+        {
+          "step_no": 3,
+          "action": "Press the lock icon (ALE-400/ALE-500) or the physical key associated to this icon (ALE-20/ALE-30/ALE-300).",
+          "expected_result": "PIN code is asked"
+        },
+        {
+          "step_no": 4,
+          "action": "Enter the correct PIN code.",
+          "expected_result": "Device is unlocked and idle."
+        },
+        {
+          "step_no": 5,
+          "action": "Lock device.",
+          "expected_result": "Device is locked.\nDevice displays the locked device screen."
+        },
+        {
+          "step_no": 6,
+          "action": "On OXE server modify the lock code order.",
+          "expected_result": "Code order is modified on OXE."
+        },
+        {
+          "step_no": 7,
+          "action": "Lock device",
+          "expected_result": "Device is locked.\nDevice displays the locked device screen."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350733",
+      "title": "N_106_26_Phone_lock_Dial_Allowed_Number_911_on_Locked_Phone",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can dial the 911 number on locked device.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked.\nDevice displays the locked device screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Dial 911 on locked device.",
+          "expected_result": "Outgoing call is automatically launched to 911 (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call to 911.\nUser has no other option than to end the call."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350735",
+      "title": "N_106_27_Phone_lock_Dial_Allowed_Number_112_on_Locked_Phone",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can dial the 112 number on locked device.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked.\nDevice displays the locked device screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Dial 112 on locked device.",
+          "expected_result": "Outgoing call is automatically launched to 112 (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call to 112.\nUser has no other option than to end the call."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350736",
+      "title": "N_106_28_Phone_lock_Press_Guard_Progkey_on_Locked_Phone_Screen",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\nDefine a Guard number on DM profile which device belongs to.\n\n1.Objective\n\nThe aim of this test is to check that user can press the \"\"Guard\"\" progkey (the one on the left) on locked device.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock the phone.",
+          "expected_result": "Device is locked, displaying the locked device screen.\nEmergency progkey is displayed on the right progkey location."
+        },
+        {
+          "step_no": 2,
+          "action": "Press the Guard progkey (ALE-400/ALE-500) or the physical key associated to (ALE-20/ALE-30/ALE-300).",
+          "expected_result": "Call is launched.\nDevice displays an outgoing call to Guard, the only capability for the device is to end the call."
+        },
+        {
+          "step_no": 3,
+          "action": "Guard device takes the call.",
+          "expected_result": "Call is ongoing.\nDevice displays an ongoing call to Guard, the only capability for the device is to end the call."
+        },
+        {
+          "step_no": 4,
+          "action": "End the call.",
+          "expected_result": "Device is locked, displaying the locked device screen."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350737",
+      "title": "N_106_29_Phone_lock_Press_Emergency_Progkey_on_Locked_Phone_Screen",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\nDefine an Emergency number on DM profile which device belongs to.\n\n1.Objective\n\nThe aim of this test is to check that user can press the \"\"Emergency\"\" progkey (the one on the left) on locked device.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock the phone.",
+          "expected_result": "Device is locked, displaying the locked device screen.\nEmergency progkey is displayed on the right progkey location."
+        },
+        {
+          "step_no": 2,
+          "action": "Press the Emergency progkey (ALE-400/ALE-500) or the physical key associated to (ALE-20/ALE-30/ALE-300).",
+          "expected_result": "Call is launched.\nDevice displays an outgoing call to Emergency, the only capability for the device is to end the call."
+        },
+        {
+          "step_no": 3,
+          "action": "Emergency  device takes the call.",
+          "expected_result": "Call is ongoing.\nDevice displays an ongoing call to Emergency, the only capability for the device is to end the call."
+        },
+        {
+          "step_no": 4,
+          "action": "End the call.",
+          "expected_result": "Device is locked, displaying the locked device screen."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350738",
+      "title": "N_106_30_Phone_lock_Dial_Emergency_Number_on_Locked_Phone",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can dial the \"\"Emergency\"\" number (if defined on system) on locked device.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Define an Emergency number on DM profile which device belongs to.",
+          "expected_result": "Emergency number is defined."
+        },
+        {
+          "step_no": 2,
+          "action": "Lock device.",
+          "expected_result": "Device is locked.\nDevice displays the locked device screen."
+        },
+        {
+          "step_no": 3,
+          "action": "Dial the Emergency number on locked device.",
+          "expected_result": "Outgoing call is automatically launched to Emergency (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call.\nUser has no other option than to end the call."
+        },
+        {
+          "step_no": 4,
+          "action": "Emergency takes the call.",
+          "expected_result": "Call is established, tested device displays an outgoing call to Emergency.\nUser has no other option than to end the call."
+        },
+        {
+          "step_no": 5,
+          "action": "End the call.",
+          "expected_result": "Device displays the lock device screen."
+        },
+        {
+          "step_no": 6,
+          "action": "Suppress the previously created Emergency number on OXE configuration (DM profile).",
+          "expected_result": "Emergency number is not defined anymore."
+        },
+        {
+          "step_no": 7,
+          "action": "Try to dial the previously defined Emergency number.",
+          "expected_result": "As soon as device detect a unauthorized number :\n- device displays the information message \"Unauthorized number\" on top orange banner\n- the lock icon shakes to emphase that action did not trigger the unlock.\nAfter 1 second, the numbering field is cleared."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350739",
+      "title": "N_106_31_Phone_lock_Dial_Guard_Number_on_Locked_Phone",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can dial the \"\"Guard\"\" number (if defined on system) on locked device.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Define a Guard number on DM profile which device belongs to.",
+          "expected_result": "Guard number is defined."
+        },
+        {
+          "step_no": 2,
+          "action": "Lock device.",
+          "expected_result": "Device is locked.\nDevice displays the locked device screen."
+        },
+        {
+          "step_no": 3,
+          "action": "Dial the Guard number on locked device.",
+          "expected_result": "Outgoing call is automatically launched to Guard (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call to Guard.\nUser has no other option than to end the call."
+        },
+        {
+          "step_no": 4,
+          "action": "Guard takes the call.",
+          "expected_result": "Call is established, tested device displays an outgoing call to Guard.\nUser has no other option than to end the call."
+        },
+        {
+          "step_no": 5,
+          "action": "End the call.",
+          "expected_result": "Device displays the lock device screen."
+        },
+        {
+          "step_no": 6,
+          "action": "Suppress the previously created Guard number on OXE configuration (DM profile).",
+          "expected_result": "Guard number is not defined anymore."
+        },
+        {
+          "step_no": 7,
+          "action": "Try to dial the previously defined Guard number.",
+          "expected_result": "As soon as device detect a unauthorized number :\n- device displays the information message \"Unauthorized number\" on top orange banner\n- the lock icon shakes to emphase that action did not trigger the unlock.\nAfter 1 second, the numbering field is cleared."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350740",
+      "title": "N_106_32_Phone_lock_Dial_Operator_Number_on_Locked_Phone",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can dial the \"\"Operator\"\" number (if defined on system) on locked device.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Define an Operator number on DM profile which device belongs to.",
+          "expected_result": "Operator number is defined."
+        },
+        {
+          "step_no": 2,
+          "action": "Lock device.",
+          "expected_result": "Device is locked.\nDevice displays the locked device screen."
+        },
+        {
+          "step_no": 3,
+          "action": "Dial the Operator number on locked device.",
+          "expected_result": "Outgoing call is automatically launched to Operator (no need to launch with OK, handset key, ...).\nTested device displays an outgoing call.\nUser has no other option than to end the call."
+        },
+        {
+          "step_no": 4,
+          "action": "Operator takes the call.",
+          "expected_result": "Call is established, tested device displays an outgoing call to Operator.\nUser has no other option than to end the call."
+        },
+        {
+          "step_no": 5,
+          "action": "End the call.",
+          "expected_result": "Device displays the lock device screen."
+        },
+        {
+          "step_no": 6,
+          "action": "Suppress the previously created Operator number on OXE configuration (DM profile).",
+          "expected_result": "Operator number is not defined anymore."
+        },
+        {
+          "step_no": 7,
+          "action": "Try to dial the previously defined Operator number.",
+          "expected_result": "As soon as device detect a unauthorized number :\n- device displays the information message \"Unauthorized number\" on top orange banner\n- the lock icon shakes to emphase that action did not trigger the unlock.\nAfter 1 second, the numbering field is cleared."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350741",
+      "title": "N_106_33_Phone_lock_Dial_Unallowed_Number_on_Locked_Phone",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can not dial an unauthorized number on locked device (another user number and an external number).\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked.\nDevice displays the locked device screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Start to dial another user phone number on locked phone.",
+          "expected_result": "As soon as device detect a unauthorized number (not Operator, Emergency, Guard, 911, 112) : \n- device displays the information message \"Unauthorized number\" on top orange banner\n- the lock icon shakes to emphase that action did not trigger the unlock.\nAfter 1 second, the numbering field is cleared."
+        },
+        {
+          "step_no": 3,
+          "action": "Start to dial an external number on locked phone.",
+          "expected_result": "As soon as device detect a unauthorized number (not Operator, Emergency, Guard, 911, 112) : \n- device displays the information message \"Unauthorized number\" on top orange banner\n- the lock icon shakes to emphase that action did not trigger the unlock.\nAfter 1 second, the numbering field is cleared."
+        },
+        {
+          "step_no": 4,
+          "action": "Dial the 2 first digits of an authorized number (for exemple : 11 or 91) and launch call (press OK, handset key, picking up the handset, ...).",
+          "expected_result": "- device displays the information message \"Unauthorized number\" on top orange banner.\n- the lock icon shakes to emphase that action did not trigger the unlock.\nAfter 1 second, the numbering field is cleared."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350743",
+      "title": "N_106_34_Phone_lock_Unlock_Phone_By_Dialing_Order_Code_and_Correct_PIN",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can unlock a locked device by numbering the lock order code followed by the correct PIN code.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked, displaying the locked device screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Dial the Lock/Unlock code order followed by the correct user PIN code.\n!!!!This approach was dropped for security reasons!!!!!!",
+          "expected_result": null
+        }
+      ]
+    },
+    {
+      "case_id": "C10350744",
+      "title": "N_106_35_Phone_lock_Unlock_Phone_by_Entering_PIN_on_Phone_Unlock_PIN_Request_Screen",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can unlock device by entering the correct PIN code on dedicated screen (named : \"\"Phone unlock PIN request screen\"\").\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked, displaying the locked device screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Press the physical key associated to the lock icon (ALE-20/ALE-30/ALE-300) or press lock icon (ALE-400/ALE-500).",
+          "expected_result": "Device displays the \"phone unlock PIN request screen\"."
+        },
+        {
+          "step_no": 3,
+          "action": "Enter the correct user PIN code.",
+          "expected_result": "Once the 6 digits correct PIN is entered phone is unlocked and idle."
+        }
+      ]
+    },
+    {
+      "case_id": "C10351768",
+      "title": "N_106_36_Phone_lock_Delete_and_Correct_PIN_Digits",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can delete PIN digits if he entered wrong to digits and then enter the correct PIN code to unlock device.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked, displaying the locked device screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Press the lock icon (ALE-400/ALE-500) or the physical key associated to this icon (ALE-20/ALE-30/ALE-300).",
+          "expected_result": "Device displays the \"phone unlock PIN request screen\"."
+        },
+        {
+          "step_no": 3,
+          "action": "Start to enter PIN code.",
+          "expected_result": "\"*\" are displayed in the boxes."
+        },
+        {
+          "step_no": 4,
+          "action": "Press the delete arrow (ALE-400/ALE-500) or the physical key associated to the icon (ALE-20/ALE-30/ALE-300) to deleted several \".\".",
+          "expected_result": "\"*\" are deleted according to the number of time arrow is pressed."
+        },
+        {
+          "step_no": 5,
+          "action": "Switch to PIN visualisation mode and enter digits.",
+          "expected_result": "Numbers are displayed in the boxes."
+        },
+        {
+          "step_no": 6,
+          "action": "Press the delete arrow (ALE-400/ALE-500) or the physical key associated to the icon (ALE-20/ALE-30/ALE-300) to deleted several numbers.",
+          "expected_result": "Numbers are deleted according to the number of time arrow is pressed."
+        },
+        {
+          "step_no": 7,
+          "action": "Enter the correct PIN code.",
+          "expected_result": "Device is unlocked and idle."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350745",
+      "title": "N_106_37_Phone_lock_Device_still_Locked_After_Reset_to_Factory_and_Rebooting_on_Same_System",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that device is still locked after a reset to factory made on device (during boot) and staying plugged on same OXE server.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked, displaying lock screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Access to device settings and browse to \"Advanced\", \"Maintenance\", \"Reset to factory\" and launch the reset to factory.",
+          "expected_result": "Device processes the reset to factory."
+        },
+        {
+          "step_no": 3,
+          "action": "Let device reboot on same system.",
+          "expected_result": "The lock feature is disabled default"
+        }
+      ]
+    },
+    {
+      "case_id": "C10350812",
+      "title": "N_106_38_Phone_lock_Device_not_Locked_Anymore_After_Reset_to_Factory_and_Rebooting_on_Other_System",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that device is not locked anymore after a reset to factory made on device (during boot) and plug it on different OXE (or other kind of system) server.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked, displaying lock screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Unplug and plug device back.",
+          "expected_result": "Device reboots."
+        },
+        {
+          "step_no": 3,
+          "action": "During device boot, access to device settings and browse to \"Advanced\", \"Maintenance\", \"Reset to factory\" and launch the reset to factory.",
+          "expected_result": "input correct admin passowrd\nDevice processes the reset to factory."
+        },
+        {
+          "step_no": 4,
+          "action": "Before device boots, unplug device from system and plug it on another network (or power it up out of any network).",
+          "expected_result": "Device is not locked anymore.\nPersonnal user data have been erased from device."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350746",
+      "title": "N_106_39_Phone_lock_Lock_Information_Displayed_on_Add_Ons",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that the only information displayed on add-on(s) plugged on a locked device is that device is locked.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Define several prokeys on tested device (\"Number\", \"Voicemail\", \"Immediate forward\", ...).",
+          "expected_result": "Progkeys are displayed on device and on add-on(s)."
+        },
+        {
+          "step_no": 2,
+          "action": "Lock tested device.",
+          "expected_result": "Device displays the lock screen.\nAdd-on(s) only dislay(s) the locked device information : previously created progkeys are not displayed on add-on(s)."
+        },
+        {
+          "step_no": 3,
+          "action": "Unplug add-on(s), plug them back and wait until they are \"up\".",
+          "expected_result": "Device displays the lock screen.\nAdd-on(s) only dislay(s) the locked device information : previously created progkeys are not displayed on add-on(s)."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350747",
+      "title": "N_106_40_Phone_lock_Add_Ons_are_Blocked_When_Device_is_Locked",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server and which has 1 or more add-ons plugged on it.\n\n1.Objective\n\nThe aim of this test is to check that add-ons are blocked on a locked device.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20\n\nen screen saver ou non",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Define several prokeys on tested device (\"Number\", \"Voicemail\", \"Immediate forward\", ...).",
+          "expected_result": "Progkeys are displayed on device and on add-on(s)."
+        },
+        {
+          "step_no": 2,
+          "action": "Lock tested device.",
+          "expected_result": "Device is locked.\nthe screen of the phone and addon: is opaque\n\nphone display the lock icon but addon don't display the lock icon"
+        },
+        {
+          "step_no": 3,
+          "action": "Press the add-on (s) physical keys associated to previously created progkeys even if it's in screen saver.",
+          "expected_result": "No action is triggered by the press."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350756",
+      "title": "N_106_41_Phone_lock_Lock_Screen_Progkeys_Display",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that device displays the correct progkeys on lock screen.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Define \"Emergency\" and \"Guard\" numbers on OXE system for the DM profile the device belongs to.\n\nLock device.",
+          "expected_result": "Device is locked, displaying the locked device screen.\nGuard progkey is displayed on the left progkey.\nEmergency progkey is displayed on the right progkey."
+        },
+        {
+          "step_no": 2,
+          "action": "Delete \"Guard\" number on OXE system for the DM profile the device belongs to.",
+          "expected_result": "Device is still locked, displaying the locked device screen.\nEmergency progkey is displayed on the right progkey.\nLeft progkey is blank."
+        },
+        {
+          "step_no": 3,
+          "action": "Delete \"Emergency\" number on OXE system for the DM profile the device belongs to.",
+          "expected_result": "Device is still locked, displaying the locked device screen.\nLeft and right progkeys are blank."
+        },
+        {
+          "step_no": 4,
+          "action": "Define \"Guard\" number on OXE system for the DM profile the device belongs to.",
+          "expected_result": "Device is still locked, displaying the locked device screen.\nGuard progkey is displayed on the left progkey.\nRight progkey is blank."
+        },
+        {
+          "step_no": 5,
+          "action": "Define \"Emergency\" number on OXE system for the DM profile the device belongs to.",
+          "expected_result": "Device is still locked, displaying the locked device screen.\nGuard progkey is displayed on the left progkey.\nEmergency progkey is displayed on the right progkey."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350757",
+      "title": "N_106_42_Phone_lock_Locked_Phone_Upgrade_by_FTP",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that a locked device can upgrade itself when a new version is available on tftp server.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked, displaying the locked device screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Copy new version on TFTP server and wait until define upgrade time comes.",
+          "expected_result": "Device upgrade itself."
+        },
+        {
+          "step_no": 3,
+          "action": "Wait until device upgrades itself and reboots.",
+          "expected_result": "Device is still locked.\nCheck that new version has correctly been installed on device (by unlocking and goign in settings or with ssh connection and \"id\" command)."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350811",
+      "title": "N_106_43_Phone_lock_Locked_Phone_Upgrade_by_USB",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that a locked device can upgrade itself by USB during boot when a version is available on USB key.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Copy the new version on USB key, and upgrade.auto empty file in root directory.",
+          "expected_result": "USB is ready for the test."
+        },
+        {
+          "step_no": 2,
+          "action": "Plug USB key to device and reboot device.",
+          "expected_result": "Device upgrade itself with new software."
+        },
+        {
+          "step_no": 3,
+          "action": "Let device upgrade itself and reboot.",
+          "expected_result": "Device is still locked after upgrade.\nCheck that new version has correctly been installed on device (by unlocking and goign in settings or with ssh connection and \"id\" command)."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350758",
+      "title": "N_106_44_Phone_lock_Access_to_Admin_Settings_During_Boot",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can not access to device settings on previously locked device during its boot.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked and displays the lock screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Unplug device power and plug it back.",
+          "expected_result": "Device reboots."
+        },
+        {
+          "step_no": 3,
+          "action": "During boot try to access to device ADMIN settings.",
+          "expected_result": "Admin Settings are available during boot."
+        }
+      ]
+    },
+    {
+      "case_id": "C10350771",
+      "title": "N_106_45_Phone_lock_PIN_Modification_STEP1",
+      "description": null,
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone has the pincode and enable the lock feature\nSettings---user---device---lock---edit the pincode",
+          "expected_result": "turn to the current pincode screen"
+        },
+        {
+          "step_no": 2,
+          "action": "input incorrect current pincode then press the ok key",
+          "expected_result": "Popup  \"Attempty incorrect x/5\"\nAnd can input pincode again"
+        },
+        {
+          "step_no": 3,
+          "action": "Input correct current  pincode then press the ok key",
+          "expected_result": "Turn to the create pincode screen"
+        },
+        {
+          "step_no": 4,
+          "action": "If press the later key",
+          "expected_result": "will not modify the pincode"
+        },
+        {
+          "step_no": 5,
+          "action": "If input new pincode then press the ok key",
+          "expected_result": "Turn to the confirm screen"
+        },
+        {
+          "step_no": 6,
+          "action": "Input correct new pincode then press ok key",
+          "expected_result": "turn to the auto-lock configuration screen"
+        },
+        {
+          "step_no": 7,
+          "action": "Enable/ disable auto lock \nor modify the auto-lock timer\nthen press the ok key",
+          "expected_result": "Save the configuration"
+        },
+        {
+          "step_no": 8,
+          "action": "Check the lock menu and new pincode",
+          "expected_result": "auto-lock : save successfully\n\nMust input new pincode can unlock the phone"
+        }
+      ]
+    },
+    {
+      "case_id": "C10350772",
+      "title": "N_106_46_Phone_lock_PIN_Modification_STEP2",
+      "description": null,
+      "preconditions": null,
+      "steps": []
+    },
+    {
+      "case_id": "C10353624",
+      "title": "N_106_47_Phone_lock_User_Can_Lock_Device_With_Order_Code",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can lock a device by using the OXE lock order code (in order to prevent unwanted device lock).\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Try to lock the device, by entering the \"order code\" on dial pad.\nThis information is available on OXE.\nThe default is frequently \"45\".",
+          "expected_result": "Device is locked."
+        }
+      ]
+    },
+    {
+      "case_id": "C10353625",
+      "title": "N_106_48_Phone_lock_User_Cant_Unlock_Device_With_Order_Code",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can NOT unlock a locked device by numbering the lock order code followed by the correct PIN code.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked, displaying the locked device screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Dial the Lock/Unlock code order followed by the correct user PIN code.",
+          "expected_result": "phone is still locked"
+        }
+      ]
+    },
+    {
+      "case_id": "C10353665",
+      "title": "N_106_49_Phone_lock_Receiving_Call_When_Entering_PIN_on_Phone_Unlock_PIN_Request_Screen",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can unlock device by entering the correct PIN code on dedicated screen (named : \"\"Phone unlock PIN request screen\"\").\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock device.",
+          "expected_result": "Device is locked, displaying the locked device screen."
+        },
+        {
+          "step_no": 2,
+          "action": "Press the physical key associated to the lock icon (ALE-20/ALE-30/ALE-300) or press lock icon (ALE-400/ALE-500).",
+          "expected_result": "Device displays the \"phone unlock PIN request screen\"."
+        },
+        {
+          "step_no": 3,
+          "action": "Start to enter the correct user PIN code.",
+          "expected_result": "\"*\" are displayed in the boxes."
+        },
+        {
+          "step_no": 4,
+          "action": "Make a call to device from critical number.",
+          "expected_result": "Device display incoming call."
+        },
+        {
+          "step_no": 5,
+          "action": "Cancel call.",
+          "expected_result": "Device is locked, displaying the locked device screen."
+        },
+        {
+          "step_no": 6,
+          "action": "Make the same steps from step 2 but when call is established instead of cancelled.",
+          "expected_result": "After ending the call.\nDevice is locked, displaying the locked device screen."
+        }
+      ]
+    },
+    {
+      "case_id": "C10353666",
+      "title": "N_106_50_Phone_lock_PIN_Code_Modification_in_Device_Settings",
+      "description": "0.Prerequisites\n\nFor this test you need a PLEIADES device in SIP mode running on an OXE server.\n\n1.Objective\n\nThe aim of this test is to check that user can modify his PIN code in device settings.\n\n2.Configuration\n\nSystem config field give information about the context of the test :\nSIP : ALE300 / ALE400 / ALE500 / ALE-30 / ALE-20",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse device to User Settings and modify PIN code to a new value.\nGo back to homepage.\nSettings --> Device --> Lock --> Edit PIN code",
+          "expected_result": "Device is idle."
+        },
+        {
+          "step_no": 2,
+          "action": "Lock device.",
+          "expected_result": "Device is locked, displaying the locked device screen."
+        },
+        {
+          "step_no": 3,
+          "action": "Press the physical key associated to the lock icon (ALE-20/ALE-30/ALE-300) or press lock icon (ALE-400/ALE-500).",
+          "expected_result": "Device displays the \"phone unlock PIN request screen\"."
+        },
+        {
+          "step_no": 4,
+          "action": "Enter the new PIN code.",
+          "expected_result": "Device is unlocked and idle."
+        }
+      ]
+    }
+  ]
+}

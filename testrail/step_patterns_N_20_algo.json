@@ -1,0 +1,2025 @@
+[
+  {
+    "cluster_id": 1,
+    "examples": [
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice."
+    ],
+    "pattern": {
+      "pattern": "Choose your emplacement in the page and validate your choice.",
+      "regex": "Choose your emplacement in the page and validate your choice \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 2,
+    "examples": [
+      "Select a label.",
+      "Enter a label."
+    ],
+    "pattern": {
+      "pattern": "{param_1} a label.",
+      "regex": "(.*) a label \\.",
+      "parameters": [
+        "param_1"
+      ]
+    }
+  },
+  {
+    "cluster_id": 3,
+    "examples": [
+      "In OXE, set the required CODEC on the PABX configurator.",
+      "In OXE, set the required CODEC on the PABX configurator. Initiate a communication between the set under evaluation in handset mode and a distant set (IP, UA, or Z) in handset mode."
+    ],
+    "pattern": {
+      "pattern": "In OXE, set the required CODEC on the PABX configurator. {param_1} {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9} {param_10} {param_11} {param_12} {param_13} {param_14} {param_15} {param_16} {param_17} {param_18} {param_19} {param_20} {param_21} {param_22} {param_23} {param_24} {param_25} {param_26} {param_27}",
+      "regex": "In OXE, set the required CODEC on the PABX configurator \\. (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9",
+        "param_10",
+        "param_11",
+        "param_12",
+        "param_13",
+        "param_14",
+        "param_15",
+        "param_16",
+        "param_17",
+        "param_18",
+        "param_19",
+        "param_20",
+        "param_21",
+        "param_22",
+        "param_23",
+        "param_24",
+        "param_25",
+        "param_26",
+        "param_27"
+      ]
+    }
+  },
+  {
+    "cluster_id": 4,
+    "examples": [
+      "Hang up on all phones.",
+      "Hang up on all the phones.",
+      "Hang up on all the phones."
+    ],
+    "pattern": {
+      "pattern": "Hang up on all {param_1} {param_2} {param_3}",
+      "regex": "Hang up on all (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3"
+      ]
+    }
+  },
+  {
+    "cluster_id": 5,
+    "examples": [
+      "Select \"Number\".",
+      "Select \"Number\"."
+    ],
+    "pattern": {
+      "pattern": "Select \" Number \".",
+      "regex": "Select \" Number \" \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 6,
+    "examples": [
+      "Select Number.",
+      "Select Number."
+    ],
+    "pattern": {
+      "pattern": "Select Number.",
+      "regex": "Select Number \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 7,
+    "examples": [
+      "phone A merges both calls to make a Conference.",
+      "phone A merges both calls to make a Conference.",
+      "phone A merges both calls to make a Conference."
+    ],
+    "pattern": {
+      "pattern": "phone A merges both calls to make a Conference.",
+      "regex": "phone A merges both calls to make a Conference \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 8,
+    "examples": [
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "Release the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication."
+    ],
+    "pattern": {
+      "pattern": "{param_1} the communication.",
+      "regex": "(.*) the communication \\.",
+      "parameters": [
+        "param_1"
+      ]
+    }
+  },
+  {
+    "cluster_id": 9,
+    "examples": [
+      "Remote side answers the call.",
+      "Remote side answers the call."
+    ],
+    "pattern": {
+      "pattern": "Remote side answers the call.",
+      "regex": "Remote side answers the call \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 10,
+    "examples": [
+      "Make the call last for a few hours.",
+      "Cancel the message.",
+      "Cancel the call.",
+      "Cancel reading the message."
+    ],
+    "pattern": {
+      "pattern": "{param_1} {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9}",
+      "regex": "(.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9"
+      ]
+    }
+  },
+  {
+    "cluster_id": 11,
+    "examples": [
+      "In OXE, connect to the server and modify the phone A password. Launch 'mgr', go to 'user', 'review/modify', select phone A number, and modify the 'secret code' line to a different value than the former phone A password.",
+      "In OXE, launch mgr, go to user, review/modify, select phone A number, and modify the secret code line to a different value than the former phone A password."
+    ],
+    "pattern": {
+      "pattern": "In OXE, {param_1} {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9} {param_10} {param_11} {param_12} {param_13} {param_14} {param_15} {param_16} {param_17} {param_18} {param_19} {param_20} {param_21} {param_22} {param_23} {param_24} {param_25} {param_26} {param_27} phone A {param_28} {param_29} {param_30} {param_31} {param_32} {param_33} {param_34} {param_35} {param_36} {param_37} {param_38} {param_39} {param_40} {param_41} {param_42} {param_43} {param_44} {param_45} {param_46} {param_47} {param_48}",
+      "regex": "In OXE, (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) phone A (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9",
+        "param_10",
+        "param_11",
+        "param_12",
+        "param_13",
+        "param_14",
+        "param_15",
+        "param_16",
+        "param_17",
+        "param_18",
+        "param_19",
+        "param_20",
+        "param_21",
+        "param_22",
+        "param_23",
+        "param_24",
+        "param_25",
+        "param_26",
+        "param_27",
+        "param_28",
+        "param_29",
+        "param_30",
+        "param_31",
+        "param_32",
+        "param_33",
+        "param_34",
+        "param_35",
+        "param_36",
+        "param_37",
+        "param_38",
+        "param_39",
+        "param_40",
+        "param_41",
+        "param_42",
+        "param_43",
+        "param_44",
+        "param_45",
+        "param_46",
+        "param_47",
+        "param_48"
+      ]
+    }
+  },
+  {
+    "cluster_id": 12,
+    "examples": [
+      "Select an already defined key.",
+      "Select an already defined key, for example a key that calls phone B."
+    ],
+    "pattern": {
+      "pattern": "Select an already defined key {param_1} {param_2} {param_3} {key_name} {param_5} {param_6} {param_7} {param_8} {param_9} {param_10}",
+      "regex": "Select an already defined key (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "key_name",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9",
+        "param_10"
+      ]
+    }
+  },
+  {
+    "cluster_id": 13,
+    "examples": [
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A."
+    ],
+    "pattern": {
+      "pattern": "Dial the lock prefix on phone A.",
+      "regex": "Dial the lock prefix on phone A \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 14,
+    "examples": [
+      "Dial the lock prefix on phone A (OXE: 45).",
+      "Dial the lock prefix (OXE 45) on phone A."
+    ],
+    "pattern": {
+      "pattern": "Dial the lock prefix {param_1} {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9}",
+      "regex": "Dial the lock prefix (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9"
+      ]
+    }
+  },
+  {
+    "cluster_id": 15,
+    "examples": [
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page."
+    ],
+    "pattern": {
+      "pattern": "Select a key programming page.",
+      "regex": "Select a key programming page \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 16,
+    "examples": [
+      "Select \"Do Not Disturb\".",
+      "Press the Do Not Disturb programmable key."
+    ],
+    "pattern": {
+      "pattern": "{param_1} {param_2} Do Not Disturb {param_3} {param_4} {param_5}",
+      "regex": "(.*) (.*) Do Not Disturb (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5"
+      ]
+    }
+  },
+  {
+    "cluster_id": 17,
+    "examples": [
+      "phone A presses the Silent key.",
+      "Press the Silence key on phone A.",
+      "Press the physical Mute key on phone A.",
+      "Press the physical Mute key on phone A.",
+      "Press the physical Mute key.",
+      "Press the physical Mute key on phone A.",
+      "Press the physical Mute key on phone A.",
+      "Press the physical Mute key on phone A.",
+      "Press the physical Mute key on phone A.",
+      "Press the physical Mute key on phone A.",
+      "Press the Mute key again. Switch the audio mode."
+    ],
+    "pattern": {
+      "pattern": "{param_1} {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9} {param_10} {param_11}",
+      "regex": "(.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9",
+        "param_10",
+        "param_11"
+      ]
+    }
+  },
+  {
+    "cluster_id": 18,
+    "examples": [
+      "Switch the audio mode among handset, handsfree, and headset.",
+      "Switch from handset mode to handsfree mode.",
+      "Switch from handsfree mode to handset mode.",
+      "Switch from handsfree mode to handset mode."
+    ],
+    "pattern": {
+      "pattern": "Switch {param_1} {param_2} mode {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9} {param_10}",
+      "regex": "Switch (.*) (.*) mode (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9",
+        "param_10"
+      ]
+    }
+  },
+  {
+    "cluster_id": 19,
+    "examples": [
+      "Switch from handset mode to group listening mode.",
+      "Switch from group listening mode to handsfree mode."
+    ],
+    "pattern": {
+      "pattern": "Switch from {param_1} {param_2} {param_3} {param_4} {param_5} mode.",
+      "regex": "Switch from (.*) (.*) (.*) (.*) (.*) mode \\.",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5"
+      ]
+    }
+  },
+  {
+    "cluster_id": 20,
+    "examples": [
+      "Enter a bad password.",
+      "Enter a bad password.",
+      "Enter a bad password.",
+      "Enter a bad password."
+    ],
+    "pattern": {
+      "pattern": "Enter a bad password.",
+      "regex": "Enter a bad password \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 21,
+    "examples": [
+      "phone B presses the programmed park key. In OXO, the park key is available on the communication screen.",
+      "phone C dials the parking code 86 plus phone B's number. In OXO, navigate to the menu, select pick-up, choose unpark call, and dial phone B's number."
+    ],
+    "pattern": {
+      "pattern": "phone {param_1} {param_2} the {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9} {param_10} {param_11} {param_12} {param_13} {param_14} {param_15} {param_16} {param_17} {param_18} {param_19} {param_20} {param_21} {param_22} {param_23} {param_24} {target} {param_26} {param_27} {param_28} {param_29} {param_30} {param_31} {param_32} {target_33} {param_34} {param_35}",
+      "regex": "phone (.*) (.*) the (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9",
+        "param_10",
+        "param_11",
+        "param_12",
+        "param_13",
+        "param_14",
+        "param_15",
+        "param_16",
+        "param_17",
+        "param_18",
+        "param_19",
+        "param_20",
+        "param_21",
+        "param_22",
+        "param_23",
+        "param_24",
+        "target",
+        "param_26",
+        "param_27",
+        "param_28",
+        "param_29",
+        "param_30",
+        "param_31",
+        "param_32",
+        "target_33",
+        "param_34",
+        "param_35"
+      ]
+    }
+  },
+  {
+    "cluster_id": 22,
+    "examples": [
+      "On phone A, consult the call log list and select the previous call. Press the right softkey to make a redial on ALE-300. Press on the name on ALE-400/500.",
+      "On phone A, consult the call log list and select the previous call. Press the right softkey to make a redial on ALE-300, or press on the name on ALE-400/500."
+    ],
+    "pattern": {
+      "pattern": "On phone A, consult the call log list and select the previous call. Press the right softkey to make a redial on ALE-300 {param_1} {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9}",
+      "regex": "On phone A, consult the call log list and select the previous call \\. Press the right softkey to make a redial on ALE\\-300 (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9"
+      ]
+    }
+  },
+  {
+    "cluster_id": 23,
+    "examples": [
+      "On phone A, consult the call log list and select the previous non-answered call. Press the right softkey to make a redial on ALE-300, or press on the name on ALE-400/500.",
+      "On phone A, consult the call log list and select the previous non-answered call. Press the right softkey to make a redial on ALE-300, or press on the name on ALE-400/500."
+    ],
+    "pattern": {
+      "pattern": "On phone A, consult the call log list and select the previous non-answered call. Press the right softkey to make a redial on ALE-300, or press on the name on ALE-400/500.",
+      "regex": "On phone A, consult the call log list and select the previous non\\-answered call \\. Press the right softkey to make a redial on ALE\\-300, or press on the name on ALE\\-400/500 \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 24,
+    "examples": [
+      "Dial the change password prefix (OXE 405).",
+      "Enter a new 4-digit password and validate.",
+      "Enter the new password (defined in step 4) and validate.",
+      "Enter the new password defined in steps 4 and 5."
+    ],
+    "pattern": {
+      "pattern": "{param_1} {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9} {param_10} {param_11} {param_12} {param_13}",
+      "regex": "(.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9",
+        "param_10",
+        "param_11",
+        "param_12",
+        "param_13"
+      ]
+    }
+  },
+  {
+    "cluster_id": 25,
+    "examples": [
+      "In OXE, configure phone B with an immediate forward to phone C.",
+      "In OXE, configure phone B with an immediate forward to phone C."
+    ],
+    "pattern": {
+      "pattern": "In OXE, configure phone B with an immediate forward to phone C.",
+      "regex": "In OXE, configure phone B with an immediate forward to phone C \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 26,
+    "examples": [
+      "In OXE, configure phone A to forward calls immediately to phone B.",
+      "In OXE, configure phone A to forward calls immediately to phone B."
+    ],
+    "pattern": {
+      "pattern": "In OXE, configure phone A to forward calls immediately to phone B.",
+      "regex": "In OXE, configure phone A to forward calls immediately to phone B \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 27,
+    "examples": [
+      "Select \"Call Park\".",
+      "Press the \"Call Park\" programmable key.",
+      "Select Retrieve Park.",
+      "Press the Retrieve Park programmable key."
+    ],
+    "pattern": {
+      "pattern": "{key_name} {key_name_2} {key_name_3} {key_name_4} {key_name_5} {key_name_6} {key_name_7} {param_8} {param_9}",
+      "regex": "(.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "key_name",
+        "key_name_2",
+        "key_name_3",
+        "key_name_4",
+        "key_name_5",
+        "key_name_6",
+        "key_name_7",
+        "param_8",
+        "param_9"
+      ]
+    }
+  },
+  {
+    "cluster_id": 28,
+    "examples": [
+      "Press the edit button for the first softkey on the top right.",
+      "Press the edit button associated with the first softkey on the top right.",
+      "Press the newly modified key."
+    ],
+    "pattern": {
+      "pattern": "Press the {param_1} {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9} {param_10} {param_11} {param_12}",
+      "regex": "Press the (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9",
+        "param_10",
+        "param_11",
+        "param_12"
+      ]
+    }
+  },
+  {
+    "cluster_id": 29,
+    "examples": [
+      "Answer an incoming call by lifting the receiver.",
+      "Answer an incoming call by pressing the Handsfree key.",
+      "Answer an incoming call by selecting Take call in the presentation screen menu.",
+      "Answer an incoming call by taking the call with an accessory."
+    ],
+    "pattern": {
+      "pattern": "Answer an incoming call by {param_1} {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9}",
+      "regex": "Answer an incoming call by (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9"
+      ]
+    }
+  },
+  {
+    "cluster_id": 30,
+    "examples": [
+      "Enter the new phone A user password defined by admin during step 2.",
+      "Enter the old phone A user password (the one before the admin changed its value)."
+    ],
+    "pattern": {
+      "pattern": "Enter the {param_1} phone A user password {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9} {param_10} {param_11} {param_12}",
+      "regex": "Enter the (.*) phone A user password (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9",
+        "param_10",
+        "param_11",
+        "param_12"
+      ]
+    }
+  },
+  {
+    "cluster_id": 31,
+    "examples": [
+      "Navigate to the menu settings on phone A.",
+      "Navigate to the menu settings on phone A."
+    ],
+    "pattern": {
+      "pattern": "Navigate to the menu settings on phone A.",
+      "regex": "Navigate to the menu settings on phone A \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 32,
+    "examples": [
+      "Press the OK button on the smartpad to create the programmable key.",
+      "Press the OK button on the smartpad to create the programmable key.",
+      "Press the OK button on the smartpad to create the programmable key."
+    ],
+    "pattern": {
+      "pattern": "Press the OK button on the smartpad to create the programmable key.",
+      "regex": "Press the OK button on the smartpad to create the programmable key \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 33,
+    "examples": [
+      "Set up your programmable key.",
+      "Set up your programmable key.",
+      "Set up your programmable key.",
+      "Set up your programmable key.",
+      "Set up your programmable key."
+    ],
+    "pattern": {
+      "pattern": "Set up your programmable key.",
+      "regex": "Set up your programmable key \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 34,
+    "examples": [
+      "phone A tries to send a text message to another device.",
+      "phone A tries to send a text message to another device."
+    ],
+    "pattern": {
+      "pattern": "phone A tries to send a text message to another device.",
+      "regex": "phone A tries to send a text message to another device \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 35,
+    "examples": [
+      "phone A tries to read a text message.",
+      "Read a text message on phone A.",
+      "On phone A, try to read a text message."
+    ],
+    "pattern": {
+      "pattern": "{param_1} {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9} {param_10} {param_11}",
+      "regex": "(.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9",
+        "param_10",
+        "param_11"
+      ]
+    }
+  },
+  {
+    "cluster_id": 36,
+    "examples": [
+      "Press the \"Immediate forward\" programmable key.",
+      "Press the newly created programmable key."
+    ],
+    "pattern": {
+      "pattern": "Press the {key_name} {key_name_2} {key_name_3} {key_name_4} {key_name_5} {param_6} {param_7}",
+      "regex": "Press the (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "key_name",
+        "key_name_2",
+        "key_name_3",
+        "key_name_4",
+        "key_name_5",
+        "param_6",
+        "param_7"
+      ]
+    }
+  },
+  {
+    "cluster_id": 37,
+    "examples": [
+      "Navigate to the ProgKeys page.",
+      "Navigate to the ProgKeys page.",
+      "Navigate to the ProgKeys page.",
+      "Navigate to the ProgKeys page.",
+      "Navigate to the ProgKeys page.",
+      "Navigate to the ProgKeys page.",
+      "Press the newly created progkey."
+    ],
+    "pattern": {
+      "pattern": "{param_1} {param_2} {param_3} {param_4} {param_5}.",
+      "regex": "(.*) (.*) (.*) (.*) (.*) \\.",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5"
+      ]
+    }
+  },
+  {
+    "cluster_id": 38,
+    "examples": [
+      "Press the previously created programmable key to start the call.",
+      "Press the previously created programmable key to start the call.",
+      "Press the previously created programmable key to start the call.",
+      "Press the previously created programmable key to start the call."
+    ],
+    "pattern": {
+      "pattern": "Press the previously created programmable key to start the call.",
+      "regex": "Press the previously created programmable key to start the call \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 39,
+    "examples": [
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A."
+    ],
+    "pattern": {
+      "pattern": "Navigate to the ProgKeys menu on phone A.",
+      "regex": "Navigate to the ProgKeys menu on phone A \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 40,
+    "examples": [
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A."
+    ],
+    "pattern": {
+      "pattern": "Navigate to the ProgKeys menu on phone A.",
+      "regex": "Navigate to the ProgKeys menu on phone A \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 41,
+    "examples": [
+      "Navigate to the ProgKeys page on phone A.",
+      "Navigate to the ProgKeys page on phone A."
+    ],
+    "pattern": {
+      "pattern": "Navigate to the ProgKeys page on phone A.",
+      "regex": "Navigate to the ProgKeys page on phone A \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 42,
+    "examples": [
+      "Navigate to the ProgKeys page on phone A.",
+      "Navigate to the ProgKeys page on phone A.",
+      "Navigate to the ProgKeys page on phone A.",
+      "Navigate to the ProgKeys page on phone A.",
+      "Navigate to the ProgKeys page on phone A."
+    ],
+    "pattern": {
+      "pattern": "Navigate to the ProgKeys page on phone A.",
+      "regex": "Navigate to the ProgKeys page on phone A \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 43,
+    "examples": [
+      "Make phone B busy.",
+      "Make enough calls to phone B to make it full busy."
+    ],
+    "pattern": {
+      "pattern": "Make {param_1} {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9} {param_10} {param_11}",
+      "regex": "Make (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9",
+        "param_10",
+        "param_11"
+      ]
+    }
+  },
+  {
+    "cluster_id": 44,
+    "examples": [
+      "Set up your programmable key associated with phone B's number.",
+      "Set up your programmable key associated with phone B's number.",
+      "Set up your programmable key associated with phone B's number."
+    ],
+    "pattern": {
+      "pattern": "Set up your programmable key associated with phone B ' s number.",
+      "regex": "Set up your programmable key associated with phone B ' s number \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 45,
+    "examples": [
+      "phone A switches the active call.",
+      "phone A switches the active call."
+    ],
+    "pattern": {
+      "pattern": "phone A switches the active call.",
+      "regex": "phone A switches the active call \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 46,
+    "examples": [
+      "Switch the active call on phone A.",
+      "Switch the active call on phone A.",
+      "Switch the active call on phone A.",
+      "Switch the active call on phone A."
+    ],
+    "pattern": {
+      "pattern": "Switch the active call on phone A.",
+      "regex": "Switch the active call on phone A \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 47,
+    "examples": [
+      "Enter the phone A password and send the message to phone B.",
+      "Send a text message from phone A to phone B.",
+      "Enter the phone A password and read the messages on phone A."
+    ],
+    "pattern": {
+      "pattern": "{param_1} {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9} {param_10} {param_11} {param_12} {param_13}",
+      "regex": "(.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9",
+        "param_10",
+        "param_11",
+        "param_12",
+        "param_13"
+      ]
+    }
+  },
+  {
+    "cluster_id": 48,
+    "examples": [
+      "Enter the phone A user password.",
+      "Enter the phone A user password."
+    ],
+    "pattern": {
+      "pattern": "Enter the phone A user password.",
+      "regex": "Enter the phone A user password \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 49,
+    "examples": [
+      "On phone B, press the letter iconed physical key.",
+      "On phone A, enter the first letters of phone B's user name on the keyboard, or open the search screen if no keyboard is plugged in and type the first letters of phone B's user name.",
+      "On phone A, press the redial physical key."
+    ],
+    "pattern": {
+      "pattern": "On phone {param_1}, {param_2} the {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9} {param_10} {param_11} {param_12} {param_13} {param_14} {param_15} {param_16} {param_17} {param_18} {param_19} {param_20} {param_21} {param_22} {param_23} {param_24} {param_25} {param_26} {param_27} {param_28} {param_29} {param_30} {param_31} {param_32} {param_33} {param_34} {param_35} {param_36} {param_37} {param_38} {param_39}",
+      "regex": "On phone (.*), (.*) the (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9",
+        "param_10",
+        "param_11",
+        "param_12",
+        "param_13",
+        "param_14",
+        "param_15",
+        "param_16",
+        "param_17",
+        "param_18",
+        "param_19",
+        "param_20",
+        "param_21",
+        "param_22",
+        "param_23",
+        "param_24",
+        "param_25",
+        "param_26",
+        "param_27",
+        "param_28",
+        "param_29",
+        "param_30",
+        "param_31",
+        "param_32",
+        "param_33",
+        "param_34",
+        "param_35",
+        "param_36",
+        "param_37",
+        "param_38",
+        "param_39"
+      ]
+    }
+  },
+  {
+    "cluster_id": 50,
+    "examples": [
+      "Press the redial programmable key to start another call to phone B.",
+      "Press the ReCall programmable key to call back phone B."
+    ],
+    "pattern": {
+      "pattern": "Press the {param_1} programmable key to {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {param_8}",
+      "regex": "Press the (.*) programmable key to (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8"
+      ]
+    }
+  },
+  {
+    "cluster_id": 51,
+    "examples": [
+      "On phone A, press the Call back key.",
+      "On phone A, press the Call back key."
+    ],
+    "pattern": {
+      "pattern": "On phone A, press the Call back key.",
+      "regex": "On phone A, press the Call back key \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 52,
+    "examples": [
+      "phone A goes to another phone and dials the code to retrieve the call with phone C.",
+      "Enter the code to retrieve the call with phone C on phone A."
+    ],
+    "pattern": {
+      "pattern": "{param_1} {param_2} {param_3} to {param_4} {param_5} {param_6} {param_7} {param_8} {param_9} {param_10} {param_11} {param_12} {param_13} {param_14} {param_15} {param_16} {param_17}",
+      "regex": "(.*) (.*) (.*) to (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9",
+        "param_10",
+        "param_11",
+        "param_12",
+        "param_13",
+        "param_14",
+        "param_15",
+        "param_16",
+        "param_17"
+      ]
+    }
+  },
+  {
+    "cluster_id": 53,
+    "examples": [
+      "phone B hangs up.",
+      "phone B hangs up the call."
+    ],
+    "pattern": {
+      "pattern": "phone B hangs up {target} {param_2} {param_3}",
+      "regex": "phone B hangs up (.*) (.*) (.*)",
+      "parameters": [
+        "target",
+        "param_2",
+        "param_3"
+      ]
+    }
+  },
+  {
+    "cluster_id": 54,
+    "examples": [
+      "phone C calls phone A.",
+      "phone C calls phone A.",
+      "phone C calls phone A.",
+      "phone C answers the call.",
+      "phone C calls phone A."
+    ],
+    "pattern": {
+      "pattern": "phone C {param_1} {param_2} {param_3}.",
+      "regex": "phone C (.*) (.*) (.*) \\.",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3"
+      ]
+    }
+  },
+  {
+    "cluster_id": 55,
+    "examples": [
+      "phone A retrieves the call.",
+      "phone A takes the call.",
+      "phone A takes the call."
+    ],
+    "pattern": {
+      "pattern": "phone A {param_1} the call.",
+      "regex": "phone A (.*) the call \\.",
+      "parameters": [
+        "param_1"
+      ]
+    }
+  },
+  {
+    "cluster_id": 56,
+    "examples": [
+      "phone B answers the call.",
+      "phone B answers the call.",
+      "phone B answers the call."
+    ],
+    "pattern": {
+      "pattern": "phone B answers the call.",
+      "regex": "phone B answers the call \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 57,
+    "examples": [
+      "phone C makes an outgoing call to phone A.",
+      "phone C makes an outgoing call to phone A.",
+      "phone C makes an outgoing call to phone A.",
+      "phone A receives an incoming call from phone C.",
+      "phone C makes an outgoing call to phone A.",
+      "phone C makes an outgoing call to phone A."
+    ],
+    "pattern": {
+      "pattern": "phone {param_1} {param_2} an {target} call {param_4} phone {param_5}.",
+      "regex": "phone (.*) (.*) an (.*) call (.*) phone (.*) \\.",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "target",
+        "param_4",
+        "param_5"
+      ]
+    }
+  },
+  {
+    "cluster_id": 58,
+    "examples": [
+      "phone A makes a new call to phone C by pressing the new call key and dialing phone C's number.",
+      "phone A makes a new outgoing call to phone C by pressing the new call key and dialing phone C number.",
+      "phone A makes an outgoing call to phone C by pressing the new call key and dialing phone C's number."
+    ],
+    "pattern": {
+      "pattern": "phone A makes {param_1} {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {param_8} {param_9} {param_10} {param_11} {param_12} {param_13} {param_14} {param_15} {param_16} {param_17} {param_18} {param_19} {param_20}",
+      "regex": "phone A makes (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "param_8",
+        "param_9",
+        "param_10",
+        "param_11",
+        "param_12",
+        "param_13",
+        "param_14",
+        "param_15",
+        "param_16",
+        "param_17",
+        "param_18",
+        "param_19",
+        "param_20"
+      ]
+    }
+  },
+  {
+    "cluster_id": 59,
+    "examples": [
+      "phone A calls phone B by picking up the handset and dialing phone B number.",
+      "phone A calls phone B by dialing phone B number."
+    ],
+    "pattern": {
+      "pattern": "phone A calls phone B by {param_1} {param_2} {param_3} {param_4} {param_5} {param_6} {param_7} {target} {param_9} {param_10}",
+      "regex": "phone A calls phone B by (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4",
+        "param_5",
+        "param_6",
+        "param_7",
+        "target",
+        "param_9",
+        "param_10"
+      ]
+    }
+  },
+  {
+    "cluster_id": 60,
+    "examples": [
+      "phone B takes the call.",
+      "phone B takes the call.",
+      "phone B rings and takes the call."
+    ],
+    "pattern": {
+      "pattern": "phone B {target} {target_2} {target_3} {target_4} {param_5} {param_6}",
+      "regex": "phone B (.*) (.*) (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "target",
+        "target_2",
+        "target_3",
+        "target_4",
+        "param_5",
+        "param_6"
+      ]
+    }
+  },
+  {
+    "cluster_id": 61,
+    "examples": [
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B."
+    ],
+    "pattern": {
+      "pattern": "phone A calls phone B.",
+      "regex": "phone A calls phone B \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 62,
+    "examples": [
+      "phone B calls back phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A."
+    ],
+    "pattern": {
+      "pattern": "phone B calls {param_1} {param_2} {param_3} {param_4}",
+      "regex": "phone B calls (.*) (.*) (.*) (.*)",
+      "parameters": [
+        "param_1",
+        "param_2",
+        "param_3",
+        "param_4"
+      ]
+    }
+  },
+  {
+    "cluster_id": 63,
+    "examples": [
+      "phone B receives an incoming call.",
+      "phone B receives an incoming call."
+    ],
+    "pattern": {
+      "pattern": "phone B receives an incoming call.",
+      "regex": "phone B receives an incoming call \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 64,
+    "examples": [
+      "phone B makes an outgoing call to phone A.",
+      "phone B makes an outgoing call to phone A.",
+      "phone B makes an outgoing call to phone A.",
+      "phone B makes an outgoing call to phone A.",
+      "phone B makes an outgoing call to phone A.",
+      "phone B makes an outgoing call to phone A.",
+      "phone B makes an outgoing call to phone A."
+    ],
+    "pattern": {
+      "pattern": "phone B makes an outgoing call to phone A.",
+      "regex": "phone B makes an outgoing call to phone A \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 65,
+    "examples": [
+      "phone A makes an outgoing call to phone B.",
+      "phone A makes an outgoing call to phone B.",
+      "phone A makes an outgoing call to phone B.",
+      "phone A makes an outgoing call to phone B.",
+      "phone A makes an outgoing call to phone B.",
+      "phone A makes an outgoing call to phone B.",
+      "phone A makes an outgoing call to phone B.",
+      "phone A makes an outgoing call to phone B.",
+      "phone A makes an outgoing call to phone B.",
+      "phone A makes an outgoing call to phone B.",
+      "phone A makes an outgoing call to phone B.",
+      "phone A makes an outgoing call to phone B.",
+      "phone A makes an outgoing call to phone B."
+    ],
+    "pattern": {
+      "pattern": "phone A makes an outgoing call to phone B.",
+      "regex": "phone A makes an outgoing call to phone B \\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 66,
+    "examples": [
+      "phone A dials phone B."
+    ],
+    "pattern": {
+      "pattern": "phone A dials phone B.",
+      "regex": "phone\\ A\\ dials\\ phone\\ B\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 67,
+    "examples": [
+      "phone A presses the New call key and dials phone C."
+    ],
+    "pattern": {
+      "pattern": "phone A presses the New call key and dials phone C.",
+      "regex": "phone\\ A\\ presses\\ the\\ New\\ call\\ key\\ and\\ dials\\ phone\\ C\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 68,
+    "examples": [
+      "phone A puts phone B on Hold."
+    ],
+    "pattern": {
+      "pattern": "phone A puts phone B on Hold.",
+      "regex": "phone\\ A\\ puts\\ phone\\ B\\ on\\ Hold\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 69,
+    "examples": [
+      "phone B becomes idle again."
+    ],
+    "pattern": {
+      "pattern": "phone B becomes idle again.",
+      "regex": "phone\\ B\\ becomes\\ idle\\ again\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 70,
+    "examples": [
+      "phone A takes the incoming call from server."
+    ],
+    "pattern": {
+      "pattern": "phone A takes the incoming call from server.",
+      "regex": "phone\\ A\\ takes\\ the\\ incoming\\ call\\ from\\ server\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 71,
+    "examples": [
+      "Dial a phone number on phone A dialpad."
+    ],
+    "pattern": {
+      "pattern": "Dial a phone number on phone A dialpad.",
+      "regex": "Dial\\ a\\ phone\\ number\\ on\\ phone\\ A\\ dialpad\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 72,
+    "examples": [
+      "phone A displays the search result. Press the key in line with phone B's user name on ALE-300, or directly on the name on ALE-400 and ALE-500."
+    ],
+    "pattern": {
+      "pattern": "phone A displays the search result. Press the key in line with phone B's user name on ALE-300, or directly on the name on ALE-400 and ALE-500.",
+      "regex": "phone\\ A\\ displays\\ the\\ search\\ result\\.\\ Press\\ the\\ key\\ in\\ line\\ with\\ phone\\ B's\\ user\\ name\\ on\\ ALE\\-300,\\ or\\ directly\\ on\\ the\\ name\\ on\\ ALE\\-400\\ and\\ ALE\\-500\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 73,
+    "examples": [
+      "phone A calls a phone number that does not exist."
+    ],
+    "pattern": {
+      "pattern": "phone A calls a phone number that does not exist.",
+      "regex": "phone\\ A\\ calls\\ a\\ phone\\ number\\ that\\ does\\ not\\ exist\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 74,
+    "examples": [
+      "phone A calls phone B by pressing the loudspeaker key and dialing phone B number. Press the loudspeaker key, enter search interface, input phone B number, and press B item to make call."
+    ],
+    "pattern": {
+      "pattern": "phone A calls phone B by pressing the loudspeaker key and dialing phone B number. Press the loudspeaker key, enter search interface, input phone B number, and press B item to make call.",
+      "regex": "phone\\ A\\ calls\\ phone\\ B\\ by\\ pressing\\ the\\ loudspeaker\\ key\\ and\\ dialing\\ phone\\ B\\ number\\.\\ Press\\ the\\ loudspeaker\\ key,\\ enter\\ search\\ interface,\\ input\\ phone\\ B\\ number,\\ and\\ press\\ B\\ item\\ to\\ make\\ call\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 75,
+    "examples": [
+      "phone A presses the Silent key. For OXO, use the hang up key."
+    ],
+    "pattern": {
+      "pattern": "phone A presses the Silent key. For OXO, use the hang up key.",
+      "regex": "phone\\ A\\ presses\\ the\\ Silent\\ key\\.\\ For\\ OXO,\\ use\\ the\\ hang\\ up\\ key\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 76,
+    "examples": [
+      "Press the volume + and volume - keys on phone A when it is ringing."
+    ],
+    "pattern": {
+      "pattern": "Press the volume + and volume - keys on phone A when it is ringing.",
+      "regex": "Press\\ the\\ volume\\ \\+\\ and\\ volume\\ \\-\\ keys\\ on\\ phone\\ A\\ when\\ it\\ is\\ ringing\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 77,
+    "examples": [
+      "phone A takes the second incoming call by switching it to the top of the screen and pressing the take call key."
+    ],
+    "pattern": {
+      "pattern": "phone A takes the second incoming call by switching it to the top of the screen and pressing the take call key.",
+      "regex": "phone\\ A\\ takes\\ the\\ second\\ incoming\\ call\\ by\\ switching\\ it\\ to\\ the\\ top\\ of\\ the\\ screen\\ and\\ pressing\\ the\\ take\\ call\\ key\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 78,
+    "examples": [
+      "phone A makes an outgoing call to phone B from the call log."
+    ],
+    "pattern": {
+      "pattern": "phone A makes an outgoing call to phone B from the call log.",
+      "regex": "phone\\ A\\ makes\\ an\\ outgoing\\ call\\ to\\ phone\\ B\\ from\\ the\\ call\\ log\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 79,
+    "examples": [
+      "phone A calls its voicemail."
+    ],
+    "pattern": {
+      "pattern": "phone A calls its voicemail.",
+      "regex": "phone\\ A\\ calls\\ its\\ voicemail\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 80,
+    "examples": [
+      "On day 1, phone A makes some outgoing calls, both answered and unanswered, and receives some calls, both answered and unanswered."
+    ],
+    "pattern": {
+      "pattern": "On day 1, phone A makes some outgoing calls, both answered and unanswered, and receives some calls, both answered and unanswered.",
+      "regex": "On\\ day\\ 1,\\ phone\\ A\\ makes\\ some\\ outgoing\\ calls,\\ both\\ answered\\ and\\ unanswered,\\ and\\ receives\\ some\\ calls,\\ both\\ answered\\ and\\ unanswered\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 81,
+    "examples": [
+      "On the next day, check the call log on phone A."
+    ],
+    "pattern": {
+      "pattern": "On the next day, check the call log on phone A.",
+      "regex": "On\\ the\\ next\\ day,\\ check\\ the\\ call\\ log\\ on\\ phone\\ A\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 82,
+    "examples": [
+      "Fill the phone A call log with various entries including outgoing calls and incoming calls."
+    ],
+    "pattern": {
+      "pattern": "Fill the phone A call log with various entries including outgoing calls and incoming calls.",
+      "regex": "Fill\\ the\\ phone\\ A\\ call\\ log\\ with\\ various\\ entries\\ including\\ outgoing\\ calls\\ and\\ incoming\\ calls\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 83,
+    "examples": [
+      "Make an outgoing call from phone A to phone B. Remote side answers the call and then releases the call."
+    ],
+    "pattern": {
+      "pattern": "Make an outgoing call from phone A to phone B. Remote side answers the call and then releases the call.",
+      "regex": "Make\\ an\\ outgoing\\ call\\ from\\ phone\\ A\\ to\\ phone\\ B\\.\\ Remote\\ side\\ answers\\ the\\ call\\ and\\ then\\ releases\\ the\\ call\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 84,
+    "examples": [
+      "phone A receives an incoming call from phone B. phone A answers the call and then releases the call."
+    ],
+    "pattern": {
+      "pattern": "phone A receives an incoming call from phone B. phone A answers the call and then releases the call.",
+      "regex": "phone\\ A\\ receives\\ an\\ incoming\\ call\\ from\\ phone\\ B\\.\\ phone\\ A\\ answers\\ the\\ call\\ and\\ then\\ releases\\ the\\ call\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 85,
+    "examples": [
+      "phone A makes a call park using the prefix 402 defined in OXE."
+    ],
+    "pattern": {
+      "pattern": "phone A makes a call park using the prefix 402 defined in OXE.",
+      "regex": "phone\\ A\\ makes\\ a\\ call\\ park\\ using\\ the\\ prefix\\ 402\\ defined\\ in\\ OXE\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 86,
+    "examples": [
+      "phone A dials the phone C number."
+    ],
+    "pattern": {
+      "pattern": "phone A dials the phone C number.",
+      "regex": "phone\\ A\\ dials\\ the\\ phone\\ C\\ number\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 87,
+    "examples": [
+      "phone D dials the call park prefix and the directory number of phone C."
+    ],
+    "pattern": {
+      "pattern": "phone D dials the call park prefix and the directory number of phone C.",
+      "regex": "phone\\ D\\ dials\\ the\\ call\\ park\\ prefix\\ and\\ the\\ directory\\ number\\ of\\ phone\\ C\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 88,
+    "examples": [
+      "phone C dials the call pick up prefix and the phone number of B."
+    ],
+    "pattern": {
+      "pattern": "phone C dials the call pick up prefix and the phone number of B.",
+      "regex": "phone\\ C\\ dials\\ the\\ call\\ pick\\ up\\ prefix\\ and\\ the\\ phone\\ number\\ of\\ B\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 89,
+    "examples": [
+      "phone C dials the intrusion suffix."
+    ],
+    "pattern": {
+      "pattern": "phone C dials the intrusion suffix.",
+      "regex": "phone\\ C\\ dials\\ the\\ intrusion\\ suffix\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 90,
+    "examples": [
+      "End communication between phone A and phone B."
+    ],
+    "pattern": {
+      "pattern": "End communication between phone A and phone B.",
+      "regex": "End\\ communication\\ between\\ phone\\ A\\ and\\ phone\\ B\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 91,
+    "examples": [
+      "Reboot phone A and wait until it is idle again."
+    ],
+    "pattern": {
+      "pattern": "Reboot phone A and wait until it is idle again.",
+      "regex": "Reboot\\ phone\\ A\\ and\\ wait\\ until\\ it\\ is\\ idle\\ again\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 92,
+    "examples": [
+      "Define an immediate forward on phone A to phone B."
+    ],
+    "pattern": {
+      "pattern": "Define an immediate forward on phone A to phone B.",
+      "regex": "Define\\ an\\ immediate\\ forward\\ on\\ phone\\ A\\ to\\ phone\\ B\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 93,
+    "examples": [
+      "phone A receives an incoming call from phone B."
+    ],
+    "pattern": {
+      "pattern": "phone A receives an incoming call from phone B.",
+      "regex": "phone\\ A\\ receives\\ an\\ incoming\\ call\\ from\\ phone\\ B\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 94,
+    "examples": [
+      "Browse phone A to the menu parameters and make a call from phone B to phone A at the same time."
+    ],
+    "pattern": {
+      "pattern": "Browse phone A to the menu parameters and make a call from phone B to phone A at the same time.",
+      "regex": "Browse\\ phone\\ A\\ to\\ the\\ menu\\ parameters\\ and\\ make\\ a\\ call\\ from\\ phone\\ B\\ to\\ phone\\ A\\ at\\ the\\ same\\ time\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 95,
+    "examples": [
+      "Enter the current user password."
+    ],
+    "pattern": {
+      "pattern": "Enter the current user password.",
+      "regex": "Enter\\ the\\ current\\ user\\ password\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 96,
+    "examples": [
+      "On phone A, open the call log list and select the previous answered call. For ALE-300, press the right softkey to make a redial. For ALE-400/500, press on the name."
+    ],
+    "pattern": {
+      "pattern": "On phone A, open the call log list and select the previous answered call. For ALE-300, press the right softkey to make a redial. For ALE-400/500, press on the name.",
+      "regex": "On\\ phone\\ A,\\ open\\ the\\ call\\ log\\ list\\ and\\ select\\ the\\ previous\\ answered\\ call\\.\\ For\\ ALE\\-300,\\ press\\ the\\ right\\ softkey\\ to\\ make\\ a\\ redial\\.\\ For\\ ALE\\-400/500,\\ press\\ on\\ the\\ name\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 97,
+    "examples": [
+      "In OXE, define an immediate forward on phone B to phone C."
+    ],
+    "pattern": {
+      "pattern": "In OXE, define an immediate forward on phone B to phone C.",
+      "regex": "In\\ OXE,\\ define\\ an\\ immediate\\ forward\\ on\\ phone\\ B\\ to\\ phone\\ C\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 98,
+    "examples": [
+      "In OXE, cancel forward on phone B."
+    ],
+    "pattern": {
+      "pattern": "In OXE, cancel forward on phone B.",
+      "regex": "In\\ OXE,\\ cancel\\ forward\\ on\\ phone\\ B\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 99,
+    "examples": [
+      "Reboot phone A and wait for the end of its boot."
+    ],
+    "pattern": {
+      "pattern": "Reboot phone A and wait for the end of its boot.",
+      "regex": "Reboot\\ phone\\ A\\ and\\ wait\\ for\\ the\\ end\\ of\\ its\\ boot\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 100,
+    "examples": [
+      "Configure the programmable key with an external number."
+    ],
+    "pattern": {
+      "pattern": "Configure the programmable key with an external number.",
+      "regex": "Configure\\ the\\ programmable\\ key\\ with\\ an\\ external\\ number\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 101,
+    "examples": [
+      "The external number rings and take the call."
+    ],
+    "pattern": {
+      "pattern": "The external number rings and take the call.",
+      "regex": "The\\ external\\ number\\ rings\\ and\\ take\\ the\\ call\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 102,
+    "examples": [
+      "Enter a number which does not exist on server and validate."
+    ],
+    "pattern": {
+      "pattern": "Enter a number which does not exist on server and validate.",
+      "regex": "Enter\\ a\\ number\\ which\\ does\\ not\\ exist\\ on\\ server\\ and\\ validate\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 103,
+    "examples": [
+      "Press the suppression button."
+    ],
+    "pattern": {
+      "pattern": "Press the suppression button.",
+      "regex": "Press\\ the\\ suppression\\ button\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 104,
+    "examples": [
+      "Check that the programmable key has been correctly deleted."
+    ],
+    "pattern": {
+      "pattern": "Check that the programmable key has been correctly deleted.",
+      "regex": "Check\\ that\\ the\\ programmable\\ key\\ has\\ been\\ correctly\\ deleted\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 105,
+    "examples": [
+      "Press the Update key."
+    ],
+    "pattern": {
+      "pattern": "Press the Update key.",
+      "regex": "Press\\ the\\ Update\\ key\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 106,
+    "examples": [
+      "Modify the number associated with this key and define it with phone C number."
+    ],
+    "pattern": {
+      "pattern": "Modify the number associated with this key and define it with phone C number.",
+      "regex": "Modify\\ the\\ number\\ associated\\ with\\ this\\ key\\ and\\ define\\ it\\ with\\ phone\\ C\\ number\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 107,
+    "examples": [
+      "Select \"Redial\"."
+    ],
+    "pattern": {
+      "pattern": "Select \"Redial\".",
+      "regex": "Select\\ \"Redial\"\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 108,
+    "examples": [
+      "phone B does not take the call."
+    ],
+    "pattern": {
+      "pattern": "phone B does not take the call.",
+      "regex": "phone\\ B\\ does\\ not\\ take\\ the\\ call\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 109,
+    "examples": [
+      "Select \"Immediate forward\"."
+    ],
+    "pattern": {
+      "pattern": "Select \"Immediate forward\".",
+      "regex": "Select\\ \"Immediate\\ forward\"\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 110,
+    "examples": [
+      "Navigate to the \"ProgKeys\" page on phone A."
+    ],
+    "pattern": {
+      "pattern": "Navigate to the \"ProgKeys\" page on phone A.",
+      "regex": "Navigate\\ to\\ the\\ \"ProgKeys\"\\ page\\ on\\ phone\\ A\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 111,
+    "examples": [
+      "Select \"Last caller\"."
+    ],
+    "pattern": {
+      "pattern": "Select \"Last caller\".",
+      "regex": "Select\\ \"Last\\ caller\"\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 112,
+    "examples": [
+      "phone A does not take the call."
+    ],
+    "pattern": {
+      "pattern": "phone A does not take the call.",
+      "regex": "phone\\ A\\ does\\ not\\ take\\ the\\ call\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 113,
+    "examples": [
+      "Select \"Meet-Me\"."
+    ],
+    "pattern": {
+      "pattern": "Select \"Meet-Me\".",
+      "regex": "Select\\ \"Meet\\-Me\"\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 114,
+    "examples": [
+      "phone C calls phone B."
+    ],
+    "pattern": {
+      "pattern": "phone C calls phone B.",
+      "regex": "phone\\ C\\ calls\\ phone\\ B\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 115,
+    "examples": [
+      "phone B uses the code to park phone C."
+    ],
+    "pattern": {
+      "pattern": "phone B uses the code to park phone C.",
+      "regex": "phone\\ B\\ uses\\ the\\ code\\ to\\ park\\ phone\\ C\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 116,
+    "examples": [
+      "Create a programmable key for Emergency, Guard, voicemail, or Operator."
+    ],
+    "pattern": {
+      "pattern": "Create a programmable key for Emergency, Guard, voicemail, or Operator.",
+      "regex": "Create\\ a\\ programmable\\ key\\ for\\ Emergency,\\ Guard,\\ voicemail,\\ or\\ Operator\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 117,
+    "examples": [
+      "The service number associated with the programmable key is set on the server, and the phone rings."
+    ],
+    "pattern": {
+      "pattern": "The service number associated with the programmable key is set on the server, and the phone rings.",
+      "regex": "The\\ service\\ number\\ associated\\ with\\ the\\ programmable\\ key\\ is\\ set\\ on\\ the\\ server,\\ and\\ the\\ phone\\ rings\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 118,
+    "examples": [
+      "Create a progkey for Group pickup or Associate."
+    ],
+    "pattern": {
+      "pattern": "Create a progkey for Group pickup or Associate.",
+      "regex": "Create\\ a\\ progkey\\ for\\ Group\\ pickup\\ or\\ Associate\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 119,
+    "examples": [
+      "Check that the service or number associated with the progkey set on the server or on the phone works correctly."
+    ],
+    "pattern": {
+      "pattern": "Check that the service or number associated with the progkey set on the server or on the phone works correctly.",
+      "regex": "Check\\ that\\ the\\ service\\ or\\ number\\ associated\\ with\\ the\\ progkey\\ set\\ on\\ the\\ server\\ or\\ on\\ the\\ phone\\ works\\ correctly\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 120,
+    "examples": [
+      "phone A is connected to a headset. phone A is in conversation with phone B. Press the Mute key."
+    ],
+    "pattern": {
+      "pattern": "phone A is connected to a headset. phone A is in conversation with phone B. Press the Mute key.",
+      "regex": "phone\\ A\\ is\\ connected\\ to\\ a\\ headset\\.\\ phone\\ A\\ is\\ in\\ conversation\\ with\\ phone\\ B\\.\\ Press\\ the\\ Mute\\ key\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 121,
+    "examples": [
+      "Repeat steps 3 to 7 ten times and change the volume level during the test. Use a realistic time gap between two switchings."
+    ],
+    "pattern": {
+      "pattern": "Repeat steps 3 to 7 ten times and change the volume level during the test. Use a realistic time gap between two switchings.",
+      "regex": "Repeat\\ steps\\ 3\\ to\\ 7\\ ten\\ times\\ and\\ change\\ the\\ volume\\ level\\ during\\ the\\ test\\.\\ Use\\ a\\ realistic\\ time\\ gap\\ between\\ two\\ switchings\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 122,
+    "examples": [
+      "phone A makes an outgoing call to phone B and parks the call by dialing the relevant parking prefix."
+    ],
+    "pattern": {
+      "pattern": "phone A makes an outgoing call to phone B and parks the call by dialing the relevant parking prefix.",
+      "regex": "phone\\ A\\ makes\\ an\\ outgoing\\ call\\ to\\ phone\\ B\\ and\\ parks\\ the\\ call\\ by\\ dialing\\ the\\ relevant\\ parking\\ prefix\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 123,
+    "examples": [
+      "Dial the code to retrieve the parked call on another set."
+    ],
+    "pattern": {
+      "pattern": "Dial the code to retrieve the parked call on another set.",
+      "regex": "Dial\\ the\\ code\\ to\\ retrieve\\ the\\ parked\\ call\\ on\\ another\\ set\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 124,
+    "examples": [
+      "Check CLIP and COLP."
+    ],
+    "pattern": {
+      "pattern": "Check CLIP and COLP.",
+      "regex": "Check\\ CLIP\\ and\\ COLP\\.",
+      "parameters": []
+    }
+  },
+  {
+    "cluster_id": 125,
+    "examples": [
+      "The SIP phone is in call with another phone, which makes a second call to another phone."
+    ],
+    "pattern": {
+      "pattern": "The SIP phone is in call with another phone, which makes a second call to another phone.",
+      "regex": "The\\ SIP\\ phone\\ is\\ in\\ call\\ with\\ another\\ phone,\\ which\\ makes\\ a\\ second\\ call\\ to\\ another\\ phone\\.",
+      "parameters": []
+    }
+  }
+]

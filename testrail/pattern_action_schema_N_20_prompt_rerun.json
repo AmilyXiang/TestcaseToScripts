@@ -1,0 +1,2588 @@
+{
+  "meta": {
+    "loaded_rules": 125,
+    "demo_steps": 100,
+    "patterns_path": "testrail\\step_patterns_N_20_llm.json",
+    "normalized_path": "testrail\\normalized_N_20.json",
+    "pipeline": [
+      "pattern",
+      "regex_match",
+      "embedding_similarity",
+      "generic"
+    ],
+    "action_schema_actions": [
+      "dial_call",
+      "answer_call",
+      "hangup_call",
+      "hold_call",
+      "resume_call",
+      "transfer_call",
+      "conference_start",
+      "conference_join",
+      "mute_call",
+      "unmute_call",
+      "generic_action"
+    ],
+    "embedding_fallback": true,
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "embedding_threshold": 0.62
+  },
+  "runs": [
+    {
+      "index": 1,
+      "step": "phone A dials phone B.",
+      "cluster_id": 66,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A dials phone B.)"
+    },
+    {
+      "index": 2,
+      "step": "phone A presses the New call key and dials phone C.",
+      "cluster_id": 67,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone C"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone C"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A presses the New call key and dials phone C.)"
+    },
+    {
+      "index": 3,
+      "step": "phone A switches the active call.",
+      "cluster_id": 45,
+      "pattern_action": "switch_active_call",
+      "pattern_params": {},
+      "action": "answer_call",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "answer_call",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "embedding",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": 0.642646074295044,
+      "execution_result": "Call -> Answer call (phone A switches the active call.)"
+    },
+    {
+      "index": 4,
+      "step": "phone A switches the active call.",
+      "cluster_id": 45,
+      "pattern_action": "switch_active_call",
+      "pattern_params": {},
+      "action": "answer_call",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "answer_call",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "embedding",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": 0.642646074295044,
+      "execution_result": "Call -> Answer call (phone A switches the active call.)"
+    },
+    {
+      "index": 5,
+      "step": "phone B makes an outgoing call to phone A.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "B",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "A"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone B",
+        "from_device": "phone B",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone B",
+          "from_device": "phone B",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone B makes an outgoing call to phone A.)"
+    },
+    {
+      "index": 6,
+      "step": "phone C makes an outgoing call to phone A.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "C",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "A"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone C",
+        "from_device": "phone C",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone C",
+          "from_device": "phone C",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone C makes an outgoing call to phone A.)"
+    },
+    {
+      "index": 7,
+      "step": "Switch the active call on phone A.",
+      "cluster_id": 46,
+      "pattern_action": "switch_active_call",
+      "pattern_params": {},
+      "action": "generic_action",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (Switch the active call on phone A.)"
+    },
+    {
+      "index": 8,
+      "step": "Switch the active call on phone A.",
+      "cluster_id": 46,
+      "pattern_action": "switch_active_call",
+      "pattern_params": {},
+      "action": "generic_action",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (Switch the active call on phone A.)"
+    },
+    {
+      "index": 9,
+      "step": "phone B makes an outgoing call to phone A.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "B",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "A"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone B",
+        "from_device": "phone B",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone B",
+          "from_device": "phone B",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone B makes an outgoing call to phone A.)"
+    },
+    {
+      "index": 10,
+      "step": "phone A makes a new call to phone C by pressing the new call key and dialing phone C's number.",
+      "cluster_id": 58,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone C",
+        "key_name": "new call"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone C",
+          "key_name": "new call"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A makes a new call to phone C by pressing the new call key and dialing phone C's number.)"
+    },
+    {
+      "index": 11,
+      "step": "Switch the active call on phone A.",
+      "cluster_id": 46,
+      "pattern_action": "switch_active_call",
+      "pattern_params": {},
+      "action": "generic_action",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (Switch the active call on phone A.)"
+    },
+    {
+      "index": 12,
+      "step": "Switch the active call on phone A.",
+      "cluster_id": 46,
+      "pattern_action": "switch_active_call",
+      "pattern_params": {},
+      "action": "generic_action",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (Switch the active call on phone A.)"
+    },
+    {
+      "index": 13,
+      "step": "phone A makes an outgoing call to phone B.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "A",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "B"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A makes an outgoing call to phone B.)"
+    },
+    {
+      "index": 14,
+      "step": "phone A puts phone B on Hold.",
+      "cluster_id": 68,
+      "pattern_action": "put_on_hold",
+      "pattern_params": {},
+      "action": "hold_call",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "hold_call",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Put peer on hold"
+    },
+    {
+      "index": 15,
+      "step": "phone A retrieves the call.",
+      "cluster_id": 55,
+      "pattern_action": "retrieve_call",
+      "pattern_params": {
+        "param_1": "retrieves"
+      },
+      "action": "resume_call",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "resume_call",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Retrieve held call"
+    },
+    {
+      "index": 16,
+      "step": "phone A calls phone B.",
+      "cluster_id": 61,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A calls phone B.)"
+    },
+    {
+      "index": 17,
+      "step": "On phone A, press the Call back key.",
+      "cluster_id": 49,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "phone": "A",
+        "action": "press the Call back key."
+      },
+      "action": "generic_action",
+      "params": {
+        "device": "phone A",
+        "key_name": "Call back"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone A",
+          "key_name": "Call back"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (On phone A, press the Call back key.)"
+    },
+    {
+      "index": 18,
+      "step": "On phone B, press the letter iconed physical key.",
+      "cluster_id": 49,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "phone": "B",
+        "action": "press the letter iconed physical key."
+      },
+      "action": "generic_action",
+      "params": {
+        "device": "phone B",
+        "key_name": "letter iconed physical"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone B",
+          "key_name": "letter iconed physical"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (On phone B, press the letter iconed physical key.)"
+    },
+    {
+      "index": 19,
+      "step": "phone B calls back phone A.",
+      "cluster_id": 60,
+      "pattern_action": "answer_call",
+      "pattern_params": {
+        "action": "calls back phone A."
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone B",
+        "from_device": "phone B",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone B",
+          "from_device": "phone B",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone B calls back phone A.)"
+    },
+    {
+      "index": 20,
+      "step": "Make phone B busy.",
+      "cluster_id": 10,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "action": "Make",
+        "target": "phone B busy"
+      },
+      "action": "generic_action",
+      "params": {
+        "device": "phone B"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone B"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_search",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (Make phone B busy.)"
+    },
+    {
+      "index": 21,
+      "step": "phone A calls phone B.",
+      "cluster_id": 61,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A calls phone B.)"
+    },
+    {
+      "index": 22,
+      "step": "On phone A, press the Call back key.",
+      "cluster_id": 49,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "phone": "A",
+        "action": "press the Call back key."
+      },
+      "action": "generic_action",
+      "params": {
+        "device": "phone A",
+        "key_name": "Call back"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone A",
+          "key_name": "Call back"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (On phone A, press the Call back key.)"
+    },
+    {
+      "index": 23,
+      "step": "phone B becomes idle again.",
+      "cluster_id": 60,
+      "pattern_action": "answer_call",
+      "pattern_params": {
+        "action": "becomes idle again."
+      },
+      "action": "answer_call",
+      "params": {
+        "device": "phone B"
+      },
+      "action_schema": {
+        "action": "answer_call",
+        "params": {
+          "device": "phone B"
+        }
+      },
+      "action_schema_method": "pattern_mapping",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (phone B becomes idle again.)"
+    },
+    {
+      "index": 24,
+      "step": "phone A takes the incoming call from server.",
+      "cluster_id": 70,
+      "pattern_action": "generic_action",
+      "pattern_params": {},
+      "action": "answer_call",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "answer_call",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (phone A takes the incoming call from server.)"
+    },
+    {
+      "index": 25,
+      "step": "phone B takes the call.",
+      "cluster_id": 60,
+      "pattern_action": "answer_call",
+      "pattern_params": {
+        "action": "takes the call."
+      },
+      "action": "answer_call",
+      "params": {
+        "device": "phone B"
+      },
+      "action_schema": {
+        "action": "answer_call",
+        "params": {
+          "device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (phone B takes the call.)"
+    },
+    {
+      "index": 26,
+      "step": "phone A makes an outgoing call to phone B.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "A",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "B"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A makes an outgoing call to phone B.)"
+    },
+    {
+      "index": 27,
+      "step": "phone B answers the call.",
+      "cluster_id": 56,
+      "pattern_action": "answer_call",
+      "pattern_params": {},
+      "action": "answer_call",
+      "params": {
+        "device": "phone B"
+      },
+      "action_schema": {
+        "action": "answer_call",
+        "params": {
+          "device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (phone B answers the call.)"
+    },
+    {
+      "index": 28,
+      "step": "End the communication.",
+      "cluster_id": 8,
+      "pattern_action": "end_call",
+      "pattern_params": {
+        "param_1": "End"
+      },
+      "action": "hangup_call",
+      "params": {},
+      "action_schema": {
+        "action": "hangup_call",
+        "params": {}
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> End communication"
+    },
+    {
+      "index": 29,
+      "step": "phone A makes an outgoing call to phone B.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "A",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "B"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A makes an outgoing call to phone B.)"
+    },
+    {
+      "index": 30,
+      "step": "phone B answers the call.",
+      "cluster_id": 56,
+      "pattern_action": "answer_call",
+      "pattern_params": {},
+      "action": "answer_call",
+      "params": {
+        "device": "phone B"
+      },
+      "action_schema": {
+        "action": "answer_call",
+        "params": {
+          "device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (phone B answers the call.)"
+    },
+    {
+      "index": 31,
+      "step": "Make the call last for a few hours.",
+      "cluster_id": 10,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "action": "Make",
+        "target": "call last for a few hours"
+      },
+      "action": "hold_call",
+      "params": {},
+      "action_schema": {
+        "action": "hold_call",
+        "params": {}
+      },
+      "action_schema_method": "embedding",
+      "resolution_method": "regex_search",
+      "embedding_score": null,
+      "action_embedding_score": 0.6413770914077759,
+      "execution_result": "Call -> Put peer on hold"
+    },
+    {
+      "index": 32,
+      "step": "End the communication.",
+      "cluster_id": 8,
+      "pattern_action": "end_call",
+      "pattern_params": {
+        "param_1": "End"
+      },
+      "action": "hangup_call",
+      "params": {},
+      "action_schema": {
+        "action": "hangup_call",
+        "params": {}
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> End communication"
+    },
+    {
+      "index": 33,
+      "step": "Navigate to the menu settings on phone A.",
+      "cluster_id": 31,
+      "pattern_action": "generic_action",
+      "pattern_params": {},
+      "action": "generic_action",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (Navigate to the menu settings on phone A.)"
+    },
+    {
+      "index": 34,
+      "step": "Dial a phone number on phone A dialpad.",
+      "cluster_id": 71,
+      "pattern_action": "generic_action",
+      "pattern_params": {},
+      "action": "dial_call",
+      "params": {
+        "device": "phone number",
+        "from_device": "phone number",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone number",
+          "from_device": "phone number",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (Dial a phone number on phone A dialpad.)"
+    },
+    {
+      "index": 35,
+      "step": "On phone A, enter the first letters of phone B's user name on the keyboard, or open the search screen if no keyboard is plugged in and type the first letters of phone B's user name.",
+      "cluster_id": 49,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "phone": "A",
+        "action": "enter the first letters of phone B's user name on the keyboard, or open the search screen if no keyboard is plugged in and type the first letters of phone B's user name."
+      },
+      "action": "generic_action",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (On phone A, enter the first letters of phone B's user name on the keyboard, or open the search screen if no keyboard is plugged in and type the first letters of phone B's user name.)"
+    },
+    {
+      "index": 36,
+      "step": "phone A displays the search result. Press the key in line with phone B's user name on ALE-300, or directly on the name on ALE-400 and ALE-500.",
+      "cluster_id": 72,
+      "pattern_action": "generic_action",
+      "pattern_params": {},
+      "action": "generic_action",
+      "params": {
+        "device": "phone A",
+        "key_name": "the"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone A",
+          "key_name": "the"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (phone A displays the search result. Press the key in line with phone B's user name on ALE-300, or directly on the name on ALE-400 and ALE-500.)"
+    },
+    {
+      "index": 37,
+      "step": "phone B takes the call.",
+      "cluster_id": 60,
+      "pattern_action": "answer_call",
+      "pattern_params": {
+        "action": "takes the call."
+      },
+      "action": "answer_call",
+      "params": {
+        "device": "phone B"
+      },
+      "action_schema": {
+        "action": "answer_call",
+        "params": {
+          "device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (phone B takes the call.)"
+    },
+    {
+      "index": 38,
+      "step": "End the communication.",
+      "cluster_id": 8,
+      "pattern_action": "end_call",
+      "pattern_params": {
+        "param_1": "End"
+      },
+      "action": "hangup_call",
+      "params": {},
+      "action_schema": {
+        "action": "hangup_call",
+        "params": {}
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> End communication"
+    },
+    {
+      "index": 39,
+      "step": "Make enough calls to phone B to make it full busy.",
+      "cluster_id": 10,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "action": "Make",
+        "target": "enough calls to phone B to make it full busy"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_search",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (Make enough calls to phone B to make it full busy.)"
+    },
+    {
+      "index": 40,
+      "step": "phone A calls phone B.",
+      "cluster_id": 61,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A calls phone B.)"
+    },
+    {
+      "index": 41,
+      "step": "phone A calls a phone number that does not exist.",
+      "cluster_id": 73,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone number"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone number"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A calls a phone number that does not exist.)"
+    },
+    {
+      "index": 42,
+      "step": "phone A calls phone B by picking up the handset and dialing phone B number.",
+      "cluster_id": 59,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "action": "picking",
+        "target": "up the handset and dialing phone B"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A calls phone B by picking up the handset and dialing phone B number.)"
+    },
+    {
+      "index": 43,
+      "step": "phone A calls phone B by dialing phone B number.",
+      "cluster_id": 59,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "action": "dialing",
+        "target": "phone B"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A calls phone B by dialing phone B number.)"
+    },
+    {
+      "index": 44,
+      "step": "phone A calls phone B by pressing the loudspeaker key and dialing phone B number. Press the loudspeaker key, enter search interface, input phone B number, and press B item to make call.",
+      "cluster_id": 74,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B",
+        "key_name": "loudspeaker"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B",
+          "key_name": "loudspeaker"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A calls phone B by pressing the loudspeaker key and dialing phone B number. Press the loudspeaker key, enter search interface, input phone B number, and press B item to make call.)"
+    },
+    {
+      "index": 45,
+      "step": "Answer an incoming call by lifting the receiver.",
+      "cluster_id": 29,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "action": "lifting the receiver"
+      },
+      "action": "answer_call",
+      "params": {},
+      "action_schema": {
+        "action": "answer_call",
+        "params": {}
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (Answer an incoming call by lifting the receiver.)"
+    },
+    {
+      "index": 46,
+      "step": "Answer an incoming call by pressing the Handsfree key.",
+      "cluster_id": 29,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "action": "pressing the Handsfree key"
+      },
+      "action": "answer_call",
+      "params": {
+        "key_name": "Handsfree"
+      },
+      "action_schema": {
+        "action": "answer_call",
+        "params": {
+          "key_name": "Handsfree"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (Answer an incoming call by pressing the Handsfree key.)"
+    },
+    {
+      "index": 47,
+      "step": "Answer an incoming call by selecting Take call in the presentation screen menu.",
+      "cluster_id": 29,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "action": "selecting Take call in the presentation screen menu"
+      },
+      "action": "answer_call",
+      "params": {},
+      "action_schema": {
+        "action": "answer_call",
+        "params": {}
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (Answer an incoming call by selecting Take call in the presentation screen menu.)"
+    },
+    {
+      "index": 48,
+      "step": "Answer an incoming call by taking the call with an accessory.",
+      "cluster_id": 29,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "action": "taking the call with an accessory"
+      },
+      "action": "answer_call",
+      "params": {},
+      "action_schema": {
+        "action": "answer_call",
+        "params": {}
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (Answer an incoming call by taking the call with an accessory.)"
+    },
+    {
+      "index": 49,
+      "step": "phone B calls phone A.",
+      "cluster_id": 60,
+      "pattern_action": "answer_call",
+      "pattern_params": {
+        "action": "calls phone A."
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone B",
+        "from_device": "phone B",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone B",
+          "from_device": "phone B",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone B calls phone A.)"
+    },
+    {
+      "index": 50,
+      "step": "phone A presses the Silent key. For OXO, use the hang up key.",
+      "cluster_id": 75,
+      "pattern_action": "end_call",
+      "pattern_params": {},
+      "action": "hangup_call",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "hangup_call",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> End communication"
+    },
+    {
+      "index": 51,
+      "step": "phone B hangs up.",
+      "cluster_id": 60,
+      "pattern_action": "answer_call",
+      "pattern_params": {
+        "action": "hangs up."
+      },
+      "action": "hangup_call",
+      "params": {
+        "device": "phone B"
+      },
+      "action_schema": {
+        "action": "hangup_call",
+        "params": {
+          "device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> End communication"
+    },
+    {
+      "index": 52,
+      "step": "phone B calls phone A.",
+      "cluster_id": 60,
+      "pattern_action": "answer_call",
+      "pattern_params": {
+        "action": "calls phone A."
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone B",
+        "from_device": "phone B",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone B",
+          "from_device": "phone B",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone B calls phone A.)"
+    },
+    {
+      "index": 53,
+      "step": "phone A presses the Silent key.",
+      "cluster_id": 10,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "action": "phone",
+        "target": "A presses the Silent key"
+      },
+      "action": "generic_action",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_search",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (phone A presses the Silent key.)"
+    },
+    {
+      "index": 54,
+      "step": "phone A takes the call.",
+      "cluster_id": 55,
+      "pattern_action": "retrieve_call",
+      "pattern_params": {
+        "param_1": "takes"
+      },
+      "action": "answer_call",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "answer_call",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (phone A takes the call.)"
+    },
+    {
+      "index": 55,
+      "step": "phone B calls phone A.",
+      "cluster_id": 60,
+      "pattern_action": "answer_call",
+      "pattern_params": {
+        "action": "calls phone A."
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone B",
+        "from_device": "phone B",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone B",
+          "from_device": "phone B",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone B calls phone A.)"
+    },
+    {
+      "index": 56,
+      "step": "Press the volume + and volume - keys on phone A when it is ringing.",
+      "cluster_id": 28,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "button_description": "volume + and volume - keys on phone A when it is ringing"
+      },
+      "action": "generic_action",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (Press the volume + and volume - keys on phone A when it is ringing.)"
+    },
+    {
+      "index": 57,
+      "step": "Press the Silence key on phone A.",
+      "cluster_id": 28,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "button_description": "Silence key on phone A"
+      },
+      "action": "generic_action",
+      "params": {
+        "device": "phone A",
+        "key_name": "Silence"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone A",
+          "key_name": "Silence"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (Press the Silence key on phone A.)"
+    },
+    {
+      "index": 58,
+      "step": "phone A takes the call.",
+      "cluster_id": 55,
+      "pattern_action": "retrieve_call",
+      "pattern_params": {
+        "param_1": "takes"
+      },
+      "action": "answer_call",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "answer_call",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (phone A takes the call.)"
+    },
+    {
+      "index": 59,
+      "step": "End the communication.",
+      "cluster_id": 8,
+      "pattern_action": "end_call",
+      "pattern_params": {
+        "param_1": "End"
+      },
+      "action": "hangup_call",
+      "params": {},
+      "action_schema": {
+        "action": "hangup_call",
+        "params": {}
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> End communication"
+    },
+    {
+      "index": 60,
+      "step": "phone B calls phone A.",
+      "cluster_id": 60,
+      "pattern_action": "answer_call",
+      "pattern_params": {
+        "action": "calls phone A."
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone B",
+        "from_device": "phone B",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone B",
+          "from_device": "phone B",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone B calls phone A.)"
+    },
+    {
+      "index": 61,
+      "step": "phone C calls phone A.",
+      "cluster_id": 54,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "action": "calls",
+        "target": "phone A"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone C",
+        "from_device": "phone C",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone C",
+          "from_device": "phone C",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone C calls phone A.)"
+    },
+    {
+      "index": 62,
+      "step": "phone A takes the second incoming call by switching it to the top of the screen and pressing the take call key.",
+      "cluster_id": 77,
+      "pattern_action": "generic_action",
+      "pattern_params": {},
+      "action": "answer_call",
+      "params": {
+        "device": "phone A",
+        "call_index": 2,
+        "key_name": "take call"
+      },
+      "action_schema": {
+        "action": "answer_call",
+        "params": {
+          "device": "phone A",
+          "call_index": 2,
+          "key_name": "take call"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (phone A takes the second incoming call by switching it to the top of the screen and pressing the take call key.)"
+    },
+    {
+      "index": 63,
+      "step": "Navigate to the menu settings on phone A.",
+      "cluster_id": 31,
+      "pattern_action": "generic_action",
+      "pattern_params": {},
+      "action": "generic_action",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (Navigate to the menu settings on phone A.)"
+    },
+    {
+      "index": 64,
+      "step": "phone B makes an outgoing call to phone A.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "B",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "A"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone B",
+        "from_device": "phone B",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone B",
+          "from_device": "phone B",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone B makes an outgoing call to phone A.)"
+    },
+    {
+      "index": 65,
+      "step": "phone B makes an outgoing call to phone A.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "B",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "A"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone B",
+        "from_device": "phone B",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone B",
+          "from_device": "phone B",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone B makes an outgoing call to phone A.)"
+    },
+    {
+      "index": 66,
+      "step": "phone B hangs up the call.",
+      "cluster_id": 60,
+      "pattern_action": "answer_call",
+      "pattern_params": {
+        "action": "hangs up the call."
+      },
+      "action": "hangup_call",
+      "params": {
+        "device": "phone B"
+      },
+      "action_schema": {
+        "action": "hangup_call",
+        "params": {
+          "device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> End communication"
+    },
+    {
+      "index": 67,
+      "step": "phone A makes an outgoing call to phone B from the call log.",
+      "cluster_id": 78,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A makes an outgoing call to phone B from the call log.)"
+    },
+    {
+      "index": 68,
+      "step": "phone B makes an outgoing call to phone A.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "B",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "A"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone B",
+        "from_device": "phone B",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone B",
+          "from_device": "phone B",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone B makes an outgoing call to phone A.)"
+    },
+    {
+      "index": 69,
+      "step": "End the communication.",
+      "cluster_id": 8,
+      "pattern_action": "end_call",
+      "pattern_params": {
+        "param_1": "End"
+      },
+      "action": "hangup_call",
+      "params": {},
+      "action_schema": {
+        "action": "hangup_call",
+        "params": {}
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> End communication"
+    },
+    {
+      "index": 70,
+      "step": "phone A makes an outgoing call to phone B.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "A",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "B"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A makes an outgoing call to phone B.)"
+    },
+    {
+      "index": 71,
+      "step": "phone A makes an outgoing call to phone B.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "A",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "B"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A makes an outgoing call to phone B.)"
+    },
+    {
+      "index": 72,
+      "step": "End the communication.",
+      "cluster_id": 8,
+      "pattern_action": "end_call",
+      "pattern_params": {
+        "param_1": "End"
+      },
+      "action": "hangup_call",
+      "params": {},
+      "action_schema": {
+        "action": "hangup_call",
+        "params": {}
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> End communication"
+    },
+    {
+      "index": 73,
+      "step": "In OXE, configure phone B with an immediate forward to phone C.",
+      "cluster_id": 25,
+      "pattern_action": "generic_action",
+      "pattern_params": {},
+      "action": "generic_action",
+      "params": {
+        "device": "phone B"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone B"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (In OXE, configure phone B with an immediate forward to phone C.)"
+    },
+    {
+      "index": 74,
+      "step": "phone A makes an outgoing call to phone B.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "A",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "B"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A makes an outgoing call to phone B.)"
+    },
+    {
+      "index": 75,
+      "step": "End the communication.",
+      "cluster_id": 8,
+      "pattern_action": "end_call",
+      "pattern_params": {
+        "param_1": "End"
+      },
+      "action": "hangup_call",
+      "params": {},
+      "action_schema": {
+        "action": "hangup_call",
+        "params": {}
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> End communication"
+    },
+    {
+      "index": 76,
+      "step": "In OXE, configure phone A to forward calls immediately to phone B.",
+      "cluster_id": 26,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (In OXE, configure phone A to forward calls immediately to phone B.)"
+    },
+    {
+      "index": 77,
+      "step": "phone C makes an outgoing call to phone A.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "C",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "A"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone C",
+        "from_device": "phone C",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone C",
+          "from_device": "phone C",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone C makes an outgoing call to phone A.)"
+    },
+    {
+      "index": 78,
+      "step": "End the communication.",
+      "cluster_id": 8,
+      "pattern_action": "end_call",
+      "pattern_params": {
+        "param_1": "End"
+      },
+      "action": "hangup_call",
+      "params": {},
+      "action_schema": {
+        "action": "hangup_call",
+        "params": {}
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> End communication"
+    },
+    {
+      "index": 79,
+      "step": "phone A calls its voicemail.",
+      "cluster_id": 79,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "dial_call",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A calls its voicemail.)"
+    },
+    {
+      "index": 80,
+      "step": "Release the communication.",
+      "cluster_id": 8,
+      "pattern_action": "end_call",
+      "pattern_params": {
+        "param_1": "Release"
+      },
+      "action": "hangup_call",
+      "params": {},
+      "action_schema": {
+        "action": "hangup_call",
+        "params": {}
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> End communication"
+    },
+    {
+      "index": 81,
+      "step": "On day 1, phone A makes some outgoing calls, both answered and unanswered, and receives some calls, both answered and unanswered.",
+      "cluster_id": 80,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "day": "1",
+        "phone": "A"
+      },
+      "action": "answer_call",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "answer_call",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (On day 1, phone A makes some outgoing calls, both answered and unanswered, and receives some calls, both answered and unanswered.)"
+    },
+    {
+      "index": 82,
+      "step": "On the next day, check the call log on phone A.",
+      "cluster_id": 81,
+      "pattern_action": "generic_action",
+      "pattern_params": {},
+      "action": "generic_action",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "generic_action",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "generic",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (On the next day, check the call log on phone A.)"
+    },
+    {
+      "index": 83,
+      "step": "Fill the phone A call log with various entries including outgoing calls and incoming calls.",
+      "cluster_id": 82,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "dial_call",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (Fill the phone A call log with various entries including outgoing calls and incoming calls.)"
+    },
+    {
+      "index": 84,
+      "step": "Make an outgoing call from phone A to phone B. Remote side answers the call and then releases the call.",
+      "cluster_id": 83,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "answer_call",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "answer_call",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (Make an outgoing call from phone A to phone B. Remote side answers the call and then releases the call.)"
+    },
+    {
+      "index": 85,
+      "step": "phone A receives an incoming call from phone B. phone A answers the call and then releases the call.",
+      "cluster_id": 84,
+      "pattern_action": "answer_call",
+      "pattern_params": {},
+      "action": "answer_call",
+      "params": {
+        "device": "phone A"
+      },
+      "action_schema": {
+        "action": "answer_call",
+        "params": {
+          "device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Answer call (phone A receives an incoming call from phone B. phone A answers the call and then releases the call.)"
+    },
+    {
+      "index": 86,
+      "step": "phone B makes an outgoing call to phone A.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "B",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "A"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone B",
+        "from_device": "phone B",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone B",
+          "from_device": "phone B",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone B makes an outgoing call to phone A.)"
+    },
+    {
+      "index": 87,
+      "step": "phone C makes an outgoing call to phone A.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "C",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "A"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone C",
+        "from_device": "phone C",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone C",
+          "from_device": "phone C",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone C makes an outgoing call to phone A.)"
+    },
+    {
+      "index": 88,
+      "step": "phone A merges both calls to make a Conference.",
+      "cluster_id": 7,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "conference_start",
+      "params": {
+        "device": "phone A",
+        "participants": [
+          "phone A"
+        ]
+      },
+      "action_schema": {
+        "action": "conference_start",
+        "params": {
+          "device": "phone A",
+          "participants": [
+            "phone A"
+          ]
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (phone A merges both calls to make a Conference.)"
+    },
+    {
+      "index": 89,
+      "step": "Hang up on all phones.",
+      "cluster_id": 4,
+      "pattern_action": "end_call",
+      "pattern_params": {
+        "determiner": null,
+        "noun": "phones"
+      },
+      "action": "hangup_call",
+      "params": {},
+      "action_schema": {
+        "action": "hangup_call",
+        "params": {}
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_search",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> End communication"
+    },
+    {
+      "index": 90,
+      "step": "phone A makes an outgoing call to phone B.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "A",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "B"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A makes an outgoing call to phone B.)"
+    },
+    {
+      "index": 91,
+      "step": "phone A makes a new outgoing call to phone C by pressing the new call key and dialing phone C number.",
+      "cluster_id": 58,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone C",
+        "key_name": "new call"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone C",
+          "key_name": "new call"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A makes a new outgoing call to phone C by pressing the new call key and dialing phone C number.)"
+    },
+    {
+      "index": 92,
+      "step": "phone A merges both calls to make a Conference.",
+      "cluster_id": 7,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "conference_start",
+      "params": {
+        "device": "phone A",
+        "participants": [
+          "phone A"
+        ]
+      },
+      "action_schema": {
+        "action": "conference_start",
+        "params": {
+          "device": "phone A",
+          "participants": [
+            "phone A"
+          ]
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (phone A merges both calls to make a Conference.)"
+    },
+    {
+      "index": 93,
+      "step": "Hang up on all the phones.",
+      "cluster_id": 4,
+      "pattern_action": "end_call",
+      "pattern_params": {
+        "determiner": "the ",
+        "noun": "phones"
+      },
+      "action": "hangup_call",
+      "params": {},
+      "action_schema": {
+        "action": "hangup_call",
+        "params": {}
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_search",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> End communication"
+    },
+    {
+      "index": 94,
+      "step": "phone B makes an outgoing call to phone A.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "B",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "A"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone B",
+        "from_device": "phone B",
+        "to_device": "phone A"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone B",
+          "from_device": "phone B",
+          "to_device": "phone A"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone B makes an outgoing call to phone A.)"
+    },
+    {
+      "index": 95,
+      "step": "phone A makes an outgoing call to phone C by pressing the new call key and dialing phone C's number.",
+      "cluster_id": 10,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "action": "phone",
+        "target": "A makes an outgoing call to phone C by pressing the new call key and dialing phone C"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone C",
+        "key_name": "new call"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone C",
+          "key_name": "new call"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_search",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A makes an outgoing call to phone C by pressing the new call key and dialing phone C's number.)"
+    },
+    {
+      "index": 96,
+      "step": "phone A merges both calls to make a Conference.",
+      "cluster_id": 7,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "conference_start",
+      "params": {
+        "device": "phone A",
+        "participants": [
+          "phone A"
+        ]
+      },
+      "action_schema": {
+        "action": "conference_start",
+        "params": {
+          "device": "phone A",
+          "participants": [
+            "phone A"
+          ]
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Generic -> No specialized function mapped (phone A merges both calls to make a Conference.)"
+    },
+    {
+      "index": 97,
+      "step": "Hang up on all the phones.",
+      "cluster_id": 4,
+      "pattern_action": "end_call",
+      "pattern_params": {
+        "determiner": "the ",
+        "noun": "phones"
+      },
+      "action": "hangup_call",
+      "params": {},
+      "action_schema": {
+        "action": "hangup_call",
+        "params": {}
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_search",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> End communication"
+    },
+    {
+      "index": 98,
+      "step": "phone A makes an outgoing call to phone B.",
+      "cluster_id": 57,
+      "pattern_action": "dial_call",
+      "pattern_params": {
+        "caller": "A",
+        "action": "makes",
+        "direction": "outgoing",
+        "preposition": "to",
+        "receiver": "B"
+      },
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone B"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone B"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A makes an outgoing call to phone B.)"
+    },
+    {
+      "index": 99,
+      "step": "phone A makes a call park using the prefix 402 defined in OXE.",
+      "cluster_id": 85,
+      "pattern_action": "generic_action",
+      "pattern_params": {
+        "prefix": "402"
+      },
+      "action": "hold_call",
+      "params": {
+        "device": "phone A",
+        "prefix": "402"
+      },
+      "action_schema": {
+        "action": "hold_call",
+        "params": {
+          "device": "phone A",
+          "prefix": "402"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Put peer on hold"
+    },
+    {
+      "index": 100,
+      "step": "phone A dials the phone C number.",
+      "cluster_id": 86,
+      "pattern_action": "dial_call",
+      "pattern_params": {},
+      "action": "dial_call",
+      "params": {
+        "device": "phone A",
+        "from_device": "phone A",
+        "to_device": "phone C"
+      },
+      "action_schema": {
+        "action": "dial_call",
+        "params": {
+          "device": "phone A",
+          "from_device": "phone A",
+          "to_device": "phone C"
+        }
+      },
+      "action_schema_method": "rule",
+      "resolution_method": "regex_fullmatch",
+      "embedding_score": null,
+      "action_embedding_score": null,
+      "execution_result": "Call -> Dial action (phone A dials the phone C number.)"
+    }
+  ],
+  "final_context": {
+    "call_state": "dialing",
+    "mute": false
+  }
+}

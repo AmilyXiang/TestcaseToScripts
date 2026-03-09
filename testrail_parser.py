@@ -31,6 +31,52 @@ def normalize_cell(value: Any) -> str | None:
     return text or None
 
 
+def split_numbered_items(text: str | None) -> List[str]:
+    """Split a text blob by top-level numbered bullets: 1. ... 2. ... 3. ..."""
+    if not text:
+        return []
+
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n").strip()
+    if not normalized:
+        return []
+
+    marker = re.compile(r"(?m)^\s*(\d+)\.\s*")
+    matches = list(marker.finditer(normalized))
+    if len(matches) < 2:
+        return [normalized]
+
+    parts: List[str] = []
+    for idx, match in enumerate(matches):
+        start = match.end()
+        end = matches[idx + 1].start() if idx + 1 < len(matches) else len(normalized)
+        segment = normalized[start:end].strip()
+        if segment:
+            parts.append(segment)
+
+    return parts if parts else [normalized]
+
+
+def align_substeps(action_text: str | None, expected_text: str | None) -> List[Dict[str, str | None]]:
+    """Align numbered action/expected blocks into per-substep pairs."""
+    actions = split_numbered_items(action_text)
+    expecteds = split_numbered_items(expected_text)
+
+    # Default single-step pair when no split is possible.
+    if len(actions) <= 1 and len(expecteds) <= 1:
+        return [{"action": action_text, "expected_result": expected_text}]
+
+    total = max(len(actions), len(expecteds))
+    pairs: List[Dict[str, str | None]] = []
+
+    for idx in range(total):
+        # Broadcast single-side text when only one side is unsplit.
+        action_item = actions[idx] if idx < len(actions) else (actions[0] if len(actions) == 1 else None)
+        expected_item = expecteds[idx] if idx < len(expecteds) else (expecteds[0] if len(expecteds) == 1 else None)
+        pairs.append({"action": action_item, "expected_result": expected_item})
+
+    return pairs
+
+
 def extract_case_id(
     row: Dict[str, Any],
     case_id_col: str | None,
@@ -60,19 +106,27 @@ def parse_sheet(df: pd.DataFrame) -> List[Dict[str, Any]]:
     cleaned.columns = normalize_columns(list(cleaned.columns))
 
     columns = list(cleaned.columns)
-    case_id_col = find_column_name(columns, ["case-id", "case id", "caseid", "id"])
+
+    # Ignore helper columns that are not part of structured testcase content.
+    ignored = {"steps", "is_converted"}
+    effective_columns = [col for col in columns if col.lower() not in ignored]
+
+    case_id_col = find_column_name(effective_columns, ["id", "case-id", "case id", "caseid"])
     title_col = find_column_name(columns, ["title", "test case", "testcase"])
+    description_col = find_column_name(columns, ["description", "desc"])
     preconditions_col = find_column_name(columns, ["preconditions", "precondition"])
-    step_col = find_column_name(columns, ["steps (step)", "step", "steps"])
+    # Prefer the unified TestRail columns.
+    step_col = find_column_name(columns, ["steps (step)"])
     expected_col = find_column_name(
         columns,
-        ["steps (expected result)", "expected result", "expected", "result"],
+        ["steps (expected result)"],
     )
 
-    if not step_col and "Steps (Step)" in columns:
-        step_col = "Steps (Step)"
-    if not expected_col and "Steps (Expected Result)" in columns:
-        expected_col = "Steps (Expected Result)"
+    # Backward-compatible fallback for older templates.
+    if not step_col:
+        step_col = find_column_name(effective_columns, ["step"])
+    if not expected_col:
+        expected_col = find_column_name(effective_columns, ["expected result", "expected", "result"])
 
     cases: List[Dict[str, Any]] = []
     current_case: Dict[str, Any] | None = None
@@ -81,6 +135,7 @@ def parse_sheet(df: pd.DataFrame) -> List[Dict[str, Any]]:
         row = {col: normalize_cell(value) for col, value in raw_row.items()}
 
         title_value = row.get(title_col) if title_col else None
+        description_value = row.get(description_col) if description_col else None
         preconditions_value = row.get(preconditions_col) if preconditions_col else None
         step_value = row.get(step_col) if step_col else None
         expected_value = row.get(expected_col) if expected_col else None
@@ -90,19 +145,22 @@ def parse_sheet(df: pd.DataFrame) -> List[Dict[str, Any]]:
             current_case = {
                 "case_id": case_id,
                 "title": title_value,
+                "description": description_value,
                 "preconditions": preconditions_value,
                 "steps": [],
             }
             cases.append(current_case)
 
         if current_case and (step_value or expected_value):
-            current_case["steps"].append(
-                {
-                    "step_no": len(current_case["steps"]) + 1,
-                    "action": step_value,
-                    "expected_result": expected_value,
-                }
-            )
+            aligned_steps = align_substeps(step_value, expected_value)
+            for item in aligned_steps:
+                current_case["steps"].append(
+                    {
+                        "step_no": len(current_case["steps"]) + 1,
+                        "action": item.get("action"),
+                        "expected_result": item.get("expected_result"),
+                    }
+                )
 
     return cases
 

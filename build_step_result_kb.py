@@ -1,4 +1,5 @@
 import argparse
+import html
 import json
 import os
 import re
@@ -34,30 +35,107 @@ def build_prompt(skill_text: str, case_obj: Dict[str, Any]) -> str:
         "- Never output keyword-only fragments.\\n\\n"
         "Canonicalization requirement:\\n"
         "- Semantically equivalent phrasings must be normalized to the same sentence.\\n"
-        "- Example: 'Receive a normal incoming call on the phone.' and 'Receive an incoming call on the phone.' must map to 'Receive an incoming call on the phone.'.\\n"
+        "- Example: 'Receive a normal incoming call on the phone.' and 'Receive an incoming call on the phone.' must map to 'Phone receives an incoming call.'.\\n"
+        "- Keep actor explicit and correct: Phone / Remote side / User.\\n"
+        "- 'Remote side answers the call' must not be rewritten as 'Phone receives an answer'.\\n"
+        "- Keep ALE model identifiers exact and distinct: ALE-20, ALE-20h, ALE-30, ALE-30h, ALE-300, ALE-400, ALE-500.\\n"
+        "- OXE is server-side context; statements after OXE must remain server-side configure/check actions.\\n"
         "- Do not merge opposite actions (e.g., pick up vs hang up).\\n\\n"
         "Input case:\\n"
         f"{json.dumps(case_obj, ensure_ascii=False)}"
     )
 
 
+def cleanup_markup_text(text: Any) -> Any:
+    """Remove HTML/markdown artifacts while preserving meaningful sentence content."""
+    if not isinstance(text, str):
+        return text
+
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    normalized = html.unescape(normalized)
+
+    # Remove markdown image tokens.
+    normalized = re.sub(r"!\[[^\]]*\]\([^\)]*\)", "", normalized)
+
+    # Convert paragraph and line-break tags to line boundaries.
+    normalized = re.sub(r"<\s*br\s*/?\s*>", "\n", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"<\s*/\s*p\s*>\s*<\s*p\s*>", "\n", normalized, flags=re.IGNORECASE)
+
+    # Remove non-semantic HTML tags but keep content.
+    normalized = re.sub(r"<\s*img[^>]*>", "", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"<[^>]+>", "", normalized)
+
+    # Normalize whitespace and blank lines.
+    normalized = re.sub(r"[ \t]+", " ", normalized)
+    normalized = re.sub(r"\n{3,}", "\n\n", normalized)
+    normalized = "\n".join(line.strip() for line in normalized.split("\n")).strip()
+
+    return normalized
+
+
 def canonicalize_action_text(text: Any) -> Any:
     if not isinstance(text, str):
         return text
 
-    normalized = re.sub(r"\s+", " ", text.strip())
+    normalized = cleanup_markup_text(text)
+    normalized = re.sub(r"\s+", " ", normalized.strip())
 
-    # Canonicalize equivalent incoming-call phrasings.
+    # Canonicalize equivalent incoming-call phrasings with explicit actor.
     normalized = re.sub(
-        r"\bReceive a normal incoming call on the phone\.?$",
-        "Receive an incoming call on the phone.",
+        r"^(Receive a normal incoming call on the phone|Receive an incoming call on the phone|Phone receives a normal incoming call(?: on the phone)?)\.?$",
+        "Phone receives an incoming call.",
         normalized,
         flags=re.IGNORECASE,
     )
 
+    # Canonicalize remote-side answer/reject events.
+    normalized = re.sub(
+        r"^(Answer the call from the remote side|Have the remote side answer the call|Receive an answer from the remote side|Receive an answer to the call from the remote side|Receive an answer from the remote side for the call)\.?$",
+        "Remote side answers the call.",
+        normalized,
+        flags=re.IGNORECASE,
+    )
+    normalized = re.sub(
+        r"^(Have the remote side reject the call|Remote side reject the call|Receive a reject from the remote side)\.?$",
+        "Remote side rejects the call.",
+        normalized,
+        flags=re.IGNORECASE,
+    )
+
+    # Repair common actor drift from model generations.
+    if re.search(r"remote side", normalized, flags=re.IGNORECASE) and re.search(r"incoming call", normalized, flags=re.IGNORECASE):
+        normalized = "Phone receives an incoming call."
+
     # Normalize capitalization variants for common button names.
     normalized = re.sub(r"\bPress the silence button\.?$", "Press the Silence button.", normalized, flags=re.IGNORECASE)
     normalized = re.sub(r"\bPress the switch button\.?$", "Press the Switch button.", normalized, flags=re.IGNORECASE)
+
+    # Canonical casing for common domain terms and labels.
+    normalized = re.sub(r"\boxe\b", "OXE", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*20h\b", "ALE-20h", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*30h\b", "ALE-30h", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*20\b", "ALE-20", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*30\b", "ALE-30", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*300\b", "ALE-300", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*400\b", "ALE-400", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*500\b", "ALE-500", normalized, flags=re.IGNORECASE)
+
+    normalized = re.sub(r"\btransfer\b", "Transfer", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bsilence\b", "Silence", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bswitch\b", "Switch", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bhold\b", "Hold", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\brelease\b", "Release", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bconference\b", "Conference", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bemergency\b", "Emergency", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bguard\b", "Guard", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\boperator\b", "Operator", normalized, flags=re.IGNORECASE)
+
+    normalized = re.sub(r"\bphone\b", "phone", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bremote side\b", "Remote side", normalized, flags=re.IGNORECASE)
+
+    # Ensure final sentence punctuation.
+    if normalized and not re.search(r"[.!?]$", normalized):
+        normalized += "."
 
     return normalized
 
@@ -65,7 +143,55 @@ def canonicalize_action_text(text: Any) -> Any:
 def canonicalize_expected_text(text: Any) -> Any:
     if not isinstance(text, str):
         return text
-    return re.sub(r"\s+", " ", text.strip())
+    normalized = cleanup_markup_text(text)
+    normalized = re.sub(r"\s+", " ", normalized.strip())
+    normalized = re.sub(r"\boxe\b", "OXE", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*20h\b", "ALE-20h", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*30h\b", "ALE-30h", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*20\b", "ALE-20", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*30\b", "ALE-30", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*300\b", "ALE-300", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*400\b", "ALE-400", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*500\b", "ALE-500", normalized, flags=re.IGNORECASE)
+    return normalized
+
+
+def canonicalize_precondition_text(text: Any) -> Any:
+    if text is None:
+        return None
+    if not isinstance(text, str):
+        return text
+
+    normalized = cleanup_markup_text(text)
+    normalized = re.sub(r"\s+", " ", normalized.strip())
+    normalized = re.sub(r"\boxe\b", "OXE", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*20h\b", "ALE-20h", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*30h\b", "ALE-30h", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*20\b", "ALE-20", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*30\b", "ALE-30", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*300\b", "ALE-300", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*400\b", "ALE-400", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bale-?\s*500\b", "ALE-500", normalized, flags=re.IGNORECASE)
+    return normalized or None
+
+
+def canonicalize_keywords(values: Any) -> List[str]:
+    if not isinstance(values, list):
+        return []
+
+    normalized: List[str] = []
+    seen = set()
+    for item in values:
+        if not isinstance(item, str):
+            continue
+        token = item.strip().lower()
+        token = re.sub(r"\s+", "-", token)
+        token = re.sub(r"[^a-z0-9\-_/]", "", token)
+        if not token or token in seen:
+            continue
+        seen.add(token)
+        normalized.append(token)
+    return normalized
 
 
 def call_deepseek_case(
@@ -120,6 +246,8 @@ def build_knowledge_base(
         for case in cases:
             case_id = case.get("case_id")
             title = case.get("title")
+            precondition_raw = case.get("preconditions")
+            precondition_normalized = canonicalize_precondition_text(precondition_raw)
             steps_by_no = {
                 int(item.get("step_no")): item
                 for item in normalized_payload[sheet_name][case_id]["steps"]
@@ -133,6 +261,8 @@ def build_knowledge_base(
                         "sheet": sheet_name,
                         "case_id": case_id,
                         "title": title,
+                        "precondition_raw": precondition_raw,
+                        "normalized_precondition": precondition_normalized,
                         "step_no": step_no,
                         "raw_action": step.get("action"),
                         "raw_expected_result": step.get("expected_result"),
@@ -180,9 +310,17 @@ def main() -> None:
             case_id = case.get("case_id")
             case_obj = {
                 "case_id": case_id,
-                "title": case.get("title"),
-                "preconditions": case.get("preconditions"),
-                "steps": case.get("steps", []),
+                "title": cleanup_markup_text(case.get("title")),
+                "description": cleanup_markup_text(case.get("description")),
+                "preconditions": cleanup_markup_text(case.get("preconditions")),
+                "steps": [
+                    {
+                        "step_no": item.get("step_no"),
+                        "action": cleanup_markup_text(item.get("action")),
+                        "expected_result": cleanup_markup_text(item.get("expected_result")),
+                    }
+                    for item in case.get("steps", [])
+                ],
             }
             normalized_case = call_deepseek_case(
                 client=client,
@@ -194,6 +332,7 @@ def main() -> None:
             for item in normalized_case.get("steps", []):
                 item["normalized_action"] = canonicalize_action_text(item.get("normalized_action"))
                 item["normalized_expected_result"] = canonicalize_expected_text(item.get("normalized_expected_result"))
+                item["keywords"] = canonicalize_keywords(item.get("keywords", []))
 
             normalized_payload[sheet_name][case_id] = normalized_case
             print(f"Normalized case: {case_id}")
