@@ -208,7 +208,7 @@ def call_deepseek_case(
             response = client.chat.completions.create(
                 model=model,
                 response_format={"type": "json_object"},
-                temperature=0.1,
+                temperature=0.0,
                 messages=[
                     {
                         "role": "system",

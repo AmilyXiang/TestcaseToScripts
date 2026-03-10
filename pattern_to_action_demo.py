@@ -41,16 +41,74 @@ class ActionSchemaResult:
 
 
 SUPPORTED_ACTIONS = [
-    "dial_call",
-    "answer_call",
-    "hangup_call",
-    "hold_call",
-    "resume_call",
-    "transfer_call",
+    "offhook",
+    "onhook",
+    "dial",
+    "answer",
+    "reject",
+    "redial",
+    "speed_dial",
+    "hold",
+    "resume",
+    "transfer_attended",
+    "transfer_blind",
     "conference_start",
     "conference_join",
-    "mute_call",
-    "unmute_call",
+    "conference_split",
+    "park_call",
+    "retrieve_parked",
+    "call_pickup",
+    "call_waiting",
+    "call_forward_unconditional",
+    "call_forward_busy",
+    "call_forward_noanswer",
+    "do_not_disturb_enable",
+    "do_not_disturb_disable",
+    "mute",
+    "unmute",
+    "switch_call",
+    "auto_answer",
+    "call_completion",
+    "call_intrusion",
+    "executive_override",
+    "malicious_call_trace",
+    "anonymous_call",
+    "call_recording_start",
+    "call_recording_stop",
+    "check_call_state",
+    "check_voicemail",
+    "message_waiting_indication",
+    "set_dnd",
+    "set_forward",
+    "register",
+    "deregister",
+    "reboot",
+    "configure_network",
+    "configure_sip_account",
+    "set_date_time",
+    "set_language",
+    "set_ringtone",
+    "adjust_volume",
+    "reset_to_factory",
+    "firmware_upgrade",
+    "send_dtmf",
+    "test_call",
+    "echo_test",
+    "dtmf_test",
+    "queue_login",
+    "queue_logout",
+    "agent_join_queue",
+    "agent_leave_queue",
+    "voicemail_access",
+    "interoperability_test",
+    "load_test",
+    "long_call",
+    "abnormal_termination",
+    "concurrent_calls",
+    "key_press",
+    "wait",
+    "verify_screen",
+    "verify_tone",
     "generic_action",
 ]
 
@@ -79,19 +137,19 @@ def infer_action_name(pattern_text: str, examples: List[str]) -> str:
     if "start the call" in text and "prog" in text:
         return "start_call_with_progkey"
     if "calls" in text or "dials" in text or "outgoing call" in text:
-        return "dial_call"
+        return "dial"
     if "switches the active call" in text or "switch active call" in text or "switch the active call" in text:
-        return "switch_active_call"
+        return "switch_call"
     if "on hold" in text or "puts" in text and "hold" in text:
-        return "put_on_hold"
+        return "hold"
     if "retrieves the call" in text or "retrieve call" in text:
-        return "retrieve_call"
+        return "resume"
     if "takes the call" in text or "answers the call" in text:
-        return "answer_call"
+        return "answer"
     if "hang up" in text or "end the communication" in text or "release the communication" in text:
-        return "end_call"
+        return "onhook"
     if "mute" in text and "press" in text:
-        return "toggle_mute"
+        return "mute"
     return "generic_action"
 
 
@@ -183,16 +241,28 @@ class ActionEmbeddingResolver:
     def __init__(self, model_name: str) -> None:
         self._model = SentenceTransformer(model_name)
         self._action_texts = {
-            "dial_call": "start or place an outgoing call by dialing a number or calling a target",
-            "answer_call": "answer or take an incoming call",
-            "hangup_call": "end, hang up, or release a call",
-            "hold_call": "put a call on hold or park a call",
-            "resume_call": "retrieve or resume a held call",
-            "transfer_call": "transfer a call to another party",
+            "offhook": "go off-hook and get dial tone",
+            "onhook": "go on-hook and end call",
+            "dial": "start or place an outgoing call by dialing a number or calling a target",
+            "answer": "answer or take an incoming call",
+            "reject": "reject an incoming call",
+            "redial": "redial last number",
+            "speed_dial": "speed dial with predefined number",
+            "hold": "put a call on hold or park a call",
+            "resume": "retrieve or resume a held call",
+            "transfer_attended": "consult then transfer call",
+            "transfer_blind": "directly transfer call",
             "conference_start": "merge calls to start a conference",
             "conference_join": "join an existing conference call",
-            "mute_call": "mute call audio",
-            "unmute_call": "unmute call audio",
+            "conference_split": "split a conference into separate calls",
+            "park_call": "park a call",
+            "retrieve_parked": "retrieve a parked call",
+            "call_pickup": "pick up a call ringing elsewhere",
+            "call_waiting": "accept a second incoming call",
+            "mute": "mute call audio",
+            "unmute": "unmute call audio",
+            "switch_call": "switch between active calls",
+            "send_dtmf": "send dtmf tones during a call",
         }
         self._actions = list(self._action_texts.keys())
         self._embeddings = self._model.encode(
@@ -226,12 +296,27 @@ def extract_call_index(step_text: str) -> int | None:
 
 def map_pattern_action_to_schema(pattern_action: str) -> str | None:
     mapping = {
-        "dial_call": "dial_call",
-        "answer_call": "answer_call",
-        "end_call": "hangup_call",
-        "put_on_hold": "hold_call",
-        "retrieve_call": "resume_call",
-        "toggle_mute": "mute_call",
+        # New action labels (skill-aligned)
+        "dial": "dial",
+        "answer": "answer",
+        "onhook": "onhook",
+        "hold": "hold",
+        "resume": "resume",
+        "mute": "mute",
+        "unmute": "unmute",
+        "switch_call": "switch_call",
+
+        # Backward-compat aliases (older pattern labels)
+        "dial_call": "dial",
+        "answer_call": "answer",
+        "end_call": "onhook",
+        "put_on_hold": "hold",
+        "retrieve_call": "resume",
+        "toggle_mute": "mute",
+        "switch_active_call": "switch_call",
+        "transfer_call": "transfer_blind",
+        "conference_start": "conference_start",
+        "conference_join": "conference_join",
     }
     return mapping.get(pattern_action)
 
@@ -243,10 +328,10 @@ def build_action_params(step_text: str, action: str) -> Dict[str, object]:
     if devices:
         params["device"] = devices[0]
 
-    if action == "dial_call" and len(devices) >= 2:
+    if action == "dial" and len(devices) >= 2:
         params["from_device"] = devices[0]
         params["to_device"] = devices[1]
-    elif action in {"answer_call", "hangup_call", "hold_call", "resume_call", "mute_call", "unmute_call"}:
+    elif action in {"answer", "onhook", "hold", "resume", "mute", "unmute", "switch_call"}:
         if devices:
             params["device"] = devices[0]
 
@@ -268,6 +353,78 @@ def build_action_params(step_text: str, action: str) -> Dict[str, object]:
     return params
 
 
+def infer_primary_who(text: str) -> str | None:
+    devices = extract_devices(text)
+    if devices:
+        return devices[0]
+    return None
+
+
+def build_step_schema(step_text: str, action: str, params: Dict[str, object]) -> Dict[str, object]:
+    who = (
+        str(params.get("from_device")) if params.get("from_device")
+        else str(params.get("device")) if params.get("device")
+        else infer_primary_who(step_text)
+    )
+    return {
+        "action": action,
+        "who": who,
+        "params": params,
+    }
+
+
+def build_check_schema(expected_result: str, fallback_who: str | None) -> Dict[str, object]:
+    text = (expected_result or "").strip()
+    lowered = text.lower()
+    who = infer_primary_who(text) or fallback_who
+
+    if "on hold tone" in lowered or "hold tone" in lowered:
+        return {
+            "action": "verify_tone",
+            "who": who,
+            "params": {
+                "tone": "on_hold",
+                "expected_text": text,
+            },
+        }
+
+    if "communication is established" in lowered or "answers the call" in lowered or "takes the call" in lowered:
+        devices = extract_devices(text)
+        params: Dict[str, object] = {"state": "connected", "expected_text": text}
+        if len(devices) >= 2:
+            params["participants"] = [devices[0], devices[1]]
+        elif len(devices) == 1:
+            params["device"] = devices[0]
+        return {
+            "action": "check_call_state",
+            "who": who,
+            "params": params,
+        }
+
+    if "put on hold" in lowered or "is on hold" in lowered:
+        return {
+            "action": "check_call_state",
+            "who": who,
+            "params": {
+                "state": "hold",
+                "expected_text": text,
+            },
+        }
+
+    if "display" in lowered or "screen" in lowered:
+        return {
+            "action": "verify_screen",
+            "who": who,
+            "params": {"expected_text": text},
+        }
+
+    return {
+        "action": "generic_action",
+        "who": who,
+        "params": {"expected_text": text},
+    }
+
+
 def resolve_action_schema(
     step_text: str,
     pattern_action: str,
@@ -279,13 +436,13 @@ def resolve_action_schema(
 
     # Rule-based action typing (primary path).
     if "unmute" in text or "mute key again" in text:
-        action = "unmute_call"
+        action = "unmute"
         return ActionSchemaResult(action=action, params=build_action_params(step_text, action), method="rule", score=None)
     if "mute" in text:
-        action = "mute_call"
+        action = "mute"
         return ActionSchemaResult(action=action, params=build_action_params(step_text, action), method="rule", score=None)
     if "transfer" in text:
-        action = "transfer_call"
+        action = "transfer_blind"
         return ActionSchemaResult(action=action, params=build_action_params(step_text, action), method="rule", score=None)
     if "conference" in text and ("merge" in text or "start" in text or "make" in text):
         action = "conference_start"
@@ -293,20 +450,23 @@ def resolve_action_schema(
     if "conference" in text and "join" in text:
         action = "conference_join"
         return ActionSchemaResult(action=action, params=build_action_params(step_text, action), method="rule", score=None)
+    if "switches the active call" in text or "switch active call" in text or "switch the active call" in text:
+        action = "switch_call"
+        return ActionSchemaResult(action=action, params=build_action_params(step_text, action), method="rule", score=None)
     if "on hold" in text or ("put" in text and "hold" in text) or "call park" in text:
-        action = "hold_call"
+        action = "hold"
         return ActionSchemaResult(action=action, params=build_action_params(step_text, action), method="rule", score=None)
     if "retrieve" in text or "resume" in text:
-        action = "resume_call"
+        action = "resume"
         return ActionSchemaResult(action=action, params=build_action_params(step_text, action), method="rule", score=None)
     if "hang up" in text or "hangs up" in text or "end the communication" in text or "release the communication" in text or "hook on" in text:
-        action = "hangup_call"
+        action = "onhook"
         return ActionSchemaResult(action=action, params=build_action_params(step_text, action), method="rule", score=None)
     if "answer" in text or "takes the call" in text or "take call key" in text or "incoming call" in text and "takes" in text:
-        action = "answer_call"
+        action = "answer"
         return ActionSchemaResult(action=action, params=build_action_params(step_text, action), method="rule", score=None)
     if "dial" in text or "calls" in text or "outgoing call" in text:
-        action = "dial_call"
+        action = "dial"
         return ActionSchemaResult(action=action, params=build_action_params(step_text, action), method="rule", score=None)
 
     # Pattern-action mapping fallback.
@@ -439,14 +599,82 @@ def build_action_registry() -> Dict[str, ActionFunc]:
         "select_number_type": action_select_number_type,
         "configure_progkey": action_configure_progkey,
         "start_call_with_progkey": action_start_call_with_progkey,
+        "dial": action_dial_call,
+        "answer": action_answer_call,
+        "onhook": action_end_call,
+        "hold": action_put_on_hold,
+        "resume": action_retrieve_call,
+        "transfer_blind": action_generic,
+        "transfer_attended": action_generic,
+        "conference_start": action_generic,
+        "conference_join": action_generic,
+        "mute": action_toggle_mute,
+        "unmute": action_toggle_mute,
+        "switch_call": action_switch_active_call,
+        "offhook": action_generic,
+        "reject": action_generic,
+        "redial": action_generic,
+        "speed_dial": action_generic,
+        "conference_split": action_generic,
+        "park_call": action_generic,
+        "retrieve_parked": action_generic,
+        "call_pickup": action_generic,
+        "call_waiting": action_generic,
+        "call_forward_unconditional": action_generic,
+        "call_forward_busy": action_generic,
+        "call_forward_noanswer": action_generic,
+        "do_not_disturb_enable": action_generic,
+        "do_not_disturb_disable": action_generic,
+        "auto_answer": action_generic,
+        "call_completion": action_generic,
+        "call_intrusion": action_generic,
+        "executive_override": action_generic,
+        "malicious_call_trace": action_generic,
+        "anonymous_call": action_generic,
+        "call_recording_start": action_generic,
+        "call_recording_stop": action_generic,
+        "check_call_state": action_generic,
+        "check_voicemail": action_generic,
+        "message_waiting_indication": action_generic,
+        "set_dnd": action_generic,
+        "set_forward": action_generic,
+        "register": action_generic,
+        "deregister": action_generic,
+        "reboot": action_generic,
+        "configure_network": action_generic,
+        "configure_sip_account": action_generic,
+        "set_date_time": action_generic,
+        "set_language": action_generic,
+        "set_ringtone": action_generic,
+        "adjust_volume": action_generic,
+        "reset_to_factory": action_generic,
+        "firmware_upgrade": action_generic,
+        "send_dtmf": action_generic,
+        "test_call": action_generic,
+        "echo_test": action_generic,
+        "dtmf_test": action_generic,
+        "queue_login": action_generic,
+        "queue_logout": action_generic,
+        "agent_join_queue": action_generic,
+        "agent_leave_queue": action_generic,
+        "voicemail_access": action_generic,
+        "interoperability_test": action_generic,
+        "load_test": action_generic,
+        "long_call": action_generic,
+        "abnormal_termination": action_generic,
+        "concurrent_calls": action_generic,
+        "key_press": action_generic,
+        "wait": action_generic,
+        "verify_screen": action_generic,
+        "verify_tone": action_generic,
+
+        # Backward-compat aliases for older outputs.
         "dial_call": action_dial_call,
         "answer_call": action_answer_call,
         "hangup_call": action_end_call,
         "hold_call": action_put_on_hold,
         "resume_call": action_retrieve_call,
         "transfer_call": action_generic,
-        "conference_start": action_generic,
-        "conference_join": action_generic,
         "mute_call": action_toggle_mute,
         "unmute_call": action_toggle_mute,
         "switch_active_call": action_switch_active_call,
@@ -460,12 +688,17 @@ def build_action_registry() -> Dict[str, ActionFunc]:
 
 def load_demo_steps(normalized_path: Path, limit: int) -> List[str]:
     raw = json.loads(normalized_path.read_text(encoding="utf-8"))
-    steps = [
-        str(entry.get("normalized_action", "")).strip()
+    step_entries = [
+        {
+            "action": str(entry.get("normalized_action", "")).strip(),
+            "expected_result": str(entry.get("normalized_expected_result", "")).strip(),
+            "case_id": entry.get("case_id", ""),
+            "step_no": entry.get("step_no", 0),
+        }
         for entry in raw.get("entries", [])
         if str(entry.get("normalized_action", "")).strip()
     ]
-    return steps[:limit]
+    return step_entries[:limit]
 
 
 def run_demo(
@@ -478,7 +711,7 @@ def run_demo(
 ) -> Dict[str, object]:
     rules = load_rules(patterns_path)
     actions = build_action_registry()
-    steps = load_demo_steps(normalized_path, limit=limit)
+    step_entries = load_demo_steps(normalized_path, limit=limit)
 
     embedding_matcher: EmbeddingMatcher | None = None
     if use_embedding_fallback and rules:
@@ -492,7 +725,12 @@ def run_demo(
 
     runs: List[Dict[str, object]] = []
 
-    for idx, step in enumerate(steps, start=1):
+    for idx, entry in enumerate(step_entries, start=1):
+        step = entry["action"]
+        expected_result = entry["expected_result"]
+        case_id = entry["case_id"]
+        step_no = entry["step_no"]
+
         match_result = resolve_rule(
             step_text=step,
             rules=rules,
@@ -517,20 +755,21 @@ def run_demo(
 
         action_fn = actions.get(schema.action, action_generic)
         result = action_fn(step, schema.params, ctx)
+        step_schema = build_step_schema(step_text=step, action=schema.action, params=schema.params)
+        check_schema = build_check_schema(expected_result=expected_result, fallback_who=step_schema.get("who"))
 
         runs.append(
             {
                 "index": idx,
                 "step": step,
+                "expected_result": expected_result,
+                "case_id": case_id,
+                "step_no": step_no,
                 "cluster_id": cluster_id,
                 "pattern_action": pattern_action_name,
                 "pattern_params": match_result.params,
-                "action": schema.action,
-                "params": schema.params,
-                "action_schema": {
-                    "action": schema.action,
-                    "params": schema.params,
-                },
+                "step_schema": step_schema,
+                "check_schema": check_schema,
                 "action_schema_method": schema.method,
                 "resolution_method": match_result.method,
                 "embedding_score": match_result.score,
@@ -542,7 +781,7 @@ def run_demo(
     return {
         "meta": {
             "loaded_rules": len(rules),
-            "demo_steps": len(steps),
+            "demo_steps": len(step_entries),
             "patterns_path": str(patterns_path),
             "normalized_path": str(normalized_path),
             "pipeline": ["pattern", "regex_match", "embedding_similarity", "generic"],
@@ -569,19 +808,26 @@ def print_text_report(report: Dict[str, object]) -> None:
         idx = int(run.get("index", 0))
         step = str(run.get("step", ""))
         cluster_id = run.get("cluster_id", "N/A")
-        action_name = str(run.get("action", "generic_action"))
-        params = run.get("params", {})
+        step_schema = run.get("step_schema", {})
+        action_name = str(step_schema.get("action", "generic_action"))
+        who = step_schema.get("who", None)
+        params = step_schema.get("params", {})
+        check_schema = run.get("check_schema", {})
         method = str(run.get("resolution_method", ""))
         score = run.get("embedding_score", None)
         result = str(run.get("execution_result", ""))
 
         print(f"[{idx:02d}] step: {step}")
         print(f"     cluster: {cluster_id} | action: {action_name}")
+        if who:
+            print(f"     who: {who}")
         print(f"     resolver: {method}")
         if score is not None:
             print(f"     similarity: {score:.4f}")
         if params:
             print(f"     params: {params}")
+        if check_schema:
+            print(f"     check: {check_schema}")
         print(f"     exec:   {result}")
 
     print("-" * 88)

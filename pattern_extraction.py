@@ -192,7 +192,7 @@ def optimize_patterns_with_llm(
     patterns: List[Dict[str, object]],
     api_key: str,
     model: str = "deepseek-chat",
-    base_url: str = "https://api.deepseek.com",
+    base_url: str = "https://api.deepseek.com/v1/chat/completions,
 ) -> List[Dict[str, object]]:
     """Refine algorithmic patterns with an LLM as a final optimization pass."""
     client = OpenAI(api_key=api_key, base_url=base_url)
@@ -232,7 +232,7 @@ def build_patterns_file(
     optimize_with_llm: bool = False,
     api_key: str | None = None,
     model: str = "deepseek-chat",
-    base_url: str = "https://api.deepseek.com",
+    base_url: str = "https://api.deepseek.com/v1/chat/completions,
 ) -> None:
     clusters = json.loads(input_path.read_text(encoding="utf-8"))
     patterns = extract_patterns_from_clusters(clusters)
@@ -258,7 +258,7 @@ if __name__ == "__main__":
     parser.add_argument("--optimize-with-llm", action="store_true")
     parser.add_argument("--api-key", type=str, default=None)
     parser.add_argument("--model", type=str, default="deepseek-chat")
-    parser.add_argument("--base-url", type=str, default="https://api.deepseek.com")
+    parser.add_argument("--base-url", type=str, default="https://api.deepseek.com/v1/chat/completions)
     args = parser.parse_args()
 
     build_patterns_file(
