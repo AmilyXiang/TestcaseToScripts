@@ -1,0 +1,3109 @@
+{
+  "Worksheet": [
+    {
+      "case_id": "C3954801",
+      "title": "N_20_Broker_Call_01_Broker_Call_Two_Outgoing_Calls",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the broker call feature on SIP devices\n(on specified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)\nPhone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B",
+          "action_substeps": [
+            "Phone A calls phone B (phone models are specified in system_config field)",
+            "Phone B takes the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A press new call key and calls phone C\nPhone C takes the call",
+          "expected_result": "Communication is established between phone A and phone C\nPhone B is put on hold and plays the on hold tone",
+          "action_substeps": [
+            "Phone A press new call key and calls phone C",
+            "Phone C takes the call"
+          ],
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone C",
+            "Phone B is put on hold and plays the on hold tone"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Switch active call on phone A",
+          "expected_result": "Communication is established between phone A and phone B\nPhone C is put on hold and plays the on hold tone",
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone B",
+            "Phone C is put on hold and plays the on hold tone"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Switch active call on phone A",
+          "expected_result": "Communication is established between phone A and phone C\nPhone B is put on hold and plays the on hold tone",
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone C",
+            "Phone B is put on hold and plays the on hold tone"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954802",
+      "title": "N_20_Broker_Call_02_Broker_Call_Two_Incoming_Calls",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the broker call feature on SIP devices\n(on specified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)\nPhone A takes the call",
+          "expected_result": "Communication is established between phone A and phone B",
+          "action_substeps": [
+            "Phone B calls phone A (phone models are specified in system_config field)",
+            "Phone A takes the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone C calls phone A (phone models are specified in system_config field)\nPhone A takes the call",
+          "expected_result": "Communication is established between phone A and phone C\nPhone B is put on hold and plays the on hold tone",
+          "action_substeps": [
+            "Phone C calls phone A (phone models are specified in system_config field)",
+            "Phone A takes the call"
+          ],
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone C",
+            "Phone B is put on hold and plays the on hold tone"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Switch active call on phone A",
+          "expected_result": "Communication is established between phone A and phone B\nPhone C is put on hold and plays the on hold tone",
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone B",
+            "Phone C is put on hold and plays the on hold tone"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Switch active call on phone A",
+          "expected_result": "Communication is established between phone A and phone C\nPhone B is put on hold and plays the on hold tone",
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone C",
+            "Phone B is put on hold and plays the on hold tone"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954803",
+      "title": "N_20_Broker_Call_03_Broker_Call_Outgoing_&_Incoming_Calls",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the broker call feature on SIP devices\n(on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)\nPhone A takes the call",
+          "expected_result": "Communication is established between phone A and phone B",
+          "action_substeps": [
+            "Phone B calls phone A (phone models are specified in system_config field)",
+            "Phone A takes the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A make a new call to phone C (by pressing new call key and dial phone C number)\nPhone C takes the call",
+          "expected_result": "Communication is established between phone A and phone C\nPhone B is put on hold and plays the on hold tone",
+          "action_substeps": [
+            "Phone A make a new call to phone C (by pressing new call key and dial phone C number)",
+            "Phone C takes the call"
+          ],
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone C",
+            "Phone B is put on hold and plays the on hold tone"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Switch active call on phone A",
+          "expected_result": "Communication is established between phone A and phone B\nPhone C is put on hold and plays the on hold tone",
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone B",
+            "Phone C is put on hold and plays the on hold tone"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Switch active call on phone A",
+          "expected_result": "Communication is established between phone A and phone C\nPhone B is put on hold and plays the on hold tone",
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone C",
+            "Phone B is put on hold and plays the on hold tone"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954806",
+      "title": "N_20_Hold_Retrieve_01_Put_On_Hold_&_Retrieve",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the hold and retrieve call feature on SIP devices (on specified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)\nPhone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B",
+          "action_substeps": [
+            "Phone A calls phone B (phone models are specified in system_config field)",
+            "Phone B takes the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A put phone B on hold\n(obsolete on SIP: if A is multilined A have to go back to \"perso\" page and press the active line key to hold the on going communication if not there is a \"hold\" key in the communication screen)",
+          "expected_result": "Phone B plays on hold tone",
+          "action_substeps": [
+            "Phone A put phone B on hold",
+            "(obsolete on SIP: if A is multilined A have to go back to \"perso\" page and press the active line key to hold the on going communication if not there is a \"hold\" key in the communication screen)"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone A retrieve call",
+          "expected_result": "Communication is established between phone A and phone B"
+        }
+      ]
+    },
+    {
+      "case_id": "C3954804",
+      "title": "N_20_Call_Back_01_Call_Back_To_Free_Phone",
+      "description": "_0\\. Prerequisites_\n\nCall back feature must be allowed by the system\n\n_1\\. Objective_\n\nThe aim of this test is to check the call back feature on SIP devices\n(on specified server) when distant is free\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...\n\n3. automatic test\n\nA_11_03_Automated_Telephony_Callback_PR418136_01_callee",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)\nPhone B does not take the call",
+          "expected_result": "Phone B rings",
+          "action_substeps": [
+            "Phone A calls phone B (phone models are specified in system_config field)",
+            "Phone B does not take the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "On phone A press the \"Call back\" key\nNote: not applicable on OXO.",
+          "expected_result": "Phone B stops ringing\nPhone B is notified that there is a call back request",
+          "action_substeps": [
+            "On phone A press the \"Call back\" key"
+          ],
+          "expected_checkpoints": [
+            "Phone B stops ringing",
+            "Phone B is notified that there is a call back request"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone B press the letter iconed physical key",
+          "expected_result": "Phone B display the call back request and can select it to see who called\n(here phone A)",
+          "expected_checkpoints": [
+            "Phone B display the call back request and can select it to see who called",
+            "(here phone A)"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Phone B calls back phone A\nPhone A takes the call and end it",
+          "expected_result": "There is no call back request anymore on phone B",
+          "action_substeps": [
+            "Phone B calls back phone A",
+            "Phone A takes the call and end it"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954805",
+      "title": "N_20_Call_Back_02_Call_Back_To_Busy_Phone",
+      "description": "_0\\. Prerequisites_\n\nCall back feature must be allowed by the system\n\n_1\\. Objective_\n\nThe aim of this test is to check the call back feature on SIP devices\n(on specified server) when distant is busy\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...\n\n3. automatic test\n\nA_11_03_Automated_Telephony_Callback_PR418136_02_auto_callthree",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Make phone B busy",
+          "expected_result": "Phone B is busy"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)",
+          "expected_result": "Phone B is not notified"
+        },
+        {
+          "step_no": 3,
+          "action": "On phone A press the \"Call back\" key",
+          "expected_result": "Phone A is idle again"
+        },
+        {
+          "step_no": 4,
+          "action": "Phone B becomes idle again",
+          "expected_result": "Phone A is called by server and B displays that a call back is ongoing"
+        },
+        {
+          "step_no": 5,
+          "action": "Phone A take the incoming call from server",
+          "expected_result": "Phone B rings (like an incoming call)"
+        },
+        {
+          "step_no": 6,
+          "action": "Phone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B"
+        }
+      ]
+    },
+    {
+      "case_id": "C3954807",
+      "title": "N_20_Make_Call_01_Basic_Call",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the make call feature on SIP devices\n(on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...\n\n3. automatic test\n\nA_11_03_Automated_Telephony_SingleCall_outgoing_PR418136_01_byhandset",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)",
+          "expected_result": "Phone A displays the correct information on screen : outgoing call to phone B"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B\nPhone A displays the correct informations on screen : ongoing call with phone B, communication duration, ...",
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone B",
+            "Phone A displays the correct informations on screen : ongoing call with phone B, communication duration, ..."
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "End the communication",
+          "expected_result": "Phone A and phone B are idle"
+        }
+      ]
+    },
+    {
+      "case_id": "C3954808",
+      "title": "N_20_Make_Call_02_Long_Call",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the make call feature on SIP devices\n(on specified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...\n\nautomaitc test\n\nLongCall_with_AudioCheck",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)",
+          "expected_result": "Phone A displays the correct information on screen : outgoing call to phone B"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B\nPhone A displays the correct informations on screen : ongoing call with phone B, communication duration, ...",
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone B",
+            "Phone A displays the correct informations on screen : ongoing call with phone B, communication duration, ..."
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Make the call last for few hours",
+          "expected_result": "Communication stays established between phone A and phone B\nPhone A displays the correct informations on screen : ongoing call with phone B, communication duration, ...",
+          "expected_checkpoints": [
+            "Communication stays established between phone A and phone B",
+            "Phone A displays the correct informations on screen : ongoing call with phone B, communication duration, ..."
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "End the communication",
+          "expected_result": "Phone A and phone B are idle"
+        }
+      ]
+    },
+    {
+      "case_id": "C3954809",
+      "title": "N_20_Make_Call_03_Dial_When_Browsing_Phone",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the make call feature on SIP devices\n(on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A \"menu\" \"settings\"",
+          "expected_result": "Phone A displays the expected menu"
+        },
+        {
+          "step_no": 2,
+          "action": "Try to dial a phone number on phone A dialpad",
+          "expected_result": "Dialing is accepted and outgoing call is possible."
+        }
+      ]
+    },
+    {
+      "case_id": "C3954810",
+      "title": "N_20_Make_Call_04_Dial_By_Name",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the make call feature on SIP devices\n(on specified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A enters on keyboard the first letters of phone B user name\n(or open the search screen if no keyboard is plug on device and type the first phone B user name letters)",
+          "expected_result": "Phone A display changes, press \"Name\" key",
+          "action_substeps": [
+            "Phone A enters on keyboard the first letters of phone B user name",
+            "(or open the search screen if no keyboard is plug on device and type the first phone B user name letters)"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A displays the search result\nPress on the key in line with phone B user name (ALE-300) or directly on the name (ALE-400 and ALE-500)",
+          "expected_result": "Phone B is ringing\nPhone A displays the correct information on screen : outgoing call to phone B",
+          "action_substeps": [
+            "Phone A displays the search result",
+            "Press on the key in line with phone B user name (ALE-300) or directly on the name (ALE-400 and ALE-500)"
+          ],
+          "expected_checkpoints": [
+            "Phone B is ringing",
+            "Phone A displays the correct information on screen : outgoing call to phone B"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B\nPhone A displays the correct informations on screen : ongoing call with phone B, communication duration, ...",
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone B",
+            "Phone A displays the correct informations on screen : ongoing call with phone B, communication duration, ..."
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "End the communication",
+          "expected_result": "Phone A and phone B are idle"
+        }
+      ]
+    },
+    {
+      "case_id": "C3954811",
+      "title": "N_20_Make_Call_05_Basic_Call_To_Busy",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the make call feature on SIP devices\n(on specified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Make enough calls to phone B to make it full busy",
+          "expected_result": "Phone B is full busy"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)",
+          "expected_result": "Phone A also gives the opportunity to make a call back by pressing the right physical key (not on SIP devices)\nRBH : voice indication that dialed number is busy",
+          "expected_checkpoints": [
+            "Phone A also gives the opportunity to make a call back by pressing the right physical key (not on SIP devices)",
+            "RBH : voice indication that dialed number is busy"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954812",
+      "title": "N_20_Make_Call_06_Basic_Call_To_Wrong_Number",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the make call feature on SIP devices\n(on specified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...\n3\\. automatic test\nA_11_03_Automated_Telephony_SingleCall_outgoing_PR418136_08_wrongnumber",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls a phone number that does not exist",
+          "expected_result": "Phone A displays that the dialed number is a wrong number and then becomes idle again.\nOXE: It displays \"xxx can not be reached\".\nRBH : Voice message says that dialed number is not available",
+          "expected_checkpoints": [
+            "Phone A displays that the dialed number is a wrong number and then becomes idle again.",
+            "OXE: It displays \"xxx can not be reached\".",
+            "RBH : Voice message says that dialed number is not available"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3955555",
+      "title": "N_20_Make_Call_07_Dialing_Methods",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the make call feature on SIP devices\n(on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B by picking up the handset and dialing phone B number",
+          "expected_result": "Phone A displays the correct information on screen : outgoing call to phone B\nThen, cancel the call : phones are idle",
+          "expected_checkpoints": [
+            "Phone A displays the correct information on screen : outgoing call to phone B",
+            "Then, cancel the call : phones are idle"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A calls phone B by dialing phone B number",
+          "expected_result": "Phone A displays the correct information on screen : outgoing call to phone B\nThen, cancel the call : phones are idle",
+          "expected_checkpoints": [
+            "Phone A displays the correct information on screen : outgoing call to phone B",
+            "Then, cancel the call : phones are idle"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone A calls phone B by pressing the loudspeaker key and dialing phone B number\nUpdate:\nPress the loudspeaker key, enter search interface;\nInput phone B number and press B item to make call.",
+          "expected_result": "Phone A displays the correct information on screen : outgoing call to phone B\nThen, cancel the call : phones are idle",
+          "action_substeps": [
+            "Phone A calls phone B by pressing the loudspeaker key and dialing phone B number",
+            "Update:",
+            "Press the loudspeaker key, enter search interface;",
+            "Input phone B number and press B item to make call."
+          ],
+          "expected_checkpoints": [
+            "Phone A displays the correct information on screen : outgoing call to phone B",
+            "Then, cancel the call : phones are idle"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3955576",
+      "title": "N_20_User_Manual_OXE_011_Take_call_lifting_handset",
+      "description": "Objective:\nCheck take call by lifting the receiver\nEquipment:\nCall server : OXO, OXE\nConfig:\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Answer an incoming call by lifting the receiver",
+          "expected_result": "Communication is switched on and audio should be in handset mode."
+        }
+      ]
+    },
+    {
+      "case_id": "C3955577",
+      "title": "N_20_User_Manual_OXE_012_Take_call_handsfree",
+      "description": "Objective:\nCheck take call by answering with the Handsfree key\nEquipment:\nCall server: OXE, OXO\nConfig:\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...\n\n\n\nautomatic test\n\nA_11_03_Automated_Telephony_SingleCall_incoming_PR418136_01_by_key_15",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Answer an incoming call by pressing the Handsfree key",
+          "expected_result": "Incoming call icon and presentation screen are displayed during ringing.\nCommunication is switched on and audio should be in handsfree mode.",
+          "expected_checkpoints": [
+            "Incoming call icon and presentation screen are displayed during ringing.",
+            "Communication is switched on and audio should be in handsfree mode."
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3955578",
+      "title": "N_20_User_Manual_OXE_014_Take_call_from_menu",
+      "description": "Objective:\nCheck take call by selecting Take call in the presentation screen menu\nEquipment:\nCall server:OXE, OXO\nConfig:\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...\n\n\n\nautomatic test\n\nA_11_03_Automated_Telephony_SingleCall_incoming_PR418136_02_by_key_39",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Answer an incoming call by selecting Take call in presentation screen menu\nFor ALE-30 /ALE-20 SIP device take the call with physical green key",
+          "expected_result": "Incoming call icon and presentation screen are displayed during ringing.\nCommunication is switched on and audio should be in handsfree mode.",
+          "action_substeps": [
+            "Answer an incoming call by selecting Take call in presentation screen menu",
+            "For ALE-30 /ALE-20 SIP device take the call with physical green key"
+          ],
+          "expected_checkpoints": [
+            "Incoming call icon and presentation screen are displayed during ringing.",
+            "Communication is switched on and audio should be in handsfree mode."
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3977157",
+      "title": "N_20_User_Manual_OXE_014_Take_call_from_accessorie",
+      "description": "Objective:\nCheck take call by using of an accessory like headset\nEquipment:\nCall server:OXE, OXO\nConfig:\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...\nHeadset (ALE white list)\n\n\n\nautomatic test\n\nA_11_03_Automated_Telephony_SingleCall_incoming_PR418136_02_by_key_39",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Answer an incoming call by Take call with an accessory",
+          "expected_result": "Incoming call icon and presentation screen are displayed during ringing.\nCommunication is switched on and audio should be in the accessory.",
+          "expected_checkpoints": [
+            "Incoming call icon and presentation screen are displayed during ringing.",
+            "Communication is switched on and audio should be in the accessory."
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3955556",
+      "title": "N_20_Ignore_Call_01_Ignore_Incoming_Call",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the ignore call feature on SIP devices\n(on specified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)",
+          "expected_result": "Phone A rings and is notified of the incoming call (displaying the right information on screen, call led is blinking)",
+          "expected_checkpoints": [
+            "Phone A rings and is notified of the incoming call (displaying the right information on screen, call led is blinking)"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A press the \"Silent\" key\n(OXO : no \"silent\" key but use the hang up key)",
+          "expected_result": "Phone A still displays the incoming call but does not ring anymore\n\"Silent\" key disappear\n(If you have a mailbox on phone A, the hang-up button is replaced by a deflect)",
+          "action_substeps": [
+            "Phone A press the \"Silent\" key"
+          ],
+          "expected_checkpoints": [
+            "Phone A still displays the incoming call but does not ring anymore",
+            "\"Silent\" key disappear",
+            "(If you have a mailbox on phone A, the hang-up button is replaced by a deflect)"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone B hangs up",
+          "expected_result": "Phone A is idle"
+        }
+      ]
+    },
+    {
+      "case_id": "C3955557",
+      "title": "N_20_Ignore_Call_02_Ignore_Incoming_Call_&_Take_It",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the ignore call feature on SIP devices\n(on specified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)",
+          "expected_result": "Phone A rings and is notified of the incoming call (displaying the right information on screen, call led is blinking)",
+          "expected_checkpoints": [
+            "Phone A rings and is notified of the incoming call (displaying the right information on screen, call led is blinking)"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A press the \"Silent\" key",
+          "expected_result": "Phone A still displays the incoming call but does not ring anymore\n\"Silent\" key disappear",
+          "expected_checkpoints": [
+            "Phone A still displays the incoming call but does not ring anymore",
+            "\"Silent\" key disappear"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone A takes the call",
+          "expected_result": "Communication is established between phone A and phone B"
+        }
+      ]
+    },
+    {
+      "case_id": "C3954902",
+      "title": "N_20_Receiving_Call_01_Receiving_Simple_Call",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the receiving call feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)",
+          "expected_result": "Phone A displays the correct information on screen : incoming call from phone B",
+          "expected_checkpoints": [
+            "Phone A displays the correct information on screen : incoming call from phone B"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Press volume + and volume - on phone A when it is ringing",
+          "expected_result": "Ringing volume varies according to the keys press"
+        },
+        {
+          "step_no": 3,
+          "action": "Press silence key on phone A",
+          "expected_result": "Phone A is still notified from incoming call but does not ring anymore"
+        },
+        {
+          "step_no": 4,
+          "action": "Phone A takes the call",
+          "expected_result": "Communication is established between phone A and phone B"
+        },
+        {
+          "step_no": 5,
+          "action": "End the communication",
+          "expected_result": "Phone A and phone B are idle"
+        }
+      ]
+    },
+    {
+      "case_id": "C3954903",
+      "title": "N_20_Receiving_Call_02_Receiving_Call_When_Already_In_Communication",
+      "description": "_0\\. Prerequisites_\n\nPhone A must be multiline\n\n_1\\. Objective_\n\nThe aim of this test is to check the receiving call feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)\nPhone A takes the call",
+          "expected_result": "Communication is established between phone A and phone B",
+          "action_substeps": [
+            "Phone B calls phone A (phone models are specified in system_config field)",
+            "Phone A takes the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone C calls phone A (phone models are specified in system_config field)",
+          "expected_result": "Phone A is notified of phone C incoming call : blinking LED, beep notification and specific display",
+          "expected_checkpoints": [
+            "Phone A is notified of phone C incoming call : blinking LED, beep notification and specific display"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone A take the second incoming call by switching the second incoming call to the top of te screen and press the take call key",
+          "expected_result": "Communication is established between phone A and phone C\nPhone B is put on hold and plays the on hold tone",
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone C",
+            "Phone B is put on hold and plays the on hold tone"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954904",
+      "title": "N_20_Receiving_Call_03_Receiving_Call_When_Browsing_Phone",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the receiving call feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A \"menu\" \"settings\"",
+          "expected_result": "Phone A displays the expected menu"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)",
+          "expected_result": "Phone A is notified (display and ringing) and not seen as busy by phone B\nSIP phone A can answer the call",
+          "expected_checkpoints": [
+            "Phone A is notified (display and ringing) and not seen as busy by phone B",
+            "SIP phone A can answer the call"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954877",
+      "title": "N_20_Call_Log_01_Call_Log_Incoming_Calls",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the call log feature on SIP devices (on\nspecified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\nTested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...\n\n3.automatic test\nA_11_03_Automated_Telephony_Callog_PR418136_03_callback",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)",
+          "expected_result": "Phone A rings but does not take the call"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone B hangs up",
+          "expected_result": "Phone A stops ringing\nThe Phone A call log contains a new entry containing the right information about the call : missed call, date (and hour) of the call, full number of the caller, ... same information with the \"incoming call\" filter",
+          "expected_checkpoints": [
+            "Phone A stops ringing",
+            "The Phone A call log contains a new entry containing the right information about the call : missed call, date (and hour) of the call, full number of the caller, ... same information with the \"incoming call\" filter"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone A makes a call to phone B from the call log",
+          "expected_result": "Phone B rings, and takes the call\nCommunication is established between phone A and phone B",
+          "expected_checkpoints": [
+            "Phone B rings, and takes the call",
+            "Communication is established between phone A and phone B"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)",
+          "expected_result": "Phone A rings and takes the call\nCommunication is established between phone A and phone B",
+          "expected_checkpoints": [
+            "Phone A rings and takes the call",
+            "Communication is established between phone A and phone B"
+          ]
+        },
+        {
+          "step_no": 5,
+          "action": "End the communication",
+          "expected_result": "Phones A and B are now idle\nThe Phone A call log contains a new entry containing the right information about the call : received call, date (and hour) of the call, full number of the caller, ...",
+          "expected_checkpoints": [
+            "Phones A and B are now idle",
+            "The Phone A call log contains a new entry containing the right information about the call : received call, date (and hour) of the call, full number of the caller, ..."
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954878",
+      "title": "N_20_Call_Log_02_Call_Log_Outgoing_Calls",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the call log feature on SIP devices (on\nspecified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\nTested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...\n\n3.automatic test\nA_11_03_Automated_Telephony_Callog_PR418136_04_firstcall",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)",
+          "expected_result": "Phone B rings but does not take the call\nThe Phone A call log contains a new entry containing the right information about the call : with all, unsuccessfull and outgoing call, date (and hour) of the call, full number of the callee, ...",
+          "expected_checkpoints": [
+            "Phone B rings but does not take the call",
+            "The Phone A call log contains a new entry containing the right information about the call : with all, unsuccessfull and outgoing call, date (and hour) of the call, full number of the callee, ..."
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)",
+          "expected_result": "Phone B ring and takes the call"
+        },
+        {
+          "step_no": 3,
+          "action": "End the communication",
+          "expected_result": "Phones A and B are now idle\nThe Phone A call log contains a new entry containing the right information about the call : answered outgoing call, date (and hour) of the call, full number of the caller, ...",
+          "expected_checkpoints": [
+            "Phones A and B are now idle",
+            "The Phone A call log contains a new entry containing the right information about the call : answered outgoing call, date (and hour) of the call, full number of the caller, ..."
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954879",
+      "title": "N_20_Call_Log_03_Call_Log_Forwarded_Call",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the call log feature on SIP devices (on\nspecified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\nTested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone B defines an immediate forward to phone C",
+          "expected_result": "Forward is taken into account"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A calls phone B",
+          "expected_result": "Phone B is not notified\nPhone C rings and take the call : communication between phone A and phone C is established",
+          "expected_checkpoints": [
+            "Phone B is not notified",
+            "Phone C rings and take the call : communication between phone A and phone C is established"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "End the communication",
+          "expected_result": "Phone A and C are idle\nPhone A call log has a new entry:\n1 answered call with phone B information and showing that call has been answered by C (can be seen with : all, outgoing, redirected filters)\nPhone C call log display a standard forwarded incoming call from A showing that call was initialy for B",
+          "expected_checkpoints": [
+            "Phone A and C are idle",
+            "Phone A call log has a new entry:",
+            "1 answered call with phone B information and showing that call has been answered by C (can be seen with : all, outgoing, redirected filters)",
+            "Phone C call log display a standard forwarded incoming call from A showing that call was initialy for B"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954880",
+      "title": "N_20_Call_Log_04_Call_Log_When_SIP_Forwads_Calls",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the call log feature on SIP devices (on\nspecified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A (tested phone) defines an immediate forward to phone B",
+          "expected_result": "Forward is taken into account"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone C calls phone A",
+          "expected_result": "Phone A is not notified\nPhone B rings and take the call : communication between phone B and phone C is established",
+          "expected_checkpoints": [
+            "Phone A is not notified",
+            "Phone B rings and take the call : communication between phone B and phone C is established"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "End the communication",
+          "expected_result": "Phone B and C are idle\nThere is no new entry in the phone A call log\n(Note: if phone B does not take the call phone A has a new missed call notification) => Not true anymore",
+          "expected_checkpoints": [
+            "Phone B and C are idle",
+            "There is no new entry in the phone A call log",
+            "(Note: if phone B does not take the call phone A has a new missed call notification) => Not true anymore"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954881",
+      "title": "N_20_Call_Log_05_Call_Log_Voicemail",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the call log feature on SIP devices (on\nspecified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\nTested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls his voicemail",
+          "expected_result": "Phone A is in communication with his voicemail"
+        },
+        {
+          "step_no": 2,
+          "action": "Release the communication",
+          "expected_result": "The Phone A call log contains a new entry containing the right information about the call : outgoing call to voicemail, date (and hour) of the call, full number of the caller, ...",
+          "expected_checkpoints": [
+            "The Phone A call log contains a new entry containing the right information about the call : outgoing call to voicemail, date (and hour) of the call, full number of the caller, ..."
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954882",
+      "title": "N_20_Call_Log_06_Call_Log_Next_Day",
+      "description": "0\\. Prerequisites\nPhone A made some outgoing calls (answered and not), received some calls\n(answered or not)\n1\\. Objective\nThe aim of this test is to check the call log feature on SIP devices (on\nspecified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\nE\n\\- System on which the test is done : OXE / OXO\n\nTested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "On day 1, Phone A make some outgoing calls (answered and not), receive some calls (answered or not)",
+          "expected_result": "Call log has many entries with all the correct informations : date (and hour) (not for ALE-20) of the call, full number of the callee, ...",
+          "action_substeps": [
+            "On day 1, Phone A make some outgoing calls (answered and not), receive some calls (answered or not)"
+          ],
+          "expected_checkpoints": [
+            "Call log has many entries with all the correct informations : date (and hour) (not for ALE-20) of the call, full number of the callee, ..."
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Next day, check call log on phone A",
+          "expected_result": "Date of entries have been updated in call log"
+        }
+      ]
+    },
+    {
+      "case_id": "C3954883",
+      "title": "N_20_Call_Log_07_Call_Log_Max_Entries",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the call log feature on SIP devices (on\nspecified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Fill the phone A (tested phone) call log with various entries (outgoing calls, incoming calls, ...)",
+          "expected_result": "Call log is fullfilled with call log entries (OXE: 50 entries )\nSIP: 100",
+          "action_substeps": [
+            "Fill the phone A (tested phone) call log with various entries (outgoing calls, incoming calls, ...)"
+          ],
+          "expected_checkpoints": [
+            "Call log is fullfilled with call log entries (OXE: 50 entries )",
+            "SIP: 100"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Make an outgoing call with phone A to phone B\nPhone B takes the call and then release the call",
+          "expected_result": "The new entry is displayed in call log with correct informations\nNumber of entries in call log is still 50",
+          "action_substeps": [
+            "Make an outgoing call with phone A to phone B",
+            "Phone B takes the call and then release the call"
+          ],
+          "expected_checkpoints": [
+            "The new entry is displayed in call log with correct informations",
+            "Number of entries in call log is still 50"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone B calls phone A\nPhone A takes the call and then release the call",
+          "expected_result": "The new entry is displayed in call log with correct informations\nNumber of entries in call log is still 50",
+          "action_substeps": [
+            "Phone B calls phone A",
+            "Phone A takes the call and then release the call"
+          ],
+          "expected_checkpoints": [
+            "The new entry is displayed in call log with correct informations",
+            "Number of entries in call log is still 50"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954884",
+      "title": "N_20_Call_Log_08_Call_Log_Conference_Merging_2_Incoming_Calls",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the call log feature on SIP devices (on\nspecified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\nTested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone B calls phone A (phone models given in system_config)\nPhone A takes the call",
+          "expected_result": "Communication is established between phone A and phone B",
+          "action_substeps": [
+            "Phone B calls phone A (phone models given in system_config)",
+            "Phone A takes the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone C calls phone A\nPhone A takes the call",
+          "expected_result": "Communication is established between phone A and phone C\nPhone B is on hold",
+          "action_substeps": [
+            "Phone C calls phone A",
+            "Phone A takes the call"
+          ],
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone C",
+            "Phone B is on hold"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone A merges both calls to make a conference",
+          "expected_result": "Conference is active between the 3 devices"
+        },
+        {
+          "step_no": 4,
+          "action": "Hook on all the phones",
+          "expected_result": "Check the call log on phone A : two incoming calls are logged\nAnd a conference call log is logged.",
+          "expected_checkpoints": [
+            "Check the call log on phone A : two incoming calls are logged",
+            "And a conference call log is logged."
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954885",
+      "title": "N_20_Call_Log_09_Call_Log_Conference_Merging_2_Outgoing_Calls",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the call log feature on SIP devices (on\nspecified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B\nPhone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B",
+          "action_substeps": [
+            "Phone A calls phone B",
+            "Phone B takes the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A makes a new call to phone C (by pressing new call key and dial phone C number)\nPhone C takes the call",
+          "expected_result": "Communication is established between phone A and phone C\nPhone B is on hold",
+          "action_substeps": [
+            "Phone A makes a new call to phone C (by pressing new call key and dial phone C number)",
+            "Phone C takes the call"
+          ],
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone C",
+            "Phone B is on hold"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone A merges both calls to make a conference",
+          "expected_result": "Conference is active between the 3 devices"
+        },
+        {
+          "step_no": 4,
+          "action": "Hook on all the phones",
+          "expected_result": "Check the call log on phone A : two outgoing calls are logged\nAnd a conference call log is logged.",
+          "expected_checkpoints": [
+            "Check the call log on phone A : two outgoing calls are logged",
+            "And a conference call log is logged."
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954886",
+      "title": "N_20_Call_Log_10_Call_Log_Conference_Merging_Incoming_&_Outgoing_Calls",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the call log feature on SIP devices (on\nspecified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone B calls phone A (phone models given in system_config)\nPhone A takes the call",
+          "expected_result": "Communication is established between phone A and phone B",
+          "action_substeps": [
+            "Phone B calls phone A (phone models given in system_config)",
+            "Phone A takes the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A makes a new call to phone C (by pressing new call key and dial phone C number)\nPhone C takes the call",
+          "expected_result": "Communication is established between phone A and phone C\nPhone B is on hold",
+          "action_substeps": [
+            "Phone A makes a new call to phone C (by pressing new call key and dial phone C number)",
+            "Phone C takes the call"
+          ],
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone C",
+            "Phone B is on hold"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone A merges both calls to make a conference",
+          "expected_result": "Conference is active between the 3 devices"
+        },
+        {
+          "step_no": 4,
+          "action": "Hook on all the phones",
+          "expected_result": "Check the call log on phone A : one incoming call from B and one outgoing call to C are logged\nAnd a conference call log is logged.",
+          "expected_checkpoints": [
+            "Check the call log on phone A : one incoming call from B and one outgoing call to C are logged",
+            "And a conference call log is logged."
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954887",
+      "title": "N_20_Call_Park_01_Park_Simple_Call_OXE",
+      "description": "_0\\. Prerequisites_\n\nCall park prefix must be defined on system\n\n_1\\. Objective_\n\nThe aim of this test is to check the call park feature on SIP devices\n(on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE\n\n- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)\nPhone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B",
+          "action_substeps": [
+            "Phone A calls phone B (phone models are specified in system_config field)",
+            "Phone B takes the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A makes a call park (using the right prefix defined in OXE : 402)",
+          "expected_result": "Phone A play the line taking tone and invites user to enter a phone number\nPhone B is on hold",
+          "expected_checkpoints": [
+            "Phone A play the line taking tone and invites user to enter a phone number",
+            "Phone B is on hold"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone A dial the phone C number",
+          "expected_result": "Phone A plays beeps\nPhone B is on hold",
+          "expected_checkpoints": [
+            "Phone A plays beeps",
+            "Phone B is on hold"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Phone D dial the call park prefix and directory number of phone C",
+          "expected_result": "Communication is established between phone B and phone D\nPhone A is idle",
+          "expected_checkpoints": [
+            "Communication is established between phone B and phone D",
+            "Phone A is idle"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954888",
+      "title": "N_20_Call_Pick_Up_01_Simple_Call_Pick_Up",
+      "description": "_0\\. Prerequisites_\n\nCall pick up prefix must be defined on server side\n\n_1\\. Objective_\n\nThe aim of this test is to check the call pick up feature on SIP devices\n(on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)",
+          "expected_result": "Phone B is ringing"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone C dial the call pick up prefix and the phone number of B\n(OXE = 55)\n(OXO = 71)\n(RBH=*99*)",
+          "expected_result": "Communication is established between phone A and phone C\nPhone B is idle",
+          "action_substeps": [
+            "Phone C dial the call pick up prefix and the phone number of B",
+            "(OXE = 55) 71)",
+            "(RBH=*99*)"
+          ],
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone C",
+            "Phone B is idle"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954889",
+      "title": "N_20_Intrusion_01_Intrusion_On_Busy",
+      "description": "_0\\. Prerequisites_\n\nIntrusion prefix must be defined on system\n\nphone A is mono-line\n\n_1\\. Objective_\n\nThe aim of this test is to check the intrusion feature on SIP devices\n(on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)\nPhone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B",
+          "action_substeps": [
+            "Phone A calls phone B (phone models are specified in system_config field)",
+            "Phone B takes the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone C calls phone A\nNote: To do intrusion, on A, there is no multi line is configured.",
+          "expected_result": "Phone A display does not change\nPhone C plays the busy tone",
+          "action_substeps": [
+            "Phone C calls phone A",
+            "Note: To do intrusion, on A, there is no multi line is configured."
+          ],
+          "expected_checkpoints": [
+            "Phone A display does not change",
+            "Phone C plays the busy tone"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone C dials the intrusion suffix (OXE:4)",
+          "expected_result": "Phone A plays beeps to inform user from the intrusion\nConference is established between phone A, phone B and phone C",
+          "expected_checkpoints": [
+            "Phone A plays beeps to inform user from the intrusion",
+            "Conference is established between phone A, phone B and phone C"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954890",
+      "title": "N_20_Interphony_01_Interphony_Activation_Deactivation",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the interphony feature (local auto-answer) on\nSIP devices (on specified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\nTested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A is in idle state\nPress the physical mute key on phone A\nFrom 1.40.02 2073, if capability is allowed by OXE server for SIP users interphony must be activated from Settings / Telephony / Auto-answer OR by creating a Anto-answer progkey (and pressing it to activate interphony).",
+          "expected_result": "Mute key LED is lighted up\nFrom 1.40.02 2073, Mute key LED is not lighted up. Mute icon shows on the topbar.",
+          "action_substeps": [
+            "Phone A is in idle state",
+            "Press the physical mute key on phone A",
+            "From 1.40.02 2073, if capability is allowed by OXE server for SIP users interphony must be activated from Settings / Telephony / Auto-answer OR by creating a Anto-answer progkey (and pressing it to activate interphony)."
+          ],
+          "expected_checkpoints": [
+            "Mute key LED is lighted up",
+            "From 1.40.02 2073, Mute key LED is not lighted up. Mute icon shows on the topbar."
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)",
+          "expected_result": "Call is launched, phone A is notified of the incoming call and hook up automatically\nCommunication is established between phone A and phone B",
+          "expected_checkpoints": [
+            "Call is launched, phone A is notified of the incoming call and hook up automatically",
+            "Communication is established between phone A and phone B"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "End communication between phone A and B",
+          "expected_result": "Both device are in idle state"
+        },
+        {
+          "step_no": 4,
+          "action": "Press the physical mute key on phone A\nFrom 1.40.02 2073, disable Mute from settings menu.",
+          "expected_result": "Mute key LED is turned off.\nFrom 1.40.02 2073, Mute key LED is not lighted up. Mute icon disappears on the topbar.",
+          "action_substeps": [
+            "Press the physical mute key on phone A",
+            "From 1.40.02 2073, disable Mute from settings menu."
+          ],
+          "expected_checkpoints": [
+            "Mute key LED is turned off.",
+            "From 1.40.02 2073, Mute key LED is not lighted up. Mute icon disappears on the topbar."
+          ]
+        },
+        {
+          "step_no": 5,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)",
+          "expected_result": "Phone A rings and present an incoming call from phone B\nPhone A does not take call automatically",
+          "expected_checkpoints": [
+            "Phone A rings and present an incoming call from phone B",
+            "Phone A does not take call automatically"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954891",
+      "title": "N_20_Interphony_02_Interphony_After_Reboot",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the interphony feature (local auto-answer) on\nNOE 3G EE devices (on specified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\\- Tested phone models (phone A, phone B and phone C) : 8028s / 8058s / 8068s\n/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A is in idle state\nPress the physical mute key",
+          "expected_result": "Mute key LED is lighted up",
+          "action_substeps": [
+            "Phone A is in idle state",
+            "Press the physical mute key"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)",
+          "expected_result": "Call is launched, phone A is notified of the incoming call and hook up automatically\nCommunication is established between phone A and phone B",
+          "expected_checkpoints": [
+            "Call is launched, phone A is notified of the incoming call and hook up automatically",
+            "Communication is established between phone A and phone B"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "End the communication",
+          "expected_result": "Phone A and B are both in idle state"
+        },
+        {
+          "step_no": 4,
+          "action": "Reboot phone A and wait until it is idle again",
+          "expected_result": "Mute key LED is lighted up\nFor Pleiades SIP phone, the mute key LED is blinking in blue.",
+          "expected_checkpoints": [
+            "Mute key LED is lighted up",
+            "For Pleiades SIP phone, the mute key LED is blinking in blue."
+          ]
+        },
+        {
+          "step_no": 5,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)",
+          "expected_result": "Call is launched, phone A is notified of the incoming call and hook up automatically\nCommunication is established between phone A and phone B",
+          "expected_checkpoints": [
+            "Call is launched, phone A is notified of the incoming call and hook up automatically",
+            "Communication is established between phone A and phone B"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954894",
+      "title": "N_20_Interphony_03_Interphony_&_Immediate_Forward",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the interphony feature (local auto-answer) on\nSIP devices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A is in idle state\nPress the physical mute key on phone A",
+          "expected_result": "Mute key LED is lighted up",
+          "action_substeps": [
+            "Phone A is in idle state",
+            "Press the physical mute key on phone A"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Define an immediate forward on phone A to phone B (phone models given in system config)",
+          "expected_result": "Forward is defined on phone A",
+          "action_substeps": [
+            "Define an immediate forward on phone A to phone B (phone models given in system config)"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone C calls phone A (phone models are specified in system_config field)",
+          "expected_result": "Phone A is not notified\nPhone B rings (displaying incoming call from phone C)",
+          "expected_checkpoints": [
+            "Phone A is not notified",
+            "Phone B rings (displaying incoming call from phone C)"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954896",
+      "title": "N_20_Interphony_04_Interphony_&_Second_Incoming_Call",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the interphony feature (local auto-answer) on\nSIP devices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A is in idle state\nPress the physical mute key on phone A",
+          "expected_result": "Mute key LED is lighted up",
+          "action_substeps": [
+            "Phone A is in idle state",
+            "Press the physical mute key on phone A"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)",
+          "expected_result": "Call is launched, phone A is notified of the incoming call and hook up automatically\nCommunication is established between phone A and phone B",
+          "expected_checkpoints": [
+            "Call is launched, phone A is notified of the incoming call and hook up automatically",
+            "Communication is established between phone A and phone B"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone C calls phone A",
+          "expected_result": "Phone A is notified of the incoming call from phone C, phone A does not auto- answer this call\nPhone A and phone B are still in communication",
+          "expected_checkpoints": [
+            "Phone A is notified of the incoming call from phone C, phone A does not auto- answer this call",
+            "Phone A and phone B are still in communication"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954893",
+      "title": "N_20_Interphony_05_Interphony_&_Browsing_Device",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the interphony feature (local auto-answer) on\nSIP devices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) : 8028s / 8058s / 8068s\n/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A is in idle state\nPress the physical mute key on phone A",
+          "expected_result": "Mute key LED is lighted up",
+          "action_substeps": [
+            "Phone A is in idle state",
+            "Press the physical mute key on phone A"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Browse phone A to \"menu\" \"parameters\" and make a call from phone B to phone A at the same time",
+          "expected_result": "Phone A is notified from the incoming call and the call is answered after specific tone playing",
+          "action_substeps": [
+            "Browse phone A to \"menu\" \"parameters\" and make a call from phone B to phone A at the same time"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954895",
+      "title": "N_20_Interphony_06_Interphony_&_Headset",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the interphony feature (local auto-answer) on\nSIP devices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...\n\n\\- Headset type : USB / Bluetooth (BT)\n\nHere is the list of supported headset for SIP devices:\n\n**USB** connectivity :\n\n- Priority ALE headset\n\n**Bluetooth** connectivity:\n\n- Plantronics Voyager Legend",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A is in idle state\nHeadset (type given in system config) is plugged on phone A\nPress the physical mute key on phone A",
+          "expected_result": "Mute key LED is lighted up",
+          "action_substeps": [
+            "Phone A is in idle state",
+            "Headset (type given in system config) is plugged on phone A",
+            "Press the physical mute key on phone A"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)",
+          "expected_result": "Call is launched, phone A is notified of the incoming call and hook up automatically\nCommunication is established between phone A and phone B\nPhone A audio is in the headset",
+          "expected_checkpoints": [
+            "Call is launched, phone A is notified of the incoming call and hook up automatically",
+            "Communication is established between phone A and phone B",
+            "Phone A audio is in the headset"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954892",
+      "title": "N_20_Interphony_07_Mute_Key_During_Comm",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check that pressing the mute key in communication\n(interphony feature activation when phone is idle) on SIP devices has no\ninteraction with interphony feature\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\nTested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)\nPhone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B",
+          "action_substeps": [
+            "Phone A calls phone B (phone models are specified in system_config field)",
+            "Phone B takes the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Press the physical mute key on phone A",
+          "expected_result": "Mute key LED is now blinking\nBut it only activate the mute feature on phone A (nothing to do with nterphony)",
+          "expected_checkpoints": [
+            "Mute key LED is now blinking",
+            "But it only activate the mute feature on phone A (nothing to do with nterphony)"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "End the communication",
+          "expected_result": "Phone A and phone B are idle\nPhone A mute key is off",
+          "expected_checkpoints": [
+            "Phone A and phone B are idle",
+            "Phone A mute key is off"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Phone B calls phone A (phone models are specified in system_config field)",
+          "expected_result": "Phone A rings and present an incoming call from phone B\nPhone A does not take call automatically",
+          "expected_checkpoints": [
+            "Phone A rings and present an incoming call from phone B",
+            "Phone A does not take call automatically"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954897",
+      "title": "N_20_Lock_01_Lock_Unlock",
+      "description": "_0\\. Prerequisites_\n\nLock / Unlock prefix must be defined on system side\n\n_1\\. Objective_\n\nThe aim of this test is to check the lock / unlock feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A is in idle state\nDial the lock prefix on phone A (OXE : 45 )",
+          "expected_result": "Phone A informs user that it is now locked\nAn icon (padlock) is now displayed on screen to inform that device is locked",
+          "action_substeps": [
+            "Phone A is in idle state",
+            "Dial the lock prefix on phone A (OXE : 45 )"
+          ],
+          "expected_checkpoints": [
+            "Phone A informs user that it is now locked",
+            "An icon (padlock) is now displayed on screen to inform that device is locked"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A tries to send a text message to another device",
+          "expected_result": "Device asks password user before dial screen (OXE only)",
+          "expected_checkpoints": [
+            "Device asks password user before dial screen (OXE only)"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Enter the phone A password and send the message to phone B",
+          "expected_result": "Message is sent\nPhone A is now idle",
+          "expected_checkpoints": [
+            "Message is sent",
+            "Phone A is now idle"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Dial the lock prefix on phone A",
+          "expected_result": "Phone asks for the user password"
+        },
+        {
+          "step_no": 5,
+          "action": "Enter the phone A user password",
+          "expected_result": "Phone A informs user that it is now unlocked"
+        },
+        {
+          "step_no": 6,
+          "action": "Send a text message from phone A to phone B",
+          "expected_result": "Message is sent, device didn't ask for password"
+        }
+      ]
+    },
+    {
+      "case_id": "C3954900",
+      "title": "N_20_Lock_02_Lock_Unlock_Wrong_Pwd",
+      "description": "_0\\. Prerequisites_\n\nLock / Unlock prefix must be defined on system side\n\n_1\\. Objective_\n\nThe aim of this test is to check the lock / unlock feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A is in idle state\nDial the lock prefix on phone A",
+          "expected_result": "Phone A informs user that it is now locked\nAn icon (padlock) is now displayed on screen to inform that device is locked",
+          "action_substeps": [
+            "Phone A is in idle state",
+            "Dial the lock prefix on phone A"
+          ],
+          "expected_checkpoints": [
+            "Phone A informs user that it is now locked",
+            "An icon (padlock) is now displayed on screen to inform that device is locked"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A tries to send a text message to another device",
+          "expected_result": "Device asks password user before dial screen"
+        },
+        {
+          "step_no": 3,
+          "action": "Enter a bad password",
+          "expected_result": "Phone A informs user that the password is not the good one and waits for the good one",
+          "expected_checkpoints": [
+            "Phone A informs user that the password is not the good one and waits for the good one"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Cancel the message",
+          "expected_result": "Phone A is idle"
+        },
+        {
+          "step_no": 5,
+          "action": "Dial the lock prefix on phone A",
+          "expected_result": "Phone asks for the user password"
+        },
+        {
+          "step_no": 6,
+          "action": "Enter a bad password",
+          "expected_result": "Phone A informs user that this is not the correct password\nPhone A is still locked (padlock still displayed on screen)",
+          "expected_checkpoints": [
+            "Phone A informs user that this is not the correct password",
+            "Phone A is still locked (padlock still displayed on screen)"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954899",
+      "title": "N_20_Lock_03_Lock_ChangeUnlockPwd_Unlock",
+      "description": "_0\\. Prerequisites_\n\nLock / Unlock prefix must be defined on system side\n\nThe change unlock password prefix must be defined on server side\n\n_1\\. Objective_\n\nThe aim of this test is to check the lock / unlock feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A is in idle state\nDial the lock prefix (OXE 45) on phone A",
+          "expected_result": "Phone A informs user that it is now locked\nAn icon (padlock) is now displayed on screen to inform that device is locked",
+          "action_substeps": [
+            "Phone A is in idle state",
+            "Dial the lock prefix (OXE on phone A"
+          ],
+          "expected_checkpoints": [
+            "Phone A informs user that it is now locked",
+            "An icon (padlock) is now displayed on screen to inform that device is locked"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Dial the change password prefix (OXE 405)",
+          "expected_result": "Phone A asks for the user password"
+        },
+        {
+          "step_no": 3,
+          "action": "Enter the current user password",
+          "expected_result": "Phone A asks for the new password"
+        },
+        {
+          "step_no": 4,
+          "action": "Enter a new 4 digits password and validate",
+          "expected_result": "Phone A asks for the new password confirmation"
+        },
+        {
+          "step_no": 5,
+          "action": "Enter the new password (defined in step4) and validate",
+          "expected_result": "Phone A informs user that new password is taken into account"
+        },
+        {
+          "step_no": 6,
+          "action": "Dial the lock prefix on phone A",
+          "expected_result": "Phone asks for the user password"
+        },
+        {
+          "step_no": 7,
+          "action": "Enter the new password defined in step 4 and 5",
+          "expected_result": "Phone A informs user that it is now unlocked (no more padlock icon)"
+        }
+      ]
+    },
+    {
+      "case_id": "C3954898",
+      "title": "N_20_Lock_04_Lock_AdminChgPwd_Unlock",
+      "description": "_0\\. Prerequisites_\n\nLock / Unlock prefix must be defined on system side\n\n_1\\. Objective_\n\nThe aim of this test is to check the lock / unlock feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A is in idle state\nDial the lock prefix on phone A",
+          "expected_result": "Phone A informs user that it is now locked\nAn icon (padlock) is now displayed on screen to inform that device is locked",
+          "action_substeps": [
+            "Phone A is in idle state",
+            "Dial the lock prefix on phone A"
+          ],
+          "expected_checkpoints": [
+            "Phone A informs user that it is now locked",
+            "An icon (padlock) is now displayed on screen to inform that device is locked"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Connect on serveur and modify the phone A password\nFor OXE launch \"mgr\" then go to \"user\", \"review/modify\" select phone A number and then modify the \"secret code\" line to a different value than former phone A password",
+          "expected_result": "Phone A password has changed",
+          "action_substeps": [
+            "Connect on serveur and modify the phone A password",
+            "For OXE launch \"mgr\" then go to \"user\", \"review/modify\" select phone A number and then modify the \"secret code\" line to a different value than former phone A password"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Dial the lock prefix on phone A",
+          "expected_result": "Phone asks for the user password"
+        },
+        {
+          "step_no": 4,
+          "action": "Enter the new phone A user password (the one defined by admin during step 2)",
+          "expected_result": "Phone A informs user that it is now unlocked\nPhone A is idle",
+          "expected_checkpoints": [
+            "Phone A informs user that it is now unlocked",
+            "Phone A is idle"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954901",
+      "title": "N_20_Lock_05_Lock_AdminChgPwdUnlock_Wrong_Pwd",
+      "description": "_0\\. Prerequisites_\n\nLock / Unlock prefix must be defined on system side\n\n_1\\. Objective_\n\nThe aim of this test is to check the lock / unlock feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A is in idle state\nDial the lock prefix on phone A",
+          "expected_result": "Phone A informs user that it is now locked\nAn icon (padlock) is now displayed on screen to inform that device is locked",
+          "action_substeps": [
+            "Phone A is in idle state",
+            "Dial the lock prefix on phone A"
+          ],
+          "expected_checkpoints": [
+            "Phone A informs user that it is now locked",
+            "An icon (padlock) is now displayed on screen to inform that device is locked"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Connect on serveur and modify the phone A password\nFor OXE launch \"mgr\" then go to \"user\", \"review/modify\" select phone A number and then modify the \"secret code\" line to a different value than former phone A password",
+          "expected_result": "Phone A password has changed",
+          "action_substeps": [
+            "Connect on serveur and modify the phone A password",
+            "For OXE launch \"mgr\" then go to \"user\", \"review/modify\" select phone A number and then modify the \"secret code\" line to a different value than former phone A password"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Dial the lock prefix on phone A",
+          "expected_result": "Phone asks for the user password"
+        },
+        {
+          "step_no": 4,
+          "action": "Enter the old phone A user password (the one before the admin change its value)",
+          "expected_result": "Phone A informs user that the password is not the good one and waits for the good one",
+          "action_substeps": [
+            "Enter the old phone A user password (the one before the admin change its value)"
+          ],
+          "expected_checkpoints": [
+            "Phone A informs user that the password is not the good one and waits for the good one"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954905",
+      "title": "N_20_Redial_01_Redial_After_Answered_Call",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the redial feature on SIP devices (on\nspecified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)\nPhone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B",
+          "action_substeps": [
+            "Phone A calls phone B (phone models are specified in system_config field)",
+            "Phone B takes the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "End the communication",
+          "expected_result": "Phone A and phone B are idle"
+        },
+        {
+          "step_no": 3,
+          "action": "On phone A consult the call log list and select the previous answered call\nPress the right softkey to make a redial ( ALE300 )\nPress on the name ( ALE 400 / 500 )",
+          "expected_result": "Phone A makes an outgoing call to phone B (displaying the expected information on screen), phone B is notified",
+          "action_substeps": [
+            "On phone A consult the call log list and select the previous answered call",
+            "Press the right softkey to make a redial ( ALE300 )",
+            "Press on the name ( ALE 400 / 500 )"
+          ],
+          "expected_checkpoints": [
+            "Phone A makes an outgoing call to phone B (displaying the expected information on screen), phone B is notified"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Phone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B\nPhone A displays the correct informations on screen : ongoing call with phone B, communication duration, ...",
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone B",
+            "Phone A displays the correct informations on screen : ongoing call with phone B, communication duration, ..."
+          ]
+        },
+        {
+          "step_no": 5,
+          "action": "End the communication",
+          "expected_result": "Phone A and phone B are idle"
+        }
+      ]
+    },
+    {
+      "case_id": "C3954906",
+      "title": "N_20_Redial_02_Redial_After_Non_Answered_Call",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the redial feature on SIP devices (on\nspecified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)",
+          "expected_result": "Phone B is notified of the incomming call\nPhone A displays an outgoing call to phone B",
+          "expected_checkpoints": [
+            "Phone B is notified of the incomming call",
+            "Phone A displays an outgoing call to phone B"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Cancel the call",
+          "expected_result": "Phone A and phone B are idle"
+        },
+        {
+          "step_no": 3,
+          "action": "On phone A consult the call log list and select the previous non answered call\nPress the right softkey to make a redial ( ALE300 )\nPress on the name ( ALE 400 / 500 )",
+          "expected_result": "Phone A makes an outgoing call to phone B (displaying the expected information on screen), phone B is notified",
+          "action_substeps": [
+            "On phone A consult the call log list and select the previous non answered call",
+            "Press the right softkey to make a redial ( ALE300 )",
+            "Press on the name ( ALE 400 / 500 )"
+          ],
+          "expected_checkpoints": [
+            "Phone A makes an outgoing call to phone B (displaying the expected information on screen), phone B is notified"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Phone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B\nPhone A displays the correct informations on screen : ongoing call with phone B, communication duration, ...",
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone B",
+            "Phone A displays the correct informations on screen : ongoing call with phone B, communication duration, ..."
+          ]
+        },
+        {
+          "step_no": 5,
+          "action": "End the communication",
+          "expected_result": "Phone A and phone B are idle"
+        }
+      ]
+    },
+    {
+      "case_id": "C3954907",
+      "title": "N_20_Redial_04_Redial_To_Forwarded_Phone",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the redial feature on SIP devices (on\nspecified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Define an immediate forward on phone B to phone C (phone models given in system config)",
+          "expected_result": "Forward is defined on phone C",
+          "action_substeps": [
+            "Define an immediate forward on phone B to phone C (phone models given in system config)"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A calls phone B",
+          "expected_result": "Phone B is not notified\nPhone A displays an outgoing call to phone C\nPhone C is notified of the incoming call from phone A\nThen cancel the call",
+          "expected_checkpoints": [
+            "Phone B is not notified",
+            "Phone A displays an outgoing call to phone C",
+            "Phone C is notified of the incoming call from phone A",
+            "Then cancel the call"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "On phone A consult the call log list and select the previous call\nPress the right softkey to make a redial ( ALE300 )\nPress on the name ( ALE 400 / 500 )",
+          "expected_result": "Phone A makes an outgoing call to phone C (displaying the expected information on screen), phone C is notified of the incoming call from phone A",
+          "action_substeps": [
+            "On phone A consult the call log list and select the previous call",
+            "Press the right softkey to make a redial ( ALE300 )",
+            "Press on the name ( ALE 400 / 500 )"
+          ],
+          "expected_checkpoints": [
+            "Phone A makes an outgoing call to phone C (displaying the expected information on screen), phone C is notified of the incoming call from phone A"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Cancel forward on phone B",
+          "expected_result": "Phone B is not forwarded anymore"
+        },
+        {
+          "step_no": 5,
+          "action": "On phone A press the redial physical key",
+          "expected_result": "Phone A makes an outgoing call to phone C and not to B (displaying the expected information on screen), phone B is not notified of the incoming call from phone A\nThis is the same behavior as ALE-3",
+          "expected_checkpoints": [
+            "Phone A makes an outgoing call to phone C and not to B (displaying the expected information on screen), phone B is not notified of the incoming call from phone A",
+            "This is the same behavior as ALE-3"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954908",
+      "title": "N_20_Redial_03_Redial_Phone_After_Reset",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the redial feature on SIP devices (on\nspecified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)\nPhone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B",
+          "action_substeps": [
+            "Phone A calls phone B (phone models are specified in system_config field)",
+            "Phone B takes the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "End the communication",
+          "expected_result": "Phone A and phone B are idle"
+        },
+        {
+          "step_no": 3,
+          "action": "Reboot phone A and wait for end of its boot",
+          "expected_result": "Phone A is idle"
+        },
+        {
+          "step_no": 4,
+          "action": "On phone A consult the call log list and select the previous non answered call\nPress the right softkey to make a redial ( ALE300 )\nPress on the name ( ALE 400 / 500 )",
+          "expected_result": "Phone A makes an outgoing call to phone B (displaying the expected information on screen), phone B is notified",
+          "action_substeps": [
+            "On phone A consult the call log list and select the previous non answered call",
+            "Press the right softkey to make a redial ( ALE300 )",
+            "Press on the name ( ALE 400 / 500 )"
+          ],
+          "expected_checkpoints": [
+            "Phone A makes an outgoing call to phone B (displaying the expected information on screen), phone B is notified"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3954910",
+      "title": "N_20_Redial_06_Redial_During_Comm",
+      "description": "_0\\. Prerequisites_\n\nMake some outgoing calls with phone A to several different other phones (and\nat least to phone C)\n\n_1\\. Objective_\n\nThe aim of this test is to check the redial feature on SIP devices (on\nspecified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls phone B (phone models are specified in system_config field)\nPhone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B",
+          "action_substeps": [
+            "Phone A calls phone B (phone models are specified in system_config field)",
+            "Phone B takes the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "On phone A consult the call log list and select the previous call\nPress the right softkey to make a redial ( ALE300 )\nPress on the name ( ALE 400 / 500 )\n(possibility to create a programmable redial key)",
+          "expected_result": "Phone A makes an outgoing call to phone C",
+          "action_substeps": [
+            "On phone A consult the call log list and select the previous call",
+            "Press the right softkey to make a redial ( ALE300 )",
+            "Press on the name ( ALE 400 / 500 )",
+            "(possibility to create a programmable redial key)"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone C takes the call",
+          "expected_result": "Communication is established between phone A and phone C\nPhone B is put on hold and plays the on hold tone",
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone C",
+            "Phone B is put on hold and plays the on hold tone"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3955229",
+      "title": "N_20_Prog_Keys_01_Direct_Call_Prog_Key_LDAP",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the programmable keys feature on SIP\ndevices (on specified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500",
+      "preconditions": "Phone number B is registered in the LDAP.",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A to menu -> ProgKeys",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 2,
+          "action": "Select a key programming page",
+          "expected_result": "The label is automatically implemented by the LDAP name associated with the phone number."
+        },
+        {
+          "step_no": 3,
+          "action": "Choose your emplacement in the page and validate your choice",
+          "expected_result": null
+        },
+        {
+          "step_no": 4,
+          "action": "Choose \"Number\"",
+          "expected_result": null
+        },
+        {
+          "step_no": 5,
+          "action": "Set up your programmable key associated with Phone B's number",
+          "expected_result": null
+        },
+        {
+          "step_no": 6,
+          "action": "Go to the \"ProgKeys\" page.",
+          "expected_result": null
+        },
+        {
+          "step_no": 7,
+          "action": "Start the call by pressing on the previously created prog key",
+          "expected_result": null
+        },
+        {
+          "step_no": 8,
+          "action": "Phone B rings and take the call",
+          "expected_result": null
+        }
+      ]
+    },
+    {
+      "case_id": "C4120632",
+      "title": "N_20_Prog_Keys_02_Direct_Call_Prog_Key_Contacts",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the programmable keys feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500",
+      "preconditions": "Phone B is in Phone A's contact list",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A to menu -> ProgKeys",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 2,
+          "action": "Select a key programming page",
+          "expected_result": "The label is automatically implemented by the contact name associated with the phone number."
+        },
+        {
+          "step_no": 3,
+          "action": "Choose your emplacement in the page and validate your choice",
+          "expected_result": null
+        },
+        {
+          "step_no": 4,
+          "action": "Choose \"Number\"",
+          "expected_result": null
+        },
+        {
+          "step_no": 5,
+          "action": "Set up your programmable key associated with Phone B's number",
+          "expected_result": null
+        },
+        {
+          "step_no": 6,
+          "action": "Go to the \"ProgKeys\" page.",
+          "expected_result": null
+        },
+        {
+          "step_no": 7,
+          "action": "Start the call by pressing on the previously created prog key",
+          "expected_result": null
+        },
+        {
+          "step_no": 8,
+          "action": "Phone B rings and take the call",
+          "expected_result": null
+        }
+      ]
+    },
+    {
+      "case_id": "C4120633",
+      "title": "N_20_Prog_Keys_03_Direct_Call_Prog_Key_External_Number",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the programmable keys feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A to menu -> ProgKeys",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 2,
+          "action": "Select a key programming page",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 3,
+          "action": "Choose your emplacement in the page and validate your choice",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 4,
+          "action": "Choose \"Number\"",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 5,
+          "action": "Set up your programmable key associated with an external number",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 6,
+          "action": "Choose a label",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 7,
+          "action": "Go to the \"ProgKeys\" page.",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 8,
+          "action": "Start the call by pressing on the previously created prog key",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 9,
+          "action": "The external number rings and take the call",
+          "expected_result": "The different types of programmable keys are displayed"
+        }
+      ]
+    },
+    {
+      "case_id": "C3955230",
+      "title": "N_20_Prog_Keys_04_Direct_Call_Wrong_Number_Prog_Key",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the programmable keys feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A to menu -> ProgKeys",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 2,
+          "action": "Select a key programming page",
+          "expected_result": "The phone return an error \"Wrong Number\""
+        },
+        {
+          "step_no": 3,
+          "action": "Choose your emplacement in the page and validate your choice",
+          "expected_result": null
+        },
+        {
+          "step_no": 4,
+          "action": "Choose \"Number\"",
+          "expected_result": null
+        },
+        {
+          "step_no": 5,
+          "action": "Enter a number which does not exist on server and validate",
+          "expected_result": null
+        },
+        {
+          "step_no": 6,
+          "action": "Go to the \"ProgKeys\" page.",
+          "expected_result": null
+        },
+        {
+          "step_no": 7,
+          "action": "Start the call by pressing on the previously created prog key",
+          "expected_result": null
+        }
+      ]
+    },
+    {
+      "case_id": "C3955232",
+      "title": "N_20_Prog_Keys_05_Prog_Key_Suppression",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the programmable keys feature on SIP\ndevices (on specified server)\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A to menu -> ProgKeys",
+          "expected_result": "1.\n2.\n3.\n4.\n5.\n6.",
+          "expected_checkpoints": [
+            "1.",
+            "2.",
+            "3.",
+            "4.",
+            "5.",
+            "6."
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Press the edit button associated with the first softkey on the top right",
+          "expected_result": "1.\n2.\n3.\n4.\n5.\n6.",
+          "expected_checkpoints": [
+            "1.",
+            "2.",
+            "3.",
+            "4.",
+            "5.",
+            "6."
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Choose an already defined key",
+          "expected_result": "1.\n2.\n3.\n4.\n5.\n6.",
+          "expected_checkpoints": [
+            "1.",
+            "2.",
+            "3.",
+            "4.",
+            "5.",
+            "6."
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Use the suppression button",
+          "expected_result": "1.\n2.\n3.\n4.\n5.\n6.",
+          "expected_checkpoints": [
+            "1.",
+            "2.",
+            "3.",
+            "4.",
+            "5.",
+            "6."
+          ]
+        },
+        {
+          "step_no": 5,
+          "action": "Go to the \"ProgKeys\" page.",
+          "expected_result": "1.\n2.\n3.\n4.\n5.\n6.",
+          "expected_checkpoints": [
+            "1.",
+            "2.",
+            "3.",
+            "4.",
+            "5.",
+            "6."
+          ]
+        },
+        {
+          "step_no": 6,
+          "action": "The Programmable key has been correctly deleted",
+          "expected_result": "1.\n2.\n3.\n4.\n5.\n6.",
+          "expected_checkpoints": [
+            "1.",
+            "2.",
+            "3.",
+            "4.",
+            "5.",
+            "6."
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3955233",
+      "title": "N_20_Prog_Keys_06_Prog_Key_Modification",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the programmable keys feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A to menu -> ProgKeys",
+          "expected_result": "Phone A makes an outgoing call to phone C"
+        },
+        {
+          "step_no": 2,
+          "action": "Press the edit button associated with the first softkey on the top right",
+          "expected_result": "Phone A makes an outgoing call to phone C"
+        },
+        {
+          "step_no": 3,
+          "action": "Choose an already defined key (for exemple a key that calls phone B)",
+          "expected_result": "Phone A makes an outgoing call to phone C"
+        },
+        {
+          "step_no": 4,
+          "action": "Press the \"Update\" key",
+          "expected_result": "Phone A makes an outgoing call to phone C"
+        },
+        {
+          "step_no": 5,
+          "action": "Modify the number associated to this key and define it with phone C number",
+          "expected_result": "Phone A makes an outgoing call to phone C"
+        },
+        {
+          "step_no": 6,
+          "action": "Enter an label",
+          "expected_result": "Phone A makes an outgoing call to phone C"
+        },
+        {
+          "step_no": 7,
+          "action": "Go to the \"ProgKeys\" page.",
+          "expected_result": "Phone A makes an outgoing call to phone C"
+        },
+        {
+          "step_no": 8,
+          "action": "Press the newly modified key",
+          "expected_result": "Phone A makes an outgoing call to phone C"
+        },
+        {
+          "step_no": 9,
+          "action": "Phone C takes the call",
+          "expected_result": "Phone A makes an outgoing call to phone C"
+        }
+      ]
+    },
+    {
+      "case_id": "C4127396",
+      "title": "N_20_Prog_Keys_07_Redial_Prog_Key",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the programmable keys feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A to menu -> ProgKeys",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 2,
+          "action": "Select a key programming page",
+          "expected_result": "Phone B rings"
+        },
+        {
+          "step_no": 3,
+          "action": "Choose your emplacement in the page and validate your choice",
+          "expected_result": null
+        },
+        {
+          "step_no": 4,
+          "action": "Choose \"Redial\"",
+          "expected_result": null
+        },
+        {
+          "step_no": 5,
+          "action": "Set up your programmable key",
+          "expected_result": null
+        },
+        {
+          "step_no": 6,
+          "action": "Phone A calls Phone B",
+          "expected_result": null
+        },
+        {
+          "step_no": 7,
+          "action": "Phone B does not take the call",
+          "expected_result": null
+        },
+        {
+          "step_no": 8,
+          "action": "On Phone A Go to the \"ProgKeys\" page.",
+          "expected_result": null
+        },
+        {
+          "step_no": 9,
+          "action": "Start another calls to Phone B by pressing the redial prog key",
+          "expected_result": null
+        },
+        {
+          "step_no": 10,
+          "action": "Phone B rings and take the call",
+          "expected_result": null
+        }
+      ]
+    },
+    {
+      "case_id": "C4127397",
+      "title": "N_20_Prog_Keys_08_Do Not Disturb_Prog_Key",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the programmable keys feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A to menu -> ProgKeys",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 2,
+          "action": "Select a key programming page",
+          "expected_result": "On the profile from the top left of the screen the logo has been changed by the phone status \"DND\""
+        },
+        {
+          "step_no": 3,
+          "action": "Choose your emplacement in the page and validate your choice",
+          "expected_result": "Phone B displays \"DO NOT DISTURB\" and the Phone A is not notified"
+        },
+        {
+          "step_no": 4,
+          "action": "Choose \"Do Not Disturb\"",
+          "expected_result": null
+        },
+        {
+          "step_no": 5,
+          "action": "Set up your programmable key",
+          "expected_result": null
+        },
+        {
+          "step_no": 6,
+          "action": "On Phone A Go to the \"ProgKeys\" page.",
+          "expected_result": null
+        },
+        {
+          "step_no": 7,
+          "action": "press the do not disturb prog key",
+          "expected_result": null
+        },
+        {
+          "step_no": 8,
+          "action": "Phone B calls Phone A",
+          "expected_result": null
+        }
+      ]
+    },
+    {
+      "case_id": "C4127398",
+      "title": "N_20_Prog_Keys_09_Call_Forwarded_Prog_Key",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the programmable keys feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500",
+      "preconditions": "Phone B is in Phone A's contact list",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A to menu -> ProgKeys",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 2,
+          "action": "Select a key programming page",
+          "expected_result": "On the profile from the top left of the screen the logo has been changed by the phone status"
+        },
+        {
+          "step_no": 3,
+          "action": "Choose your emplacement in the page and validate your choice",
+          "expected_result": "Phone A is not notified\nPhone B rings (displaying a call from phone C to phone A)\nPhone C displays \"-> phone B\"",
+          "expected_checkpoints": [
+            "Phone A is not notified",
+            "Phone B rings (displaying a call from phone C to phone A)",
+            "Phone C displays \"-> phone B\""
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Choose \"Immediate forward\"",
+          "expected_result": null
+        },
+        {
+          "step_no": 5,
+          "action": "Set up your programmable key associated with Phone B's number",
+          "expected_result": null
+        },
+        {
+          "step_no": 6,
+          "action": "On Phone A Go to the \"ProgKeys\" page.",
+          "expected_result": null
+        },
+        {
+          "step_no": 7,
+          "action": "press the \"Immediate forward\" prog key",
+          "expected_result": null
+        },
+        {
+          "step_no": 8,
+          "action": "Phone C calls Phone A",
+          "expected_result": null
+        }
+      ]
+    },
+    {
+      "case_id": "C4127401",
+      "title": "N_20_Prog_Keys_10_ReCall_Prog_Key",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the programmable keys feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A to menu -> ProgKeys",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 2,
+          "action": "Select a key programming page",
+          "expected_result": "Phone A rings"
+        },
+        {
+          "step_no": 3,
+          "action": "Choose your emplacement in the page and validate your choice",
+          "expected_result": "Phone B rings and take the call"
+        },
+        {
+          "step_no": 4,
+          "action": "Choose \"Last caller\"",
+          "expected_result": null
+        },
+        {
+          "step_no": 5,
+          "action": "Set up your programmable key",
+          "expected_result": null
+        },
+        {
+          "step_no": 6,
+          "action": "Phone B calls Phone A",
+          "expected_result": null
+        },
+        {
+          "step_no": 7,
+          "action": "Phone A does not take the call",
+          "expected_result": null
+        },
+        {
+          "step_no": 8,
+          "action": "On Phone A Go to the \"ProgKeys\" page.",
+          "expected_result": null
+        },
+        {
+          "step_no": 9,
+          "action": "Press the \"ReCall\" prog key for calling back the phone B",
+          "expected_result": null
+        }
+      ]
+    },
+    {
+      "case_id": "C4127402",
+      "title": "N_20_Prog_Keys_11_Meet_Me_Prog_Key | To be completed (not in 1st release)",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the programmable keys feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A to menu -> ProgKeys",
+          "expected_result": "A \"+\" is displayed in each empty prog key box"
+        },
+        {
+          "step_no": 2,
+          "action": "Select a key programming page",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 3,
+          "action": "Press the ok button on the smartpad to create the programming key.",
+          "expected_result": "to be completed"
+        },
+        {
+          "step_no": 4,
+          "action": "Choose your emplacement in the page and validate your choice",
+          "expected_result": null
+        },
+        {
+          "step_no": 5,
+          "action": "Choose \"Meet-Me\"",
+          "expected_result": null
+        }
+      ]
+    },
+    {
+      "case_id": "C4127403",
+      "title": "N_20_Prog_Keys_12_Call_Park_Prog_Key (not in 1st release)",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the programmable keys feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500",
+      "preconditions": "Phone B is in Phone A's contact list",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A to menu -> ProgKeys",
+          "expected_result": "A \"+\" is displayed in each empty prog key box"
+        },
+        {
+          "step_no": 2,
+          "action": "Select a key programming page",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 3,
+          "action": "Press the ok button on the smartpad to create the programming key.",
+          "expected_result": "the programmable key has been created"
+        },
+        {
+          "step_no": 4,
+          "action": "Choose your emplacement in the page and validate your choice",
+          "expected_result": "Phone A rings and take the call"
+        },
+        {
+          "step_no": 5,
+          "action": "Choose \"Call Park\"",
+          "expected_result": null
+        },
+        {
+          "step_no": 6,
+          "action": "Phone C calls Phone A",
+          "expected_result": null
+        },
+        {
+          "step_no": 7,
+          "action": "Phone A Go to the \"ProgKeys\" page.",
+          "expected_result": null
+        },
+        {
+          "step_no": 8,
+          "action": "press the \"Call Park\" prog key",
+          "expected_result": null
+        },
+        {
+          "step_no": 9,
+          "action": "Phone A goes to another phone and dials the code to retrieve the call with the Phone C",
+          "expected_result": null
+        }
+      ]
+    },
+    {
+      "case_id": "C4267073",
+      "title": "N_20_Prog_Keys_13_Retrieve_Park_Prog_Key (not in 1st release)",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the programmable keys feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A to menu -> ProgKeys",
+          "expected_result": "A \"+\" is displayed in each empty prog key box"
+        },
+        {
+          "step_no": 2,
+          "action": "Select a key programming page",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 3,
+          "action": "Press the ok button on the smartpad to create the programming key.",
+          "expected_result": "the programmable key has been created"
+        },
+        {
+          "step_no": 4,
+          "action": "Choose your emplacement in the page and validate your choice",
+          "expected_result": "Phone A rings and take the call"
+        },
+        {
+          "step_no": 5,
+          "action": "Choose \"Retrieve Park\"",
+          "expected_result": "Phone A and Phone C is in communication"
+        },
+        {
+          "step_no": 6,
+          "action": "Phone C calls Phone B",
+          "expected_result": null
+        },
+        {
+          "step_no": 7,
+          "action": "Phone B use the code to \"park\" the phone C",
+          "expected_result": null
+        },
+        {
+          "step_no": 8,
+          "action": "on Phone A Go to the \"ProgKeys\" page.",
+          "expected_result": null
+        },
+        {
+          "step_no": 9,
+          "action": "press the \"Retrieve Park\" prog key",
+          "expected_result": null
+        },
+        {
+          "step_no": 10,
+          "action": "On phone A, enter the code to retrieve the call with phone C.",
+          "expected_result": null
+        }
+      ]
+    },
+    {
+      "case_id": "C4247461",
+      "title": "N_20_Prog_Keys_14_Service_Number_Prog_Key",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the programmable keys feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A to menu -> ProgKeys",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 2,
+          "action": "Select a key programming page",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 3,
+          "action": "Choose your emplacement in the page and validate your choice",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 4,
+          "action": "Create a progkeys (Emergency, Guard, voicemail, Operator).",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 5,
+          "action": "Set up your programmable key",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 6,
+          "action": "On Phone A Go to the \"ProgKeys\" page.",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 7,
+          "action": "Press the newly created progkey",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 8,
+          "action": "The service number associated with the prokeys sets on the server or and the phone rings",
+          "expected_result": "The different types of programmable keys are displayed"
+        }
+      ]
+    },
+    {
+      "case_id": "C4247462",
+      "title": "N_20_Prog_Keys_15_Advanced_Services_Prog_Key",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the programmable keys feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Browse phone A to menu -> ProgKeys",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 2,
+          "action": "Select a key programming page",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 3,
+          "action": "Choose your emplacement in the page and validate your choice",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 4,
+          "action": "Create a progkeys (Group pickup, Associate).",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 5,
+          "action": "Set up your programmable key",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 6,
+          "action": "On Phone A Go to the \"ProgKeys\" page.",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 7,
+          "action": "Press the newly created progkey",
+          "expected_result": "The different types of programmable keys are displayed"
+        },
+        {
+          "step_no": 8,
+          "action": "The service or number associated with the prokeys set on the server or on the phone works correctly",
+          "expected_result": "The different types of programmable keys are displayed"
+        }
+      ]
+    },
+    {
+      "case_id": "C3955571",
+      "title": "N_20_Lock_01_Lock_Unlock_OXO",
+      "description": "_0\\. Prerequisites_\n\nLock / Unlock prefix must be defined on system side\n\n_1\\. Objective_\n\nThe aim of this test is to check the lock / unlock feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A is in idle state\nDial the lock prefix on phone A",
+          "expected_result": "Phone A informs user that it is now locked\nAn icon (padlock) is now displayed on screen to inform that device is locked",
+          "action_substeps": [
+            "Phone A is in idle state",
+            "Dial the lock prefix on phone A"
+          ],
+          "expected_checkpoints": [
+            "Phone A informs user that it is now locked",
+            "An icon (padlock) is now displayed on screen to inform that device is locked"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A tries to read a text message on device A",
+          "expected_result": "Device asks password user"
+        },
+        {
+          "step_no": 3,
+          "action": "Enter the phone A password and read the messages on phone A",
+          "expected_result": "Message is read"
+        },
+        {
+          "step_no": 4,
+          "action": "Dial the lock prefix on phone A",
+          "expected_result": "Phone asks for the user password"
+        },
+        {
+          "step_no": 5,
+          "action": "Enter the phone A user password",
+          "expected_result": "Phone A informs user that it is now unlocked"
+        },
+        {
+          "step_no": 6,
+          "action": "Read a text message on phone A",
+          "expected_result": "Message is read, device didn't ask for password"
+        }
+      ]
+    },
+    {
+      "case_id": "C3955572",
+      "title": "N_20_Lock_02_Lock_Unlock_Wrong_Pwd_OXO",
+      "description": "_0\\. Prerequisites_\n\nLock / Unlock prefix must be defined on system side\n\n_1\\. Objective_\n\nThe aim of this test is to check the lock / unlock feature on SIP\ndevices (on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A is in idle state\nDial the lock prefix on phone A",
+          "expected_result": "Phone A informs user that it is now locked\nAn icon (padlock) is now displayed on screen to inform that device is locked",
+          "action_substeps": [
+            "Phone A is in idle state",
+            "Dial the lock prefix on phone A"
+          ],
+          "expected_checkpoints": [
+            "Phone A informs user that it is now locked",
+            "An icon (padlock) is now displayed on screen to inform that device is locked"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A tries to read text message",
+          "expected_result": "Device asks password user"
+        },
+        {
+          "step_no": 3,
+          "action": "Enter a bad password",
+          "expected_result": "Phone A informs user that the password is not the good one and waits for the good one",
+          "expected_checkpoints": [
+            "Phone A informs user that the password is not the good one and waits for the good one"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Cancel read the message",
+          "expected_result": "Phone A is idle"
+        },
+        {
+          "step_no": 5,
+          "action": "Dial the lock prefix on phone A",
+          "expected_result": "Phone asks for the user password"
+        },
+        {
+          "step_no": 6,
+          "action": "Enter a bad password",
+          "expected_result": "Phone A informs user that this is not the correct password\nPhone A is still locked (padlock still displayed on screen)",
+          "expected_checkpoints": [
+            "Phone A informs user that this is not the correct password",
+            "Phone A is still locked (padlock still displayed on screen)"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3955573",
+      "title": "N_20_Call_Log_03_Call_Log_Forwarded_Call_OXO",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the call log feature on SIP devices (on\nspecified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone B defines an immediate forward to phone C",
+          "expected_result": "Forward is taken into account"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone A calls phone B",
+          "expected_result": "Phone B is not notified\nPhone C rings and take the call : communication between phone A and phone C is established",
+          "expected_checkpoints": [
+            "Phone B is not notified",
+            "Phone C rings and take the call : communication between phone A and phone C is established"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "End the communication",
+          "expected_result": "Phone A and C are idle\nPhone A call log has a new entry with phone B informations\nPhone B call log has a new entry with phone A informations\nPhone C call log display a standard incoming call from A",
+          "expected_checkpoints": [
+            "Phone A and C are idle",
+            "Phone A call log has a new entry with phone B informations",
+            "Phone B call log has a new entry with phone A informations",
+            "Phone C call log display a standard incoming call from A"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3955574",
+      "title": "N_20_Call_Log_04_Call_Log_When_SIP_Forwads_Calls_OXO",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the call log feature on SIP devices (on\nspecified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A (tested phone) defines an immediate forward to phone B",
+          "expected_result": "Forward is taken into account"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone C calls phone A",
+          "expected_result": "Phone A is not notified\nPhone B rings and take the call : communication between phone B and phone C is established",
+          "expected_checkpoints": [
+            "Phone A is not notified",
+            "Phone B rings and take the call : communication between phone B and phone C is established"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "End the communication",
+          "expected_result": "Phone B and C are idle\nThere is a new entry in the phone A \"ALL\" call log entry\n(Note: if phone C does not take the call phone A has a new missed call notification)",
+          "expected_checkpoints": [
+            "Phone B and C are idle",
+            "There is a new entry in the phone A \"ALL\" call log entry",
+            "(Note: if phone C does not take the call phone A has a new missed call notification)"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3955575",
+      "title": "N_20_Call_Park_02_Park_Simple_Call_OXO",
+      "description": "_0\\. Prerequisites_\n\nCall park prefix must be defined on system\n\n_1\\. Objective_\n\nThe aim of this test is to check the call park feature on SIP devices\n(on specified server)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A external phone calls internal phone B (phone models are specified in system_config field)\nPhone B takes the call",
+          "expected_result": "Communication is established between phone A and phone B",
+          "action_substeps": [
+            "Phone A external phone calls internal phone B (phone models are specified in system_config field)",
+            "Phone B takes the call"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone B makes a call park using the programmed key\nOXO : park key is available on the communication screen",
+          "expected_result": "Parking accepted\nPhone A is on hold",
+          "action_substeps": [
+            "Phone B makes a call park using the programmed key"
+          ],
+          "expected_checkpoints": [
+            "Parking accepted",
+            "Phone A is on hold"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Phone C dial the parking code 86 + B phone number\nOXO : go to \"menu\" / \"pick-up\" / \"unpark call\" and dial phone B number)",
+          "expected_result": "Communication is established between phone A and phone C\nPhone B is idle",
+          "action_substeps": [
+            "Phone C dial the parking code 86 + B phone number"
+          ],
+          "expected_checkpoints": [
+            "Communication is established between phone A and phone C",
+            "Phone B is idle"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3977144",
+      "title": "N_20_AUD_001_Volume_mute_unmute",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to evaluate volume control between the set under\nevaluation in the call mode named in the Test Name and an other set (named in\nthe Test Name).\n\nIn handsfree mode. The test has to be done by two people in two separate rooms\n(no direct audio communication).\n\nDuring the test the volume level must be changed.\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "1. Set the required CODEC on the PABX configurator.\nInitiate a communication between the two sets specified in the Test Name, using the required mode on the set under evaluation\nJust mute the set and check that no voice is heard,and unmute it and check the conversation is ok",
+          "expected_result": "When we mute voice should not be heard\nWhen we unmute correct level of audio is expected",
+          "action_substeps": [
+            "Set the required CODEC on the PABX configurator.",
+            "Initiate a communication between the two sets specified in the Test Name, using the required mode on the set under evaluation",
+            "Just mute the set and check that no voice is heard,and unmute it and check the conversation is ok"
+          ],
+          "expected_checkpoints": [
+            "When we mute voice should not be heard",
+            "When we unmute correct level of audio is expected"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3977145",
+      "title": "N_20_AUD_328_Switch_Audio_Mode_Mute_Activate",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to test the audio switching between handset, headset and handsfree modes\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A is connected to a headset\nPhone A is in conversation with phone B\nPress the mute key",
+          "expected_result": "No audio on phone B",
+          "action_substeps": [
+            "Phone A is connected to a headset",
+            "Phone A is in conversation with phone B",
+            "Press the mute key"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Switch the audio mode among handset, handsfree and headset",
+          "expected_result": "The audio mode is correct, and phone B has no audio"
+        },
+        {
+          "step_no": 3,
+          "action": "Press the mute key again\nSwitch the audio mode",
+          "expected_result": "The audio mode is correct\nBoth phones have audio.",
+          "action_substeps": [
+            "Press the mute key again",
+            "Switch the audio mode"
+          ],
+          "expected_checkpoints": [
+            "The audio mode is correct",
+            "Both phones have audio."
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3977146",
+      "title": "N_20_AUD_320_Audio-Mode_Commutation_Phases",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to evaluate the subjective quality of the audio during\nthe commutation phases from an audio-mode to an other. (example: from handset\nmode to hansfree mode)\n-no switching noise or echo or distortion should be heard. (on evaluation side and on distant side)\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Set the required CODEC on the PABX configurator.\nInitiate a communication between the set under evaluation in handset-mode and a distant set (IP,UA, or Z)in handset mode .",
+          "expected_result": "Every time you switch from one audio mode to an other, pay attention to the audio quality during the transition phase:\n\\- no unpleasant switching noise should be heard.\n-no echo should be heard.\n-no distorsion of the distant's voice should be heard.\nOn evaluation side and on distant side.",
+          "action_substeps": [
+            "Set the required CODEC on the PABX configurator.",
+            "Initiate a communication between the set under evaluation in handset-mode and a distant set (IP,UA, or Z)in handset mode ."
+          ],
+          "expected_checkpoints": [
+            "Every time you switch from one audio mode to an other, pay attention to the audio quality during the transition phase:",
+            "\\- no unpleasant switching noise should be heard.",
+            "-no echo should be heard.",
+            "-no distorsion of the distant's voice should be heard.",
+            "On evaluation side and on distant side."
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Switch from handset-mode to handsfree-mode.",
+          "expected_result": "Every time you switch from one audio mode to an other, pay attention to the audio quality during the transition phase:\n\\- no unpleasant switching noise should be heard.\n-no echo should be heard.\n-no distorsion of the distant's voice should be heard.\nOn evaluation side and on distant side.",
+          "expected_checkpoints": [
+            "Every time you switch from one audio mode to an other, pay attention to the audio quality during the transition phase:",
+            "\\- no unpleasant switching noise should be heard.",
+            "-no echo should be heard.",
+            "-no distorsion of the distant's voice should be heard.",
+            "On evaluation side and on distant side."
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Switch from handsfree-mode to handset-mode.",
+          "expected_result": "Every time you switch from one audio mode to an other, pay attention to the audio quality during the transition phase:\n\\- no unpleasant switching noise should be heard.\n-no echo should be heard.\n-no distorsion of the distant's voice should be heard.\nOn evaluation side and on distant side.",
+          "expected_checkpoints": [
+            "Every time you switch from one audio mode to an other, pay attention to the audio quality during the transition phase:",
+            "\\- no unpleasant switching noise should be heard.",
+            "-no echo should be heard.",
+            "-no distorsion of the distant's voice should be heard.",
+            "On evaluation side and on distant side."
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Switch from hanset-mode to group-listening-mode.",
+          "expected_result": "Every time you switch from one audio mode to an other, pay attention to the audio quality during the transition phase:\n\\- no unpleasant switching noise should be heard.\n-no echo should be heard.\n-no distorsion of the distant's voice should be heard.\nOn evaluation side and on distant side.",
+          "expected_checkpoints": [
+            "Every time you switch from one audio mode to an other, pay attention to the audio quality during the transition phase:",
+            "\\- no unpleasant switching noise should be heard.",
+            "-no echo should be heard.",
+            "-no distorsion of the distant's voice should be heard.",
+            "On evaluation side and on distant side."
+          ]
+        },
+        {
+          "step_no": 5,
+          "action": "Switch from group-listening-mode to handsfree-mode.",
+          "expected_result": "Every time you switch from one audio mode to an other, pay attention to the audio quality during the transition phase:\n\\- no unpleasant switching noise should be heard.\n-no echo should be heard.\n-no distorsion of the distant's voice should be heard.\nOn evaluation side and on distant side.",
+          "expected_checkpoints": [
+            "Every time you switch from one audio mode to an other, pay attention to the audio quality during the transition phase:",
+            "\\- no unpleasant switching noise should be heard.",
+            "-no echo should be heard.",
+            "-no distorsion of the distant's voice should be heard.",
+            "On evaluation side and on distant side."
+          ]
+        },
+        {
+          "step_no": 6,
+          "action": "Switch from handsfree-mode to handset-mode.",
+          "expected_result": "Every time you switch from one audio mode to an other, pay attention to the audio quality during the transition phase:\n\\- no unpleasant switching noise should be heard.\n-no echo should be heard.\n-no distorsion of the distant's voice should be heard.\nOn evaluation side and on distant side.",
+          "expected_checkpoints": [
+            "Every time you switch from one audio mode to an other, pay attention to the audio quality during the transition phase:",
+            "\\- no unpleasant switching noise should be heard.",
+            "-no echo should be heard.",
+            "-no distorsion of the distant's voice should be heard.",
+            "On evaluation side and on distant side."
+          ]
+        },
+        {
+          "step_no": 7,
+          "action": "Loop 10 times from step \"3\" to step \"7\" and change the volume level during the test.\nUse anytime a realistic time gap between 2 switchings.",
+          "expected_result": "Every time you switch from one audio mode to an other, pay attention to the audio quality during the transition phase:\n\\- no unpleasant switching noise should be heard.\n-no echo should be heard.\n-no distorsion of the distant's voice should be heard.\nOn evaluation side and on distant side.",
+          "action_substeps": [
+            "Loop 10 times from step \"3\" to step \"7\" and change the volume level during the test.",
+            "Use anytime a realistic time gap between 2 switchings."
+          ],
+          "expected_checkpoints": [
+            "Every time you switch from one audio mode to an other, pay attention to the audio quality during the transition phase:",
+            "\\- no unpleasant switching noise should be heard.",
+            "-no echo should be heard.",
+            "-no distorsion of the distant's voice should be heard.",
+            "On evaluation side and on distant side."
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C3977155",
+      "title": "N_20_Park_and_retrieve",
+      "description": "_0\\. Prerequisites_\n\nNone\n\n_1\\. Objective_\n\nThe aim of this test is to check the case when a call is parked and retrieved by another\nphone\n\n_2\\. Configuration_\n\nSystem config field give information about the context of the test :\n\n\\- System on which the test is done : OXE / OXO\n\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone A calls a phone B and the call is parked by dialing the relevant parking prefix.",
+          "expected_result": "The calling phone is on hold.",
+          "action_substeps": [
+            "Phone A calls a phone B and the call is parked by dialing the relevant parking prefix."
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "The code to retrieve the parked call is dialed on an other set.",
+          "expected_result": "The call is retrieved."
+        },
+        {
+          "step_no": 3,
+          "action": "Check CLIP and COLP.",
+          "expected_result": "Display is OK."
+        }
+      ]
+    },
+    {
+      "case_id": "C3977162",
+      "title": "N_20_Audio_Services_Music_On_Hold",
+      "description": "0\\. Prerequisites\nNone\n1\\. Objective\nThe aim of this test is to check the music-on-hold feature with a SIP phone.\n2\\. Configuration\nSystem config field give information about the context of the test :\n\\- System on which the test is done : OXE / OXO\n\\- Tested phone models (phone A, phone B and phone C) :\nSIP : ALE300 / ALE400 / ALE500\n8028s / 8058s / 8068s/ 8078s / NOEIP / UA / Z / ...",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "The SIP phone is in call with an other phone which makes a second call to an other phone.",
+          "expected_result": "The SIP phone hears the hold music.",
+          "action_substeps": [
+            "The SIP phone is in call with an other phone which makes a second call to an other phone."
+          ]
+        }
+      ]
+    }
+  ]
+}

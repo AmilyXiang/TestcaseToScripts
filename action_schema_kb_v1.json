@@ -1,0 +1,2301 @@
+[
+  {
+    "cluster_id": 1,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "setting",
+        "type": "string",
+        "description": "The configuration setting to modify",
+        "example": "CODEC"
+      },
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The device where configuration is applied",
+        "example": "PABX configurator"
+      }
+    ],
+    "representative_sentence": "Set the required {setting} on the {device}.",
+    "notes": "Examples consistently refer to configuring CODEC settings on PABX equipment.",
+    "source_cluster_ids": [
+      1
+    ]
+  },
+  {
+    "cluster_id": 3,
+    "standard_action": "enter_pin",
+    "parameters": [
+      {
+        "name": "pin",
+        "type": "string",
+        "description": "The password or PIN to enter",
+        "example": "incorrect password"
+      }
+    ],
+    "representative_sentence": "Enter {pin}.",
+    "notes": "All examples specify entering an incorrect password, which maps to the 'enter_pin' action. The parameter is named 'pin' to maintain consistency with other authentication-related actions, though the examples refer to it as a password.",
+    "source_cluster_ids": [
+      3
+    ]
+  },
+  {
+    "cluster_id": 6,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "source_device",
+        "type": "device",
+        "description": "The device initiating the call (set under evaluation)",
+        "example": "handset mode set"
+      },
+      {
+        "name": "target_device",
+        "type": "device",
+        "description": "The device receiving the call (distant set)",
+        "example": "IP, UA, or Z set"
+      },
+      {
+        "name": "mode",
+        "type": "string",
+        "description": "Communication mode for the source device",
+        "example": "handset mode"
+      }
+    ],
+    "representative_sentence": "Initiate a communication between {source_device} and {target_device} using {mode}.",
+    "notes": "Examples describe initiating communication between two specified devices with a required mode on the source device. This aligns with dial_call action for VoIP test automation.",
+    "source_cluster_ids": [
+      6
+    ]
+  },
+  {
+    "cluster_id": 7,
+    "standard_action": "hangup_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "Target device(s) to hang up call on",
+        "example": "all phones"
+      }
+    ],
+    "representative_sentence": "Hang up on {device}.",
+    "notes": "Examples consistently indicate hanging up calls on multiple/all devices, which maps cleanly to hangup_call with a device parameter.",
+    "source_cluster_ids": [
+      7
+    ]
+  },
+  {
+    "cluster_id": 8,
+    "standard_action": "redial_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The VoIP device model",
+        "example": "ALE-400/500"
+      },
+      {
+        "name": "contact_name",
+        "type": "string",
+        "description": "Name of the contact to redial",
+        "example": "name"
+      }
+    ],
+    "representative_sentence": "Press on the {contact_name} to redial (for {device}).",
+    "notes": "All examples consistently describe redialing by pressing a contact name on specific ALE device models.",
+    "source_cluster_ids": [
+      8
+    ]
+  },
+  {
+    "cluster_id": 9,
+    "standard_action": "redial_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The VoIP device model",
+        "example": "ALE-300"
+      },
+      {
+        "name": "key",
+        "type": "string",
+        "description": "The softkey to press for redial",
+        "example": "right softkey"
+      }
+    ],
+    "representative_sentence": "Press the {key} to redial on {device}.",
+    "notes": "Both examples are identical, indicating a consistent redial action using the right softkey on ALE-300 device.",
+    "source_cluster_ids": [
+      9
+    ]
+  },
+  {
+    "cluster_id": 10,
+    "standard_action": "redial_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The VoIP device model",
+        "example": "ALE-300"
+      },
+      {
+        "name": "softkey",
+        "type": "string",
+        "description": "The softkey to press for redial",
+        "example": "right softkey"
+      }
+    ],
+    "representative_sentence": "Press the {softkey} to make a redial ({device}).",
+    "notes": "All examples consistently describe redialing via a specific softkey on a device.",
+    "source_cluster_ids": [
+      10
+    ]
+  },
+  {
+    "cluster_id": 12,
+    "standard_action": "hangup_call",
+    "parameters": [
+      {
+        "name": "duration",
+        "type": "string",
+        "description": "Optional call duration before hangup",
+        "example": "a few hours"
+      }
+    ],
+    "representative_sentence": "Cancel the call after {duration}.",
+    "notes": "Examples include both call termination and duration specification; 'hangup_call' covers cancellation with optional duration parameter.",
+    "source_cluster_ids": [
+      12
+    ]
+  },
+  {
+    "cluster_id": 14,
+    "standard_action": "verify",
+    "parameters": [
+      {
+        "name": "programmable_key",
+        "type": "string",
+        "description": "The programmable key being verified",
+        "example": "programmable key"
+      },
+      {
+        "name": "verification_type",
+        "type": "string",
+        "description": "Type of verification being performed",
+        "example": "deletion"
+      },
+      {
+        "name": "service_number",
+        "type": "string",
+        "description": "Service or number associated with the programmable key",
+        "example": "service number"
+      }
+    ],
+    "representative_sentence": "Verify that the {programmable_key} {verification_type} works correctly on the {device}.",
+    "notes": "Examples include verification of programmable key deletion and service number functionality. The verification action covers both deletion confirmation and operational testing.",
+    "source_cluster_ids": [
+      14
+    ]
+  },
+  {
+    "cluster_id": 15,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "page",
+        "type": "string",
+        "description": "The specific settings page to navigate to",
+        "example": "key programming"
+      }
+    ],
+    "representative_sentence": "Select the {page} page.",
+    "notes": "All examples are identical, indicating navigation to a specific settings page for key programming configuration.",
+    "source_cluster_ids": [
+      15
+    ]
+  },
+  {
+    "cluster_id": 16,
+    "standard_action": "key_press",
+    "parameters": [
+      {
+        "name": "button",
+        "type": "string",
+        "description": "The button to press",
+        "example": "edit button for the first softkey on the top right"
+      }
+    ],
+    "representative_sentence": "Press {button}.",
+    "notes": "Examples consistently describe pressing a specific edit button associated with a softkey location.",
+    "source_cluster_ids": [
+      16
+    ]
+  },
+  {
+    "cluster_id": 18,
+    "standard_action": "conference_start",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone initiating the conference",
+        "example": "phone A"
+      },
+      {
+        "name": "call_count",
+        "type": "int",
+        "description": "Number of calls being merged into conference",
+        "example": "2"
+      }
+    ],
+    "representative_sentence": "{device} merges {call_count} calls to create a Conference.",
+    "notes": "All examples consistently describe conference creation by merging multiple calls.",
+    "source_cluster_ids": [
+      18
+    ]
+  },
+  {
+    "cluster_id": 19,
+    "standard_action": "key_press",
+    "parameters": [
+      {
+        "name": "key_name",
+        "type": "string",
+        "description": "Name of the programmable key to press",
+        "example": "Immediate forward"
+      }
+    ],
+    "representative_sentence": "Press the \"{key_name}\" programmable key.",
+    "notes": "Both examples involve pressing a programmable key, with the second example being more explicit about the action type.",
+    "source_cluster_ids": [
+      19
+    ]
+  },
+  {
+    "cluster_id": 20,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "setting_name",
+        "type": "string",
+        "description": "Name of the setting to configure",
+        "example": "Do Not Disturb"
+      }
+    ],
+    "representative_sentence": "Configure {setting_name} setting.",
+    "notes": "Examples involve enabling/disabling Do Not Disturb feature through UI selection or programmable key press.",
+    "source_cluster_ids": [
+      20
+    ]
+  },
+  {
+    "cluster_id": 21,
+    "standard_action": "hangup_call",
+    "parameters": [],
+    "representative_sentence": "End the communication.",
+    "notes": "All examples consistently describe ending/terminating a call, which maps directly to hangup_call action. No parameters needed as examples don't specify any call or device details.",
+    "source_cluster_ids": [
+      21
+    ]
+  },
+  {
+    "cluster_id": 22,
+    "standard_action": "answer_call",
+    "parameters": [
+      {
+        "name": "method",
+        "type": "string",
+        "description": "Method used to answer the call",
+        "example": "lifting the receiver"
+      }
+    ],
+    "representative_sentence": "Answer an incoming call by {method}.",
+    "notes": "Examples show different answering methods (receiver, accessory), but all represent the same answer_call action.",
+    "source_cluster_ids": [
+      22
+    ]
+  },
+  {
+    "cluster_id": 23,
+    "standard_action": "retrieve_call",
+    "parameters": [
+      {
+        "name": "method",
+        "type": "string",
+        "description": "Method used to retrieve the parked call",
+        "example": "programmable_key"
+      }
+    ],
+    "representative_sentence": "Retrieve parked call using {method}",
+    "notes": "Examples focus on retrieving parked calls via programmable keys or menu selection. 'Retrieve Park' is interpreted as retrieving a parked call.",
+    "source_cluster_ids": [
+      23
+    ]
+  },
+  {
+    "cluster_id": 24,
+    "standard_action": "hangup_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device ending the call",
+        "example": "phone A"
+      },
+      {
+        "name": "target_device",
+        "type": "device",
+        "description": "The other phone device in the call",
+        "example": "phone B"
+      }
+    ],
+    "representative_sentence": "End the communication between {device} and {target_device}.",
+    "notes": "Both examples describe terminating an active call between two devices, which matches the hangup_call action.",
+    "source_cluster_ids": [
+      24
+    ]
+  },
+  {
+    "cluster_id": 27,
+    "standard_action": "switch_audiomode",
+    "parameters": [
+      {
+        "name": "from_mode",
+        "type": "string",
+        "description": "Current audio mode to switch from",
+        "example": "handsfree mode"
+      },
+      {
+        "name": "to_mode",
+        "type": "string",
+        "description": "Target audio mode to switch to",
+        "example": "handset mode"
+      }
+    ],
+    "representative_sentence": "Switch from {from_mode} to {to_mode}.",
+    "notes": "Examples show bidirectional switching between handset and handsfree modes, which fits the switch_audiomode action perfectly.",
+    "source_cluster_ids": [
+      27,
+      28
+    ]
+  },
+  {
+    "cluster_id": 29,
+    "standard_action": "switch_audiomode",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "Target phone device",
+        "example": "phone A"
+      },
+      {
+        "name": "mode",
+        "type": "string",
+        "description": "Audio mode to switch to",
+        "example": "handsfree"
+      }
+    ],
+    "representative_sentence": "Switch the audio mode on {device} to {mode}.",
+    "notes": "Examples suggest switching among multiple audio modes (handset, handsfree, headset). The 'mode' parameter should be specified for automation clarity.",
+    "source_cluster_ids": [
+      29
+    ]
+  },
+  {
+    "cluster_id": 31,
+    "standard_action": "answer_call",
+    "parameters": [
+      {
+        "name": "method",
+        "type": "string",
+        "description": "Method used to answer the call",
+        "example": "pressing the Handsfree key"
+      }
+    ],
+    "representative_sentence": "Answer the incoming call by {method}.",
+    "notes": "Examples show different answering methods (hardware key vs menu selection), but both represent the same answer_call action.",
+    "source_cluster_ids": [
+      31
+    ]
+  },
+  {
+    "cluster_id": 33,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "page_name",
+        "type": "string",
+        "description": "Name of the configuration page to navigate to",
+        "example": "ProgKeys"
+      }
+    ],
+    "representative_sentence": "Go to the {page_name} page.",
+    "notes": "Both examples describe navigating to a specific configuration page (ProgKeys), which aligns with the configure_settings action for accessing device settings.",
+    "source_cluster_ids": [
+      33
+    ]
+  },
+  {
+    "cluster_id": 34,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to configure",
+        "example": "phone A"
+      }
+    ],
+    "representative_sentence": "Browse the menu and settings on {device}.",
+    "notes": "Examples consistently describe navigating phone configuration menus, matching configure_settings action.",
+    "source_cluster_ids": [
+      34
+    ]
+  },
+  {
+    "cluster_id": 35,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone initiating the call",
+        "example": "phone A"
+      },
+      {
+        "name": "number",
+        "type": "string",
+        "description": "The phone number being dialed",
+        "example": "a phone number that does not exist"
+      }
+    ],
+    "representative_sentence": "{device} calls {number}.",
+    "notes": "All examples describe dialing a non-existent number, which is a valid call attempt scenario for testing error handling.",
+    "source_cluster_ids": [
+      35
+    ]
+  },
+  {
+    "cluster_id": 36,
+    "standard_action": "mute_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device where the mute action is performed",
+        "example": "phone A"
+      }
+    ],
+    "representative_sentence": "Press the mute key on {device}.",
+    "notes": "Examples consistently refer to pressing a physical mute/silence key on a specific phone device. The action is clearly muting an active call.",
+    "source_cluster_ids": [
+      36
+    ]
+  },
+  {
+    "cluster_id": 37,
+    "standard_action": "key_press",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone performing the key press",
+        "example": "phone A"
+      },
+      {
+        "name": "key",
+        "type": "string",
+        "description": "The specific key being pressed",
+        "example": "Silent"
+      }
+    ],
+    "representative_sentence": "{device} presses the \"{key}\" key.",
+    "notes": "All examples consistently describe pressing the 'Silent' key on phone A.",
+    "source_cluster_ids": [
+      37
+    ]
+  },
+  {
+    "cluster_id": 38,
+    "standard_action": "key_press",
+    "parameters": [
+      {
+        "name": "button",
+        "type": "string",
+        "description": "The button to press on the device",
+        "example": "OK"
+      },
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The device where the button is located",
+        "example": "smartpad"
+      }
+    ],
+    "representative_sentence": "Press the {button} button on the {device} to create the programmable key.",
+    "notes": "All examples consistently describe pressing the OK button on a smartpad to create a programmable key.",
+    "source_cluster_ids": [
+      38
+    ]
+  },
+  {
+    "cluster_id": 39,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "source_device",
+        "type": "device",
+        "description": "Phone initiating the call forward",
+        "example": "phone A"
+      },
+      {
+        "name": "target_device",
+        "type": "device",
+        "description": "Phone receiving forwarded calls",
+        "example": "phone B"
+      },
+      {
+        "name": "forward_type",
+        "type": "string",
+        "description": "Type of call forwarding",
+        "example": "immediate forward"
+      }
+    ],
+    "representative_sentence": "Define an immediate forward on {source_device} to {target_device}.",
+    "notes": "Examples reference phone models from system configuration but don't provide specific model details in step text.",
+    "source_cluster_ids": [
+      39
+    ]
+  },
+  {
+    "cluster_id": 40,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device being configured",
+        "example": "phone B"
+      },
+      {
+        "name": "forward_target",
+        "type": "device",
+        "description": "The target device for call forwarding",
+        "example": "phone C"
+      },
+      {
+        "name": "forward_type",
+        "type": "string",
+        "description": "Type of call forwarding being configured",
+        "example": "immediate forward"
+      }
+    ],
+    "representative_sentence": "{device} defines {forward_type} to {forward_target}.",
+    "notes": "Examples show call forwarding configuration with consistent device naming pattern.",
+    "source_cluster_ids": [
+      40
+    ]
+  },
+  {
+    "cluster_id": 41,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "source_device",
+        "type": "device",
+        "description": "Device initiating the forward configuration",
+        "example": "phone A"
+      },
+      {
+        "name": "target_device",
+        "type": "device",
+        "description": "Device to which calls are forwarded",
+        "example": "phone B"
+      },
+      {
+        "name": "forward_type",
+        "type": "string",
+        "description": "Type of call forwarding being configured",
+        "example": "immediate forward"
+      }
+    ],
+    "representative_sentence": "{source_device} defines an immediate forward to {target_device}.",
+    "notes": "Action involves configuring call forwarding settings between two devices.",
+    "source_cluster_ids": [
+      41
+    ]
+  },
+  {
+    "cluster_id": 42,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "programmable_key",
+        "type": "device",
+        "description": "The previously created programmable key to press for initiating the call",
+        "example": "previously created programmable key"
+      }
+    ],
+    "representative_sentence": "Initiate a call by pressing the {programmable_key}.",
+    "notes": "All examples consistently describe initiating a call via a programmable key, which maps to dial_call action with a device parameter for the key.",
+    "source_cluster_ids": [
+      42
+    ]
+  },
+  {
+    "cluster_id": 43,
+    "standard_action": "key_press",
+    "parameters": [
+      {
+        "name": "key",
+        "type": "string",
+        "description": "Programmable key to press",
+        "example": "newly created programmable key"
+      }
+    ],
+    "representative_sentence": "Press the {key}.",
+    "notes": "Examples consistently refer to pressing a programmable key, matching the key_press action.",
+    "source_cluster_ids": [
+      43,
+      131
+    ]
+  },
+  {
+    "cluster_id": 44,
+    "standard_action": "power_cycle",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to reboot",
+        "example": "phone A"
+      },
+      {
+        "name": "wait_condition",
+        "type": "string",
+        "description": "Condition to wait for after reboot",
+        "example": "idle"
+      }
+    ],
+    "representative_sentence": "Reboot {device} and wait until it is {wait_condition} again.",
+    "notes": "Examples specify waiting for specific states after reboot, so wait_condition parameter captures this requirement.",
+    "source_cluster_ids": [
+      44
+    ]
+  },
+  {
+    "cluster_id": 45,
+    "standard_action": "check_idle_state",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to check",
+        "example": "phone A"
+      }
+    ],
+    "representative_sentence": "Ensure {device} is in idle state.",
+    "notes": "All examples are identical, clearly indicating a check of device idle state.",
+    "source_cluster_ids": [
+      45
+    ]
+  },
+  {
+    "cluster_id": 46,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "key_type",
+        "type": "string",
+        "description": "Type of programmable key to configure",
+        "example": "programmable key"
+      }
+    ],
+    "representative_sentence": "Set up your {key_type}.",
+    "notes": "Examples consistently refer to configuring programmable keys, which falls under device settings configuration.",
+    "source_cluster_ids": [
+      46
+    ]
+  },
+  {
+    "cluster_id": 47,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "key_type",
+        "type": "string",
+        "description": "Type of programmable key to configure",
+        "example": "programmable key"
+      }
+    ],
+    "representative_sentence": "Configure the {key_type}.",
+    "notes": "Examples consistently refer to configuring programmable keys, which fits the configure_settings action for device configuration tasks.",
+    "source_cluster_ids": [
+      47
+    ]
+  },
+  {
+    "cluster_id": 49,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "Target phone device",
+        "example": "phone A"
+      },
+      {
+        "name": "setting",
+        "type": "string",
+        "description": "Configuration setting to modify",
+        "example": "password"
+      }
+    ],
+    "representative_sentence": "Connect to the server and modify the {setting} for {device}.",
+    "notes": "Examples show server connection and password modification for a specific device.",
+    "source_cluster_ids": [
+      49
+    ]
+  },
+  {
+    "cluster_id": 50,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to perform the action on",
+        "example": "phone A"
+      },
+      {
+        "name": "number",
+        "type": "string",
+        "description": "The lock prefix number to dial",
+        "example": "45"
+      },
+      {
+        "name": "system",
+        "type": "string",
+        "description": "The VoIP system type",
+        "example": "OXE"
+      }
+    ],
+    "representative_sentence": "Dial the lock prefix ({number}) on {device} ({system}).",
+    "notes": "Examples consistently describe dialing a lock prefix with system context. Using dial_call as the closest matching standard action.",
+    "source_cluster_ids": [
+      50
+    ]
+  },
+  {
+    "cluster_id": 51,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to perform the action on",
+        "example": "phone A"
+      },
+      {
+        "name": "prefix",
+        "type": "string",
+        "description": "The lock prefix to dial",
+        "example": "lock prefix"
+      }
+    ],
+    "representative_sentence": "Dial the {prefix} on {device}.",
+    "notes": "All examples are identical, indicating a consistent action of dialing a specific lock prefix on a designated phone.",
+    "source_cluster_ids": [
+      51
+    ]
+  },
+  {
+    "cluster_id": 53,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "Target device for configuration",
+        "example": "phone B"
+      },
+      {
+        "name": "key_type",
+        "type": "string",
+        "description": "Type of programmable key to configure",
+        "example": "programmable key"
+      },
+      {
+        "name": "number",
+        "type": "string",
+        "description": "Phone number to associate with the key",
+        "example": "phone B's number"
+      }
+    ],
+    "representative_sentence": "Configure the {key_type} on {device} with {number}.",
+    "notes": "Examples include both configuration and usage of programmed keys; 'configure_settings' covers the setup aspect.",
+    "source_cluster_ids": [
+      53
+    ]
+  },
+  {
+    "cluster_id": 55,
+    "standard_action": "check_display",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to check",
+        "example": "phone A"
+      },
+      {
+        "name": "content",
+        "type": "string",
+        "description": "The specific display content to verify",
+        "example": "call log"
+      }
+    ],
+    "representative_sentence": "Check the {content} on {device}.",
+    "notes": "Examples focus on verifying call log display on a specific device, which aligns with check_display action for UI verification.",
+    "source_cluster_ids": [
+      55
+    ]
+  },
+  {
+    "cluster_id": 56,
+    "standard_action": "enter_pin",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "Target phone device",
+        "example": "phone A"
+      },
+      {
+        "name": "password",
+        "type": "string",
+        "description": "User password to enter",
+        "example": "current user password"
+      }
+    ],
+    "representative_sentence": "Enter the password for {device}.",
+    "notes": "Password entry action mapped to 'enter_pin' standard action.",
+    "source_cluster_ids": [
+      56
+    ]
+  },
+  {
+    "cluster_id": 57,
+    "standard_action": "enter_pin",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "Target phone device",
+        "example": "phone A"
+      },
+      {
+        "name": "password_type",
+        "type": "string",
+        "description": "Type of password being entered",
+        "example": "new password"
+      },
+      {
+        "name": "password_value",
+        "type": "string",
+        "description": "Actual password value to enter",
+        "example": "defined in step 4"
+      }
+    ],
+    "representative_sentence": "Enter the {password_type} ({password_value}) on {device}.",
+    "notes": "Examples show password entry with validation and different password types (new/old). Using 'enter_pin' as closest match for password entry action.",
+    "source_cluster_ids": [
+      57
+    ]
+  },
+  {
+    "cluster_id": 58,
+    "standard_action": "redial_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "Target phone to redial",
+        "example": "phone B"
+      },
+      {
+        "name": "key_type",
+        "type": "string",
+        "description": "Type of programmable key used for redial",
+        "example": "redial programmable key"
+      }
+    ],
+    "representative_sentence": "Press the {key_type} to redial {device}.",
+    "notes": "Examples consistently describe redialing a specific device using a programmable key, matching the redial_call action.",
+    "source_cluster_ids": [
+      58
+    ]
+  },
+  {
+    "cluster_id": 61,
+    "standard_action": "key_press",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device where the key is pressed",
+        "example": "phone A"
+      },
+      {
+        "name": "key_name",
+        "type": "string",
+        "description": "The name of the key to press",
+        "example": "Call back"
+      }
+    ],
+    "representative_sentence": "On {device}, press the \"{key_name}\" key.",
+    "notes": "Both examples describe pressing a specific key on a device, which matches the key_press action. The key name is consistently \"Call back\" in both examples.",
+    "source_cluster_ids": [
+      61
+    ]
+  },
+  {
+    "cluster_id": 62,
+    "standard_action": "key_press",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to perform the key press on",
+        "example": "phone B"
+      },
+      {
+        "name": "key",
+        "type": "string",
+        "description": "The specific key to press on the device",
+        "example": "letter iconed physical key"
+      }
+    ],
+    "representative_sentence": "On {device}, press the {key}.",
+    "notes": "Examples show pressing different types of keys (letter iconed key, redial key) on different devices, but all follow the same key press pattern.",
+    "source_cluster_ids": [
+      62
+    ]
+  },
+  {
+    "cluster_id": 63,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to configure",
+        "example": "phone A"
+      },
+      {
+        "name": "page",
+        "type": "string",
+        "description": "The configuration page to navigate to",
+        "example": "ProgKeys"
+      }
+    ],
+    "representative_sentence": "On {device}, go to the \"{page}\" page.",
+    "notes": "This action involves navigating to a specific configuration page on a VoIP phone, which falls under device configuration operations.",
+    "source_cluster_ids": [
+      63
+    ]
+  },
+  {
+    "cluster_id": 64,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to configure",
+        "example": "phone A"
+      },
+      {
+        "name": "page",
+        "type": "string",
+        "description": "The configuration page to navigate to",
+        "example": "ProgKeys page"
+      }
+    ],
+    "representative_sentence": "On {device}, go to the {page}.",
+    "notes": "This action involves navigating to a specific configuration page on a VoIP phone, which falls under device configuration operations.",
+    "source_cluster_ids": [
+      64
+    ]
+  },
+  {
+    "cluster_id": 65,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "Target phone device",
+        "example": "phone A"
+      },
+      {
+        "name": "page",
+        "type": "string",
+        "description": "Configuration page to navigate to",
+        "example": "ProgKeys page"
+      }
+    ],
+    "representative_sentence": "Navigate to the {page} on {device}.",
+    "notes": "Navigation to configuration pages is handled under configure_settings action",
+    "source_cluster_ids": [
+      65
+    ]
+  },
+  {
+    "cluster_id": 66,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "caller_device",
+        "type": "device",
+        "description": "The phone initiating the call",
+        "example": "phone C"
+      },
+      {
+        "name": "callee_device",
+        "type": "device",
+        "description": "The phone receiving the call",
+        "example": "phone A"
+      }
+    ],
+    "representative_sentence": "{caller_device} calls {callee_device}",
+    "notes": "Phone models are specified in system configuration rather than as test parameters",
+    "source_cluster_ids": [
+      66
+    ]
+  },
+  {
+    "cluster_id": 67,
+    "standard_action": "switch_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone performing the call switching action",
+        "example": "phone A"
+      }
+    ],
+    "representative_sentence": "{device} switches the active call.",
+    "notes": "Examples consistently describe switching between active calls, matching the 'switch_call' action.",
+    "source_cluster_ids": [
+      67
+    ]
+  },
+  {
+    "cluster_id": 68,
+    "standard_action": "switch_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device where the call switching occurs",
+        "example": "phone A"
+      }
+    ],
+    "representative_sentence": "Switch the active call on {device}.",
+    "notes": "All examples consistently describe switching an active call on a specific device, matching the 'switch_call' action.",
+    "source_cluster_ids": [
+      68
+    ]
+  },
+  {
+    "cluster_id": 70,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to configure",
+        "example": "phone A"
+      },
+      {
+        "name": "menu",
+        "type": "string",
+        "description": "The menu to navigate to",
+        "example": "ProgKeys menu"
+      }
+    ],
+    "representative_sentence": "Navigate {device} to the {menu}.",
+    "notes": "All examples are identical, indicating navigation to a specific configuration menu for programming keys.",
+    "source_cluster_ids": [
+      70
+    ]
+  },
+  {
+    "cluster_id": 71,
+    "standard_action": "retrieve_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone initiating the retrieve action",
+        "example": "phone A"
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "description": "The code or sequence to retrieve the call",
+        "example": "code"
+      },
+      {
+        "name": "target_device",
+        "type": "device",
+        "description": "The phone whose call is being retrieved",
+        "example": "phone C"
+      }
+    ],
+    "representative_sentence": "On {device}, enter {code} to retrieve the call with {target_device}.",
+    "notes": "Examples describe retrieving a call using a specific code on one device for a call involving another device.",
+    "source_cluster_ids": [
+      71
+    ]
+  },
+  {
+    "cluster_id": 72,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "caller_device",
+        "type": "device",
+        "description": "The device initiating the call",
+        "example": "phone A"
+      },
+      {
+        "name": "callee_device",
+        "type": "device",
+        "description": "The device being called",
+        "example": "phone C"
+      },
+      {
+        "name": "key_pressed",
+        "type": "string",
+        "description": "The key pressed to initiate the call",
+        "example": "new call key"
+      }
+    ],
+    "representative_sentence": "{caller_device} presses {key_pressed} and calls {callee_device}.",
+    "notes": "All examples consistently describe initiating a new call using a specific key, matching the dial_call action.",
+    "source_cluster_ids": [
+      72
+    ]
+  },
+  {
+    "cluster_id": 73,
+    "standard_action": "answer_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device that answers the call",
+        "example": "phone A"
+      }
+    ],
+    "representative_sentence": "{device} answers the call.",
+    "notes": "All examples consistently describe phone A answering a call, making this a clear match for the answer_call action.",
+    "source_cluster_ids": [
+      73,
+      76,
+      86
+    ]
+  },
+  {
+    "cluster_id": 74,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "from_device",
+        "type": "device",
+        "description": "Source phone initiating the call",
+        "example": "phone A"
+      },
+      {
+        "name": "to_device",
+        "type": "device",
+        "description": "Destination phone receiving the call",
+        "example": "phone B"
+      }
+    ],
+    "representative_sentence": "Make an outgoing call from {from_device} to {to_device}.",
+    "notes": "Examples show bidirectional calling between two devices, captured with from/to parameters.",
+    "source_cluster_ids": [
+      74
+    ]
+  },
+  {
+    "cluster_id": 75,
+    "standard_action": "hangup_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device performing the hangup action",
+        "example": "phone B"
+      }
+    ],
+    "representative_sentence": "{device} hangs up.",
+    "notes": "Consistent hangup action from a specific device across examples.",
+    "source_cluster_ids": [
+      75
+    ]
+  },
+  {
+    "cluster_id": 77,
+    "standard_action": "answer_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device that answers the call",
+        "example": "C"
+      }
+    ],
+    "representative_sentence": "phone {device} takes the call.",
+    "notes": "Both examples are identical, clearly indicating an answer call action for device C.",
+    "source_cluster_ids": [
+      77
+    ]
+  },
+  {
+    "cluster_id": 78,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "caller_device",
+        "type": "device",
+        "description": "Device initiating the call",
+        "example": "phone A"
+      },
+      {
+        "name": "callee_number",
+        "type": "string",
+        "description": "Phone number being dialed",
+        "example": "phone B number"
+      }
+    ],
+    "representative_sentence": "{caller_device} dials {callee_number}.",
+    "notes": "Examples consistently describe dialing action with clear caller/callee roles.",
+    "source_cluster_ids": [
+      78,
+      109
+    ]
+  },
+  {
+    "cluster_id": 79,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "caller_device",
+        "type": "device",
+        "description": "The device initiating the call",
+        "example": "phone C"
+      },
+      {
+        "name": "callee_device",
+        "type": "device",
+        "description": "The device receiving the call",
+        "example": "phone A"
+      }
+    ],
+    "representative_sentence": "{caller_device} calls {callee_device}.",
+    "notes": "All examples show the same calling pattern between two devices.",
+    "source_cluster_ids": [
+      79,
+      82,
+      83,
+      138
+    ]
+  },
+  {
+    "cluster_id": 80,
+    "standard_action": "reject_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone that does not answer the call",
+        "example": "phone B"
+      }
+    ],
+    "representative_sentence": "{device} does not answer the call.",
+    "notes": "Examples describe scenarios where a call is not answered, which maps to the reject_call action in VoIP testing.",
+    "source_cluster_ids": [
+      80
+    ]
+  },
+  {
+    "cluster_id": 81,
+    "standard_action": "answer_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device that answers the call",
+        "example": "phone B"
+      }
+    ],
+    "representative_sentence": "{device} takes the call and then releases the call.",
+    "notes": "The examples describe answering followed by hanging up, but the core action is answering. The hanging up is a subsequent action not captured in this cluster.",
+    "source_cluster_ids": [
+      81
+    ]
+  },
+  {
+    "cluster_id": 84,
+    "standard_action": "answer_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device that answers the incoming call",
+        "example": "phone A"
+      }
+    ],
+    "representative_sentence": "{device} takes the call.",
+    "notes": "All examples consistently show phone A answering an incoming call",
+    "source_cluster_ids": [
+      84,
+      87
+    ]
+  },
+  {
+    "cluster_id": 85,
+    "standard_action": "answer_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device that receives and answers the call",
+        "example": "phone B"
+      }
+    ],
+    "representative_sentence": "{device} rings and answers the call.",
+    "notes": "All examples consistently describe answering an incoming call on a specific device.",
+    "source_cluster_ids": [
+      85
+    ]
+  },
+  {
+    "cluster_id": 88,
+    "standard_action": "hold_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "Device performing the hold action",
+        "example": "phone A"
+      },
+      {
+        "name": "target_device",
+        "type": "device",
+        "description": "Device being put on hold",
+        "example": "phone B"
+      }
+    ],
+    "representative_sentence": "{device} puts {target_device} on hold.",
+    "notes": "Clear hold action between two devices.",
+    "source_cluster_ids": [
+      88
+    ]
+  },
+  {
+    "cluster_id": 89,
+    "standard_action": "retrieve_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device performing the retrieve action",
+        "example": "phone A"
+      }
+    ],
+    "representative_sentence": "{device} retrieves the call.",
+    "notes": "Clear match to retrieve_call action with device parameter extracted from example.",
+    "source_cluster_ids": [
+      89
+    ]
+  },
+  {
+    "cluster_id": 90,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "from_device",
+        "type": "device",
+        "description": "Device initiating the call",
+        "example": "phone B"
+      },
+      {
+        "name": "to_device",
+        "type": "device",
+        "description": "Device receiving the call",
+        "example": "phone A"
+      }
+    ],
+    "representative_sentence": "{from_device} calls back {to_device}.",
+    "notes": "Action represents a return call scenario where one device calls back another device that previously called it.",
+    "source_cluster_ids": [
+      90
+    ]
+  },
+  {
+    "cluster_id": 91,
+    "standard_action": "hangup_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device that hangs up the call",
+        "example": "phone A"
+      }
+    ],
+    "representative_sentence": "{device} takes the call and ends it.",
+    "notes": "The example describes answering then immediately hanging up, but 'hangup_call' covers the ending action. No call duration or other parameters specified.",
+    "source_cluster_ids": [
+      91
+    ]
+  },
+  {
+    "cluster_id": 93,
+    "standard_action": "check_idle_state",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to check idle state for",
+        "example": "phone B"
+      }
+    ],
+    "representative_sentence": "Check if {device} is idle.",
+    "notes": "Example indicates checking idle state after some activity, using 'becomes idle again' phrasing.",
+    "source_cluster_ids": [
+      93
+    ]
+  },
+  {
+    "cluster_id": 94,
+    "standard_action": "answer_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device that answers the call",
+        "example": "phone A"
+      },
+      {
+        "name": "call_source",
+        "type": "string",
+        "description": "Source of the incoming call",
+        "example": "server"
+      }
+    ],
+    "representative_sentence": "{device} answers the incoming call from {call_source}.",
+    "notes": "The example describes answering an incoming call, which matches the 'answer_call' action. The call source is specified as 'server' in the example.",
+    "source_cluster_ids": [
+      94
+    ]
+  },
+  {
+    "cluster_id": 95,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to use for dialing",
+        "example": "phone A"
+      },
+      {
+        "name": "number",
+        "type": "string",
+        "description": "The phone number to dial",
+        "example": "any phone number"
+      }
+    ],
+    "representative_sentence": "Dial {number} on the dialpad of {device}.",
+    "notes": "Example explicitly mentions dialing a phone number on a specific device's dialpad, which matches the dial_call action.",
+    "source_cluster_ids": [
+      95
+    ]
+  },
+  {
+    "cluster_id": 96,
+    "standard_action": "key_press",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone performing the key press action",
+        "example": "phone A"
+      },
+      {
+        "name": "keys",
+        "type": "string",
+        "description": "The sequence of keys being pressed",
+        "example": "first letters of phone B user name"
+      }
+    ],
+    "representative_sentence": "{device} enters {keys} on the keyboard.",
+    "notes": "This action involves pressing keys on a phone keyboard, which matches the key_press standard action. The keys parameter captures the specific key sequence being entered.",
+    "source_cluster_ids": [
+      96
+    ]
+  },
+  {
+    "cluster_id": 98,
+    "standard_action": "key_press",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "Target device for key press action",
+        "example": "ALE-300, ALE-400, ALE-500"
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "description": "What to press the key on/in line with",
+        "example": "phone B user name"
+      }
+    ],
+    "representative_sentence": "Press the key in line with {target} for {device}.",
+    "notes": "Example shows device-specific variations (ALE-300 vs ALE-400/500) but core action is key press. Using generic 'target' parameter to capture the name/identifier being pressed.",
+    "source_cluster_ids": [
+      98
+    ]
+  },
+  {
+    "cluster_id": 100,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device being used",
+        "example": "phone B"
+      },
+      {
+        "name": "number",
+        "type": "string",
+        "description": "The phone number to dial",
+        "example": "B number"
+      }
+    ],
+    "representative_sentence": "Input {number} on {device} and press the dial item to make the call.",
+    "notes": "The example mentions pressing 'the B item' which likely refers to a dial button or softkey on device B. Standardized to generic dial action.",
+    "source_cluster_ids": [
+      100
+    ]
+  },
+  {
+    "cluster_id": 101,
+    "standard_action": "answer_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "SIP device model",
+        "example": "ALE-30"
+      },
+      {
+        "name": "method",
+        "type": "string",
+        "description": "Method to answer the call",
+        "example": "physical green key"
+      }
+    ],
+    "representative_sentence": "For {device} SIP device, take the call with {method}.",
+    "notes": "Example specifies answering via physical button rather than soft key or other methods.",
+    "source_cluster_ids": [
+      101
+    ]
+  },
+  {
+    "cluster_id": 102,
+    "standard_action": "key_press",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to press keys on",
+        "example": "phone A"
+      },
+      {
+        "name": "keys",
+        "type": "string",
+        "description": "The keys to press on the device",
+        "example": "volume up and volume down"
+      },
+      {
+        "name": "context",
+        "type": "string",
+        "description": "The state or condition during which keys are pressed",
+        "example": "while it is ringing"
+      }
+    ],
+    "representative_sentence": "Press {keys} on {device} {context}.",
+    "notes": "The example involves pressing multiple keys (volume up and volume down) on a specific device during a ringing state, which fits the key_press action with contextual parameters.",
+    "source_cluster_ids": [
+      102
+    ]
+  },
+  {
+    "cluster_id": 103,
+    "standard_action": "switch_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone performing the call switching action",
+        "example": "phone A"
+      },
+      {
+        "name": "call_position",
+        "type": "string",
+        "description": "Position of the call being switched",
+        "example": "second incoming call"
+      },
+      {
+        "name": "target_position",
+        "type": "string",
+        "description": "Target position for the switched call",
+        "example": "top of the screen"
+      }
+    ],
+    "representative_sentence": "{device} switches {call_position} to {target_position} and takes the call.",
+    "notes": "The example includes both switching a call position and taking the call, but the primary action appears to be call switching with subsequent call acceptance.",
+    "source_cluster_ids": [
+      103
+    ]
+  },
+  {
+    "cluster_id": 104,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "source_device",
+        "type": "device",
+        "description": "Device initiating the call",
+        "example": "phone A"
+      },
+      {
+        "name": "target_device",
+        "type": "device",
+        "description": "Device receiving the call",
+        "example": "phone B"
+      },
+      {
+        "name": "dial_source",
+        "type": "string",
+        "description": "Source from which the number is dialed",
+        "example": "call log"
+      }
+    ],
+    "representative_sentence": "{source_device} makes a call to {target_device} from {dial_source}.",
+    "notes": "Action involves initiating a call from a specific source (call log) rather than direct dialing.",
+    "source_cluster_ids": [
+      104
+    ]
+  },
+  {
+    "cluster_id": 105,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone initiating the call",
+        "example": "phone A"
+      },
+      {
+        "name": "destination",
+        "type": "string",
+        "description": "The target number or service to call",
+        "example": "voicemail"
+      }
+    ],
+    "representative_sentence": "{device} calls {destination}.",
+    "notes": "Destination identified as voicemail service rather than a numeric phone number.",
+    "source_cluster_ids": [
+      105
+    ]
+  },
+  {
+    "cluster_id": 110,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone initiating the dial action",
+        "example": "phone D"
+      },
+      {
+        "name": "dialed_number",
+        "type": "string",
+        "description": "The number or prefix being dialed",
+        "example": "call park prefix and phone C's directory number"
+      }
+    ],
+    "representative_sentence": "{device} dials {dialed_number}",
+    "notes": "The example describes dialing a combination of a call park prefix and another phone's directory number, which fits the dial_call action pattern.",
+    "source_cluster_ids": [
+      110
+    ]
+  },
+  {
+    "cluster_id": 111,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "caller_device",
+        "type": "device",
+        "description": "The device initiating the call",
+        "example": "phone C"
+      },
+      {
+        "name": "dial_prefix",
+        "type": "string",
+        "description": "Prefix to dial before the phone number",
+        "example": "call pick up prefix"
+      },
+      {
+        "name": "target_number",
+        "type": "string",
+        "description": "Phone number to dial",
+        "example": "phone B"
+      }
+    ],
+    "representative_sentence": "{caller_device} dials {dial_prefix} and {target_number}",
+    "notes": "Example includes both a dial prefix and target number, which are captured as separate parameters for flexibility in test automation.",
+    "source_cluster_ids": [
+      111
+    ]
+  },
+  {
+    "cluster_id": 112,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone being configured",
+        "example": "phone A"
+      },
+      {
+        "name": "setting",
+        "type": "string",
+        "description": "The configuration setting being modified",
+        "example": "multi-line"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "description": "The value to set for the configuration",
+        "example": "without"
+      }
+    ],
+    "representative_sentence": "Configure {device} with {setting} set to {value}",
+    "notes": "Example describes a configuration setup for testing intrusion scenarios",
+    "source_cluster_ids": [
+      112
+    ]
+  },
+  {
+    "cluster_id": 113,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device performing the action",
+        "example": "phone C"
+      },
+      {
+        "name": "number",
+        "type": "string",
+        "description": "The number or suffix to dial",
+        "example": "OXE:4"
+      }
+    ],
+    "representative_sentence": "{device} dials {number}",
+    "notes": "The example specifies dialing an intrusion suffix, which aligns with the dial_call action. The suffix format 'OXE:4' suggests a specific dialing pattern or code.",
+    "source_cluster_ids": [
+      113
+    ]
+  },
+  {
+    "cluster_id": 114,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "setting_name",
+        "type": "string",
+        "description": "The specific setting to configure",
+        "example": "mute"
+      },
+      {
+        "name": "action",
+        "type": "string",
+        "description": "The action to perform on the setting",
+        "example": "disable"
+      },
+      {
+        "name": "location",
+        "type": "string",
+        "description": "Where the setting is located in the interface",
+        "example": "settings menu"
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "description": "Software version context",
+        "example": "1.40.02 2073"
+      }
+    ],
+    "representative_sentence": "From version {version}, {action} {setting_name} from the {location}.",
+    "notes": "This involves configuring a device setting (mute) through the settings menu interface.",
+    "source_cluster_ids": [
+      114
+    ]
+  },
+  {
+    "cluster_id": 115,
+    "standard_action": "enter_pin",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to enter the PIN on",
+        "example": "phone A"
+      },
+      {
+        "name": "pin",
+        "type": "string",
+        "description": "The user password/PIN to enter",
+        "example": "user password"
+      }
+    ],
+    "representative_sentence": "Enter the {pin} on {device}.",
+    "notes": "Example refers to 'user password' which is treated as a PIN for authentication purposes.",
+    "source_cluster_ids": [
+      115
+    ]
+  },
+  {
+    "cluster_id": 116,
+    "standard_action": "enter_pin",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device where the PIN is entered",
+        "example": "phone A"
+      },
+      {
+        "name": "pin",
+        "type": "string",
+        "description": "The 4-digit password to enter",
+        "example": "1234"
+      }
+    ],
+    "representative_sentence": "Enter a new 4-digit password {pin} and validate it on {device}.",
+    "notes": "The example specifies a 4-digit password, which aligns with PIN entry functionality. The validation step is implied in the enter_pin action.",
+    "source_cluster_ids": [
+      116
+    ]
+  },
+  {
+    "cluster_id": 117,
+    "standard_action": "redial_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to perform the redial action on",
+        "example": "phone A"
+      },
+      {
+        "name": "redial_method",
+        "type": "string",
+        "description": "Method used to initiate redial (softkey press or name selection)",
+        "example": "press the right softkey"
+      },
+      {
+        "name": "phone_model",
+        "type": "string",
+        "description": "Phone model that determines available redial methods",
+        "example": "ALE-300"
+      }
+    ],
+    "representative_sentence": "On {device}, consult the call log list and select the previous call, then {redial_method} to make a redial.",
+    "notes": "Example includes multiple phone model variations (ALE-300/400/500) with different redial methods. The core action is redialing from call log.",
+    "source_cluster_ids": [
+      117
+    ]
+  },
+  {
+    "cluster_id": 118,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "Target phone device",
+        "example": "phone B"
+      },
+      {
+        "name": "setting",
+        "type": "string",
+        "description": "Call forwarding setting to modify",
+        "example": "forward"
+      },
+      {
+        "name": "action",
+        "type": "string",
+        "description": "Action to perform on the setting",
+        "example": "cancel"
+      }
+    ],
+    "representative_sentence": "Cancel {setting} on {device}.",
+    "notes": "Example indicates call forwarding configuration change; mapped to configure_settings with appropriate parameters.",
+    "source_cluster_ids": [
+      118
+    ]
+  },
+  {
+    "cluster_id": 119,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "source_device",
+        "type": "device",
+        "description": "The device initiating the call",
+        "example": "phone A"
+      },
+      {
+        "name": "target_device",
+        "type": "device",
+        "description": "The device receiving the call",
+        "example": "phone C"
+      }
+    ],
+    "representative_sentence": "{source_device} makes an outgoing call to {target_device}.",
+    "source_cluster_ids": [
+      119
+    ]
+  },
+  {
+    "cluster_id": 121,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "key_type",
+        "type": "string",
+        "description": "Type of programmable key to configure",
+        "example": "programmable key"
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "description": "Target value or number to assign to the key",
+        "example": "external number"
+      }
+    ],
+    "representative_sentence": "Configure the {key_type} with {target}.",
+    "notes": "This involves setting up a programmable key with an external contact/number, which falls under device configuration.",
+    "source_cluster_ids": [
+      121
+    ]
+  },
+  {
+    "cluster_id": 122,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "key_label",
+        "type": "string",
+        "description": "Label text to assign to a programmable key",
+        "example": "a label"
+      }
+    ],
+    "representative_sentence": "Choose a label for the programmable key.",
+    "notes": "This action involves configuring device settings by assigning a label to a programmable key, which fits the configure_settings action type.",
+    "source_cluster_ids": [
+      122
+    ]
+  },
+  {
+    "cluster_id": 123,
+    "standard_action": "answer_call",
+    "parameters": [],
+    "representative_sentence": "Answer the call.",
+    "notes": "The example describes answering an incoming call from an external number, which matches the 'answer_call' action. No specific parameters were extracted from the single example provided.",
+    "source_cluster_ids": [
+      123
+    ]
+  },
+  {
+    "cluster_id": 124,
+    "standard_action": "verify",
+    "parameters": [
+      {
+        "name": "number",
+        "type": "string",
+        "description": "Phone number to verify",
+        "example": "9999999999"
+      },
+      {
+        "name": "verification_type",
+        "type": "string",
+        "description": "Type of verification to perform",
+        "example": "non-existent number validation"
+      }
+    ],
+    "representative_sentence": "Enter a number {number} that does not exist on the server and validate it.",
+    "notes": "This appears to be a verification action for testing invalid/non-existent phone numbers. The verification_type parameter captures the specific validation being performed.",
+    "source_cluster_ids": [
+      124
+    ]
+  },
+  {
+    "cluster_id": 128,
+    "standard_action": "key_press",
+    "parameters": [
+      {
+        "name": "key",
+        "type": "string",
+        "description": "The key to be pressed on the device",
+        "example": "Update"
+      }
+    ],
+    "representative_sentence": "Press the {key} key.",
+    "notes": "The action involves pressing a specific key on the VoIP device, which matches the key_press standard action.",
+    "source_cluster_ids": [
+      128
+    ]
+  },
+  {
+    "cluster_id": 129,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "key",
+        "type": "string",
+        "description": "The key or button to configure",
+        "example": "this key"
+      },
+      {
+        "name": "number",
+        "type": "string",
+        "description": "Phone number to assign to the key",
+        "example": "phone C's number"
+      }
+    ],
+    "representative_sentence": "Modify the number associated with {key} to {number}.",
+    "notes": "This involves configuring speed dial or programmable key settings on a VoIP device.",
+    "source_cluster_ids": [
+      129
+    ]
+  },
+  {
+    "cluster_id": 133,
+    "standard_action": "redial_call",
+    "parameters": [],
+    "representative_sentence": "Select \"Redial\".",
+    "notes": "No parameters needed for this redial action.",
+    "source_cluster_ids": [
+      133
+    ]
+  },
+  {
+    "cluster_id": 134,
+    "standard_action": "redial_call",
+    "parameters": [
+      {
+        "name": "redial_option",
+        "type": "string",
+        "description": "Specific redial method or menu option",
+        "example": "Last caller"
+      }
+    ],
+    "representative_sentence": "Choose \"{redial_option}\".",
+    "notes": "Example suggests accessing a redial menu option rather than direct redial button press.",
+    "source_cluster_ids": [
+      134
+    ]
+  },
+  {
+    "cluster_id": 139,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "key_type",
+        "type": "string",
+        "description": "Type of programmable key to create",
+        "example": "Emergency"
+      },
+      {
+        "name": "additional_options",
+        "type": "string",
+        "description": "Other key options mentioned",
+        "example": "Guard, voicemail, or Operator"
+      }
+    ],
+    "representative_sentence": "Create a programmable key for {key_type}.",
+    "notes": "Example includes multiple possible key types; parameter captures primary type with additional options as separate parameter for flexibility.",
+    "source_cluster_ids": [
+      139
+    ]
+  },
+  {
+    "cluster_id": 140,
+    "standard_action": "configure_settings",
+    "parameters": [
+      {
+        "name": "key_type",
+        "type": "string",
+        "description": "Type of programmable key to create",
+        "example": "Group pickup"
+      },
+      {
+        "name": "additional_type",
+        "type": "string",
+        "description": "Alternative programmable key type",
+        "example": "Associate"
+      }
+    ],
+    "representative_sentence": "Create a programmable key, such as {key_type} or {additional_type}.",
+    "notes": "Examples suggest configuring programmable keys on a VoIP device, which falls under device configuration.",
+    "source_cluster_ids": [
+      140
+    ]
+  },
+  {
+    "cluster_id": 141,
+    "standard_action": "mute_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The VoIP device to mute",
+        "example": "set"
+      }
+    ],
+    "representative_sentence": "Mute the {device} and check that no voice is heard.",
+    "notes": "Example includes both muting action and verification step; standardized to mute_call action with device parameter.",
+    "source_cluster_ids": [
+      141
+    ]
+  },
+  {
+    "cluster_id": 142,
+    "standard_action": "unmute_call",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The VoIP device to unmute",
+        "example": "set"
+      }
+    ],
+    "representative_sentence": "Unmute the {device} and check the conversation is okay.",
+    "notes": "The example includes both an unmute action and a verification step, but the primary action is clearly unmuting. The verification aspect is captured in the representative sentence but not parameterized as it's part of the test validation rather than an action parameter.",
+    "source_cluster_ids": [
+      142
+    ]
+  },
+  {
+    "cluster_id": 143,
+    "standard_action": "dial_call",
+    "parameters": [
+      {
+        "name": "from_device",
+        "type": "device",
+        "description": "The device initiating the call",
+        "example": "phone A"
+      },
+      {
+        "name": "to_device",
+        "type": "device",
+        "description": "The device receiving the call",
+        "example": "phone B"
+      }
+    ],
+    "representative_sentence": "Establish a conversation between {from_device} and {to_device}.",
+    "notes": "The example describes initiating a call between two devices, which maps directly to the dial_call action.",
+    "source_cluster_ids": [
+      143
+    ]
+  },
+  {
+    "cluster_id": 145,
+    "standard_action": "wait",
+    "parameters": [
+      {
+        "name": "duration",
+        "type": "string",
+        "description": "Time gap between actions",
+        "example": "realistic time gap"
+      }
+    ],
+    "representative_sentence": "Wait for {duration} between switchings",
+    "notes": "The example describes a waiting period between switching operations, which aligns with the 'wait' action for introducing delays in test sequences.",
+    "source_cluster_ids": [
+      145
+    ]
+  },
+  {
+    "cluster_id": 146,
+    "standard_action": "retrieve_call",
+    "parameters": [
+      {
+        "name": "code",
+        "type": "string",
+        "description": "Parking code or retrieval code for the parked call",
+        "example": "parking code"
+      },
+      {
+        "name": "target_device",
+        "type": "device",
+        "description": "Device where the parked call should be retrieved",
+        "example": "another phone"
+      }
+    ],
+    "representative_sentence": "Dial the {code} to retrieve the parked call on {target_device}.",
+    "notes": "Action involves retrieving a parked call using a specific code on a target device, which aligns with the retrieve_call standard action.",
+    "source_cluster_ids": [
+      146
+    ]
+  },
+  {
+    "cluster_id": 147,
+    "standard_action": "check_display",
+    "parameters": [
+      {
+        "name": "display_type",
+        "type": "string",
+        "description": "Type of display information to check",
+        "example": "CLIP and COLP"
+      }
+    ],
+    "representative_sentence": "Check the {display_type} displays.",
+    "notes": "CLIP (Calling Line Identification Presentation) and COLP (Connected Line Identification Presentation) are telephony display features.",
+    "source_cluster_ids": [
+      147
+    ]
+  }
+]

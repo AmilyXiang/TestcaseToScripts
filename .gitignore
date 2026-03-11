@@ -5,3 +5,7 @@ __pycache__/
 .vscode/
 .pytest_cache/
 ~$RQPLEIAD 180 -Alarm button improvemen 12_29.xlsx
+.agent/
+.agents/
+SKILL.md
+.cursor/

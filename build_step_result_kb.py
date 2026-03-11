@@ -1,13 +1,21 @@
 import argparse
-import html
 import json
 import os
-import re
 import time
 from pathlib import Path
 from typing import Any, Dict, List
 
 from openai import OpenAI
+
+# 假设这些函数已在 data_cleaning 模块中定义
+from data_cleaning import (
+    canonicalize_action_text,
+    canonicalize_expected_text,
+    canonicalize_keywords,
+    canonicalize_precondition_text,
+    clean_step_text,
+    cleanup_markup_text,
+)
 
 
 def load_json(path: Path) -> Dict[str, Any]:
@@ -19,179 +27,15 @@ def save_json(path: Path, payload: Dict[str, Any]) -> None:
 
 
 def build_prompt(skill_text: str, case_obj: Dict[str, Any]) -> str:
+    # 注意：这里将 \n 写为换行符，而不是 "\\n"
     return (
-        "Follow the skill below and normalize each step item.\\n"
-        "Important: output natural, automation-ready sentences, not compressed tokens.\\n\\n"
-        "Skill:\\n"
-        f"{skill_text}\\n\\n"
-        "Return strict JSON with this schema:\\n"
-        "{\"steps\": [{\"step_no\": int, \"normalized_action\": str, \"normalized_expected_result\": str, \"keywords\": [str]}]}\\n\\n"
-        "Hard constraints:\\n"
-        "- Keep same number of steps as input.\\n"
-        "- Keep each step_no unchanged.\\n"
-        "- Preserve domain literals and product terms.\\n"
-        "- Use imperative sentence for normalized_action.\\n"
-        "- Use verifiable assertion sentence for normalized_expected_result.\\n"
-        "- Never output keyword-only fragments.\\n\\n"
-        "Canonicalization requirement:\\n"
-        "- Semantically equivalent phrasings must be normalized to the same sentence.\\n"
-        "- Example: 'Receive a normal incoming call on the phone.' and 'Receive an incoming call on the phone.' must map to 'Phone receives an incoming call.'.\\n"
-        "- Keep actor explicit and correct: Phone / Remote side / User.\\n"
-        "- 'Remote side answers the call' must not be rewritten as 'Phone receives an answer'.\\n"
-        "- Keep ALE model identifiers exact and distinct: ALE-20, ALE-20h, ALE-30, ALE-30h, ALE-300, ALE-400, ALE-500.\\n"
-        "- OXE is server-side context; statements after OXE must remain server-side configure/check actions.\\n"
-        "- Do not merge opposite actions (e.g., pick up vs hang up).\\n\\n"
-        "Input case:\\n"
+        "Follow the skill below and normalize each step item.\n"
+        "Important: output natural, automation-ready sentences, not compressed tokens.\n\n"
+        "Skill:\n"
+        f"{skill_text}\n\n"
+        "Input case:\n"
         f"{json.dumps(case_obj, ensure_ascii=False)}"
     )
-
-
-def cleanup_markup_text(text: Any) -> Any:
-    """Remove HTML/markdown artifacts while preserving meaningful sentence content."""
-    if not isinstance(text, str):
-        return text
-
-    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
-    normalized = html.unescape(normalized)
-
-    # Remove markdown image tokens.
-    normalized = re.sub(r"!\[[^\]]*\]\([^\)]*\)", "", normalized)
-
-    # Convert paragraph and line-break tags to line boundaries.
-    normalized = re.sub(r"<\s*br\s*/?\s*>", "\n", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"<\s*/\s*p\s*>\s*<\s*p\s*>", "\n", normalized, flags=re.IGNORECASE)
-
-    # Remove non-semantic HTML tags but keep content.
-    normalized = re.sub(r"<\s*img[^>]*>", "", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"<[^>]+>", "", normalized)
-
-    # Normalize whitespace and blank lines.
-    normalized = re.sub(r"[ \t]+", " ", normalized)
-    normalized = re.sub(r"\n{3,}", "\n\n", normalized)
-    normalized = "\n".join(line.strip() for line in normalized.split("\n")).strip()
-
-    return normalized
-
-
-def canonicalize_action_text(text: Any) -> Any:
-    if not isinstance(text, str):
-        return text
-
-    normalized = cleanup_markup_text(text)
-    normalized = re.sub(r"\s+", " ", normalized.strip())
-
-    # Canonicalize equivalent incoming-call phrasings with explicit actor.
-    normalized = re.sub(
-        r"^(Receive a normal incoming call on the phone|Receive an incoming call on the phone|Phone receives a normal incoming call(?: on the phone)?)\.?$",
-        "Phone receives an incoming call.",
-        normalized,
-        flags=re.IGNORECASE,
-    )
-
-    # Canonicalize remote-side answer/reject events.
-    normalized = re.sub(
-        r"^(Answer the call from the remote side|Have the remote side answer the call|Receive an answer from the remote side|Receive an answer to the call from the remote side|Receive an answer from the remote side for the call)\.?$",
-        "Remote side answers the call.",
-        normalized,
-        flags=re.IGNORECASE,
-    )
-    normalized = re.sub(
-        r"^(Have the remote side reject the call|Remote side reject the call|Receive a reject from the remote side)\.?$",
-        "Remote side rejects the call.",
-        normalized,
-        flags=re.IGNORECASE,
-    )
-
-    # Repair common actor drift from model generations.
-    if re.search(r"remote side", normalized, flags=re.IGNORECASE) and re.search(r"incoming call", normalized, flags=re.IGNORECASE):
-        normalized = "Phone receives an incoming call."
-
-    # Normalize capitalization variants for common button names.
-    normalized = re.sub(r"\bPress the silence button\.?$", "Press the Silence button.", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bPress the switch button\.?$", "Press the Switch button.", normalized, flags=re.IGNORECASE)
-
-    # Canonical casing for common domain terms and labels.
-    normalized = re.sub(r"\boxe\b", "OXE", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*20h\b", "ALE-20h", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*30h\b", "ALE-30h", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*20\b", "ALE-20", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*30\b", "ALE-30", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*300\b", "ALE-300", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*400\b", "ALE-400", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*500\b", "ALE-500", normalized, flags=re.IGNORECASE)
-
-    normalized = re.sub(r"\btransfer\b", "Transfer", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bsilence\b", "Silence", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bswitch\b", "Switch", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bhold\b", "Hold", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\brelease\b", "Release", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bconference\b", "Conference", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bemergency\b", "Emergency", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bguard\b", "Guard", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\boperator\b", "Operator", normalized, flags=re.IGNORECASE)
-
-    normalized = re.sub(r"\bphone\b", "phone", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bremote side\b", "Remote side", normalized, flags=re.IGNORECASE)
-
-    # Ensure final sentence punctuation.
-    if normalized and not re.search(r"[.!?]$", normalized):
-        normalized += "."
-
-    return normalized
-
-
-def canonicalize_expected_text(text: Any) -> Any:
-    if not isinstance(text, str):
-        return text
-    normalized = cleanup_markup_text(text)
-    normalized = re.sub(r"\s+", " ", normalized.strip())
-    normalized = re.sub(r"\boxe\b", "OXE", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*20h\b", "ALE-20h", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*30h\b", "ALE-30h", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*20\b", "ALE-20", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*30\b", "ALE-30", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*300\b", "ALE-300", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*400\b", "ALE-400", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*500\b", "ALE-500", normalized, flags=re.IGNORECASE)
-    return normalized
-
-
-def canonicalize_precondition_text(text: Any) -> Any:
-    if text is None:
-        return None
-    if not isinstance(text, str):
-        return text
-
-    normalized = cleanup_markup_text(text)
-    normalized = re.sub(r"\s+", " ", normalized.strip())
-    normalized = re.sub(r"\boxe\b", "OXE", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*20h\b", "ALE-20h", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*30h\b", "ALE-30h", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*20\b", "ALE-20", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*30\b", "ALE-30", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*300\b", "ALE-300", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*400\b", "ALE-400", normalized, flags=re.IGNORECASE)
-    normalized = re.sub(r"\bale-?\s*500\b", "ALE-500", normalized, flags=re.IGNORECASE)
-    return normalized or None
-
-
-def canonicalize_keywords(values: Any) -> List[str]:
-    if not isinstance(values, list):
-        return []
-
-    normalized: List[str] = []
-    seen = set()
-    for item in values:
-        if not isinstance(item, str):
-            continue
-        token = item.strip().lower()
-        token = re.sub(r"\s+", "-", token)
-        token = re.sub(r"[^a-z0-9\-_/]", "", token)
-        if not token or token in seen:
-            continue
-        seen.add(token)
-        normalized.append(token)
-    return normalized
 
 
 def call_deepseek_case(
@@ -200,7 +44,7 @@ def call_deepseek_case(
     skill_text: str,
     case_obj: Dict[str, Any],
     max_retries: int = 3,
-) -> Dict[str, Any]:
+) -> List[Dict[str, Any]]:
     prompt = build_prompt(skill_text, case_obj)
 
     for attempt in range(1, max_retries + 1):
@@ -225,10 +69,23 @@ def call_deepseek_case(
             if not content:
                 raise ValueError("Empty response from model")
             parsed = json.loads(content)
-            if "steps" not in parsed or not isinstance(parsed["steps"], list):
-                raise ValueError("Model output missing 'steps' array")
-            return parsed
-        except Exception:
+            # 根据 prompt，输出可能是一个对象包含 steps 数组，也可能直接是数组
+            if isinstance(parsed, dict) and "steps" in parsed:
+                steps = parsed["steps"]
+            elif isinstance(parsed, list):
+                steps = parsed
+            else:
+                raise ValueError("Unexpected JSON structure from model")
+            # 确保每个步骤都有 step_no 和 sub_step_no（如果是子步骤）
+            for step in steps:
+                if "step_no" not in step:
+                    raise ValueError("Missing step_no in model output")
+                if "sub_step_no" not in step:
+                    # 如果不是子步骤，可以添加默认 sub_step_no=1
+                    step["sub_step_no"] = 1
+            return steps
+        except Exception as e:
+            print(f"Attempt {attempt} failed: {e}")
             if attempt >= max_retries:
                 raise
             time.sleep(1.5 * attempt)
@@ -238,7 +95,7 @@ def call_deepseek_case(
 
 def build_knowledge_base(
     parsed_payload: Dict[str, Any],
-    normalized_payload: Dict[str, Any],
+    normalized_payload: Dict[str, List[Dict[str, Any]]],  # now normalized_payload maps case_id to list of sub-steps
 ) -> Dict[str, Any]:
     kb_entries: List[Dict[str, Any]] = []
 
@@ -248,29 +105,49 @@ def build_knowledge_base(
             title = case.get("title")
             precondition_raw = case.get("preconditions")
             precondition_normalized = canonicalize_precondition_text(precondition_raw)
-            steps_by_no = {
-                int(item.get("step_no")): item
-                for item in normalized_payload[sheet_name][case_id]["steps"]
-            }
 
+            # 获取该用例的所有子步骤列表
+            sub_steps = normalized_payload.get(sheet_name, {}).get(case_id, [])
+            if not sub_steps:
+                # 如果没有标准化结果，可能该用例未被处理，跳过或警告
+                print(f"Warning: No normalized data for case {case_id}")
+                continue
+
+            # 建立从 step_no 到该步骤子步骤列表的映射
+            step_to_substeps = {}
+            for sub in sub_steps:
+                sn = sub.get("step_no")
+                step_to_substeps.setdefault(sn, []).append(sub)
+
+            # 遍历原始步骤
             for step in case.get("steps", []):
-                step_no = int(step.get("step_no"))
-                normalized = steps_by_no.get(step_no, {})
-                kb_entries.append(
-                    {
-                        "sheet": sheet_name,
-                        "case_id": case_id,
-                        "title": title,
-                        "precondition_raw": precondition_raw,
-                        "normalized_precondition": precondition_normalized,
-                        "step_no": step_no,
-                        "raw_action": step.get("action"),
-                        "raw_expected_result": step.get("expected_result"),
-                        "normalized_action": normalized.get("normalized_action"),
-                        "normalized_expected_result": normalized.get("normalized_expected_result"),
-                        "keywords": normalized.get("keywords", []),
-                    }
-                )
+                step_no = step.get("step_no")
+                if step_no is None:
+                    print(f"Warning: Missing step_no in raw case {case_id}")
+                    continue
+                # 获取该步骤对应的子步骤
+                substeps = step_to_substeps.get(step_no, [])
+                if substeps:
+                    for sub in substeps:
+                        kb_entries.append({
+                            "sheet": sheet_name,
+                            "case_id": case_id,
+                            "title": title,
+                            "precondition_raw": precondition_raw,
+                            "normalized_precondition": precondition_normalized,
+                            "step_no": step_no,
+                            "sub_step_no": sub.get("sub_step_no"),
+                            "raw_action": step.get("action"),
+                            "raw_expected_result": step.get("expected_result"),
+                            "normalized_action": sub.get("normalized_action"),
+                            "normalized_expected_result": sub.get("normalized_expected_result"),
+                            "keywords": sub.get("keywords", []),
+                        })
+                else:
+                    # 如果没有子步骤，则使用原步骤的标准化结果（兼容旧格式）
+                    # 这种情况应该不会发生，因为如果 substeps 为空，说明模型可能没有输出该步骤的子步骤
+                    # 作为 fallback，我们仍然尝试用旧逻辑？但为了简单，我们跳过或警告
+                    print(f"Warning: No substeps found for step {step_no} in case {case_id}")
 
     return {
         "meta": {
@@ -302,39 +179,51 @@ def main() -> None:
     parsed_payload = load_json(args.input)
     skill_text = args.skill.read_text(encoding="utf-8")
 
-    normalized_payload: Dict[str, Dict[str, Any]] = {}
+    normalized_payload: Dict[str, Dict[str, List[Dict[str, Any]]]] = {}
 
     for sheet_name, cases in parsed_payload.items():
         normalized_payload[sheet_name] = {}
         for case in cases:
             case_id = case.get("case_id")
+            # 构造发送给模型的 case 对象，包括可能的 action_substeps 和 expected_checkpoints
             case_obj = {
                 "case_id": case_id,
                 "title": cleanup_markup_text(case.get("title")),
                 "description": cleanup_markup_text(case.get("description")),
                 "preconditions": cleanup_markup_text(case.get("preconditions")),
-                "steps": [
-                    {
-                        "step_no": item.get("step_no"),
-                        "action": cleanup_markup_text(item.get("action")),
-                        "expected_result": cleanup_markup_text(item.get("expected_result")),
-                    }
-                    for item in case.get("steps", [])
-                ],
+                "steps": [],
             }
-            normalized_case = call_deepseek_case(
-                client=client,
-                model=args.model,
-                skill_text=skill_text,
-                case_obj=case_obj,
-            )
+            for step in case.get("steps", []):
+                step_obj = {
+                    "step_no": step.get("step_no"),
+                    "action": clean_step_text(step.get("action")),
+                    "expected_result": clean_step_text(step.get("expected_result")),
+                }
+                # 如果存在子步骤，添加
+                if "action_substeps" in step:
+                    step_obj["action_substeps"] = step["action_substeps"]
+                if "expected_checkpoints" in step:
+                    step_obj["expected_checkpoints"] = step["expected_checkpoints"]
+                case_obj["steps"].append(step_obj)
 
-            for item in normalized_case.get("steps", []):
-                item["normalized_action"] = canonicalize_action_text(item.get("normalized_action"))
-                item["normalized_expected_result"] = canonicalize_expected_text(item.get("normalized_expected_result"))
-                item["keywords"] = canonicalize_keywords(item.get("keywords", []))
+            try:
+                normalized_substeps = call_deepseek_case(
+                    client=client,
+                    model=args.model,
+                    skill_text=skill_text,
+                    case_obj=case_obj,
+                )
+            except Exception as e:
+                print(f"Failed to normalize case {case_id}: {e}")
+                continue
 
-            normalized_payload[sheet_name][case_id] = normalized_case
+            # 应用 canonicalize 函数到每个子步骤
+            for sub in normalized_substeps:
+                sub["normalized_action"] = canonicalize_action_text(sub.get("normalized_action"))
+                sub["normalized_expected_result"] = canonicalize_expected_text(sub.get("normalized_expected_result"))
+                sub["keywords"] = canonicalize_keywords(sub.get("keywords", []))
+
+            normalized_payload[sheet_name][case_id] = normalized_substeps
             print(f"Normalized case: {case_id}")
 
     kb = build_knowledge_base(parsed_payload, normalized_payload)

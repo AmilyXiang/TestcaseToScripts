@@ -1,0 +1,630 @@
+[
+  {
+    "cluster_id": 2,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "selection",
+        "type": "string",
+        "description": "The item to select or choose",
+        "example": "Number"
+      }
+    ],
+    "representative_sentence": "Select \"{selection}\".",
+    "notes": "Examples show selection/choice actions but don't specify context (e.g., dialing, settings). Could map to various actions like dial_call or configure_settings depending on broader test context."
+  },
+  {
+    "cluster_id": 4,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "location",
+        "type": "string",
+        "description": "Location on the page to be selected",
+        "example": "emplacement"
+      }
+    ],
+    "representative_sentence": "Choose a {location} on the page and validate the selection.",
+    "notes": "Examples describe selecting and validating a location on a page, which doesn't match any predefined VoIP actions. This appears to be a UI interaction rather than a call control or device management action."
+  },
+  {
+    "cluster_id": 5,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "emplacement",
+        "type": "string",
+        "description": "Location or position to select on the page",
+        "example": "your emplacement"
+      }
+    ],
+    "representative_sentence": "Choose {emplacement} in the page and validate your choice.",
+    "notes": "Examples describe a UI interaction involving selection and validation, but don't clearly map to any specific VoIP action from the allowed list. The action appears to be part of a configuration or setup flow rather than a core call control function."
+  },
+  {
+    "cluster_id": 11,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "action_target",
+        "type": "string",
+        "description": "The target to cancel",
+        "example": "message"
+      }
+    ],
+    "representative_sentence": "Cancel the {action_target}.",
+    "notes": "Examples involve canceling messages or message reading, but no direct match to predefined VoIP actions like hangup_call or reject_call. Could relate to voicemail or messaging features not explicitly covered in allowed actions."
+  },
+  {
+    "cluster_id": 13,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "version",
+        "type": "string",
+        "description": "Minimum software version required for the feature",
+        "example": "1.40.02 2073"
+      },
+      {
+        "name": "capability",
+        "type": "string",
+        "description": "Feature capability that must be allowed by server",
+        "example": "interphony"
+      },
+      {
+        "name": "user_type",
+        "type": "string",
+        "description": "Type of user account",
+        "example": "SIP users"
+      },
+      {
+        "name": "action_type",
+        "type": "string",
+        "description": "Method to activate the feature",
+        "example": "activate interphony from Settings / Telephony / Auto-answer"
+      },
+      {
+        "name": "device_state",
+        "type": "string",
+        "description": "Required state of the SIP phone",
+        "example": "in a call with another phone"
+      },
+      {
+        "name": "call_scenario",
+        "type": "string",
+        "description": "Call scenario to be executed",
+        "example": "other phone makes a second call to a different phone"
+      }
+    ],
+    "representative_sentence": "From version {version}, if {capability} is allowed by OXE server for {user_type}, {action_type} or ensure {device_state} and {call_scenario}.",
+    "notes": "Examples describe two different scenarios: 1) Activating interphony feature via settings/progkey, 2) Setting up a specific call scenario. No single clear action matches both examples from the allowed list."
+  },
+  {
+    "cluster_id": 17,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone performing the action",
+        "example": "phone A"
+      },
+      {
+        "name": "action_description",
+        "type": "string",
+        "description": "Description of the mixed actions observed",
+        "example": "displays the search result"
+      }
+    ],
+    "representative_sentence": "{device} performs mixed display and interface navigation actions",
+    "notes": "Examples contain two distinct action types: display verification and key press navigation. No single standard action from the allowed list adequately covers both. First example suggests display checking, second suggests key press followed by interface navigation."
+  },
+  {
+    "cluster_id": 25,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "source_device",
+        "type": "device",
+        "description": "Device initiating the text message",
+        "example": "phone A"
+      },
+      {
+        "name": "target_device",
+        "type": "device",
+        "description": "Device receiving the text message",
+        "example": "another device"
+      }
+    ],
+    "representative_sentence": "{source_device} attempts to send a text message to {target_device}.",
+    "notes": "No direct match in allowed VoIP actions list; text messaging is not a standard VoIP call control action"
+  },
+  {
+    "cluster_id": 26,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to perform the action on",
+        "example": "phone A"
+      },
+      {
+        "name": "message_type",
+        "type": "string",
+        "description": "Type of message to read",
+        "example": "text message"
+      }
+    ],
+    "representative_sentence": "Attempt to read a {message_type} on {device}.",
+    "notes": "No direct match in allowed actions list for reading messages. Consider adding 'read_message' or similar action if this is a common VoIP test scenario."
+  },
+  {
+    "cluster_id": 30,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "Target phone device",
+        "example": "phone A"
+      },
+      {
+        "name": "accessory",
+        "type": "string",
+        "description": "Type of accessory to connect",
+        "example": "headset"
+      }
+    ],
+    "representative_sentence": "Connect {device} to a {accessory}.",
+    "notes": "Examples describe physical connection of accessories to devices, which doesn't map cleanly to any standard VoIP call/device control actions. The action involves hardware setup rather than call handling or device configuration through software interfaces."
+  },
+  {
+    "cluster_id": 32,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "page_name",
+        "type": "string",
+        "description": "Name of the page to navigate to",
+        "example": "ProgKeys"
+      }
+    ],
+    "representative_sentence": "Navigate to the {page_name} page.",
+    "notes": "Navigation actions are not explicitly listed in the allowed standard actions. This appears to be a UI navigation step rather than a direct VoIP call control action."
+  },
+  {
+    "cluster_id": 48,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "source_device",
+        "type": "device",
+        "description": "Device sending the message",
+        "example": "phone A"
+      },
+      {
+        "name": "target_device",
+        "type": "device",
+        "description": "Device receiving the message",
+        "example": "phone B"
+      },
+      {
+        "name": "message_content",
+        "type": "string",
+        "description": "Content of the text message",
+        "example": "text message"
+      },
+      {
+        "name": "password",
+        "type": "string",
+        "description": "Password for authentication (if required)",
+        "example": "phone A password"
+      }
+    ],
+    "representative_sentence": "Send a text message from {source_device} to {target_device}.",
+    "notes": "Examples include both password-protected and regular text messaging. No direct match in allowed actions list for text messaging operations."
+  },
+  {
+    "cluster_id": 52,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "Target phone device",
+        "example": "phone A"
+      },
+      {
+        "name": "prefix",
+        "type": "string",
+        "description": "Change password prefix code",
+        "example": "OXE 405"
+      },
+      {
+        "name": "new_password",
+        "type": "string",
+        "description": "New secret code/password value",
+        "example": "different from previous password"
+      }
+    ],
+    "representative_sentence": "Dial the change password prefix {prefix} on {device} and set new secret code to {new_password}.",
+    "notes": "Examples contain mixed actions: dialing a prefix and configuring user settings via OXE manager interface. No single standard action matches both operations."
+  },
+  {
+    "cluster_id": 54,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "parking_device",
+        "type": "device",
+        "description": "Device that initiates the parking action",
+        "example": "phone A"
+      },
+      {
+        "name": "target_device",
+        "type": "device",
+        "description": "Device being parked or receiving the parked call",
+        "example": "phone B"
+      },
+      {
+        "name": "parking_code",
+        "type": "string",
+        "description": "Code or prefix used for call parking",
+        "example": "86"
+      }
+    ],
+    "representative_sentence": "{parking_device} parks a call to {target_device} using parking code {parking_code}.",
+    "notes": "Examples describe call parking scenarios which don't map cleanly to a single standard action. Could involve dialing, transfer, or configuration actions depending on implementation."
+  },
+  {
+    "cluster_id": 59,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to perform the action on",
+        "example": "phone A"
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "description": "The specific call log entry to select",
+        "example": "previous call"
+      }
+    ],
+    "representative_sentence": "On {device}, consult the call log list and select {target}.",
+    "notes": "No direct match found in allowed actions list. This appears to be a call log navigation/selection action rather than a direct call control action."
+  },
+  {
+    "cluster_id": 60,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to perform the action on",
+        "example": "phone A"
+      },
+      {
+        "name": "call_type",
+        "type": "string",
+        "description": "Type of call to select from call log",
+        "example": "previous answered call"
+      }
+    ],
+    "representative_sentence": "On {device}, open the call log list and select the {call_type}.",
+    "notes": "Examples describe navigating call log and selecting specific call types, but no clear match to standard actions like dial_call or redial_call. The action involves UI navigation and selection rather than direct call control."
+  },
+  {
+    "cluster_id": 69,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device to navigate on",
+        "example": "phone A"
+      },
+      {
+        "name": "menu",
+        "type": "string",
+        "description": "The menu to navigate to",
+        "example": "ProgKeys menu"
+      }
+    ],
+    "representative_sentence": "Navigate to the {menu} on {device}.",
+    "notes": "No direct match in allowed actions list. This appears to be a navigation/configuration step that might be part of a larger test sequence."
+  },
+  {
+    "cluster_id": 92,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "Target phone device to set as busy",
+        "example": "B"
+      }
+    ],
+    "representative_sentence": "Make {device} busy.",
+    "notes": "No direct match in allowed actions; 'make busy' could relate to call handling but doesn't align precisely with dial, hold, reject, etc."
+  },
+  {
+    "cluster_id": 97,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "condition",
+        "type": "string",
+        "description": "Condition that triggers the action",
+        "example": "no keyboard is plugged into the device"
+      },
+      {
+        "name": "action1",
+        "type": "string",
+        "description": "First action to perform",
+        "example": "open the search screen"
+      },
+      {
+        "name": "action2",
+        "type": "string",
+        "description": "Second action to perform",
+        "example": "type the first letters of phone B user name"
+      }
+    ],
+    "representative_sentence": "If {condition}, {action1} and {action2}.",
+    "notes": "Example contains a conditional statement followed by two distinct actions (opening a screen and typing text). No single standard action matches this multi-step conditional operation."
+  },
+  {
+    "cluster_id": 99,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "target_device",
+        "type": "device",
+        "description": "The phone device to make busy",
+        "example": "phone B"
+      }
+    ],
+    "representative_sentence": "Make enough calls to {target_device} to make it full busy.",
+    "notes": "This describes a multi-call scenario to saturate a device, but doesn't specify a single clear action from the allowed list. Could involve repeated dial_call actions or a specific test scenario."
+  },
+  {
+    "cluster_id": 106,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone device performing the actions",
+        "example": "phone A"
+      },
+      {
+        "name": "day",
+        "type": "int",
+        "description": "The day number for the test sequence",
+        "example": "1"
+      },
+      {
+        "name": "outgoing_calls",
+        "type": "string",
+        "description": "Description of outgoing call types",
+        "example": "answered and unanswered calls"
+      },
+      {
+        "name": "incoming_calls",
+        "type": "string",
+        "description": "Description of incoming call types",
+        "example": "answered and unanswered calls"
+      }
+    ],
+    "representative_sentence": "On day {day}, {device} makes some outgoing calls, including {outgoing_calls}, and receives some calls, including {incoming_calls}.",
+    "notes": "This cluster describes a complex test scenario involving multiple call types (outgoing/incoming, answered/unanswered) rather than a single specific VoIP action. The examples contain mixed actions that would need to be broken down into individual test steps for automation."
+  },
+  {
+    "cluster_id": 107,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "Target phone device",
+        "example": "phone A"
+      },
+      {
+        "name": "call_types",
+        "type": "string",
+        "description": "Types of calls to populate in log",
+        "example": "outgoing calls, incoming calls, and others"
+      }
+    ],
+    "representative_sentence": "Fill the call log of {device} with various entries, including {call_types}.",
+    "notes": "Example describes populating call log with multiple call types, which doesn't match any specific standard action. Could involve multiple operations like dialing, answering, etc."
+  },
+  {
+    "cluster_id": 108,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "device",
+        "type": "device",
+        "description": "The phone performing the action",
+        "example": "phone A"
+      },
+      {
+        "name": "action_type",
+        "type": "string",
+        "description": "Specific call park action being performed",
+        "example": "initiates call park"
+      },
+      {
+        "name": "prefix",
+        "type": "string",
+        "description": "Call park prefix code",
+        "example": "402"
+      }
+    ],
+    "representative_sentence": "{device} {action_type} using prefix {prefix}.",
+    "notes": "No direct match in allowed actions list for call park operations. Consider adding 'park_call' or similar to standard actions if this pattern appears frequently."
+  },
+  {
+    "cluster_id": 120,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "page_name",
+        "type": "string",
+        "description": "The name of the page to navigate to",
+        "example": "ProgKeys"
+      }
+    ],
+    "representative_sentence": "Return to the {page_name} page.",
+    "notes": "This action describes navigation to a specific page (ProgKeys), but doesn't match any of the predefined VoIP call or device control actions. It appears to be a UI navigation step that might be part of a configuration or setup sequence."
+  },
+  {
+    "cluster_id": 125,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "key_name",
+        "type": "string",
+        "description": "Name of the predefined key to select",
+        "example": "already defined key"
+      }
+    ],
+    "representative_sentence": "Select {key_name}.",
+    "notes": "The example 'Select an already defined key.' suggests a key selection action, but it doesn't clearly match any specific standard action like key_press (which implies pressing a key for input) or configure_settings (which implies modifying settings). The action appears to be about selecting from existing options rather than pressing for input or configuration changes."
+  },
+  {
+    "cluster_id": 126,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "button_name",
+        "type": "string",
+        "description": "Name of the button to press",
+        "example": "suppression"
+      }
+    ],
+    "representative_sentence": "Use the {button_name} button.",
+    "notes": "No clear match in allowed actions list. Could potentially relate to mute/unmute or noise suppression features, but insufficient context to map definitively."
+  },
+  {
+    "cluster_id": 127,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "key_name",
+        "type": "string",
+        "description": "Name or identifier of the predefined key to select",
+        "example": "phone B"
+      }
+    ],
+    "representative_sentence": "Select the {key_name} key",
+    "notes": "The example describes selecting a predefined key, which doesn't clearly match any specific standard action like speed_dial_call (which implies initiating a call) or key_press (which implies pressing a specific button/sequence). The action appears to be about selecting/activating a configured key rather than performing a call-related operation."
+  },
+  {
+    "cluster_id": 130,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "label",
+        "type": "string",
+        "description": "Text label to be entered",
+        "example": "a label"
+      }
+    ],
+    "representative_sentence": "Enter {label}.",
+    "notes": "No specific VoIP action matches 'Enter a label.' from the allowed list. Could be part of configuration or data entry."
+  },
+  {
+    "cluster_id": 132,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "position",
+        "type": "string",
+        "description": "The position or option selected on the page",
+        "example": "your position"
+      }
+    ],
+    "representative_sentence": "Choose {position} in the page and validate your choice.",
+    "notes": "The example describes a UI interaction involving selection and validation, but doesn't clearly map to any specific VoIP action in the allowed list. It could relate to menu navigation or configuration, but lacks VoIP-specific context."
+  },
+  {
+    "cluster_id": 135,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "option",
+        "type": "string",
+        "description": "The menu or interface option to select",
+        "example": "Meet-Me"
+      }
+    ],
+    "representative_sentence": "Select \"{option}\".",
+    "notes": "The example involves selecting a specific option (\"Meet-Me\") which doesn't clearly map to any predefined standard action. This could potentially relate to conference features, but without additional context about what happens after selection, it's safest to treat as a generic action."
+  },
+  {
+    "cluster_id": 136,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "menu_option",
+        "type": "string",
+        "description": "Menu option to select",
+        "example": "Call Park"
+      }
+    ],
+    "representative_sentence": "Select {menu_option}.",
+    "notes": "The example 'Select Call Park.' suggests a menu selection action, but no direct match exists in the allowed actions list. 'Call Park' is a specific telephony feature that doesn't correspond to any of the predefined standard actions like dial_call, transfer_call, etc."
+  },
+  {
+    "cluster_id": 137,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "location",
+        "type": "string",
+        "description": "Location to be selected on the page",
+        "example": "your location"
+      }
+    ],
+    "representative_sentence": "Choose {location} on the page and validate your choice.",
+    "notes": "Examples describe a location selection and validation action that doesn't match any predefined VoIP-specific actions. The action appears to be a UI interaction rather than a core VoIP call/device operation."
+  },
+  {
+    "cluster_id": 144,
+    "standard_action": "generic_action",
+    "parameters": [
+      {
+        "name": "loop_count",
+        "type": "int",
+        "description": "Number of times to repeat the loop",
+        "example": "10"
+      },
+      {
+        "name": "start_step",
+        "type": "int",
+        "description": "Step number where the loop begins",
+        "example": "3"
+      },
+      {
+        "name": "end_step",
+        "type": "int",
+        "description": "Step number where the loop ends",
+        "example": "7"
+      },
+      {
+        "name": "action_during_loop",
+        "type": "string",
+        "description": "Action to perform during each loop iteration",
+        "example": "change volume level"
+      }
+    ],
+    "representative_sentence": "Loop {loop_count} times from step {start_step} to step {end_step} and {action_during_loop} during the test.",
+    "notes": "This cluster describes a test loop structure with embedded actions rather than a single VoIP action. The example contains both loop control ('Loop 10 times from step 3 to step 7') and an action ('change the volume level'), making it a compound instruction that doesn't map cleanly to a single standard action."
+  }
+]

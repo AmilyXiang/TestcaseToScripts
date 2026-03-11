@@ -1,0 +1,1174 @@
+[
+  {
+    "cluster_id": 1,
+    "examples": [
+      "Set the required CODEC on the PABX configurator.",
+      "Set the required CODEC on the PABX configurator."
+    ]
+  },
+  {
+    "cluster_id": 2,
+    "examples": [
+      "Select \"Number\".",
+      "Choose \"Number\".",
+      "Select \"Number\".",
+      "Select \"Number\"."
+    ]
+  },
+  {
+    "cluster_id": 3,
+    "examples": [
+      "Enter an incorrect password.",
+      "Enter an incorrect password.",
+      "Enter an incorrect password.",
+      "Enter an incorrect password."
+    ]
+  },
+  {
+    "cluster_id": 4,
+    "examples": [
+      "Choose a location on the page and validate the selection.",
+      "Choose an emplacement in the page and validate the choice.",
+      "Choose a location on the page and validate the selection.",
+      "Choose a location on the page and validate the selection.",
+      "Choose a location on the page and validate the selection.",
+      "Choose a location on the page and validate the choice.",
+      "Choose a location on the page and validate the selection.",
+      "Choose a location on the page and validate the selection."
+    ]
+  },
+  {
+    "cluster_id": 5,
+    "examples": [
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice.",
+      "Choose your emplacement in the page and validate your choice."
+    ]
+  },
+  {
+    "cluster_id": 6,
+    "examples": [
+      "Initiate a communication between the two sets specified in the Test Name, using the required mode on the set under evaluation.",
+      "Initiate a communication between the set under evaluation in handset mode and a distant set (IP, UA, or Z) in handset mode."
+    ]
+  },
+  {
+    "cluster_id": 7,
+    "examples": [
+      "Hang up on all phones.",
+      "Hang up on all phones.",
+      "All phones hang up."
+    ]
+  },
+  {
+    "cluster_id": 8,
+    "examples": [
+      "Press on the name to redial (for ALE-400/500).",
+      "Press on the name (ALE-400/500).",
+      "Press on the name (ALE-400/500).",
+      "Press on the name (for ALE-400/500).",
+      "Press on the name (ALE-400/500)."
+    ]
+  },
+  {
+    "cluster_id": 9,
+    "examples": [
+      "Press the right softkey to redial (for ALE-300).",
+      "Press the right softkey to redial (for ALE-300)."
+    ]
+  },
+  {
+    "cluster_id": 10,
+    "examples": [
+      "Press the right softkey to make a redial (ALE-300).",
+      "Press the right softkey to make a redial (ALE-300).",
+      "Press the right softkey to make a redial (ALE-300)."
+    ]
+  },
+  {
+    "cluster_id": 11,
+    "examples": [
+      "Cancel the message.",
+      "Cancel reading the message."
+    ]
+  },
+  {
+    "cluster_id": 12,
+    "examples": [
+      "Make the call last for a few hours.",
+      "Cancel the call.",
+      "Cancel the call.",
+      "Cancel the call.",
+      "Cancel the call."
+    ]
+  },
+  {
+    "cluster_id": 13,
+    "examples": [
+      "From version 1.40.02 2073, if capability is allowed by OXE server for SIP users, activate interphony from Settings / Telephony / Auto-answer or by creating an Auto-answer progkey and pressing it.",
+      "Ensure the SIP phone is in a call with another phone, and that other phone makes a second call to a different phone."
+    ]
+  },
+  {
+    "cluster_id": 14,
+    "examples": [
+      "Verify that the programmable key has been correctly deleted.",
+      "The service number associated with the programmable key is set on the server and the phone rings.",
+      "Verify that the service or number associated with the programmable key works correctly on the server or phone."
+    ]
+  },
+  {
+    "cluster_id": 15,
+    "examples": [
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page.",
+      "Select a key programming page."
+    ]
+  },
+  {
+    "cluster_id": 16,
+    "examples": [
+      "Press the edit button for the first softkey on the top right.",
+      "Press the edit button for the first softkey on the top right."
+    ]
+  },
+  {
+    "cluster_id": 17,
+    "examples": [
+      "phone A displays the search result.",
+      "phone A presses the loudspeaker key and enters the search interface."
+    ]
+  },
+  {
+    "cluster_id": 18,
+    "examples": [
+      "phone A merges both calls to create a Conference.",
+      "phone A merges both calls to create a Conference.",
+      "phone A merges both calls to create a Conference."
+    ]
+  },
+  {
+    "cluster_id": 19,
+    "examples": [
+      "Choose \"Immediate forward\".",
+      "Press the \"Immediate forward\" programmable key."
+    ]
+  },
+  {
+    "cluster_id": 20,
+    "examples": [
+      "Select \"Do Not Disturb\".",
+      "Press the Do Not Disturb programmable key."
+    ]
+  },
+  {
+    "cluster_id": 21,
+    "examples": [
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "Release the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication.",
+      "End the communication."
+    ]
+  },
+  {
+    "cluster_id": 22,
+    "examples": [
+      "Answer an incoming call by lifting the receiver.",
+      "Answer an incoming call by taking the call with an accessory.",
+      "Answer an incoming call by taking the call with an accessory."
+    ]
+  },
+  {
+    "cluster_id": 23,
+    "examples": [
+      "Press the Call Park programmable key.",
+      "Select \"Retrieve Park\".",
+      "Press the Retrieve Park programmable key."
+    ]
+  },
+  {
+    "cluster_id": 24,
+    "examples": [
+      "End the communication between phone A and phone B.",
+      "End the communication between phone A and phone B."
+    ]
+  },
+  {
+    "cluster_id": 25,
+    "examples": [
+      "phone A attempts to send a text message to another device.",
+      "phone A attempts to send a text message to another device."
+    ]
+  },
+  {
+    "cluster_id": 26,
+    "examples": [
+      "Attempt to read a text message on phone A.",
+      "Read a text message on phone A.",
+      "Attempt to read a text message on phone A."
+    ]
+  },
+  {
+    "cluster_id": 27,
+    "examples": [
+      "Switch from handset mode to handsfree mode.",
+      "Switch from handsfree mode to handset mode.",
+      "Switch from handsfree mode to handset mode."
+    ]
+  },
+  {
+    "cluster_id": 28,
+    "examples": [
+      "Switch from handset mode to group listening mode.",
+      "Switch from group listening mode to handsfree mode."
+    ]
+  },
+  {
+    "cluster_id": 29,
+    "examples": [
+      "Switch the audio mode on phone A among handset, handsfree, and headset.",
+      "Switch the audio mode on phone A."
+    ]
+  },
+  {
+    "cluster_id": 30,
+    "examples": [
+      "Plug the headset (type specified in system configuration) into phone A.",
+      "Connect phone A to a headset."
+    ]
+  },
+  {
+    "cluster_id": 31,
+    "examples": [
+      "Answer the incoming call by pressing the Handsfree key.",
+      "Answer an incoming call by selecting Take call in the presentation screen menu."
+    ]
+  },
+  {
+    "cluster_id": 32,
+    "examples": [
+      "Navigate to the ProgKeys page.",
+      "Navigate to the ProgKeys page.",
+      "Navigate to the ProgKeys page."
+    ]
+  },
+  {
+    "cluster_id": 33,
+    "examples": [
+      "Go to the \"ProgKeys\" page.",
+      "Go to the ProgKeys page."
+    ]
+  },
+  {
+    "cluster_id": 34,
+    "examples": [
+      "Browse the menu and settings on phone A.",
+      "Browse the menu and settings on phone A.",
+      "Browse phone A to the menu and parameters."
+    ]
+  },
+  {
+    "cluster_id": 35,
+    "examples": [
+      "phone A calls a phone number that does not exist.",
+      "phone A calls a phone number that does not exist.",
+      "phone A calls a phone number that does not exist."
+    ]
+  },
+  {
+    "cluster_id": 36,
+    "examples": [
+      "Press the Silence key on phone A.",
+      "Press the physical mute key on phone A.",
+      "Press the physical mute key on phone A.",
+      "Press the physical mute key on phone A.",
+      "Press the physical mute key on phone A.",
+      "Press the physical mute key on phone A.",
+      "Press the physical mute key on phone A.",
+      "Press the physical mute key on phone A.",
+      "Press the physical mute key on phone A.",
+      "Press the mute key on phone A.",
+      "Press the mute key on phone A again."
+    ]
+  },
+  {
+    "cluster_id": 37,
+    "examples": [
+      "phone A presses the \"Silent\" key.",
+      "phone A presses the \"Silent\" key.",
+      "phone A presses the \"Silent\" key.",
+      "phone A presses the \"Silent\" key."
+    ]
+  },
+  {
+    "cluster_id": 38,
+    "examples": [
+      "Press the OK button on the smartpad to create the programmable key.",
+      "Press the OK button on the smartpad to create the programmable key.",
+      "Press the OK button on the smartpad to create the programmable key."
+    ]
+  },
+  {
+    "cluster_id": 39,
+    "examples": [
+      "Define an immediate forward on phone A to phone B, using phone models specified in the system configuration.",
+      "Define an immediate forward on phone B to phone C (phone models given in system config)."
+    ]
+  },
+  {
+    "cluster_id": 40,
+    "examples": [
+      "phone B defines an immediate forward to phone C.",
+      "phone B defines an immediate forward to phone C."
+    ]
+  },
+  {
+    "cluster_id": 41,
+    "examples": [
+      "phone A defines an immediate forward to phone B.",
+      "phone A defines an immediate forward to phone B."
+    ]
+  },
+  {
+    "cluster_id": 42,
+    "examples": [
+      "Initiate a call by pressing the previously created programmable key.",
+      "Start the call by pressing on the previously created programmable key.",
+      "Press the previously created programmable key to initiate a call.",
+      "Initiate a call by pressing the previously created programmable key."
+    ]
+  },
+  {
+    "cluster_id": 43,
+    "examples": [
+      "Press the newly created programmable key.",
+      "Press the newly created programmable key."
+    ]
+  },
+  {
+    "cluster_id": 44,
+    "examples": [
+      "Reboot phone A and wait until it is idle again.",
+      "Reboot phone A and wait for it to finish booting."
+    ]
+  },
+  {
+    "cluster_id": 45,
+    "examples": [
+      "Ensure phone A is in idle state.",
+      "Ensure phone A is in idle state.",
+      "Ensure phone A is in idle state.",
+      "Ensure phone A is in idle state.",
+      "Ensure phone A is in idle state.",
+      "Ensure phone A is in idle state.",
+      "Ensure phone A is in idle state.",
+      "Ensure phone A is in idle state.",
+      "Ensure phone A is in idle state.",
+      "Ensure phone A is in idle state.",
+      "Ensure phone A is in idle state.",
+      "Ensure phone A is in idle state.",
+      "Ensure phone A is in idle state."
+    ]
+  },
+  {
+    "cluster_id": 46,
+    "examples": [
+      "Set up your programmable key.",
+      "Set up your programmable key."
+    ]
+  },
+  {
+    "cluster_id": 47,
+    "examples": [
+      "Configure your programmable key.",
+      "Configure the programmable key.",
+      "Configure the programmable key."
+    ]
+  },
+  {
+    "cluster_id": 48,
+    "examples": [
+      "Enter the phone A password and send the message to phone B.",
+      "Send a text message from phone A to phone B."
+    ]
+  },
+  {
+    "cluster_id": 49,
+    "examples": [
+      "Connect to the server and modify the password for phone A.",
+      "Connect to the server and modify the password for phone A."
+    ]
+  },
+  {
+    "cluster_id": 50,
+    "examples": [
+      "Dial the lock prefix on phone A (OXE: 45).",
+      "Dial the lock prefix (OXE 45) on phone A."
+    ]
+  },
+  {
+    "cluster_id": 51,
+    "examples": [
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A.",
+      "Dial the lock prefix on phone A."
+    ]
+  },
+  {
+    "cluster_id": 52,
+    "examples": [
+      "Dial the change password prefix (OXE 405) on phone A.",
+      "For OXE, launch 'mgr', navigate to 'user', select 'review/modify', choose phone A's number, and change the 'secret code' to a value different from the previous password.",
+      "For OXE, launch 'mgr', navigate to 'user', select 'review/modify', choose phone A's number, and change the 'secret code' to a value different from the previous password."
+    ]
+  },
+  {
+    "cluster_id": 53,
+    "examples": [
+      "Configure the programmable key with phone B's number.",
+      "Set up the programmable key associated with phone B's number.",
+      "Set up your programmable key associated with phone B's number.",
+      "phone B parks the call using the programmed key."
+    ]
+  },
+  {
+    "cluster_id": 54,
+    "examples": [
+      "phone B uses the code to park phone C.",
+      "phone C dials the parking code 86 plus phone B's number.",
+      "phone A calls phone B and parks the call by dialing the relevant parking prefix."
+    ]
+  },
+  {
+    "cluster_id": 55,
+    "examples": [
+      "On the next day, check the call log on phone A.",
+      "Check the call log on phone A.",
+      "Check the call log on phone A."
+    ]
+  },
+  {
+    "cluster_id": 56,
+    "examples": [
+      "Enter the current user password on phone A.",
+      "Enter the password for phone A.",
+      "Enter the user password for phone A."
+    ]
+  },
+  {
+    "cluster_id": 57,
+    "examples": [
+      "Enter the new password (defined in step 4) and validate it on phone A.",
+      "Enter the new password (defined in steps 4 and 5) on phone A.",
+      "Enter the new user password for phone A, as defined by the administrator in step 2.",
+      "Enter the old user password for phone A (the password before the admin changed it)."
+    ]
+  },
+  {
+    "cluster_id": 58,
+    "examples": [
+      "Initiate another call to phone B by pressing the redial programmable key.",
+      "Press the \"ReCall\" programmable key to call back phone B."
+    ]
+  },
+  {
+    "cluster_id": 59,
+    "examples": [
+      "On phone A, consult the call log list and select the previous call.",
+      "On phone A, consult the call log list and select the previous call."
+    ]
+  },
+  {
+    "cluster_id": 60,
+    "examples": [
+      "On phone A, open the call log list and select the previous answered call.",
+      "On phone A, consult the call log list and select the previous non-answered call.",
+      "On phone A, consult the call log list and select the previous non-answered call.",
+      "On phone A, consult the call log list and select the previous non-answered call.",
+      "On phone A, open the call log list and select the previous unanswered call."
+    ]
+  },
+  {
+    "cluster_id": 61,
+    "examples": [
+      "On phone A, press the \"Call back\" key.",
+      "On phone A, press the Call back key."
+    ]
+  },
+  {
+    "cluster_id": 62,
+    "examples": [
+      "On phone B, press the letter iconed physical key.",
+      "On phone A, press the redial physical key.",
+      "On phone A, press the redial physical key."
+    ]
+  },
+  {
+    "cluster_id": 63,
+    "examples": [
+      "On phone A, go to the \"ProgKeys\" page.",
+      "On phone A, go to the \"ProgKeys\" page.",
+      "On phone A, go to the \"ProgKeys\" page."
+    ]
+  },
+  {
+    "cluster_id": 64,
+    "examples": [
+      "On phone A, go to the ProgKeys page.",
+      "On phone A, go to the ProgKeys page."
+    ]
+  },
+  {
+    "cluster_id": 65,
+    "examples": [
+      "Navigate to the ProgKeys page on phone A.",
+      "Navigate phone A to the ProgKeys page.",
+      "Navigate to the ProgKeys page on phone A."
+    ]
+  },
+  {
+    "cluster_id": 66,
+    "examples": [
+      "phone C calls phone A, using phone models specified in the system configuration.",
+      "phone B calls phone A (phone models are specified in system configuration)."
+    ]
+  },
+  {
+    "cluster_id": 67,
+    "examples": [
+      "phone A switches the active call.",
+      "phone A switches the active call."
+    ]
+  },
+  {
+    "cluster_id": 68,
+    "examples": [
+      "Switch the active call on phone A.",
+      "Switch the active call on phone A.",
+      "Switch the active call on phone A.",
+      "Switch the active call on phone A."
+    ]
+  },
+  {
+    "cluster_id": 69,
+    "examples": [
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A.",
+      "Navigate to the ProgKeys menu on phone A."
+    ]
+  },
+  {
+    "cluster_id": 70,
+    "examples": [
+      "Navigate phone A to the ProgKeys menu.",
+      "Navigate phone A to the ProgKeys menu.",
+      "Navigate phone A to the ProgKeys menu.",
+      "Navigate phone A to the ProgKeys menu.",
+      "Navigate phone A to the ProgKeys menu.",
+      "Navigate phone A to the ProgKeys menu.",
+      "Navigate phone A to the ProgKeys menu.",
+      "Navigate phone A to the ProgKeys menu.",
+      "Navigate phone A to the ProgKeys menu."
+    ]
+  },
+  {
+    "cluster_id": 71,
+    "examples": [
+      "phone A moves to another phone and dials the code to retrieve the call with phone C.",
+      "On phone A, enter the code to retrieve the call with phone C."
+    ]
+  },
+  {
+    "cluster_id": 72,
+    "examples": [
+      "phone A presses the new call key and calls phone C.",
+      "phone A makes a new call to phone C by pressing the new call key and dialing phone C's number.",
+      "phone A makes a new call to phone C by pressing the new call key and dialing phone C's number.",
+      "phone A initiates a new call to phone C by pressing the new call key and dialing phone C's number."
+    ]
+  },
+  {
+    "cluster_id": 73,
+    "examples": [
+      "phone A answers the call.",
+      "phone A answers the call.",
+      "phone A answers the call.",
+      "phone A answers the call."
+    ]
+  },
+  {
+    "cluster_id": 74,
+    "examples": [
+      "Make an outgoing call from phone A to phone B.",
+      "Make a call from phone B to phone A."
+    ]
+  },
+  {
+    "cluster_id": 75,
+    "examples": [
+      "phone B hangs up.",
+      "phone B hangs up."
+    ]
+  },
+  {
+    "cluster_id": 76,
+    "examples": [
+      "phone C answers the call.",
+      "phone C answers the call.",
+      "phone C answers the call.",
+      "phone C answers the call."
+    ]
+  },
+  {
+    "cluster_id": 77,
+    "examples": [
+      "phone C takes the call.",
+      "phone C takes the call."
+    ]
+  },
+  {
+    "cluster_id": 78,
+    "examples": [
+      "phone A picks up the handset and dials phone B number.",
+      "phone A dials phone B number."
+    ]
+  },
+  {
+    "cluster_id": 79,
+    "examples": [
+      "phone C calls phone A.",
+      "phone C calls phone A.",
+      "phone C calls phone A.",
+      "phone C calls phone A.",
+      "phone C calls phone A.",
+      "phone C calls phone A.",
+      "phone C calls phone A.",
+      "phone C calls phone A.",
+      "phone C calls phone A.",
+      "phone C calls phone A."
+    ]
+  },
+  {
+    "cluster_id": 80,
+    "examples": [
+      "phone B does not take the call.",
+      "phone B does not answer the call.",
+      "phone A does not take the call."
+    ]
+  },
+  {
+    "cluster_id": 81,
+    "examples": [
+      "phone B takes the call and then releases the call.",
+      "phone A takes the call and then releases the call."
+    ]
+  },
+  {
+    "cluster_id": 82,
+    "examples": [
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B.",
+      "phone A calls phone B."
+    ]
+  },
+  {
+    "cluster_id": 83,
+    "examples": [
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A.",
+      "phone B calls phone A."
+    ]
+  },
+  {
+    "cluster_id": 84,
+    "examples": [
+      "phone A takes the call.",
+      "phone A takes the call.",
+      "phone A takes the call.",
+      "phone A takes the call.",
+      "phone A takes the call."
+    ]
+  },
+  {
+    "cluster_id": 85,
+    "examples": [
+      "phone B rings and answer the call.",
+      "phone B rings and takes the call.",
+      "phone B rings and answers the call."
+    ]
+  },
+  {
+    "cluster_id": 86,
+    "examples": [
+      "phone B answers the call.",
+      "phone B answers the call.",
+      "phone B answers the call.",
+      "phone B answers the call.",
+      "phone B answers the call.",
+      "phone B answers the call.",
+      "phone B answers the call.",
+      "phone B answers the call.",
+      "phone B answers the call."
+    ]
+  },
+  {
+    "cluster_id": 87,
+    "examples": [
+      "phone B takes the call.",
+      "phone B takes the call.",
+      "phone B takes the call.",
+      "phone B takes the call.",
+      "phone B takes the call.",
+      "phone B takes the call.",
+      "phone B takes the call.",
+      "phone B takes the call."
+    ]
+  },
+  {
+    "cluster_id": 88,
+    "examples": [
+      "phone A puts phone B on Hold."
+    ]
+  },
+  {
+    "cluster_id": 89,
+    "examples": [
+      "phone A retrieves the call."
+    ]
+  },
+  {
+    "cluster_id": 90,
+    "examples": [
+      "phone B calls back phone A."
+    ]
+  },
+  {
+    "cluster_id": 91,
+    "examples": [
+      "phone A takes the call and ends it."
+    ]
+  },
+  {
+    "cluster_id": 92,
+    "examples": [
+      "Make phone B busy."
+    ]
+  },
+  {
+    "cluster_id": 93,
+    "examples": [
+      "phone B becomes idle again."
+    ]
+  },
+  {
+    "cluster_id": 94,
+    "examples": [
+      "phone A takes the incoming call from the server."
+    ]
+  },
+  {
+    "cluster_id": 95,
+    "examples": [
+      "Dial a phone number on the dialpad of phone A."
+    ]
+  },
+  {
+    "cluster_id": 96,
+    "examples": [
+      "phone A enters the first letters of phone B user name on the keyboard."
+    ]
+  },
+  {
+    "cluster_id": 97,
+    "examples": [
+      "If no keyboard is plugged into the device, open the search screen and type the first letters of phone B user name."
+    ]
+  },
+  {
+    "cluster_id": 98,
+    "examples": [
+      "Press the key in line with phone B user name for ALE-300, or directly on the name for ALE-400 and ALE-500."
+    ]
+  },
+  {
+    "cluster_id": 99,
+    "examples": [
+      "Make enough calls to phone B to make it full busy."
+    ]
+  },
+  {
+    "cluster_id": 100,
+    "examples": [
+      "Input phone B number and press the B item to make the call."
+    ]
+  },
+  {
+    "cluster_id": 101,
+    "examples": [
+      "For ALE-30 or ALE-20 SIP device, take the call with the physical green key."
+    ]
+  },
+  {
+    "cluster_id": 102,
+    "examples": [
+      "Press volume up and volume down on phone A while it is ringing."
+    ]
+  },
+  {
+    "cluster_id": 103,
+    "examples": [
+      "phone A switches the second incoming call to the top of the screen and presses the take call key."
+    ]
+  },
+  {
+    "cluster_id": 104,
+    "examples": [
+      "phone A makes a call to phone B from the call log."
+    ]
+  },
+  {
+    "cluster_id": 105,
+    "examples": [
+      "phone A calls its voicemail."
+    ]
+  },
+  {
+    "cluster_id": 106,
+    "examples": [
+      "On day 1, phone A makes some outgoing calls, including answered and unanswered calls, and receives some calls, including answered and unanswered calls."
+    ]
+  },
+  {
+    "cluster_id": 107,
+    "examples": [
+      "Fill the call log of phone A with various entries, including outgoing calls, incoming calls, and others."
+    ]
+  },
+  {
+    "cluster_id": 108,
+    "examples": [
+      "phone A initiates call park using prefix 402."
+    ]
+  },
+  {
+    "cluster_id": 109,
+    "examples": [
+      "phone A dials phone C's number."
+    ]
+  },
+  {
+    "cluster_id": 110,
+    "examples": [
+      "phone D dials the call park prefix and phone C's directory number."
+    ]
+  },
+  {
+    "cluster_id": 111,
+    "examples": [
+      "phone C dials the call pick up prefix and the phone number of phone B."
+    ]
+  },
+  {
+    "cluster_id": 112,
+    "examples": [
+      "Note: To perform intrusion, phone A is configured without multi-line."
+    ]
+  },
+  {
+    "cluster_id": 113,
+    "examples": [
+      "phone C dials the intrusion suffix (OXE:4)."
+    ]
+  },
+  {
+    "cluster_id": 114,
+    "examples": [
+      "From version 1.40.02 2073, disable mute from the settings menu."
+    ]
+  },
+  {
+    "cluster_id": 115,
+    "examples": [
+      "Enter the phone A user password."
+    ]
+  },
+  {
+    "cluster_id": 116,
+    "examples": [
+      "Enter a new 4-digit password and validate it on phone A."
+    ]
+  },
+  {
+    "cluster_id": 117,
+    "examples": [
+      "On phone A, consult the call log list and select the previous call, press the right softkey to make a redial (ALE-300), or press on the name (ALE-400/500)."
+    ]
+  },
+  {
+    "cluster_id": 118,
+    "examples": [
+      "Cancel forward on phone B."
+    ]
+  },
+  {
+    "cluster_id": 119,
+    "examples": [
+      "phone A makes an outgoing call to phone C."
+    ]
+  },
+  {
+    "cluster_id": 120,
+    "examples": [
+      "Return to the ProgKeys page."
+    ]
+  },
+  {
+    "cluster_id": 121,
+    "examples": [
+      "Configure the programmable key with an external number."
+    ]
+  },
+  {
+    "cluster_id": 122,
+    "examples": [
+      "Choose a label for the programmable key."
+    ]
+  },
+  {
+    "cluster_id": 123,
+    "examples": [
+      "The external number rings and answer the call."
+    ]
+  },
+  {
+    "cluster_id": 124,
+    "examples": [
+      "Enter a number that does not exist on the server and validate it."
+    ]
+  },
+  {
+    "cluster_id": 125,
+    "examples": [
+      "Select an already defined key."
+    ]
+  },
+  {
+    "cluster_id": 126,
+    "examples": [
+      "Use the suppression button."
+    ]
+  },
+  {
+    "cluster_id": 127,
+    "examples": [
+      "Select an already defined key, such as a key that calls phone B."
+    ]
+  },
+  {
+    "cluster_id": 128,
+    "examples": [
+      "Press the Update key."
+    ]
+  },
+  {
+    "cluster_id": 129,
+    "examples": [
+      "Modify the number associated with this key to phone C's number."
+    ]
+  },
+  {
+    "cluster_id": 130,
+    "examples": [
+      "Enter a label."
+    ]
+  },
+  {
+    "cluster_id": 131,
+    "examples": [
+      "Press the newly modified key."
+    ]
+  },
+  {
+    "cluster_id": 132,
+    "examples": [
+      "Choose your position in the page and validate your choice."
+    ]
+  },
+  {
+    "cluster_id": 133,
+    "examples": [
+      "Select \"Redial\"."
+    ]
+  },
+  {
+    "cluster_id": 134,
+    "examples": [
+      "Choose \"Last caller\"."
+    ]
+  },
+  {
+    "cluster_id": 135,
+    "examples": [
+      "Select \"Meet-Me\"."
+    ]
+  },
+  {
+    "cluster_id": 136,
+    "examples": [
+      "Select Call Park."
+    ]
+  },
+  {
+    "cluster_id": 137,
+    "examples": [
+      "Choose your location on the page and validate your choice."
+    ]
+  },
+  {
+    "cluster_id": 138,
+    "examples": [
+      "phone C calls phone B."
+    ]
+  },
+  {
+    "cluster_id": 139,
+    "examples": [
+      "Create a programmable key for Emergency, Guard, voicemail, or Operator."
+    ]
+  },
+  {
+    "cluster_id": 140,
+    "examples": [
+      "Create a programmable key, such as Group pickup or Associate."
+    ]
+  },
+  {
+    "cluster_id": 141,
+    "examples": [
+      "Mute the set and check that no voice is heard."
+    ]
+  },
+  {
+    "cluster_id": 142,
+    "examples": [
+      "Unmute the set and check the conversation is okay."
+    ]
+  },
+  {
+    "cluster_id": 143,
+    "examples": [
+      "Establish a conversation between phone A and phone B."
+    ]
+  },
+  {
+    "cluster_id": 144,
+    "examples": [
+      "Loop 10 times from step 3 to step 7 and change the volume level during the test."
+    ]
+  },
+  {
+    "cluster_id": 145,
+    "examples": [
+      "Use a realistic time gap between two switchings at any time."
+    ]
+  },
+  {
+    "cluster_id": 146,
+    "examples": [
+      "Dial the code to retrieve the parked call on another phone."
+    ]
+  },
+  {
+    "cluster_id": 147,
+    "examples": [
+      "Check the CLIP and COLP displays."
+    ]
+  }
+]
