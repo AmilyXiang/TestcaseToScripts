@@ -1,14 +1,14 @@
                 ┌─────────────────┐
                 │ 原始测试步骤数据 │
                 └────────┬────────┘
-                         │     - step-1: testrail_parser.py
-                         |     - step-2: data_cleaning.py
+                         │     - step-1: testrail_parser.py  Done
+                         |     - step-2: data_cleaning.py    Done
                          ▼
                 ┌─────────────────┐
                 │ 文本标准化层     │
                 │ normalize       │
                 └────────┬────────┘
-                         │    - step-3: build_step_result_kb.py：step_result_unify_skill.md
+                         │    - step-3: build_step_result_kb.py：step_result_unify_skill.md  -> Should be OK, just need to confirm  more based on TTAF. TODO(landy)
                          │    
                          ▼
                 ┌─────────────────┐

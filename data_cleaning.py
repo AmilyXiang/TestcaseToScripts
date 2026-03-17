@@ -42,6 +42,59 @@ def cleanup_markup_text(text: Any) -> Any:
     return normalized
 
 
+def has_oxo(text: str) -> bool:
+    return "oxo" in text.lower()
+
+
+def should_merge_wrapped(prev: str, curr: str) -> bool:
+    if not prev or not curr:
+        return False
+
+    prev_tail = prev.rstrip()
+    curr_head = curr.lstrip()
+    if not prev_tail or not curr_head:
+        return False
+
+    # Keep explicit sentence boundaries as hard splits.
+    if prev_tail.endswith((".", "!", "?", ":", ";")):
+        return False
+
+    first = curr_head[0]
+
+    # Typical soft-wrap continuation: starts with lowercase, digit, or closing punctuation.
+    if first.islower() or first.isdigit() or first in (")", "]", "}", ",", "."):
+        return True
+
+    # Hard-wrap continuation for single-letter tokens, e.g. "phone" + "B, ...".
+    if re.match(r"^[A-Z](?:\b|[\),\.:;])", curr_head):
+        return True
+
+    # If previous line ends with connectors, current line likely continues the same thought.
+    if prev_tail.endswith(("(", "[", "{", "=", "/", "-")):
+        return True
+
+    return False
+
+
+def collapse_soft_wrapped_lines(text: str) -> str:
+    parts = [line.strip() for line in text.splitlines() if line.strip()]
+    if not parts:
+        return ""
+
+    merged: List[str] = [parts[0]]
+    for part in parts[1:]:
+        if should_merge_wrapped(merged[-1], part):
+            merged[-1] = f"{merged[-1].rstrip()} {part.lstrip()}"
+        else:
+            merged.append(part)
+    return "\n".join(merged)
+
+
+def remove_oxo_lines(text: str) -> str:
+    kept_lines = [line for line in text.splitlines() if not has_oxo(line)]
+    return "\n".join(line for line in kept_lines if line.strip()).strip()
+
+
 def _normalize_leading_index(line: str) -> str:
     cleaned = line
     # Handle escaped markdown numbering such as "1\. text".
@@ -57,6 +110,11 @@ def clean_step_text(text: Any) -> Any:
         return text
 
     normalized = cleanup_markup_text(text)
+    normalized = remove_oxo_lines(normalized)
+    if not normalized:
+        return ""
+
+    normalized = collapse_soft_wrapped_lines(normalized)
     normalized = re.sub(r"(?<=\d)\\\.", ".", normalized)
 
     lines = [line for line in normalized.split("\n")]
@@ -79,6 +137,35 @@ def split_numbered_points(text: Any) -> List[str]:
     points = [_normalize_leading_index(line) for line in normalized.split("\n")]
     points = [point.strip() for point in points if point and point.strip()]
     return points
+
+
+def clean_text_list(values: Any) -> List[Any]:
+    """Clean list[str] values with OXO removal and soft-wrap merging."""
+    if not isinstance(values, list):
+        return []
+
+    cleaned: List[Any] = []
+    for item in values:
+        if not isinstance(item, str):
+            cleaned.append(item)
+            continue
+
+        normalized = clean_step_text(item)
+        if isinstance(normalized, str) and normalized.strip():
+            cleaned.append(normalized.strip())
+
+    merged: List[Any] = []
+    for item in cleaned:
+        if not isinstance(item, str):
+            merged.append(item)
+            continue
+
+        if merged and isinstance(merged[-1], str) and should_merge_wrapped(merged[-1], item):
+            merged[-1] = f"{merged[-1].rstrip()} {item.lstrip()}"
+        else:
+            merged.append(item)
+
+    return merged
 
 
 def canonicalize_action_text(text: Any) -> Any:

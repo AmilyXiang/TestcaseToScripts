@@ -4,6 +4,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+from clean_testrail_json import process_file as run_clean_file
 from testrail_parser import parse_testrail_excel
 
 
@@ -37,6 +38,10 @@ def build_arg_parser() -> argparse.ArgumentParser:
     kb_parser.add_argument("--output", type=Path, default=Path("normalized_kb.json"))
     kb_parser.add_argument("--model", type=str, default="deepseek-chat")
     kb_parser.add_argument("--api-key", type=str, default=None)
+
+    clean_parser = subparsers.add_parser("clean", help="Clean parsed TestRail JSON and auto-generate substeps/checkpoints.")
+    clean_parser.add_argument("--input", type=Path, default=Path("parsed_testrail.json"))
+    clean_parser.add_argument("--output", type=Path, default=Path("cleaned_testrail.json"))
 
     return parser
 
@@ -76,6 +81,10 @@ def run_build_kb(input_path: Path, skill_path: Path, output_path: Path, model: s
     subprocess.run(command, check=True)
 
 
+def run_clean(input_path: Path, output_path: Path) -> None:
+    run_clean_file(input_path=input_path, output_path=output_path)
+
+
 def main() -> None:
     args = build_arg_parser().parse_args()
 
@@ -85,6 +94,10 @@ def main() -> None:
 
     if args.command == "build-kb":
         run_build_kb(args.input, args.skill, args.output, args.model, args.api_key)
+        return
+
+    if args.command == "clean":
+        run_clean(args.input, args.output)
         return
 
     raise ValueError(f"Unsupported command: {args.command}")

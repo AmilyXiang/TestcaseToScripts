@@ -1,0 +1,77 @@
+{
+  "action_intents": {
+    "prepare device": [
+      "prepare device",
+      "init phone",
+      "initialize device",
+      "device setup"
+    ],
+    "call by number": [
+      "dial number",
+      "call number",
+      "place call",
+      "direct dial"
+    ],
+    "answer incoming call": [
+      "answer call",
+      "take call",
+      "pick up"
+    ],
+    "end active call": [
+      "end call",
+      "hang up",
+      "release call",
+      "terminate call"
+    ],
+    "create contact": [
+      "create contact",
+      "add contact",
+      "save contact"
+    ],
+    "call by contact name": [
+      "call contact",
+      "dial by name",
+      "call by name"
+    ]
+  },
+  "assertion_intents": {
+    "validate ringing call setup": [
+      "incoming ringing",
+      "ringing",
+      "calling and receiving",
+      "call setup"
+    ],
+    "validate connected conversation": [
+      "in conversation",
+      "call connected",
+      "communication established",
+      "both phones connected"
+    ],
+    "validate outgoing call log": [
+      "outgoing call log",
+      "has called",
+      "dialed entry"
+    ],
+    "validate incoming call log": [
+      "incoming call log",
+      "has received call",
+      "received entry"
+    ]
+  },
+  "intent_to_primitive": {
+    "action": {
+      "prepare device": "Tools.prepare_device",
+      "call by number": "Call.direct_dial",
+      "answer incoming call": "Call.take_call",
+      "end active call": "Call.release_call",
+      "create contact": "Contact.create_contact_basic_infos",
+      "call by contact name": "Call.call_by_name"
+    },
+    "assertion": {
+      "validate ringing call setup": "Call.are_calling_and_receiving",
+      "validate connected conversation": "Call.are_in_conversation",
+      "validate outgoing call log": "Call.has_called",
+      "validate incoming call log": "Call.has_received_call"
+    }
+  }
+}
