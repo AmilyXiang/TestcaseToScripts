@@ -3,7 +3,6 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import re
 import time
 from pathlib import Path
 from typing import Any, Dict, List
@@ -11,50 +10,26 @@ from typing import Any, Dict, List
 from openai import OpenAI
 
 
-ALLOWED_ACTIONS = {
-    "dial_call",
-    "answer_call",
-    "hangup_call",
-    "hold_call",
-    "resume_call",
-    "switch_call",
-    "mute_call",
-    "unmute_call",
-    "transfer_call",
-    "conference_start",
-    "conference_join",
-    "key_press",
-    "configure_settings",
-    "check_display",
-    "wait",
-    "power_cycle",
-    "lock_device",
-    "unlock_device",
-    "enter_pin",
-    "verify",
-    "generic_action",
-}
+def load_allowed_actions_from_capability_registry(path: Path | None) -> set[str]:
+    if not path or not path.exists():
+        return set()
 
+    payload = load_json(path)
+    if not isinstance(payload, dict):
+        return set()
 
-def parse_allowed_actions_from_skill(skill_text: str) -> set[str]:
-    """Extract allowed actions from the "Allowed Standard Actions" section in skill markdown."""
-    marker = "## Allowed Standard Actions"
-    idx = skill_text.find(marker)
-    if idx < 0:
-        return set(ALLOWED_ACTIONS)
-
-    tail = skill_text[idx + len(marker) :]
-    # Stop at next markdown heading to avoid parsing unrelated bullet lists.
-    next_heading = tail.find("\n## ")
-    section = tail if next_heading < 0 else tail[:next_heading]
+    action_root = payload.get("action", {})
+    if not isinstance(action_root, dict):
+        return set()
 
     actions: set[str] = set()
-    for line in section.splitlines():
-        m = re.match(r"\s*-\s*`([^`]+)`\s*$", line)
-        if m:
-            actions.add(m.group(1).strip())
-
-    return actions or set(ALLOWED_ACTIONS)
+    for _, values in action_root.items():
+        if not isinstance(values, list):
+            continue
+        for item in values:
+            if isinstance(item, str) and item.strip():
+                actions.add(item.strip())
+    return actions
 
 
 def load_json(path: Path) -> Any:
@@ -104,11 +79,13 @@ def call_llm_for_cluster(
     model: str,
     skill_text: str,
     cluster_obj: Dict[str, Any],
+    allowed_actions: List[str],
     max_retries: int = 3,
 ) -> Dict[str, Any]:
     payload = {
         "cluster_id": cluster_obj.get("cluster_id"),
         "examples": cluster_obj.get("examples", []),
+        "allowed_standard_actions": allowed_actions,
     }
 
     prompt = (
@@ -147,6 +124,7 @@ def run(
     input_path: Path,
     output_path: Path,
     skill_path: Path,
+    capability_registry_path: Path,
     api_key: str,
     model: str,
     base_url: str,
@@ -156,7 +134,11 @@ def run(
         raise ValueError("Input clusters JSON must be a list")
 
     skill_text = skill_path.read_text(encoding="utf-8")
-    allowed_actions = parse_allowed_actions_from_skill(skill_text)
+    allowed_actions = load_allowed_actions_from_capability_registry(capability_registry_path)
+    if not allowed_actions:
+        raise ValueError("No action primitives found in capability registry: cannot determine allowed actions.")
+    allowed_actions.add("generic_action")
+    allowed_actions_list = sorted(allowed_actions)
     client = OpenAI(api_key=api_key, base_url=base_url)
 
     results: List[Dict[str, Any]] = []
@@ -167,7 +149,7 @@ def run(
             continue
         cluster_id = int(item.get("cluster_id", -1))
         try:
-            raw = call_llm_for_cluster(client, model, skill_text, item)
+            raw = call_llm_for_cluster(client, model, skill_text, item, allowed_actions=allowed_actions_list)
             final = sanitize_result(raw, cluster_id, allowed_actions)
             results.append(final)
             print(f"Mapped cluster: {cluster_id}")
@@ -197,6 +179,7 @@ def main() -> None:
     parser.add_argument("--input", type=Path, required=True, help="Cluster JSON input file")
     parser.add_argument("--output", type=Path, required=True, help="Mapped action schema output file")
     parser.add_argument("--skill", type=Path, default=Path("skills/cluster_action_schema_skill.md"))
+    parser.add_argument("--capability-registry", type=Path, default=Path("resource/capability_registry.json"))
     parser.add_argument("--model", type=str, default="deepseek-chat")
     parser.add_argument("--api-key", type=str, default=None)
     parser.add_argument("--base-url", type=str, default="https://api.deepseek.com")
@@ -210,6 +193,7 @@ def main() -> None:
         input_path=args.input,
         output_path=args.output,
         skill_path=args.skill,
+        capability_registry_path=args.capability_registry,
         api_key=api_key,
         model=args.model,
         base_url=args.base_url,
