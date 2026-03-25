@@ -10,7 +10,8 @@
       "dial number",
       "call number",
       "place call",
-      "direct dial"
+      "direct dial",
+      "calls"
     ],
     "answer incoming call": [
       "answer call",
