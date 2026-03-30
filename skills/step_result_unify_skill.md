@@ -3,16 +3,17 @@
 You normalize TestRail step content for phone and VoIP testing.
 
 ## Goal
-Convert raw action and expected_result text into canonical, natural, automation-ready sentences while preserving original meaning.
+Convert raw action and expected_result text into canonical, natural, automation-ready sentences and a structured AAO action representation while preserving original meaning.
 
 This skill must perform semantic canonicalization, not only wording cleanup. Equivalent operations must map to the same canonical action and keyword set.
 
 ## Hard Constraints
-1. Output must be strict JSON array only.
-2. Do not output markdown, comments, or explanations.
-3. Every output object must include all required fields.
-4. Never invent actors, states, or outcomes not supported by input.
-5. Never output both normalized_action and normalized_expected_result as empty at the same time.
+1. Output must be strict JSON only. No markdown, no comments, no explanations.
+2. Root output must be a JSON object with one key: steps.
+3. steps must be a JSON array of atomic sub-steps.
+4. Every sub-step object must include all required fields.
+5. Never invent actors, states, outcomes, devices, or call relations not supported by input.
+6. Never output both normalized_action and normalized_expected_result as empty at the same time.
 
 ## Priority Order (Must Follow)
 1. Preserve original meaning and actor.
@@ -20,6 +21,7 @@ This skill must perform semantic canonicalization, not only wording cleanup. Equ
 3. Canonicalize equivalent semantics across wording variants.
 4. Keep language concise and executable.
 5. Normalize keywords for downstream clustering and retrieval.
+6. Produce stable AAO structures for machine use.
 
 ## Input
 The input case may include:
@@ -33,24 +35,39 @@ The input case may include:
 - steps[].expected_checkpoints (optional)
 
 ## Output Schema
-Return one JSON array. Each element is one atomic sub-step:
+Return one JSON object:
 
-[
-  {
-    "step_no": 1,
-    "sub_step_no": 1,
-    "normalized_action": "phone A calls phone B.",
-    "normalized_expected_result": "",
-    "keywords": ["call", "phone-a", "phone-b"]
-  }
-]
+{
+  "steps": [
+    {
+      "step_no": 1,
+      "sub_step_no": 1,
+      "normalized_action": "phone A dials phone B.",
+      "normalized_expected_result": "",
+      "keywords": ["dial", "phone-a", "phone-b"],
+      "aao": {
+        "actor": "phone A",
+        "action": "dial",
+        "object": "phone B",
+        "params": {}
+      }
+    }
+  ]
+}
 
-Required fields:
+Required fields per sub-step:
 - step_no: integer from source step_no
 - sub_step_no: integer, starts from 1 within each step_no and must be continuous
 - normalized_action: string
 - normalized_expected_result: string
 - keywords: array of normalized tokens
+- aao: object with actor, action, object, params
+
+AAO field requirements:
+- aao.actor: string, explicit actor when known, otherwise ""
+- aao.action: canonical verb or verb-phrase, lower snake_case preferred (for example: dial, answer_call, switch_active_call, be_in_call)
+- aao.object: primary target entity/state focus, otherwise ""
+- aao.params: object for structured details (for example: {"line": 1, "button": "new_call", "tone": "on_hold"})
 
 ## Atomic Split Rules
 1. One sub-step must express one main action.
@@ -59,6 +76,7 @@ Required fields:
 4. Keep temporal order from source.
 5. If action_substeps exists, treat it as primary split guidance.
 6. If expected_checkpoints exists, treat it as primary assertion guidance.
+7. Each split sub-step must have its own AAO object.
 
 ## Empty Field Rules
 Use these strict rules:
@@ -66,6 +84,7 @@ Use these strict rules:
 - normalized_action can be empty only when the sub-step is a pure verification checkpoint and no new action is performed.
 - normalized_expected_result can be empty only when the sub-step is a pure operation and no explicit checkpoint applies.
 - Both fields cannot be empty simultaneously.
+- For expected-only sub-steps, keep aao.action as a state/assertion action when possible (for example: be_in_call, be_on_hold). If not derivable, use empty strings and keep params as {}.
 
 Examples:
 - Allowed: action non-empty and expected empty.
@@ -91,6 +110,12 @@ Expected mapping examples:
 - communication is established, call connected, both phones connected -> Communication is established between ...
 - put on hold, is held -> is put on hold
 
+AAO mapping preference examples:
+- calls phone B, dials phone B -> {"action": "dial", "object": "phone B"}
+- answers the call, takes the call -> {"action": "answer_call", "object": "active call"}
+- communication is established between A and B -> {"action": "be_in_call", "object": "phone A and phone B"}
+- phone B is put on hold -> {"action": "be_on_hold", "object": "phone B"}
+
 ## Keyword Rules
 Keywords must be stable and retrieval-friendly.
 
@@ -108,68 +133,69 @@ Canonical keyword policy:
 
 ## Quality Self-Check Before Output
 Before returning JSON, verify:
-1. Output is a JSON array.
-2. Each object has all required fields.
-3. sub_step_no is continuous per step_no.
-4. No object has both action and expected empty.
-5. Keywords are normalized and deduplicated.
-6. Semantically equivalent actions and assertions use canonical phrasing.
+1. Root is an object and contains only steps.
+2. steps is an array.
+3. Each object has all required fields including aao.
+4. sub_step_no is continuous per step_no.
+5. No object has both normalized_action and normalized_expected_result empty.
+6. Keywords are normalized and deduplicated.
+7. Semantically equivalent actions and assertions use canonical phrasing and stable AAO actions.
 
-## Positive Examples
+## Positive Example
 
 Input snippet:
 - action: Phone A calls phone B\nPhone B takes the call
 - expected_result: Communication is established between phone A and phone B
 
 Output snippet:
-[
-  {
-    "step_no": 1,
-    "sub_step_no": 1,
-    "normalized_action": "phone A calls phone B.",
-    "normalized_expected_result": "",
-    "keywords": ["call", "phone-a", "phone-b"]
-  },
-  {
-    "step_no": 1,
-    "sub_step_no": 2,
-    "normalized_action": "phone B answers the call.",
-    "normalized_expected_result": "Communication is established between phone A and phone B.",
-    "keywords": ["answer", "phone-b", "communication-established", "phone-a"]
-  }
-]
-
-Input snippet:
-- action: Switch active call on phone A
-- expected_result: Communication is established between phone A and phone C\nPhone B is put on hold and plays the on hold tone
-
-Output snippet:
-[
-  {
-    "step_no": 4,
-    "sub_step_no": 1,
-    "normalized_action": "phone A switches the active call.",
-    "normalized_expected_result": "Communication is established between phone A and phone C.",
-    "keywords": ["switch-active-call", "phone-a", "phone-c", "communication-established"]
-  },
-  {
-    "step_no": 4,
-    "sub_step_no": 2,
-    "normalized_action": "",
-    "normalized_expected_result": "Phone B is put on hold and plays the on hold tone.",
-    "keywords": ["hold", "phone-b", "on-hold-tone"]
-  }
-]
+{
+  "steps": [
+    {
+      "step_no": 1,
+      "sub_step_no": 1,
+      "normalized_action": "phone A dials phone B.",
+      "normalized_expected_result": "",
+      "keywords": ["dial", "phone-a", "phone-b"],
+      "aao": {
+        "actor": "phone A",
+        "action": "dial",
+        "object": "phone B",
+        "params": {}
+      }
+    },
+    {
+      "step_no": 1,
+      "sub_step_no": 2,
+      "normalized_action": "phone B answers the call.",
+      "normalized_expected_result": "Communication is established between phone A and phone B.",
+      "keywords": ["answer", "phone-b", "communication-established", "phone-a"],
+      "aao": {
+        "actor": "phone B",
+        "action": "answer_call",
+        "object": "active call",
+        "params": {}
+      }
+    }
+  ]
+}
 
 ## Negative Example (Do Not Output)
-[
-  {
-    "step_no": 2,
-    "sub_step_no": 1,
-    "normalized_action": "",
-    "normalized_expected_result": "",
-    "keywords": []
-  }
-]
+{
+  "steps": [
+    {
+      "step_no": 2,
+      "sub_step_no": 1,
+      "normalized_action": "",
+      "normalized_expected_result": "",
+      "keywords": [],
+      "aao": {
+        "actor": "",
+        "action": "",
+        "object": "",
+        "params": {}
+      }
+    }
+  ]
+}
 
 Reason: both normalized_action and normalized_expected_result are empty, which violates hard constraints.
