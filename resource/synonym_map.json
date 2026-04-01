@@ -4,14 +4,33 @@
       "prepare device",
       "init phone",
       "initialize device",
-      "device setup"
+      "device setup",
+      "is in idle state",
+      "becomes idle again"
     ],
     "call by number": [
       "dial number",
       "call number",
       "place call",
       "direct dial",
-      "calls"
+      "calls",
+      "dials phone",
+      "dials the phone"
+    ],
+    "send text message": [
+      "sends a text message",
+      "send a text message",
+      "tries to send a text message",
+      "send the message to"
+    ],
+    "set immediate forward": [
+      "defines an immediate forward",
+      "define an immediate forward",
+      "immediate forward to"
+    ],
+    "activate interphony": [
+      "activate interphony",
+      "interphony from settings menu"
     ],
     "answer incoming call": [
       "answer call",
@@ -32,7 +51,24 @@
     "call by contact name": [
       "call contact",
       "dial by name",
-      "call by name"
+      "call by name",
+      "press on the name",
+      "presses the name key"
+    ],
+    "navigate to progkeys": [
+      "select a key programming page",
+      "selects a key programming page",
+      "to menu progkeys"
+    ],
+    "navigate to settings": [
+      "browses the menu",
+      "menu settings",
+      "browses to menu parameters"
+    ],
+    "consult call log": [
+      "consults the call log list",
+      "consult the call log list",
+      "consults the call log"
     ]
   },
   "assertion_intents": {
@@ -57,6 +93,14 @@
       "incoming call log",
       "has received call",
       "received entry"
+    ],
+    "validate idle state": [
+      "is idle",
+      "are idle",
+      "idle state",
+      "becomes idle again",
+      "both devices are idle",
+      "phone is idle"
     ]
   },
   "intent_to_primitive": {
@@ -66,13 +110,20 @@
       "answer incoming call": "Call.take_call",
       "end active call": "Call.release_call",
       "create contact": "Contact.create_contact_basic_infos",
-      "call by contact name": "Call.call_by_name"
+      "call by contact name": "Call.call_by_name",
+      "send text message": "Message.send_to_create",
+      "set immediate forward": "Forward.immediate_by_key_to_number",
+      "activate interphony": "Call.interphony_on",
+      "navigate to progkeys": "Browsing.to_progkeys",
+      "navigate to settings": "Browsing.to_settings",
+      "consult call log": "Browsing.to_call_log"
     },
     "assertion": {
       "validate ringing call setup": "Call.are_calling_and_receiving",
       "validate connected conversation": "Call.are_in_conversation",
       "validate outgoing call log": "Call.has_called",
-      "validate incoming call log": "Call.has_received_call"
+      "validate incoming call log": "Call.has_received_call",
+      "validate idle state": "Voicemode.is_voicemode_idle"
     }
   }
 }

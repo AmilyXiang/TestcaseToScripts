@@ -32,7 +32,11 @@ def load_registry_section(path: Path, section_key: str, default_extra: set[str] 
     if not isinstance(payload, dict):
         return set()
 
-    root = payload.get(section_key, {})
+    root = payload.get(section_key)
+    if not isinstance(root, dict):
+        annotations_root = payload.get("annotations", {})
+        root = annotations_root.get(section_key, {}) if isinstance(annotations_root, dict) else {}
+
     if not isinstance(root, dict):
         return set()
 
@@ -41,11 +45,14 @@ def load_registry_section(path: Path, section_key: str, default_extra: set[str] 
         items.update(default_extra)
 
     for _, values in root.items():
-        if not isinstance(values, list):
-            continue
-        for item in values:
-            if isinstance(item, str) and item.strip():
-                items.add(item.strip())
+        if isinstance(values, list):
+            for item in values:
+                if isinstance(item, str) and item.strip():
+                    items.add(item.strip())
+        elif isinstance(values, dict):
+            for item in values.keys():
+                if isinstance(item, str) and item.strip():
+                    items.add(item.strip())
     return items
 
 
@@ -148,17 +155,19 @@ def resolve_action_with_synonyms(
     resolver: Dict[str, Any],
     allowed_actions: set[str],
 ) -> tuple[str, str]:
-    if action in allowed_actions:
+    # Trust LLM when it picks a specific, non-generic allowed action
+    if action in allowed_actions and action != "custom_action":
         return action, "llm_allowed"
 
     phrase_to_action = resolver.get("phrase_to_action", {}) if isinstance(resolver, dict) else {}
     if not isinstance(phrase_to_action, dict):
         phrase_to_action = {}
 
+    # Try synonym lookup for both unrecognised actions AND custom_action outputs
     text = action_text.lower().strip()
     if text:
         for phrase, mapped_action in phrase_to_action.items():
-            if phrase in text and mapped_action in allowed_actions:
+            if phrase in text and mapped_action in allowed_actions and mapped_action != "custom_action":
                 return mapped_action, f"synonym_match:{phrase}"
 
     return "custom_action", "no_allowed_or_synonym_match"

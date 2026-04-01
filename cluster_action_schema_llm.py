@@ -18,17 +18,24 @@ def load_allowed_actions_from_capability_registry(path: Path | None) -> set[str]
     if not isinstance(payload, dict):
         return set()
 
-    action_root = payload.get("action", {})
+    action_root = payload.get("action")
+    if not isinstance(action_root, dict):
+        annotations_root = payload.get("annotations", {})
+        action_root = annotations_root.get("action", {}) if isinstance(annotations_root, dict) else {}
+
     if not isinstance(action_root, dict):
         return set()
 
     actions: set[str] = set()
     for _, values in action_root.items():
-        if not isinstance(values, list):
-            continue
-        for item in values:
-            if isinstance(item, str) and item.strip():
-                actions.add(item.strip())
+        if isinstance(values, list):
+            for item in values:
+                if isinstance(item, str) and item.strip():
+                    actions.add(item.strip())
+        elif isinstance(values, dict):
+            for item in values.keys():
+                if isinstance(item, str) and item.strip():
+                    actions.add(item.strip())
     return actions
 
 

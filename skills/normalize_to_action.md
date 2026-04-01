@@ -21,7 +21,7 @@ Parameter naming guidelines:
 Examples:
 
 1. Action: "phone A calls phone B."  Expected: "Communication is established between phone A and phone B."
-   -> {"action":"dial_call","params":{"caller":"phone A","callee":"phone B"},"expected":[{"action":"are_in_conversation","params":{"device_a":"phone A","device_b":"phone B"}}]}
+   -> {"action":"direct_dial","params":{"caller":"phone A","callee":"phone B"},"expected":[{"action":"are_in_conversation","params":{"device_a":"phone A","device_b":"phone B"}}]}
 
 2. Action: "phone A puts phone B on hold."  Expected: "Phone B plays on hold tone."
    -> {"action":"hold_call","params":{"device":"phone A","target":"phone B"},"expected":[{"action":"is_on_hold","params":{"device":"phone B"}}]}

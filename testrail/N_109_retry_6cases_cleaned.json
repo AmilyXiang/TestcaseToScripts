@@ -1,0 +1,992 @@
+{
+  "Worksheet": [
+    {
+      "case_id": "C10356954",
+      "title": "RQPLEIAD_180_42_Hard_Key_OXE_Define_Key1_Lock",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nOnly set the progkey 123: programmed with phone A on position 1,and the lock parameter is enabled\nPhone update the config file then check the file",
+          "expected_result": "",
+          "action_substeps": [
+            "OXE: user---program key",
+            "Only set the progkey 123: programmed with phone A on position 1,and the lock parameter is enabled",
+            "Phone update the config file then check the file"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon is grey\nALE-300/400: The i icon display at the upper right corner of the screen\nThe left of the options all display the radio button,\nOnly F1 hard key is selected, all hard key names display grey\nALE-30:\ntwo options: Hold cap icon/Phone A and transfer cap icon/Transfer\nALE-300/400:\nthree options: F1 cap icon/Phone A and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Phone A and Circle cap icon/Home and Square cap icon/Low power",
+          "action_substeps": [
+            "Enter the hard keys menu:",
+            "User/Device/Hard keys"
+          ],
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon is grey",
+            "ALE-300/400: The i icon display at the upper right corner of the screen",
+            "The left of the options all display the radio button,",
+            "Only F1 hard key is selected, all hard key names display grey",
+            "ALE-30:",
+            "two options: Hold cap icon/Phone A and transfer cap icon/Transfer",
+            "ALE-300/400:",
+            "three options: F1 cap icon/Phone A and transfer cap icon/Transfer and conference cap icon/Conference",
+            "ALE-500:",
+            "three options: Triangle cap icon/Phone A and Circle cap icon/Home and Square cap icon/Low power"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "ALE-30: Long press the F1/F2\nALE-300/400: Long press the F1/F2/F3\nALE-500:Long press Triangle/Circle/Square",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon is grey\nALE-300/400: The i icon display at the upper right corner of the screen\nThe left of the options all display the radio button,\nOnly F1 hard key is selected, all hard key names display grey\nALE-30:\ntwo options: Hold cap icon/Phone A and transfer cap icon/Transfer\nALE-300/400:\nthree options: F1 cap icon/Phone A and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Phone A and Circle cap icon/Home and Square cap icon/Low power",
+          "action_substeps": [
+            "ALE-30: Long press the F1/F2",
+            "ALE-300/400: Long press the F1/F2/F3",
+            "ALE-500:Long press Triangle/Circle/Square"
+          ],
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon is grey",
+            "ALE-300/400: The i icon display at the upper right corner of the screen",
+            "The left of the options all display the radio button,",
+            "Only F1 hard key is selected, all hard key names display grey",
+            "ALE-30:",
+            "two options: Hold cap icon/Phone A and transfer cap icon/Transfer",
+            "ALE-300/400:",
+            "three options: F1 cap icon/Phone A and transfer cap icon/Transfer and conference cap icon/Conference",
+            "ALE-500:",
+            "three options: Triangle cap icon/Phone A and Circle cap icon/Home and Square cap icon/Low power"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "check the f1/f2/f3 function of the ALE-500",
+          "expected_result": "F1: hold\nF2: transfer\nF3: conference",
+          "expected_checkpoints": [
+            "F1: hold",
+            "F2: transfer",
+            "F3: conference"
+          ]
+        },
+        {
+          "step_no": 5,
+          "action": "ALE-500:\nCheck the Triangle /Circle/Square key",
+          "expected_result": "The three keys name display correctly and press the hard key:\nTriangle :Will makes the outgoing call to Phone A\nCircle: will turn to the dashboard\nSquare :The screen brightness will decreased",
+          "action_substeps": [
+            "ALE-500:",
+            "Check the Triangle /Circle/Square key"
+          ],
+          "expected_checkpoints": [
+            "The three keys name display correctly and press the hard key:",
+            "Triangle :Will makes the outgoing call to Phone A",
+            "Circle: will turn to the dashboard",
+            "Square :The screen brightness will decreased"
+          ]
+        },
+        {
+          "step_no": 6,
+          "action": "ALE-500:\nPhone establish a call with phone B then press the Triangle key",
+          "expected_result": "Will makes the second outgoing call to phone A",
+          "action_substeps": [
+            "ALE-500:",
+            "Phone establish a call with phone B then press the Triangle key"
+          ]
+        },
+        {
+          "step_no": 7,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off then press the F1 key even the lock feature is enabled",
+          "expected_result": "ALE-30/300/400:\nWill makes the outgoing call to phone A",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "Will makes the outgoing call to phone A"
+          ]
+        },
+        {
+          "step_no": 8,
+          "action": "Phone establish a call with phone B then press the F1",
+          "expected_result": "ALE-30/300/400:\nWill makes the second outgoing call to phone A",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "Will makes the second outgoing call to phone A"
+          ]
+        },
+        {
+          "step_no": 9,
+          "action": "Phone establish two normal calls the led of the F1 is off, the led of the F2/F3 is on then press the F2 key",
+          "expected_result": "ALE-30/300/400:\nwill exit these two calls",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "will exit these two calls"
+          ]
+        },
+        {
+          "step_no": 10,
+          "action": "Phone establish two normal calls the led of the F1 is off, the led of the F2/F3 is on then press the F3 key",
+          "expected_result": "ALE-30/300/400:\nwill makes the conference call, and the led of the conference is breath",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "will makes the conference call, and the led of the conference is breath"
+          ]
+        },
+        {
+          "step_no": 11,
+          "action": "OXE: user---program key set the progkey 123 : Not Assigned",
+          "expected_result": ""
+        },
+        {
+          "step_no": 12,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys or long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon is grey radio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power",
+          "action_substeps": [
+            "Phone Enter the hard keys menu:",
+            "User/Device/Hard keys or long press the F1/F2/F3/Triangle/Circle/Square key"
+          ],
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon is grey radio button + default cap icon + grey hard key name",
+            "ALE-30:",
+            "two options: hold cap icon/On hold and transfer cap icon/Transfer",
+            "ALE-300/400:",
+            "three options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference",
+            "ALE-500:",
+            "three options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C10408657",
+      "title": "RQPLEIAD_180_43_Hard_Key_OXE_Define_Key2_Unlock",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nOnly set the progkey 124: programmed with the Emergency function on position 2,and the lock parameter is disabled\nPhone update the config file then check the file",
+          "expected_result": "",
+          "action_substeps": [
+            "OXE: user---program key",
+            "Only set the progkey 124: programmed with the Emergency function on position 2,and the lock parameter is disabled",
+            "Phone update the config file then check the file"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon display at the upper left corner of the screen\nALE-300/400: The i icon display at the upper right corner of the screen\nThe left of the options all display the radio button,\nF2 hard key name is light the other key is grey\nOnly F2 hard key is selected and the edit icon is displayed on the right\nALE-30:\ntwo options: hold icon button/On hold and transfer cap icon/Emergency\nALE-300/400:\nthree options: hold cap icon/On hold and Red cap icon/Emergency and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/On hold and Circle cap icon/Emergency and Square cap icon/Low power",
+          "action_substeps": [
+            "Phone Enter the hard keys menu:",
+            "User/Device/Hard keys"
+          ],
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon display at the upper left corner of the screen",
+            "ALE-300/400: The i icon display at the upper right corner of the screen",
+            "The left of the options all display the radio button,",
+            "F2 hard key name is light the other key is grey",
+            "Only F2 hard key is selected and the edit icon is displayed on the right",
+            "ALE-30:",
+            "two options: hold icon button/On hold and transfer cap icon/Emergency",
+            "ALE-300/400:",
+            "three options: hold cap icon/On hold and Red cap icon/Emergency and conference cap icon/Conference",
+            "ALE-500:",
+            "three options: Triangle cap icon/On hold and Circle cap icon/Emergency and Square cap icon/Low power"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon display at the upper left corner of the screen\nALE-300/400: The i icon display at the upper right corner of the screen\nThe left of the options all display the radio button,\nF2 hard key name is light the other key is grey\nOnly F2 hard key is selected and the edit icon is displayed on the right\nALE-30:\ntwo options: hold icon button/On hold and transfer cap icon/Emergency\nALE-300/400:\nthree options: hold cap icon/On hold and Red cap icon/Emergency and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/On hold and Circle cap icon/Emergency and Square cap icon/Low power",
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon display at the upper left corner of the screen",
+            "ALE-300/400: The i icon display at the upper right corner of the screen",
+            "The left of the options all display the radio button,",
+            "F2 hard key name is light the other key is grey",
+            "Only F2 hard key is selected and the edit icon is displayed on the right",
+            "ALE-30:",
+            "two options: hold icon button/On hold and transfer cap icon/Emergency",
+            "ALE-300/400:",
+            "three options: hold cap icon/On hold and Red cap icon/Emergency and conference cap icon/Conference",
+            "ALE-500:",
+            "three options: Triangle cap icon/On hold and Circle cap icon/Emergency and Square cap icon/Low power"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "check the f1/f2/f3 function of the ALE-500",
+          "expected_result": "F1: hold\nF2: transfer\nF3: conference",
+          "expected_checkpoints": [
+            "F1: hold",
+            "F2: transfer",
+            "F3: conference"
+          ]
+        },
+        {
+          "step_no": 5,
+          "action": "ALE-500:\nCheck the Triangle /Circle/Square key",
+          "expected_result": "The three keys name display correctly(emergency is red color) and press the hard key:\nTriangle :Will Return to the previous interface\nCircle: Will makes the outgoing call to Emergency\nSquare :The screen brightness will decreased",
+          "action_substeps": [
+            "ALE-500:",
+            "Check the Triangle /Circle/Square key"
+          ],
+          "expected_checkpoints": [
+            "The three keys name display correctly(emergency is red color) and press the hard key:",
+            "Triangle :Will Return to the previous interface",
+            "Circle: Will makes the outgoing call to Emergency",
+            "Square :The screen brightness will decreased"
+          ]
+        },
+        {
+          "step_no": 6,
+          "action": "ALE-500:\nPhone establish a call with phone B then press the Circle key",
+          "expected_result": "Will makes the second outgoing call to Emergency",
+          "action_substeps": [
+            "ALE-500:",
+            "Phone establish a call with phone B then press the Circle key"
+          ]
+        },
+        {
+          "step_no": 7,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off then press the F2 key",
+          "expected_result": "ALE-30/300/400:\nMakes the outgoing call to the emergency and the screen display correctly",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "Makes the outgoing call to the emergency and the screen display correctly"
+          ]
+        },
+        {
+          "step_no": 8,
+          "action": "Phone establish a normal call.\nDuring the converstiaon then press the F2 key",
+          "expected_result": "ALE-30/300/400:\nMakes the new outgoing call to the emergency and the screen display correctly",
+          "action_substeps": [
+            "Phone establish a normal call.",
+            "During the converstiaon then press the F2 key"
+          ],
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "Makes the new outgoing call to the emergency and the screen display correctly"
+          ]
+        },
+        {
+          "step_no": 9,
+          "action": "Phone establish a normal call the led of the F1 is on then press the F1 key",
+          "expected_result": "ALE-30/300/400:\nwill hold the call, and led of the F1 key is breath",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "will hold the call, and led of the F1 key is breath"
+          ]
+        },
+        {
+          "step_no": 10,
+          "action": "Phone establish two normal calls the led of the F1/F3 is on then press the F3 key",
+          "expected_result": "ALE-300/400:\nwill make the conference call,and led of the F3 key is breath",
+          "expected_checkpoints": [
+            "ALE-300/400:",
+            "will make the conference call,and led of the F3 key is breath"
+          ]
+        },
+        {
+          "step_no": 11,
+          "action": "OXE: user---program key set the progkey 124 :Not Assigned",
+          "expected_result": ""
+        },
+        {
+          "step_no": 12,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys or long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon is grey radio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power",
+          "action_substeps": [
+            "Phone Enter the hard keys menu:",
+            "User/Device/Hard keys or long press the F1/F2/F3/Triangle/Circle/Square key"
+          ],
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon is grey radio button + default cap icon + grey hard key name",
+            "ALE-30:",
+            "two options: hold cap icon/On hold and transfer cap icon/Transfer",
+            "ALE-300/400:",
+            "three options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference",
+            "ALE-500:",
+            "three options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C10408658",
+      "title": "RQPLEIAD_180_44_Hard_Key_OXE_Define_Key3_Unlock",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nOnly set the progkey 124: programmed with the Guard function on position 3,and the lock parameter is disabled\nPhone update the config file then check the file",
+          "expected_result": "",
+          "action_substeps": [
+            "OXE: user---program key",
+            "Only set the progkey 124: programmed with the Guard function on position 3,and the lock parameter is disabled",
+            "Phone update the config file then check the file"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon display at the upper left corner of the screen\nALE-300/400: The i icon display at the upper right corner of the screen\nThe left of the options all display the radio button,\nF3 hard key name is light the other key is grey\nOnly F3 hard key is selected and the edit icon is displayed on the right\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and F1 cap icon/Guard\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Guard",
+          "action_substeps": [
+            "Phone Enter the hard keys menu:",
+            "User/Device/Hard keys"
+          ],
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon display at the upper left corner of the screen",
+            "ALE-300/400: The i icon display at the upper right corner of the screen",
+            "The left of the options all display the radio button,",
+            "F3 hard key name is light the other key is grey",
+            "Only F3 hard key is selected and the edit icon is displayed on the right",
+            "ALE-30:",
+            "two options: hold cap icon/On hold and transfer cap icon/Transfer",
+            "ALE-300/400:",
+            "three options: hold cap icon/On hold and transfer cap icon/Transfer and F1 cap icon/Guard",
+            "ALE-500:",
+            "three options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Guard"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon display at the upper left corner of the screen\nALE-300/400: The i icon display at the upper right corner of the screen\nThe left of the options all display the radio button,\nF3 hard key name is light the other key is grey\nOnly F3 hard key is selected and the edit icon is displayed on the right\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and F1 cap icon/Guard\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Guard",
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon display at the upper left corner of the screen",
+            "ALE-300/400: The i icon display at the upper right corner of the screen",
+            "The left of the options all display the radio button,",
+            "F3 hard key name is light the other key is grey",
+            "Only F3 hard key is selected and the edit icon is displayed on the right",
+            "ALE-30:",
+            "two options: hold cap icon/On hold and transfer cap icon/Transfer",
+            "ALE-300/400:",
+            "three options: hold cap icon/On hold and transfer cap icon/Transfer and F1 cap icon/Guard",
+            "ALE-500:",
+            "three options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Guard"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "check the f1/f2/f3 function of the ALE-500",
+          "expected_result": "F1: hold\nF2: transfer\nF3: conference",
+          "expected_checkpoints": [
+            "F1: hold",
+            "F2: transfer",
+            "F3: conference"
+          ]
+        },
+        {
+          "step_no": 5,
+          "action": "ALE-500:\nCheck the Triangle /Circle/Square key",
+          "expected_result": "The three keys name display correctly and press the hard key:\nTriangle : Will Return to the previous interface\nCircle: will turn to the dashboard\nSquare :will makes the outgoing call to guard",
+          "action_substeps": [
+            "ALE-500:",
+            "Check the Triangle /Circle/Square key"
+          ],
+          "expected_checkpoints": [
+            "The three keys name display correctly and press the hard key:",
+            "Triangle : Will Return to the previous interface",
+            "Circle: will turn to the dashboard",
+            "Square :will makes the outgoing call to guard"
+          ]
+        },
+        {
+          "step_no": 6,
+          "action": "ALE-500:\nPhone establish a call with phone B then press the Square key",
+          "expected_result": "Will makes the second outgoing call to guard",
+          "action_substeps": [
+            "ALE-500:",
+            "Phone establish a call with phone B then press the Square key"
+          ]
+        },
+        {
+          "step_no": 7,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off then press the F3 key",
+          "expected_result": "ALE-300/400:\nMakes the outgoing call to the guard and the screen display correctly",
+          "expected_checkpoints": [
+            "ALE-300/400:",
+            "Makes the outgoing call to the guard and the screen display correctly"
+          ]
+        },
+        {
+          "step_no": 8,
+          "action": "Phone establish a normal call.\nDuring the converstiaon then press the F3",
+          "expected_result": "ALE-300/400:\nMakes the new outgoing call to the guard and the screen display correctly",
+          "action_substeps": [
+            "Phone establish a normal call.",
+            "During the converstiaon then press the F3"
+          ],
+          "expected_checkpoints": [
+            "ALE-300/400:",
+            "Makes the new outgoing call to the guard and the screen display correctly"
+          ]
+        },
+        {
+          "step_no": 9,
+          "action": "Phone establish a normal call the led of the F1 is on then press the F1 key",
+          "expected_result": "ALE-30/300/400:\nwill hold the call, and led of the F1 key is breath",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "will hold the call, and led of the F1 key is breath"
+          ]
+        },
+        {
+          "step_no": 10,
+          "action": "Phone establish two normal calls the led of the F1/F2 is on, the led of the F3 is off then press the F2 key",
+          "expected_result": "ALE-30/300/400:\nwill exit these two calls",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "will exit these two calls"
+          ]
+        },
+        {
+          "step_no": 11,
+          "action": "OXE: user---program key set the progkey 124 :Not Assigned",
+          "expected_result": ""
+        },
+        {
+          "step_no": 12,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys or long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon is grey radio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power",
+          "action_substeps": [
+            "Phone Enter the hard keys menu:",
+            "User/Device/Hard keys or long press the F1/F2/F3/Triangle/Circle/Square key"
+          ],
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon is grey radio button + default cap icon + grey hard key name",
+            "ALE-30:",
+            "two options: hold cap icon/On hold and transfer cap icon/Transfer",
+            "ALE-300/400:",
+            "three options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference",
+            "ALE-500:",
+            "three options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C10408659",
+      "title": "RQPLEIAD_180_45_Hard_Key_OXE_Define_Key 1&2_Lock",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key set the progkey 123: programmed with the Emergency function on position 1 set the progkey 124: programmed with the Guard function on position 2\nAnd the lock parameter are enabled\nPhone update the config file then check the file",
+          "expected_result": "",
+          "action_substeps": [
+            "OXE: user---program key set the progkey 123: programmed with the Emergency function on position 1 set the progkey 124: programmed with the Guard function on position 2",
+            "And the lock parameter are enabled",
+            "Phone update the config file then check the file"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"All keys defined by Admin\"\nThe reset to default icon is grey\nOnly F1 and F2 hard key display the radio button and selected, hard key names are all grey\nALE-30:\ntwo options: Hold cap icon/Emergency and Transfer cap icon/Guard\nALE-300/400:\nthree options: Red cap icon/ Emergency and F1 cap icon/ Guard and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/ Emergency and Circle cap icon/ Guard and Square cap icon/ Conference\nALE-300/400: The i icon display at the upper right corner of the screen",
+          "action_substeps": [
+            "Phone Enter the hard keys menu:",
+            "User/Device/Hard keys"
+          ],
+          "expected_checkpoints": [
+            "Title \"All keys defined by Admin\"",
+            "The reset to default icon is grey",
+            "Only F1 and F2 hard key display the radio button and selected, hard key names are all grey",
+            "ALE-30:",
+            "two options: Hold cap icon/Emergency and Transfer cap icon/Guard",
+            "ALE-300/400:",
+            "three options: Red cap icon/ Emergency and F1 cap icon/ Guard and conference cap icon/Conference",
+            "ALE-500:",
+            "three options: Triangle cap icon/ Emergency and Circle cap icon/ Guard and Square cap icon/ Conference",
+            "ALE-300/400: The i icon display at the upper right corner of the screen"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"All keys defined by Admin\"\nThe reset to default icon is grey\nOnly F1 and F2 hard key display the radio button and selected, hard key names are all grey\nALE-30:\ntwo options: Hold cap icon/Emergency and Transfer cap icon/Guard\nALE-300/400:\nthree options: Red cap icon/ Emergency and F1 cap icon/ Guard and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/ Emergency and Circle cap icon/ Guard and Square cap icon/ Conference\nALE-300/400: The i icon display at the upper right corner of the screen",
+          "expected_checkpoints": [
+            "Title \"All keys defined by Admin\"",
+            "The reset to default icon is grey",
+            "Only F1 and F2 hard key display the radio button and selected, hard key names are all grey",
+            "ALE-30:",
+            "two options: Hold cap icon/Emergency and Transfer cap icon/Guard",
+            "ALE-300/400:",
+            "three options: Red cap icon/ Emergency and F1 cap icon/ Guard and conference cap icon/Conference",
+            "ALE-500:",
+            "three options: Triangle cap icon/ Emergency and Circle cap icon/ Guard and Square cap icon/ Conference",
+            "ALE-300/400: The i icon display at the upper right corner of the screen"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off enable or disable the lock then press the F1 key",
+          "expected_result": "ALE-30/300/400:\nMakes the outgoing call to the emergency and the screen display correctly",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "Makes the outgoing call to the emergency and the screen display correctly"
+          ]
+        },
+        {
+          "step_no": 5,
+          "action": "Phone establish a normal call.\nDuring the converstiaon then press the F1 key",
+          "expected_result": "ALE-30/300/400:\nWill makes the new outgoing call to the emergency and the screen display correctly",
+          "action_substeps": [
+            "Phone establish a normal call.",
+            "During the converstiaon then press the F1 key"
+          ],
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "Will makes the new outgoing call to the emergency and the screen display correctly"
+          ]
+        },
+        {
+          "step_no": 6,
+          "action": "Phone is idle then press the F2 Key",
+          "expected_result": "ALE-30/300/400:\nMakes the outgoing call to the guard",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "Makes the outgoing call to the guard"
+          ]
+        },
+        {
+          "step_no": 7,
+          "action": "Phone establish a normal call.\nDuring the converstiaon then press the F2 key",
+          "expected_result": "ALE-30/300/400:\nWill makes the new outgoing call to the guard and the screen display correctly",
+          "action_substeps": [
+            "Phone establish a normal call.",
+            "During the converstiaon then press the F2 key"
+          ],
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "Will makes the new outgoing call to the guard and the screen display correctly"
+          ]
+        },
+        {
+          "step_no": 8,
+          "action": "Phone establish two normal calls, the led of the F3 is on,the led of the F1/F2 is off then press the F3 key",
+          "expected_result": "ALE-300/400:\nwill make the conference call,and led of the F3 key is breath",
+          "expected_checkpoints": [
+            "ALE-300/400:",
+            "will make the conference call,and led of the F3 key is breath"
+          ]
+        },
+        {
+          "step_no": 9,
+          "action": "ALE-500:\nCheck the Triangle /Circle/Square key",
+          "expected_result": "The three keys name display correctly(emergency is red color) and press the hard key:\nTriangle :Will makes the outgoing call to emergency\nCircle: Will makes the outgoing call to guard\nSquare :The screen brightness will decreased",
+          "action_substeps": [
+            "ALE-500:",
+            "Check the Triangle /Circle/Square key"
+          ],
+          "expected_checkpoints": [
+            "The three keys name display correctly(emergency is red color) and press the hard key:",
+            "Triangle :Will makes the outgoing call to emergency",
+            "Circle: Will makes the outgoing call to guard",
+            "Square :The screen brightness will decreased"
+          ]
+        },
+        {
+          "step_no": 10,
+          "action": "ALE-500:\nPhone establish a call with phone B then press the Triangle/Circle key",
+          "expected_result": "Will makes the second outgoing call to emergency/guard",
+          "action_substeps": [
+            "ALE-500:",
+            "Phone establish a call with phone B then press the Triangle/Circle key"
+          ]
+        },
+        {
+          "step_no": 11,
+          "action": "check the f1/f2/f3 function of the ALE-500",
+          "expected_result": "F1: hold\nF2: transfer\nF3: conference",
+          "expected_checkpoints": [
+            "F1: hold",
+            "F2: transfer",
+            "F3: conference"
+          ]
+        },
+        {
+          "step_no": 12,
+          "action": "OXE: user---program key set the progkey 123 and 124 : Not Assigned",
+          "expected_result": ""
+        },
+        {
+          "step_no": 13,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys or long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon is grey radio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power",
+          "action_substeps": [
+            "Phone Enter the hard keys menu:",
+            "User/Device/Hard keys or long press the F1/F2/F3/Triangle/Circle/Square key"
+          ],
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon is grey radio button + default cap icon + grey hard key name",
+            "ALE-30:",
+            "two options: hold cap icon/On hold and transfer cap icon/Transfer",
+            "ALE-300/400:",
+            "three options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference",
+            "ALE-500:",
+            "three options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C10408660",
+      "title": "RQPLEIAD_180_46_Hard_Key_OXE_Define_Key 2_Lock_Key 3_Unlock",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key set the progkey 123: programmed with the Emergency function on position 3,the lock parameter is disabled set the progkey 124: programmed with the Guard function on position 2,the lock paramter is enabled\nPhone update the config file then check the file",
+          "expected_result": "",
+          "action_substeps": [
+            "OXE: user---program key set the progkey 123: programmed with the Emergency function on position 3,the lock parameter is disabled set the progkey 124: programmed with the Guard function on position 2,the lock paramter is enabled",
+            "Phone update the config file then check the file"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button,\nF2&F3 hard key name is light the F1 key name is grey\nF2 and F3 hard keys are selected but only F3: the edit icon is displayed on the right\nALE-30:\ntwo options: hold cap icon/On hold and Transfer cap icon/Guard\nALE-300/400:\nthree options: hold cap icon/On hold and F1 cap icon/ Guard and Red cap icon/Emergency\nALE-500:\nthree options: Triangle cap icon/ On hold and Circle cap icon/ Guard and Square cap icon/ Emergency\nALE-300/400: The i icon display at the upper right corner of the screen",
+          "action_substeps": [
+            "Phone Enter the hard keys menu:",
+            "User/Device/Hard keys"
+          ],
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon display at the upper left corner of the screen",
+            "The left of the options all display the radio button,",
+            "F2&F3 hard key name is light the F1 key name is grey",
+            "F2 and F3 hard keys are selected but only F3: the edit icon is displayed on the right",
+            "ALE-30:",
+            "two options: hold cap icon/On hold and Transfer cap icon/Guard",
+            "ALE-300/400:",
+            "three options: hold cap icon/On hold and F1 cap icon/ Guard and Red cap icon/Emergency",
+            "ALE-500:",
+            "three options: Triangle cap icon/ On hold and Circle cap icon/ Guard and Square cap icon/ Emergency",
+            "ALE-300/400: The i icon display at the upper right corner of the screen"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button,\nF2&F3 hard key name is light the F1 key name is grey\nF2 and F3 hard keys are selected but only F3: the edit icon is displayed on the right\nALE-30:\ntwo options: hold cap icon/On hold and Transfer cap icon/Guard\nALE-300/400:\nthree options: hold cap icon/On hold and F1 cap icon/ Guard and Red cap icon/Emergency\nALE-500:\nthree options: Triangle cap icon/ On hold and Circle cap icon/ Guard and Square cap icon/ Emergency\nALE-300/400: The i icon display at the upper right corner of the screen",
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon display at the upper left corner of the screen",
+            "The left of the options all display the radio button,",
+            "F2&F3 hard key name is light the F1 key name is grey",
+            "F2 and F3 hard keys are selected but only F3: the edit icon is displayed on the right",
+            "ALE-30:",
+            "two options: hold cap icon/On hold and Transfer cap icon/Guard",
+            "ALE-300/400:",
+            "three options: hold cap icon/On hold and F1 cap icon/ Guard and Red cap icon/Emergency",
+            "ALE-500:",
+            "three options: Triangle cap icon/ On hold and Circle cap icon/ Guard and Square cap icon/ Emergency",
+            "ALE-300/400: The i icon display at the upper right corner of the screen"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "ALE-300/400/500:\npress the hard key is not selected",
+          "expected_result": "will popup\"only 2 keys allowed,deselect one key first\"",
+          "action_substeps": [
+            "ALE-300/400/500:",
+            "press the hard key is not selected"
+          ]
+        },
+        {
+          "step_no": 5,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off then press the F2 key",
+          "expected_result": "ALE-30/300/400:\nMakes the outgoing call to the Guard and the screen display corectly",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "Makes the outgoing call to the Guard and the screen display corectly"
+          ]
+        },
+        {
+          "step_no": 6,
+          "action": "Phone establish a normal call then press the F2 key",
+          "expected_result": "ALE-30/300/400:\nMakes the new outgoing call to the Guard and the screen display corectly",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "Makes the new outgoing call to the Guard and the screen display corectly"
+          ]
+        },
+        {
+          "step_no": 7,
+          "action": "Phone is idle then press the F3 key",
+          "expected_result": "ALE-300/400:\nMakes the outgoing call to the Emergency and the screen display corectly",
+          "expected_checkpoints": [
+            "ALE-300/400:",
+            "Makes the outgoing call to the Emergency and the screen display corectly"
+          ]
+        },
+        {
+          "step_no": 8,
+          "action": "Phone establish a normal call then press the F3 key",
+          "expected_result": "ALE-300/400:\nMakes the new outgoing call to the Emergency and the screen display corectly",
+          "expected_checkpoints": [
+            "ALE-300/400:",
+            "Makes the new outgoing call to the Emergency and the screen display corectly"
+          ]
+        },
+        {
+          "step_no": 9,
+          "action": "Phone establish a normal call the led of the F1 is on then press the F1 key",
+          "expected_result": "ALE-30/300/400:\nwill hold the call, and led of the F1 key is breath",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "will hold the call, and led of the F1 key is breath"
+          ]
+        },
+        {
+          "step_no": 10,
+          "action": "Phone establish two normal calls",
+          "expected_result": "the led of the F1 is on, the led of the F2/F3 is off"
+        },
+        {
+          "step_no": 11,
+          "action": "ALE-500:\nCheck the Triangle /Circle/Square key",
+          "expected_result": "The three keys name display correctly(emergency is red color) and press the hard key:\nTriangle :Will Return to the previous interface\nCircle: Will makes the outgoing call to guard\nSquare :Will makes the outgoing call to emergency",
+          "action_substeps": [
+            "ALE-500:",
+            "Check the Triangle /Circle/Square key"
+          ],
+          "expected_checkpoints": [
+            "The three keys name display correctly(emergency is red color) and press the hard key:",
+            "Triangle :Will Return to the previous interface",
+            "Circle: Will makes the outgoing call to guard",
+            "Square :Will makes the outgoing call to emergency"
+          ]
+        },
+        {
+          "step_no": 12,
+          "action": "ALE-500:\nPhone establish a call with phone B then press the Triangle/Circle key",
+          "expected_result": "Will makes the second outgoing call to guard/emergency",
+          "action_substeps": [
+            "ALE-500:",
+            "Phone establish a call with phone B then press the Triangle/Circle key"
+          ]
+        },
+        {
+          "step_no": 13,
+          "action": "check the f1/f2/f3 function of the ALE-500",
+          "expected_result": "F1: hold\nF2: transfer\nF3: conference",
+          "expected_checkpoints": [
+            "F1: hold",
+            "F2: transfer",
+            "F3: conference"
+          ]
+        },
+        {
+          "step_no": 14,
+          "action": "OXE: user---program key set the progkey 123 and 124 :Not Assigned",
+          "expected_result": ""
+        },
+        {
+          "step_no": 15,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys or long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon is grey radio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power",
+          "action_substeps": [
+            "Phone Enter the hard keys menu:",
+            "User/Device/Hard keys or long press the F1/F2/F3/Triangle/Circle/Square key"
+          ],
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon is grey radio button + default cap icon + grey hard key name",
+            "ALE-30:",
+            "two options: hold cap icon/On hold and transfer cap icon/Transfer",
+            "ALE-300/400:",
+            "three options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference",
+            "ALE-500:",
+            "three options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "C10408661",
+      "title": "RQPLEIAD_180_47_Hard_Key_OXE_Define_Key 1&3_Unlock",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key set the progkey 123: programmed with the Emergency function on position 1 set the progkey 124: programmed with the Guard function on position 3\nAnd the lock parameter are all disabled\nPhone update the config file then check the file",
+          "expected_result": "",
+          "action_substeps": [
+            "OXE: user---program key set the progkey 123: programmed with the Emergency function on position 1 set the progkey 124: programmed with the Guard function on position 3",
+            "And the lock parameter are all disabled",
+            "Phone update the config file then check the file"
+          ]
+        },
+        {
+          "step_no": 2,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button,\nF1 and F3 hard key names are light the F2 key name is grey\nF1 and F3 hard keys are selected and the edit icon is displayed on the right\nALE-30:\ntwo options: Hold cap icon/Emergency and transfer cap icon/Transfer\nALE-300/400:\nthree options: Red cap icon/ Emergency and transfer cap icon/Transfer and F1 cap icon/Guard\nALE-500:\nthree options: Triangle cap icon/ Emergency and Circle cap icon/Home and Square cap icon/Guard\nALE-300/400: The i icon display at the upper right corner of the screen",
+          "action_substeps": [
+            "Phone Enter the hard keys menu:",
+            "User/Device/Hard keys"
+          ],
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon display at the upper left corner of the screen",
+            "The left of the options all display the radio button,",
+            "F1 and F3 hard key names are light the F2 key name is grey",
+            "F1 and F3 hard keys are selected and the edit icon is displayed on the right",
+            "ALE-30:",
+            "two options: Hold cap icon/Emergency and transfer cap icon/Transfer",
+            "ALE-300/400:",
+            "three options: Red cap icon/ Emergency and transfer cap icon/Transfer and F1 cap icon/Guard",
+            "ALE-500:",
+            "three options: Triangle cap icon/ Emergency and Circle cap icon/Home and Square cap icon/Guard",
+            "ALE-300/400: The i icon display at the upper right corner of the screen"
+          ]
+        },
+        {
+          "step_no": 3,
+          "action": "Long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button,\nF1 and F3 hard key names are light the F2 key name is grey\nF1 and F3 hard keys are selected and the edit icon is displayed on the right\nALE-30:\ntwo options: Hold cap icon/Emergency and transfer cap icon/Transfer\nALE-300/400:\nthree options: Red cap icon/ Emergency and transfer cap icon/Transfer and F1 cap icon/Guard\nALE-500:\nthree options: Triangle cap icon/ Emergency and Circle cap icon/Home and Square cap icon/Guard\nALE-300/400: The i icon display at the upper right corner of the screen",
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon display at the upper left corner of the screen",
+            "The left of the options all display the radio button,",
+            "F1 and F3 hard key names are light the F2 key name is grey",
+            "F1 and F3 hard keys are selected and the edit icon is displayed on the right",
+            "ALE-30:",
+            "two options: Hold cap icon/Emergency and transfer cap icon/Transfer",
+            "ALE-300/400:",
+            "three options: Red cap icon/ Emergency and transfer cap icon/Transfer and F1 cap icon/Guard",
+            "ALE-500:",
+            "three options: Triangle cap icon/ Emergency and Circle cap icon/Home and Square cap icon/Guard",
+            "ALE-300/400: The i icon display at the upper right corner of the screen"
+          ]
+        },
+        {
+          "step_no": 4,
+          "action": "ALE-300/400/500:\npress the hard key is not selected",
+          "expected_result": "will popup\"only 2 keys allowed,deselect one key first\"",
+          "action_substeps": [
+            "ALE-300/400/500:",
+            "press the hard key is not selected"
+          ]
+        },
+        {
+          "step_no": 5,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off enable or disable the lock then press the F1 key",
+          "expected_result": "ALE-30/300/400:\nMakes the outgoing call to the emergency and screen display correctly",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "Makes the outgoing call to the emergency and screen display correctly"
+          ]
+        },
+        {
+          "step_no": 6,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off then press the F3 key",
+          "expected_result": "ALE-300/400:\nMakes the outgoing call to the Guard and screen display correctly",
+          "expected_checkpoints": [
+            "ALE-300/400:",
+            "Makes the outgoing call to the Guard and screen display correctly"
+          ]
+        },
+        {
+          "step_no": 7,
+          "action": "Phone establish one normal calls,the led of the F1/F2/F3 IS OFF then press the F1 key",
+          "expected_result": "ALE-30/300/400:\nMakes the new outgoing call to the emergency and screen display correctly",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "Makes the new outgoing call to the emergency and screen display correctly"
+          ]
+        },
+        {
+          "step_no": 8,
+          "action": "Phone establish one normal calls,the led of the F1/F2/F3 IS OFF then press the F3 key",
+          "expected_result": "ALE-300/400:\nMakes the new outgoing call to the Guard and screen display correctly",
+          "expected_checkpoints": [
+            "ALE-300/400:",
+            "Makes the new outgoing call to the Guard and screen display correctly"
+          ]
+        },
+        {
+          "step_no": 9,
+          "action": "Phone establish two normal calls, the led of the F2 is on,the led of F1/F3 is off then press the F2 key",
+          "expected_result": "ALE-30/300/400:\nwill exit these two calls",
+          "expected_checkpoints": [
+            "ALE-30/300/400:",
+            "will exit these two calls"
+          ]
+        },
+        {
+          "step_no": 10,
+          "action": "ALE-500:\nCheck the Triangle Triangle/Square key",
+          "expected_result": "The three keys name display correctly(emergency is red color) and press the hard key:\nTriangle :Will makes the outgoing call to emergency\nCircle: will turn to the homepage\nSquare :Will makes the outgoing call to guard",
+          "action_substeps": [
+            "ALE-500:",
+            "Check the Triangle Triangle/Square key"
+          ],
+          "expected_checkpoints": [
+            "The three keys name display correctly(emergency is red color) and press the hard key:",
+            "Triangle :Will makes the outgoing call to emergency",
+            "Circle: will turn to the homepage",
+            "Square :Will makes the outgoing call to guard"
+          ]
+        },
+        {
+          "step_no": 11,
+          "action": "ALE-500:\nPhone establish a call with phone B then press the Triangle/Square key",
+          "expected_result": "Will makes the second outgoing call to emergency/guard",
+          "action_substeps": [
+            "ALE-500:",
+            "Phone establish a call with phone B then press the Triangle/Square key"
+          ]
+        },
+        {
+          "step_no": 12,
+          "action": "check the f1/f2/f3 function of the ALE-500",
+          "expected_result": "F1: hold\nF2: transfer\nF3: conference",
+          "expected_checkpoints": [
+            "F1: hold",
+            "F2: transfer",
+            "F3: conference"
+          ]
+        },
+        {
+          "step_no": 13,
+          "action": "OXE: user---program key set the progkey 123 and 124 :Not Assigned",
+          "expected_result": ""
+        },
+        {
+          "step_no": 14,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys or long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"Edit maximum 2 keys\"\nThe reset to default icon is grey radio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power",
+          "action_substeps": [
+            "Phone Enter the hard keys menu:",
+            "User/Device/Hard keys or long press the F1/F2/F3/Triangle/Circle/Square key"
+          ],
+          "expected_checkpoints": [
+            "Title \"Edit maximum 2 keys\"",
+            "The reset to default icon is grey radio button + default cap icon + grey hard key name",
+            "ALE-30:",
+            "two options: hold cap icon/On hold and transfer cap icon/Transfer",
+            "ALE-300/400:",
+            "three options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference",
+            "ALE-500:",
+            "three options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+          ]
+        }
+      ]
+    }
+  ]
+}

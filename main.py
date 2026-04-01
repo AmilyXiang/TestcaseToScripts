@@ -38,6 +38,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     kb_parser.add_argument("--output", type=Path, default=Path("normalized_kb.json"))
     kb_parser.add_argument("--model", type=str, default="deepseek-chat")
     kb_parser.add_argument("--api-key", type=str, default=None)
+    kb_parser.add_argument("--max-workers", type=int, default=8)
 
     clean_parser = subparsers.add_parser("clean", help="Clean parsed TestRail JSON and auto-generate substeps/checkpoints.")
     clean_parser.add_argument("--input", type=Path, default=Path("parsed_testrail.json"))
@@ -63,7 +64,14 @@ def run_parse(input_path: Path, output_path: Path, sheet: str | None) -> None:
     print(f"Output JSON: {output_path}")
 
 
-def run_build_kb(input_path: Path, skill_path: Path, output_path: Path, model: str, api_key: str | None) -> None:
+def run_build_kb(
+    input_path: Path,
+    skill_path: Path,
+    output_path: Path,
+    model: str,
+    api_key: str | None,
+    max_workers: int,
+) -> None:
     command = [
         sys.executable,
         "build_step_result_kb.py",
@@ -75,6 +83,8 @@ def run_build_kb(input_path: Path, skill_path: Path, output_path: Path, model: s
         str(output_path),
         "--model",
         model,
+        "--max-workers",
+        str(max_workers),
     ]
     if api_key:
         command.extend(["--api-key", api_key])
@@ -93,7 +103,7 @@ def main() -> None:
         return
 
     if args.command == "build-kb":
-        run_build_kb(args.input, args.skill, args.output, args.model, args.api_key)
+        run_build_kb(args.input, args.skill, args.output, args.model, args.api_key, args.max_workers)
         return
 
     if args.command == "clean":

@@ -1,0 +1,2616 @@
+{
+  "Worksheet": [
+    {
+      "case_id": "C10356840",
+      "title": "RQPLEIAD_180_01_Create_Emergency_Program_Key",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE</p>",
+      "preconditions": "<p>OXE: <br />mgr---SIP device management---DM profile---Emergency number----xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Short or long press the empty program key of the phone or addon</p>",
+          "expected_result": "<p>Display the key type choice screen<br />title\"\"Choose your programmable key\"\"</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Press Emergency call<br />or <br />press the number----search----Emergency contact<br />or<br />press the number----input 112/911</p>",
+          "expected_result": "<p>the create key screen display correctly</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>Press the create key button of the screen or the ok key of the phone</p>",
+          "expected_result": "<p>The program key created successfully and display correctly  (the phone and addon side)</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356841",
+      "title": "RQPLEIAD_180_02_Create_Guard_Program_Key",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE</p>",
+      "preconditions": "<p>OXE: <br />mgr---SIP device management---DM profile---Guard number----xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Short or long press the empty program key of the phone or addon</p>",
+          "expected_result": "<p>Display the key type choice screen<br />title\"\"Choose your programmable key\"\"</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Press Guard call<br />or <br />press the number----search----Guard contact<br />or<br />press the number----input number</p>",
+          "expected_result": "<p>the create key screen display correctly</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>Press the create key button of the screen or the ok key of the phone</p>",
+          "expected_result": "<p>The progarm key created successfully and display correctly (phone and addon side)</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356842",
+      "title": "RQPLEIAD_180_03_Create_Operator_Program_Key",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE</p>",
+      "preconditions": "<p>OXE: <br />mgr---SIP device management---DM profile---Operator number---xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Short or long press the empty program key of the phone or addon</p>",
+          "expected_result": "<p>Display the key type choice screen<br />title\"\"Choose your programmable key\"\"</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Press Operator call<br />or <br />press the number----search----Operator contact<br />or<br />press the number----input number</p>",
+          "expected_result": "<p>the create key screen display correctly</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>Press the create key button of the screen or the ok key of the phone</p>",
+          "expected_result": "<p>The progarm key created successfully and display correctly (phone and addon side)</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356843",
+      "title": "RQPLEIAD_180_04_Emergency_Outgoing_Call_By_Program_Key",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE/Rainbow</p>",
+      "preconditions": "<p>Phone has the Emergency program key</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Press the Emergency program key of the phone or addon</p>",
+          "expected_result": "<p>title:  Outgoing call<br />Red background<br />\ndisplay emergency avatar and release button(led is on)<br />and press the emergency avatar will turn to the info screen<br />if press the release key will release the call</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Remote side answer the call</p>",
+          "expected_result": "<p>title:  Conversation xx:xx<br />Red background<br />\ndisplay emergency avatar / new call /release button(led is on)<br />The hold button are grey (led is off)</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>check the function of theese button:<br />1.press the emergency avatar / new call button<br />2.press the hold key (which is greyed) of the screen or the hold physical button or the hold program key</p>",
+          "expected_result": "<p>1.Display the emergency info/add new call screen<br />2.no action， can't hold the call</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>pick up the handset</p>",
+          "expected_result": "<p>the voice will switch to handset</p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>Hang on the handset or <br />press the release key of the screen or the release physical button</p>",
+          "expected_result": "<p>will release the call</p>"
+        },
+        {
+          "step_no": 6,
+          "action": "<p>check the call log</p>",
+          "expected_result": "<p>Has the emergency call log (outgoing arrow)<br />the label /avatar /name /number/duration display correctly</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356871",
+      "title": "RQPLEIAD_180_05_Emergency_Outgoing_Call_By_Dial_Number/Call log/Contact",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE/Rainbow</p>",
+      "preconditions": "<p>OXE:<br />mgr---SIP device management---DM profile---Emergency number----xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Press the Emergency call log/ Emergency contact or dial the Emergency number</p>",
+          "expected_result": "<p>title: Outgoing call<br />Red background<br />display emergency avatar and release button(led is on)<br />and press the emergency avatar will turn to the info screen<br />if press the release key will release the call</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Remote side answer the call</p>",
+          "expected_result": "<p>title: Conversation xx:xx<br />Red background<br />display emergency avatar / new call/release button(led is on)<br />The  hold button are grey (led is off)</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>check the function of theese button:<br />1.press the emergency avatar / new call button<br />2.press the hold key (which is greyed) of the screen or the hold physical button or the hold program key</p>",
+          "expected_result": "<p>1.Display the emergency info/add new call screen<br />2.no action， can't hold the call</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>pick up the handset</p>",
+          "expected_result": "<p>the voice will switch to handset</p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>Hang on the handset or <br />press the release key of the screen or the release physical button</p>",
+          "expected_result": "<p>will release the call</p>"
+        },
+        {
+          "step_no": 6,
+          "action": "<p>check the call log</p>",
+          "expected_result": "<p>Has the emergency call log (outgoing)<br />the label /avatar /name /number/duration display correctly</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356957",
+      "title": "RQPLEIAD_180_06_Emergency_Outgoing_Call_By_Dial_Hardcode_911/112",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE/Rainbow</p>",
+      "preconditions": "<p>OXE:<br />mgr---SIP device management---DM profile---Emergency number----xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Dial the 911 or 112<br />Press the 911 or 112 call log/ contact /program key</p>",
+          "expected_result": "<p>title: Outgoing call<br />Red background<br />display emergency avatar and release button(led is on)<br />and press the emergency avatar will turn to the info screen<br />if press the release key will release the call</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Remote side answer the call</p>",
+          "expected_result": "<p>title: Conversation xx:xx<br />Red background<br />display emergency avatar / new call /release button(led is on)<br />The  hold button are grey (led is off)</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>check the function of theese button:<br />1.press the emergency avatar / new call button<br />2.press the hold key (which is greyed) of the screen or the hold physical button or the hold program key</p>",
+          "expected_result": "<p>1.Display the info/add new call screen<br />2.no action， can't hold the call</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>pick up the handset</p>",
+          "expected_result": "<p>the voice will switch to handset</p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>Hang on the handset or press the release key</p>",
+          "expected_result": "<p>will release the call</p>"
+        },
+        {
+          "step_no": 6,
+          "action": "<p>check the call log</p>",
+          "expected_result": "<p>Has the emergency call log (outgoing )<br />the label /avatar /name /number/date display correctly</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356844",
+      "title": "RQPLEIAD_180_07_Emergency_Outgoing_Call_With_Second_Normal_Incoming_Call_Answer",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE/Rainbow</p>",
+      "preconditions": "<p>OXE:<br />mgr---SIP device management---DM profile---Emergency number----xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Phone establish a call with the Emergency</p>",
+          "expected_result": "<p>title: Conversation xx:xx<br />Red background<br />display emergency avatar / new call /release button(led is on)<br />The hold button is gray out (led is off)</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Phone receives the normal incoming call </p>",
+          "expected_result": "<p>the emergency call is  kept active<br />The new call in the lower part of the screen:<br />white background+ normal avatar  + \"\"Incoming call\"\"+ switch button</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>press the switch button</p>",
+          "expected_result": "<p>The new call in the upper part of the screen:<br />\"\"Incoming call\"\" <br />white background+ normal avatar  + answer / silence button<br />the emergency call is kept active<br />emergency call in the lower part of the screen: <br />Red background  +emergency avatar +switch button</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>Answer the new call</p>",
+          "expected_result": "<p>Will make the conference call directly<br />Conference xx:xx<br />Purple background<br />display the Emergency and normal call avatar<br />and the exit and release button </p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>Press the exit /release button </p>",
+          "expected_result": "<p>will exit or release the conference</p>"
+        },
+        {
+          "step_no": 6,
+          "action": "<p>After the conference call is released, check the call log</p>",
+          "expected_result": "<p>Has the conference call log and the Emergency call log and the normal incoming call log<br />the label /avatar /name /number/duration display correctly</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356872",
+      "title": "RQPLEIAD_180_08_Emergency_Outgoing_Call_With_Second_Normal_Incoming_Call_Reject",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE/Rainbow</p>",
+      "preconditions": "<p>OXE:<br />mgr---SIP device management---DM profile---Emergency number----xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Phone establish a call with the Emergency</p>",
+          "expected_result": "<p>title: Conversation xx:xx<br />Red background<br />display emergency avatar / new call/release  button(led is on)<br />The  hold button is gray out (led is off)</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Phone receives the normal incoming call </p>",
+          "expected_result": "<p>the emergency call is kept active<br />The new call in the lower part of the screen:<br />white background+ normal avatar + \"\"Incoming call\"\"+ switch button</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>press the switch button</p>",
+          "expected_result": "<p>The new call in the upper part of the screen:<br />\"\"Incoming call\"\"<br />white background+ normal avatar + answer / silence button</p>\n\n<p>the emergency call is kept active<br />emergency call in the lower part of the screen:<br />Red background +emergency avatar +switch button</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>Press the silence button</p>",
+          "expected_result": "<p>Stop ringing</p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>press the reject button / turn to voicemail button<br />or the remote side release the call</p>",
+          "expected_result": "<p>title: Conversation xx:xx<br />Red background<br />display emergency avatar / new call/release button(led is on)<br />The  hold button is gray out (led is off)</p>"
+        },
+        {
+          "step_no": 6,
+          "action": "<p>press the release key</p>",
+          "expected_result": "<p>will release the call</p>"
+        },
+        {
+          "step_no": 7,
+          "action": "<p>check the call log</p>",
+          "expected_result": "<p>Has the emergency call log and the not answered call log<br />the label /avatar /name /number/duration display correctly</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356875",
+      "title": "RQPLEIAD_180_09_Emergency_Outgoing_Call_With_Second_Normal_Outgoing_Call_Answer",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE/Rainbow</p>",
+      "preconditions": "<p>OXE:<br />mgr---SIP device management---DM profile---Emergency number----xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Phone establish a call with the Emergency</p>",
+          "expected_result": "<p>title: Conversation xx:xx<br>Red background<br>display emergency avatar / new call/release button(led is on)<br>The  hold button is gray out (led is off)</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Phone makes the new normal outgoing call</p>",
+          "expected_result": "<p>The new call in the upper part of the screen:<br>\"\"Outgoing call\"\"<br>white background+ normal avatar + release button</p><p>the emergency call is on hold<br>The emergency call in the lower part of the screen:<br>Red background +emergency avatar +switch button (gray out)</p><p>The middle part: display the conference and transfer button(gray out)</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>Press the conference /transfer button of the screen</p><p>press the conference /transfer program key</p><p>press the conference /transfer hard key</p><p><br></p>",
+          "expected_result": "<p>can't take effect</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>Remote side answer the call</p>",
+          "expected_result": "<p>Will make the conference call directly<br>Conference xx:xx<br>Purple background<br>display the Emergency and normal call avatar<br>the exit and release button</p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>Press the exit /release button</p>",
+          "expected_result": "<p>will exit or release the conference call</p>"
+        },
+        {
+          "step_no": 6,
+          "action": "<p>After the conference call is released, check the call log</p>",
+          "expected_result": "<p>Has the conference call log and the Emergency call log and the normal outgoing call log<br>the label /avatar /name /number/duration display correctly</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356958",
+      "title": "RQPLEIAD_180_10_Emergency_Outgoing_Call_With_Second_Normal_Outgoing_Call_Reject",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE/Rainbow</p>",
+      "preconditions": "<p>OXE:<br />mgr---SIP device management---DM profile---Emergency number----xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Phone establish a call with the Emergency</p>",
+          "expected_result": "<p>title: Conversation xx:xx<br />Red background<br />display emergency avatar / new call/release button(led is on)<br />The  hold button is gray out (led is off)</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Phone makes the new normal outgoing call</p>",
+          "expected_result": "<p>The new call in the upper part of the screen:<br />\"\"Outgoing call\"\"<br />white background+ normal avatar + release button</p>\n\n<p>the emergency call is on hold<br />The emergency call in the lower part of the screen:<br />Red background +emergency avatar +switch button(gray out)</p>\n\n<p>The middle part: display the conference and transfer button(gray out)</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>Remote side reject the call<br />or<br />Remote side reject to the voicemail then the phone press the release key of the second call screen<br />or<br />the phone release the call firstly</p>",
+          "expected_result": "<p>title: Conversation xx:xx<br />Red background<br />display emergency avatar / new call/release button(led is on)<br />The  hold button is gray out (led is off)</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>press the release key</p>",
+          "expected_result": "<p>will release the call</p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>check the call log</p>",
+          "expected_result": "<p>Has the emergency call log and the unsuccessful call log<br />the label /avatar /name /number/duration display correctly</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413732",
+      "title": "RQPLEIAD_180_11_Normal_Call_With_Second_Emergency_Outgoing_Call",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE/Rainbow</p>",
+      "preconditions": "<p>OXE:<br />mgr---SIP device management---DM profile---Emergency number----xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Phone makes the normal outgoing call or receives the normal incoming call.</p>",
+          "expected_result": "<p>Title\"\"Outgoing call\"\" <br />normal avatar / release button</p>\n\n<p>Title \"\"Incoming call\"\" <br />normal avatar / answer / silence button</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Phone establish a normal call </p>",
+          "expected_result": "<p>Title: Conversation xx:xx<br />Purple background<br />display normal avatar / new / release/ hold call button(led is on)</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>Phone makes the new outgoing call to Emergency</p>",
+          "expected_result": "<p>the new Emergency call in the upper part of the screen:<br />\"\"Outgoing call\"\"<br />Red background+ Emergency avatar + release button</p>\n\n<p>the normal call is on hold<br />The normal call in the lower part of the screen:<br />blue background +normal avatar +switch button(gray out)</p>\n\n<p>The middle part: display the conference and transfer button(gray out)</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>Answer the new call</p>",
+          "expected_result": "<p>Will make the conference call directly<br />Conference xx:xx<br />Purple background<br />display the Emergency and normal call avatar<br />and the he exit and release button </p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>Press the exit /release button </p>",
+          "expected_result": "<p>will exit or release the conference call</p>"
+        },
+        {
+          "step_no": 6,
+          "action": "<p>After the conference call is released, check the call log</p>",
+          "expected_result": "<p>Has the conference call log and the Emergency call log and the normal call log<br />the label /avatar /name /number/duration display correctly</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356845",
+      "title": "RQPLEIAD_180_12_Guard_Outgoing_Call_By_Program_Key",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE</p>",
+      "preconditions": "<p>Phone has the Guard program key</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Press the Guard program key of the phone or addon</p>",
+          "expected_result": "<p>title: Outgoing call<br />Dark blue background<br />display Guard avatar and release button(led is on)<br />and press the Guard avatar will turn to the info screen<br />if press the release key will release the call</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Remote side answer the call</p>",
+          "expected_result": "<p>title: Conversation xx:xx<br />Dark blue background<br />display Guard avatar / new call/release button(led is on)<br />The hold button is grey (led is off)</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>check the  function of theese button:<br />1.press the guard avatar / new call button<br />2.press the hold key (which is greyed) of the screen or the hold physical button or the hold program key</p>",
+          "expected_result": "<p>1.Display the guard info/add new call screen<br />2.no action， can't hold the call</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>pick up the handset</p>",
+          "expected_result": "<p>the voice will switch to handset</p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>Hang on the handset or <br />press the release key of the screen or the release physical button</p>",
+          "expected_result": "<p>will release the call</p>"
+        },
+        {
+          "step_no": 6,
+          "action": "<p>After the call is released, check the call log</p>",
+          "expected_result": "<p>Has the Guard call log (outgoing)<br />the label /avatar /name /number/duration display correctly</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356873",
+      "title": "RQPLEIAD_180_13_Guard_Outgoing_Call_By_Dial_Number/Call log/Contact",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile---Guard number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Press the Guard call log/ Guard  contact or dial the Guard  number",
+          "expected_result": "title: Outgoing call\nDark blue background\ndisplay Guard avatar and release button(led is on)\nand press the Guard avatar will turn to the info screen\nif press the release key will release the call"
+        },
+        {
+          "step_no": 2,
+          "action": "Remote side answer the call",
+          "expected_result": "title: Conversation xx:xx\nDark blue background\ndisplay Guard avatar / new call/release button(led is on)\nThe hold button is grey (led is off)"
+        },
+        {
+          "step_no": 3,
+          "action": "check the function of theese button:",
+          "expected_result": "1.Display the guard info/add new call screen"
+        },
+        {
+          "step_no": 4,
+          "action": "press the guard avatar / new call button",
+          "expected_result": "no action， can't hold the call"
+        },
+        {
+          "step_no": 5,
+          "action": "press the hold key (which is greyed) of the screen or the hold physical button or the hold program key",
+          "expected_result": "the voice will switch to handset"
+        },
+        {
+          "step_no": 6,
+          "action": "pick up the handset",
+          "expected_result": "will release the call"
+        },
+        {
+          "step_no": 7,
+          "action": "Hang on the handset or \npress the release key of the screen or the release physical button",
+          "expected_result": "Has the Guard call log (outgoing)\nthe label /avatar /name /number/duration display correctly"
+        },
+        {
+          "step_no": 8,
+          "action": "After the call is released, check the call log",
+          "expected_result": null
+        }
+      ]
+    },
+    {
+      "case_id": "C10356846",
+      "title": "RQPLEIAD_180_14_Guard_Ougoing_Call_With_Second_Normal_Incoming_Call_Answer",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE</p>",
+      "preconditions": "<p>OXE:<br />mgr---SIP device management---DM profile---Guard number----xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Phone establish a call with the Guard </p>",
+          "expected_result": "<p>title: Conversation xx:xx<br />Dark blue background<br />display Guard avatar / new call/release button(led is on)<br />The hold button is grey out(led is off)</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Phone receives the normal incoming call </p>",
+          "expected_result": "<p>the Guard call is kept active<br />The new call in the lower part of the screen:<br />white background+ normal avatar + \"\"Incoming call\"\"+ switch button</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>press the switch button</p>",
+          "expected_result": "<p>The new call in the upper part of the screen:<br />\"\"Incoming call\"\"<br />white background+ normal avatar + answer / silence button</p>\n\n<p>the Guard call is kept active<br />Guard call in the lower part of the screen:<br />Dark blue background +Guard avatar +switch button</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>Answer the new call</p>",
+          "expected_result": "<p>Will make the conference call directly<br />Conference xx:xx<br />Purple background<br />display the Guard and normal call avatar<br />and the exit and release button</p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>Press the exit /release button</p>",
+          "expected_result": "<p>will exit or release the conference call</p>"
+        },
+        {
+          "step_no": 6,
+          "action": "<p>After the conference call is released, check the call log</p>",
+          "expected_result": "<p>Has the conference call log and the Guard call log and the normal incoming call log<br />the label /avatar /name /number/duration display correctly</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356956",
+      "title": "RQPLEIAD_180_15_Guard_Ougoing_Call_With_Second_Normal_Incoming_Call_Reject",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile---Guard number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a call with the Guard",
+          "expected_result": "title: Conversation xx:xx\nDark blue background\ndisplay Guard avatar / new call/release button(led is on)\nThe hold button is grey out(led is off)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone receives the normal incoming call",
+          "expected_result": "the Guard call is kept active\nThe new call in the lower part of the screen:\nwhite background+ normal avatar + \"\"Incoming call\"\"+ switch button"
+        },
+        {
+          "step_no": 3,
+          "action": "press the switch button",
+          "expected_result": "The new call in the upper part of the screen:\n\"\"Incoming call\"\"\nwhite background+ normal avatar + answer / silence button\n\nthe Guard call is kept active\nGuard call in the lower part of the screen:\nDark blue background +Guard avatar +switch button"
+        },
+        {
+          "step_no": 4,
+          "action": "Press the silence button",
+          "expected_result": "Stop ringing"
+        },
+        {
+          "step_no": 5,
+          "action": "press the reject button / turn to voicemail button",
+          "expected_result": "title: Conversation xx:xx\nDark blue background\ndisplay Guard avatar / new call/release button(led is on)\nThe hold button is grey out(led is off)"
+        },
+        {
+          "step_no": 6,
+          "action": "press the release key",
+          "expected_result": "will release the call"
+        },
+        {
+          "step_no": 7,
+          "action": "After the call is released, check the call log",
+          "expected_result": "Has the Guard call log and the not answered call log\nthe label /avatar /name /number/duration display correctly"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356876",
+      "title": "RQPLEIAD_180_16_Guard_Outgoing_Call_With_Second_Normal_Outgoing_Call_Answer",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE</p>",
+      "preconditions": "<p>OXE:<br />mgr---SIP device management---DM profile---Guard number----xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Phone establish a call with the Guard</p>",
+          "expected_result": "<p>title: Conversation xx:xx<br>Dark blue background<br>display Guard avatar / new call/release button(led is on)<br>The hold button is grey out(led is off)</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Phone makes the new normal outgoing call</p>",
+          "expected_result": "<p>The new call in the upper part of the screen:<br>\"\"Outgoing call\"\"<br>white background+ normal avatar + release button</p><p>the Guard call is on hold<br>The Guard call in the lower part of the screen:<br>Dark blue background +Guard avatar +switch button(gary out)</p><p><span style=\"\"color: rgb(32, 32, 32); font-family: Arial, -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\"\" id=\"\"isPasted\"\">The middle part: display the conference and transfer button(gray out)</span></p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p id=\"\"isPasted\"\">Press the conference /transfer button of the screen</p><p>press the conference /transfer program key</p><p>press the conference /transfer hard key</p>",
+          "expected_result": "<p>can't take effect</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>Remote side answer the call</p>",
+          "expected_result": "<p>Will make the conference call directly<br>Conference xx:xx<br>Purple background<br>display the Guard and normal call avatar<br>and the exit and release button</p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>Press the exit /release button</p>",
+          "expected_result": "<p>will exit or release the conference call</p>"
+        },
+        {
+          "step_no": 6,
+          "action": "<p>After the conference call is released, check the call log</p>",
+          "expected_result": "<p>Has the conference call log and the Guard call loh and the normal outgoing call log<br>the label /avatar /name /number/duration display correctly</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356955",
+      "title": "RQPLEIAD_180_17_Guard_Outgoing_Call_With_Second_Normal_Outgoing_Call_Reject",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE</p>",
+      "preconditions": "<p>OXE:<br />mgr---SIP device management---DM profile---Guard number----xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Phone establish a call with the Guard</p>",
+          "expected_result": "<p>title: Conversation xx:xx<br>Dark blue background<br>display Guard avatar / new call/release button(led is on)<br>The hold button is grey out(led is off)</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Phone makes the new normal outgoing call</p>",
+          "expected_result": "<p>The new call in the upper part of the screen:<br>\"\"Outgoing call\"\"<br>white background+ normal avatar + release button</p><p>the Guard call is on hold<br>The Guard call in the lower part of the screen:<br>Dark blue background +Guard avatar +switch button(gary out)</p><p><span style=\"\"color: rgb(32, 32, 32); font-family: Arial, -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\"\" id=\"\"isPasted\"\">The middle part: display the conference and transfer button(gray out)</span></p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>Remote side reject the call<br>or<br>Remote side reject to the voicemail then the phone press the release key of the second call screen<br>or<br>the phone release the call firstly</p>",
+          "expected_result": "<p>title: Conversation xx:xx<br>Dark blue background<br>display Guard avatar / new call/release button(led is on)<br>The hold button is grey out(led is off)</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>press the release key</p>",
+          "expected_result": "<p>will release the call</p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>After the call is released, check the call log</p>",
+          "expected_result": "<p>Has the Guard call log and the unsuccessful call log<br>the label /avatar /name /number/duration display correctly</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413733",
+      "title": "RQPLEIAD_180_18_Normal_Call_With_Second_Guard_Outgoing_Call",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE</p>",
+      "preconditions": "<p>OXE:<br />mgr---SIP device management---DM profile---Guard number----xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Phone makes the normal outgoing call or receives the normal incoming call.</p>",
+          "expected_result": "<p>Title\"\"Outgoing call\"\"<br />normal avatar / release button</p>\n\n<p>Title \"\"Incoming call\"\"<br />normal avatar / answer / silence button</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Phone establish a normal call </p>",
+          "expected_result": "<p>Title: Conversation xx:xx<br />Purple background<br />display normal avatar / new / release/ holdcall button(led is on)</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>Phone makes the new outgoing call to Guard </p>",
+          "expected_result": "<p>the new Guard  call in the upper part of the screen:<br />\"\"Outgoing call\"\"<br />Dark blue background+ Guard avatar + release button</p>\n\n<p>the normal call is on hold<br />The normal call in the lower part of the screen:<br />blue background +normal avatar +switch button(gray out)</p>\n\n<p>The middle part: display the conference and transfer button(gray out)</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>Answer the new call</p>",
+          "expected_result": "<p>Will make the conference call directly<br />Conference xx:xx<br />Purple background<br />display the Guard and normal call avatar<br />and the exit and release button</p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>Press the exit /release button </p>",
+          "expected_result": "<p>will exit or release the conference call</p>"
+        },
+        {
+          "step_no": 6,
+          "action": "<p>After the conference call is released, check the call log</p>",
+          "expected_result": "<p>Has the conference call log and the Guard call log and the normal call log<br />the label /avatar /name /number/duration display correctly</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356847",
+      "title": "RQPLEIAD_180_19_Operator_Outgoing_Call_By_Program_Key",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE",
+      "preconditions": "Phone has the Operator program key",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Press the Operator program key of the phone or addon",
+          "expected_result": "title: Outgoing call\nwhite background\ndisplay Operator avatar and release button(led is on)\nand press the Operator avatar will turn to the info screen\nif press the release key will release the call"
+        },
+        {
+          "step_no": 2,
+          "action": "Remote side answer the call",
+          "expected_result": "title: Conversation xx:xx\npurple background\ndisplay Operator avatar / hold / new call/ release button(led is on)"
+        },
+        {
+          "step_no": 3,
+          "action": "check the function of theese button:\npress the Operator avatar / new call button",
+          "expected_result": "Can turn to the Operator info/add new call screen"
+        },
+        {
+          "step_no": 4,
+          "action": "Press the hold key of the screen or the hold physical key or the hold program key or  the hold program key",
+          "expected_result": "will hold the call\ntitle: On hold xx:xx\nBlue background\ndisplay Operator avatar / hold / new call/ release button\nthe led of the hold is breath"
+        },
+        {
+          "step_no": 5,
+          "action": "Press the hold key of the screen or the hold physical key  or the hold program key again",
+          "expected_result": "will retrieve the call\ntitle: Conversation xx:xx\npurple background\ndisplay Operator avatar / hold / new call/ release button(led is on)"
+        },
+        {
+          "step_no": 6,
+          "action": "pick up the handset",
+          "expected_result": "the voice will switch to handset"
+        },
+        {
+          "step_no": 7,
+          "action": "Hang on the handset or \npress the release key of the screen or the release physical button",
+          "expected_result": "will release the call"
+        },
+        {
+          "step_no": 8,
+          "action": "check the call log",
+          "expected_result": "Has the Operator call log (outgoing)\nthe label /avatar /name /number/duration display correctly"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356877",
+      "title": "RQPLEIAD_180_20_Operator_Outgoing_Call_By_Dial_Number/Call log/Contact",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile---Operator number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Press the Operator call log/ Operator contact or dial the Operator number",
+          "expected_result": "title: Outgoing call\nwhite background\ndisplay Operator avatar and release button(led is on)\nand press the Operator avatar will turn to the info screen\nif press the release key will release the call"
+        },
+        {
+          "step_no": 2,
+          "action": "Remote side answer the call",
+          "expected_result": "title: Conversation xx:xx\npurple background\ndisplay Operator avatar / hold / new call/ release button(led is on)"
+        },
+        {
+          "step_no": 3,
+          "action": "check the function of theese button:\npress the Operator avatar / new call button",
+          "expected_result": "Can turn to the Operator info/add new call screen"
+        },
+        {
+          "step_no": 4,
+          "action": "Press the hold key of the screen or the hold physical key or the hold program key",
+          "expected_result": "will hold the call\ntitle: On hold xx:xx\nBlue background\ndisplay Operator avatar / hold / new call/ release button\nthe led of the hold is breath"
+        },
+        {
+          "step_no": 5,
+          "action": "Press the hold key of the screen or the hold physical key  or the hold program key again",
+          "expected_result": "will retrieve the call\ntitle: Conversation xx:xx\npurple background\ndisplay Operator avatar / hold / new call/ release button(led is on)"
+        },
+        {
+          "step_no": 6,
+          "action": "pick up the handset",
+          "expected_result": "the voice will switch to handset"
+        },
+        {
+          "step_no": 7,
+          "action": "Hang on the handset or \npress the release key of the screen or the release physical button",
+          "expected_result": "will release the call"
+        },
+        {
+          "step_no": 8,
+          "action": "check the call log",
+          "expected_result": "Has the Operator call log (outgoing)\nthe label /avatar /name /number/duration display correctly"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356848",
+      "title": "RQPLEIAD_180_21_Operator_Outgoing_Call_With_Second_Normal_Incoming_Call_Answer",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile---Operator number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a call with the Operator",
+          "expected_result": "title: Conversation xx:xx\npurple background\ndisplay Operator avatar / hold / new call/ release button(led is on)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone receives the incoming call",
+          "expected_result": "the Operator call is kept active\nThe new call in the lower part of the screen:\nwhite background+ normal avatar + \"\"Incoming call\"\"+ switch button"
+        },
+        {
+          "step_no": 3,
+          "action": "press the switch button",
+          "expected_result": "The new call in the upper part of the screen:\n\"\"Incoming call\"\"\nwhite background+ normal avatar + answer / silence button\n\nthe Operator call is kept active\nOperator call in the lower part of the screen:\npurple background +Guard avatar +switch button"
+        },
+        {
+          "step_no": 4,
+          "action": "Answer the new call",
+          "expected_result": "The new call in the upper part of the screen:\npurple background+ normal avatar+ hold and release button\n\nthe Operator call will on hold\nOperator  call in the lower part of the screen:\nBlue background +Operator avatar + switch button\n\nThe middle part: display the conference and transfer button"
+        },
+        {
+          "step_no": 5,
+          "action": "Press the switch button then check the two call screen",
+          "expected_result": "The Operator  call in the upper part of the screen:\nPurple background +Operator  avatar + hold and release button\n\nthe new call will on hold\nThe new call in the lower part of the screen:\nblue background+ normal avatar +switch button\n\nThe middle part: display the conference and transfer button"
+        },
+        {
+          "step_no": 6,
+          "action": "Press the conference button",
+          "expected_result": "Conference xx:xx\nPurple background\ndisplay the Operator  and normal call avatar\ndisplay the exit and release button"
+        },
+        {
+          "step_no": 7,
+          "action": "Release the call then check the call log",
+          "expected_result": "Has the Operator / normal incoming / conference call log\nthe label /avatar /number display correctly"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356953",
+      "title": "RQPLEIAD_180_22_Operator_Outgoing_Call_With_Second_Normal_Incoming_Call_Reject",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile---Operator number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a call with the Operator",
+          "expected_result": "title: Conversation xx:xx\npurple background\ndisplay Operator avatar / hold / new call/ release button(led is on)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone receives the normal incoming call",
+          "expected_result": "the Operator call is kept active\n\nThe new call in the lower part of the screen:\nwhite background+ normal avatar + \"\"Incoming call\"\"+ switch button"
+        },
+        {
+          "step_no": 3,
+          "action": "press the switch button",
+          "expected_result": "The new call in the upper part of the screen:\n\"\"Incoming call\"\"\nwhite background+ normal avatar + answer / silence button\n\nthe Operator call is kept active\nOperator call in the lower part of the screen:\npurple background +Guard avatar +switch button"
+        },
+        {
+          "step_no": 4,
+          "action": "Press the silence button",
+          "expected_result": "Stop ringing (carefull : no ringing on second incoming call)"
+        },
+        {
+          "step_no": 5,
+          "action": "press the reject button / turn to voicemail button",
+          "expected_result": "title: Conversation xx:xx\npurple background\ndisplay Operator avatar / hold / new call/ release button(led is on)"
+        },
+        {
+          "step_no": 6,
+          "action": "Release the call then check the call log",
+          "expected_result": "Has the Operator / normal unanswered call log\nthe label /avatar /number display correctly"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356880",
+      "title": "RQPLEIAD_180_23_Operator_Outgoing_Call_With_Second_Normal_Outgoing_Call_Answer",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE</p>",
+      "preconditions": "<p>OXE:<br />mgr---SIP device management---DM profile---Operator number----xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>Phone establish a call with the Operator</p>",
+          "expected_result": "<p>title: Conversation xx:xx<br />purple background<br />display Operator avatar / hold / new call/ release button(led is on)</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>Phone makes the new outgoing call</p>",
+          "expected_result": "<p>The new call in the upper part of the screen:<br />\"\"Outgoing call\"\"<br />white background+ normal avatar + release button</p>\n\n<p>the Operatorcall is on hold<br />The Operator call in the lower part of the screen:<br />blue background +Guard avatar +switch button(gray out)</p>\n\n<p>The middle part: display the transfer button</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>If press the transfer button</p>",
+          "expected_result": "<p>exit the two calls<br />Call log has the Operator call log and normal call log<br />the label /avatar /number display correctly</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>If don't press the transfer button<br />and remote side answer the call</p>",
+          "expected_result": "<p>The new call in the upper part of the screen:<br />purple background+ normal avatar  + release button</p>\n\n<p>the Operator  call will on hold<br />Operator call in the lower part of the screen:<br />blue background + Operator avatar + switch button</p>\n\n<p>The middle part: display the conference and transfer button</p>"
+        },
+        {
+          "step_no": 5,
+          "action": "<p>Press the switch button then check the two call screen</p>",
+          "expected_result": "<p>The Operator call in the upper part of the screen:<br />Purple background +Operator avatar + release button</p>\n\n<p>the new call will on hold<br />The new call in the lower part of the screen:<br />blue background+ normal avatar  + switch button</p>\n\n<p>The middle part: display the conference and transfer button</p>"
+        },
+        {
+          "step_no": 6,
+          "action": "<p>press the transfer key</p>",
+          "expected_result": "<p>exit the two calls</p>"
+        },
+        {
+          "step_no": 7,
+          "action": "<p>check the call log</p>",
+          "expected_result": "<p>Has the Operator call log and the normal outgoing call log<br />the label /avatar /number display correctly</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356874",
+      "title": "RQPLEIAD_180_24_Operator_Outgoing_Call_With_Second_Normal_Outgoing_Call_Reject",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile---Operator number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a call with the Operator",
+          "expected_result": "title: Conversation xx:xx\npurple background\ndisplay Operator avatar / hold / new call/ release button(led is on)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone makes the new outgoing call",
+          "expected_result": "The new call in the upper part of the screen:\n\"\"Outgoing call\"\"\nwhite background+ normal avatar + release button\n\nthe Operatorcall is on hold\nThe Operator call in the lower part of the screen:\nblue background +Guard avatar +switch button\n\nThe middle part: display the transfer button"
+        },
+        {
+          "step_no": 3,
+          "action": "Remote side reject the call\nor\nRemote side reject to the voicemail then the phone press the release key of the second call screen\nor\nthe phone release the call firstly",
+          "expected_result": "title: On hold xx:xx\nblue background\ndisplay Operator avatar / hold / new call/ release button"
+        },
+        {
+          "step_no": 4,
+          "action": "Release the call then check the call log",
+          "expected_result": "Has the Operator call log and the normal unsuccessful call log\nthe label /avatar /number display correctly"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413734",
+      "title": "RQPLEIAD_180_25_Normal_Call_With_Operator_Second_Outgoing_Call",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile---Operator number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone makes the normal outgoing call or receives the normal incoming call.",
+          "expected_result": "Title\"\"Outgoing call\"\"\nnormal avatar / release button\n\nTitle \"\"Incoming call\"\"\nnormal avatar / answer / silence button"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone establish a normal call",
+          "expected_result": "Title: Conversation xx:xx\nPurple background\ndisplay normal avatar / new / release/ holdcall button(led is on)"
+        },
+        {
+          "step_no": 3,
+          "action": "Phone makes the new outgoing call to Operator",
+          "expected_result": "The new call in the upper part of the screen:\n\"\"Outgoing call\"\"\nwhite background+ Operator avatar + release button\n\nthe first call is on hold\nThe first  call in the lower part of the screen:\nblue background +normal avatar +switch button(gray out)\n\nThe middle part: display the transfer button"
+        },
+        {
+          "step_no": 4,
+          "action": "If press the transfer button",
+          "expected_result": "exit the two calls\nCall log has the Operator call log and normal call log\nthe label /avatar /number display correctly"
+        },
+        {
+          "step_no": 5,
+          "action": "If don't press the transfer button\nand remote side answer the call",
+          "expected_result": "The Operator  call in the upper part of the screen:\npurple background+ Operator avatar +hold and release button\n\nthe normal call will on hold\nnormal call in the lower part of the screen:\nblue background + normal avatar + switch button\n\nThe middle part: display the conference and transfer button"
+        },
+        {
+          "step_no": 6,
+          "action": "Press the switch button then check the two call screen",
+          "expected_result": "The normal call in the upper part of the screen:\nPurple background +normal avatar +hold and release button\n\nthe Operator call will on hold\nThe Operator call in the lower part of the screen:\nblue background+ Operator avatar  + switch button\n\nThe middle part: display the conference and transfer button"
+        },
+        {
+          "step_no": 7,
+          "action": "press the transfer key",
+          "expected_result": "exit the two calls"
+        },
+        {
+          "step_no": 8,
+          "action": "check the call log",
+          "expected_result": "Has the Operator call log and the normal outgoing call log\nthe label /avatar /number display correctly"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356959",
+      "title": "RQPLEIAD_180_26_Auto_Conference_Emergency_Call_With_Guard_Call",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile:\nEmergency number----xxxx\nGuard number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a call with the Emergency",
+          "expected_result": "title: Conversation xx:xx\nRed background\ndisplay emergency avatar / new call/release button(led is on)\nThe  hold button are grey (led is off)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone makes the new outgoing call to Guard",
+          "expected_result": "The Guard call in the upper part of the screen:\n\"\"Guard call\"\"\nDark blue background+ Guard avatar + release button\n\nthe Emergency call is on hold\nThe Emergency call in the lower part of the screen:\nRed background +Emergency avatar + switch button(gray out)\n\nThe middle part: display the conference and transfer button(gray out)"
+        },
+        {
+          "step_no": 3,
+          "action": "Remote side answer the call",
+          "expected_result": "Will make the conference call directly\n\nConference xx:xx\nPurple background\ndisplay the operator and Emergency call avatar\nand the exit and release button"
+        },
+        {
+          "step_no": 4,
+          "action": "Press the exit /release button",
+          "expected_result": "will exit or release the conference call"
+        },
+        {
+          "step_no": 5,
+          "action": "After the call is released, check the call log",
+          "expected_result": "Has the emergency call log and the Guard call log and the conference call log\nthe label /avatar /number display correctly"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356960",
+      "title": "RQPLEIAD_180_27_Auto_Conference_Operator_Call_With_Emergency_Call",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile:\nEmergency number----xxxx\nOperator number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a call with the Operator",
+          "expected_result": "title: Conversation xx:xx\npurple background\ndisplay Operator avatar / hold / new call/ release button(led is on)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone makes the new outgoing call to Emergency",
+          "expected_result": "The Emergency call in the upper part of the screen:\n\"\"Emergency call\"\"\nRed background+ Emergency avatar + release button\n\nthe Operator call is on hold\nThe Operator call in the lower part of the screen:\nblue background +Operator avatar + switch button(gray out)\n\nThe middle part: display the conference and transfer button(gray out)"
+        },
+        {
+          "step_no": 3,
+          "action": "Remote side answer the call",
+          "expected_result": "Will make the conference call directly\n\nConference xx:xx\nPurple background\ndisplay the operator and Emergency call avatar\nand the exit and release button"
+        },
+        {
+          "step_no": 4,
+          "action": "Press the exit /release button (they are greyed)",
+          "expected_result": "will exit or release the conference call"
+        },
+        {
+          "step_no": 5,
+          "action": "After the call is released, check the call log",
+          "expected_result": "Has the emergency call log and the Operator call log and the conference call log\nthe label /avatar /number display correctly"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356961",
+      "title": "RQPLEIAD_180_28_Auto_Conference_Guard_Call_With_Operator_Call",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile:\nOperator number----xxxx\nGuard number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a call with the Guard",
+          "expected_result": "title: Conversation xx:xx\nDark blue background\ndisplay Guard avatar / new call/release button(led is on)\nThe hold button is grey out(led is off)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone makes the new outgoing call to Operator",
+          "expected_result": "The Operator call in the upper part of the screen:\n\"\"Operator call\"\"\nwhite background+ Operator avatar + release button\n\nthe Guard call is on hold\nThe Guard call in the lower part of the screen:\nDark blue background +Guard avatar + switch button(gray out)\n\nThe middle part: display the conference and transfer button(gray out)"
+        },
+        {
+          "step_no": 3,
+          "action": "remote side answer the call",
+          "expected_result": "Will make the conference call directly\n\nConference xx:xx\nPurple background\ndisplay the Guard and operator call avatar\nand the exit and release button"
+        },
+        {
+          "step_no": 4,
+          "action": "Press the exit /release button",
+          "expected_result": "will exit or release the conference call"
+        },
+        {
+          "step_no": 5,
+          "action": "After the call is released, check the call log",
+          "expected_result": "Has the Guard call log and the Operator call log and the conference call log\nthe label /avatar /number display correctly"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413710",
+      "title": "RQPLEIAD_180_29_Auto_Conference_Emergency_With_Noe_Call",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile---Emergency number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a emergency call by \nthe Emergency program key/ call log/ contact or dial the Emergency number",
+          "expected_result": "Title: Conversation xx:xx\nRed background\ndisplay emergency avatar / new call /release button(led is on)\nThe  hold button is grey (led is off)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone receives the noe incoming call and answer it\nor\nPhone makes the noe outgoing call and remote side answer it",
+          "expected_result": "Will make the conference call directly\nConference xx:xx\nPurple background\ndisplay the Emergency and normal call avatar\nand the exit and release button"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413715",
+      "title": "RQPLEIAD_180_30_Auto_Conference_911/112_With_Noe_Call",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a emergency call (911/112)by\nthe program key/ call log/ contact or dial the number",
+          "expected_result": "Title: Conversation xx:xx\nRed background\ndisplay emergency avatar / new call /release button(led is on)\nThe  hold button is grey (led is off)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone receives the noe incoming call and answer it\nor\nPhone makes the noe outgoing call and remote side answer it",
+          "expected_result": "Will make the conference call directly\nConference xx:xx\nPurple background\ndisplay the Emergency and normal call avatar\nand the exit and release button"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413728",
+      "title": "RQPLEIAD_180_31_Auto_Conference_Guard_With_Noe_Call",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile---Guard number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a Guard call by \nthe Guard program key/ call log/ contact or dial the Guard number",
+          "expected_result": "title: Conversation xx:xx\nDark blue background\ndisplay Guard avatar / new call /release button(led is on)\nThe  hold button is grey (led is off)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone receives the noe incoming call and answer it\nor\nPhone makes the noe outgoing call and remote side answer it",
+          "expected_result": "Will make the conference call directly\nConference xx:xx\nPurple background\ndisplay the Guard and normal call avatar\nand the exit and release button"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413729",
+      "title": "RQPLEIAD_180_32_Auto_Conference_Emergency_With_Normal_Call",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE/Rainbow",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile---Emergency number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a emergency call by \nthe Emergency program key/ call log/ contact or dial the Emergency number",
+          "expected_result": "itle: Conversation xx:xx\nRed background\ndisplay emergency avatar / new call /release button(led is on)\nThe  hold button is grey (led is off)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone receives the sip normal incoming call and answer it\nor\nPhone makes the sip normal outgoing call and remote side answer it",
+          "expected_result": "Will make the conference call directly\nConference xx:xx\nPurple background\ndisplay the Emergency and normal call avatar\nand the exit and release button"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413713",
+      "title": "RQPLEIAD_180_33_Auto_Conference_911/112_With_Normal_Call",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE/Rainbow",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a emergency call (911/112)by\nthe program key/ call log/ contact or dial the number",
+          "expected_result": "Title: Conversation xx:xx\nRed background\ndisplay emergency avatar / new call/release button(led is on)\nThe  hold button is grey (led is off)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone receives the sip normal incoming call and answer it\nor\nPhone makes the sip normal outgoing call and remote side answer it",
+          "expected_result": "Will make the conference call directly\nConference xx:xx\nPurple background\ndisplay the Emergency and normal call avatar\nand the exit and release button"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413730",
+      "title": "RQPLEIAD_180_34_Auto_Conference_Guard_With_Normal_Call",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE/Rainbow",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile---Guard number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a Guard call by\nthe Guard program key/ call log/ contact or dial the Guard number",
+          "expected_result": "title: Conversation xx:xx\nDark blue background\ndisplay Guard avatar / new call/release button(led is on)\nThe  hold button is grey (led is off)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone receives the sip normal incoming call and answer it\nor\nPhone makes the sip normal outgoing call and remote side answer it",
+          "expected_result": "Will make the conference call directly\nConference xx:xx\nPurple background\ndisplay the Guard and normal call avatar\nand the exit and release button"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413711",
+      "title": "RQPLEIAD_180_35_Auto_Conference_Normal_Call_With_Emergency_Call",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE/Rainbow",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile---Emergency number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a normal sip/noe call",
+          "expected_result": "Title: Conversation xx:xx\nPurple background\ndisplay normal avatar / new / release/ holdcall button(led is on)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone makes the second Emergency outgoing call by\nthe program key/ call log/ contact or dial the number \nand remote side answer it",
+          "expected_result": "Will make the conference call directly\nConference xx:xx\nPurple background\ndisplay the Emergency and normal call avatar\nand the exit and release button"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413712",
+      "title": "RQPLEIAD_180_36_Auto_Conference_Normal_Call_With_911/112",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE/Rainbow",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a normal sip/noe call",
+          "expected_result": "Title: Conversation xx:xx\nPurple background\ndisplay normal avatar / new / release/ holdcall button(led is on)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone makes the second outgoing call by\nthe 911&112 program key/ call log/ contact or dial the number \nand remote side answer it",
+          "expected_result": "Will make the conference call directly\nConference xx:xx\nPurple background\ndisplay the Emergency and normal call avatar\nand the exit and release button"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413727",
+      "title": "RQPLEIAD_180_37_Auto_Conference_Normal_Call_With_Guard_Call",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE/Rainbow",
+      "preconditions": "OXE:\nmgr---SIP device management---DM profile---Guard number----xxxx",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish a normal sip/noe call",
+          "expected_result": "Title: Conversation xx:xx\nPurple background\ndisplay normal avatar / new / release/ holdcall button(led is on)"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone makes the second Guard outgoing call by\nthe program key/ call log/ contact or dial the number \nand remote side answer it",
+          "expected_result": "Will make the conference call directly\nConference xx:xx\nPurple background\ndisplay the Guard and normal call avatar\nand the exit and release button"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413714",
+      "title": "RQPLEIAD_180_38_Auto_Conference_Exit_One_Participant_Re-enter_Conference",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE/Rainbow",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone establish two calls, At least one call is the emergency or the Guard:\n\nemergency/guard + normal call\nnormall call+ emergency/guard",
+          "expected_result": "Will make the conference call directly\nConference xx:xx\nPurple background\nThe  avatar display correctly\nand the exit and release button"
+        },
+        {
+          "step_no": 2,
+          "action": "The normal participant exit the conference call",
+          "expected_result": "the Guard or the Emergency call is still actived."
+        },
+        {
+          "step_no": 3,
+          "action": "Phone makes the outgoing call or receives the incoming call",
+          "expected_result": "the screen display correctly:\ntitle\\background\\avatar\\led"
+        },
+        {
+          "step_no": 4,
+          "action": "When the second call is answered",
+          "expected_result": "Will make the conference call directly\nConference xx:xx\nPurple background\nThe  avatar display correctly\nand the exit and release button"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356997",
+      "title": "RQPLEIAD_180_39_Light/Dark_Mode_Emergency/Guard/Operator_Call",
+      "description": "<p>Device: ALE-30/300/400/500<br />Server: OXE</p>",
+      "preconditions": "<p>OXE:<br />mgr---SIP device management---DM profile---Emergency number----xxxx</p>",
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "<p>settings---device---appearance---light/dark mode<br />and modify the skin type</p>",
+          "expected_result": "<p>can modify  successfully</p>"
+        },
+        {
+          "step_no": 2,
+          "action": "<p>check the Emergency outgoing call screen/ hold screen/ conversation screen</p>",
+          "expected_result": "<p>The screen color: red<br />The background color at the very bottom of the screen:<br />light mode: white <br />dark mode: black</p>"
+        },
+        {
+          "step_no": 3,
+          "action": "<p>check the Guard outgoing call screen/ hold screen/ conversation screen /conference screen</p>",
+          "expected_result": "<p>The screen color: Dark blue<br />The background color at the very bottom of the screen:<br />light mode: white<br />dark mode: black</p>"
+        },
+        {
+          "step_no": 4,
+          "action": "<p>check the Operator outgoing call screen/ hold screen/ conversation screen /conference screen</p>",
+          "expected_result": "<p>The screen color:white<br />The background color at the very bottom of the screen:<br />light mode: white<br />dark mode: black</p>"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356879",
+      "title": "RQPLEIAD_180_40_Hard_Key_Default",
+      "description": "Device: ALE-30/300/400/500\nServer: OXE\n\nF1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE:  Doesn't configure the hard keys on the phone\nPhone is out of box then connects the OXE\n\n Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nradio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500: \nthree options: Triangle cap icon/Back  and Circle cap icon/Home  and Square cap icon/Low power"
+        },
+        {
+          "step_no": 2,
+          "action": "Long press the F1/F2/F3\n\nlong Triangle/Circle/Square key (ALE-500)",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nradio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500: \nthree options: Triangle cap icon/Back  and Circle cap icon/Home  and Square cap icon/Low power"
+        },
+        {
+          "step_no": 3,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off\nthen press the F1 key",
+          "expected_result": "ALE-30/300/400/500:\nIf disable the lock: no action\nIf enable the lock: will lock the phone"
+        },
+        {
+          "step_no": 4,
+          "action": "Phone establish a normal call the led of the F1 is on\nthen press the F1 key\nthen press the F1 key again",
+          "expected_result": "ALE-30/300/400/500:\nwill hold the call, and led of the F1 key is breath\nwill retrieve the call. the led of the F1 key is on"
+        },
+        {
+          "step_no": 5,
+          "action": "Phone establish two normal calls the led of the F1/F2/F3 is on\nthen press the F2 key",
+          "expected_result": "ALE-30/300/400/500:\nwill exit these two calls"
+        },
+        {
+          "step_no": 6,
+          "action": "Phone establish two normal calls the led of the F1/F2/F3 is on\nthen press the F3 key",
+          "expected_result": "ALE-300/400/500:will make the conference call,and led of the F3 key is breath"
+        },
+        {
+          "step_no": 7,
+          "action": "check the Triangle/Circle/Square on ALE500",
+          "expected_result": "The three keys name display correctly\nand press the hard key:\nTriangle : Will Return to the previous interface\nCircle: will turn to the dashboard\nSquare :The screen brightness will decreased"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413081",
+      "title": "RQPLEIAD_180_41_Hard_Key_OXE_Define_Position_Label_Recognition",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500\n\nThis position label recognition must :\n1.Be case insensitive\n2.Accept the following strings as equivalent: “position1”, “position_1”, \"\"position 1”\n3.If the string is different to one of the “position1”, “position2”, “position3” \nby default, the key 120 is mapped to “position1” and 121 to “position2",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nset the progkey 124:programmed with the phone A number on position 1\nmnemo:  position1\nPhone update the config file then check the file\n（/config/dm/config.xxxxxxx.xml）\n![](index.php?/attachments/get/44493)",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey121\"\" value=\"\"0,121,1,position1,xxx,0,x\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 2,
+          "action": "press the hard key:\nALE-30/300/400: F1 key\nALE-500: Triangle Key",
+          "expected_result": "Will makes the outgoing call to the phone A"
+        },
+        {
+          "step_no": 3,
+          "action": "OXE: user---program key\nset the progkey 123:programmed with the phone B number on position 2\nmnemo:  position_2\nPhone update the config file then check the file",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey120\"\" value=\"\"0,120,1,position_2,30461,0,X\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 4,
+          "action": "press the hard key:\nALE-30/300/400: F2 key\nALE-500: Circle Key",
+          "expected_result": "Will makes the outgoing call to the phone B"
+        },
+        {
+          "step_no": 5,
+          "action": "OXE: user---program key\nset the progkey 124:programmed with the phone C number on position 1\nmnemo:  position 1\nPhone update the config file then check the file",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey121\"\" value=\"\"0,121,1,position 1,xxx,0,x\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 6,
+          "action": "press the hard key:\nALE-30/300/400: F1 key\nALE-500: Triangle Key",
+          "expected_result": "Will makes the outgoing call to the phone C"
+        },
+        {
+          "step_no": 7,
+          "action": "OXE: user---program key\nset the progkey 123:programmed with the phone D number on position 2\nmnemo:  POSITION2\nPhone update the config file then check the file",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey120\"\" value=\"\"0,120,1,POSITION2,30461,0,X\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 8,
+          "action": "press the hard key:\nALE-30/300/400: F2 key\nALE-500: Circle Key",
+          "expected_result": "Will makes the outgoing call to the phone D"
+        },
+        {
+          "step_no": 9,
+          "action": "OXE: user---program key\nset the progkey 123 and 124\nmnemo:  the string is different to one of the “position1”, “position2”, “position3”",
+          "expected_result": ".If  and their equivalent as described in the two above points, by default, the key 120 is mapped to “position1” and 121 to “position2"
+        },
+        {
+          "step_no": 10,
+          "action": "press the hard key:\nALE-30: F1/F2 key\nALE-300/400: F1/F2/F3 key\nALE-500: Triangle/Circle Key",
+          "expected_result": "The function is directly"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356954",
+      "title": "RQPLEIAD_180_42_Hard_Key_OXE_Define_Key1_Lock",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nOnly set the progkey 123: programmed with phone A on position 1,and the lock parameter is enabled\nPhone update the config file then check the file",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey120\"\" value=\"\"0,120,1,position1,xxx,0,1\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 2,
+          "action": "Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nALE-300/400: The i icon display at the upper right corner of the screen\nThe left of the options all display the radio button,\nOnly F1 hard key is selected, all hard key names display grey\nALE-30:\ntwo options: Hold cap icon/Phone A and transfer cap icon/Transfer\nALE-300/400:\nthree options: F1 cap icon/Phone A and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Phone A and Circle cap icon/Home and Square cap icon/Low power"
+        },
+        {
+          "step_no": 3,
+          "action": "ALE-30: Long press the F1/F2\nALE-300/400: Long press the F1/F2/F3\nALE-500:Long press Triangle/Circle/Square",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nALE-300/400: The i icon display at the upper right corner of the screen\nThe left of the options all display the radio button,\nOnly F1 hard key is selected, all hard key names display grey\nALE-30:\ntwo options: Hold cap icon/Phone A and transfer cap icon/Transfer\nALE-300/400:\nthree options: F1 cap icon/Phone A and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Phone A and Circle cap icon/Home and Square cap icon/Low power"
+        },
+        {
+          "step_no": 4,
+          "action": "check the f1/f2/f3 function of the ALE-500",
+          "expected_result": "F1: hold\nF2: transfer\nF3: conference"
+        },
+        {
+          "step_no": 5,
+          "action": "ALE-500:\nCheck the Triangle /Circle/Square key",
+          "expected_result": "The three keys name display correctly\nand press the hard key:\nTriangle :Will makes the outgoing call to Phone A\nCircle: will turn to the dashboard\nSquare :The screen brightness will decreased"
+        },
+        {
+          "step_no": 6,
+          "action": "ALE-500:\nPhone establish a call with phone B then press the Triangle key",
+          "expected_result": "Will makes the second outgoing call to phone A"
+        },
+        {
+          "step_no": 7,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off\nthen press the F1 key\neven the lock feature is enabled",
+          "expected_result": "ALE-30/300/400:\nWill makes the outgoing call to phone A"
+        },
+        {
+          "step_no": 8,
+          "action": "Phone establish a call with phone B then press the F1",
+          "expected_result": "ALE-30/300/400:\nWill makes the second outgoing call to phone A"
+        },
+        {
+          "step_no": 9,
+          "action": "Phone establish two normal calls the led of the F1 is off, the led of the F2/F3 is on\nthen press the F2 key",
+          "expected_result": "ALE-30/300/400:\nwill exit these two calls"
+        },
+        {
+          "step_no": 10,
+          "action": "Phone establish two normal calls the led of the F1 is off, the led of the F2/F3 is on\nthen press the F3 key",
+          "expected_result": "ALE-30/300/400:\nwill makes the conference call, and the led of the conference is breath"
+        },
+        {
+          "step_no": 11,
+          "action": "OXE: user---program key\nset the progkey 123 : Not Assigned",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey120\"\" value=\"\"0,120,0,,,0,0\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 12,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys\nor long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nradio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+        }
+      ]
+    },
+    {
+      "case_id": "C10408657",
+      "title": "RQPLEIAD_180_43_Hard_Key_OXE_Define_Key2_Unlock",
+      "description": "F1/F2 on ALE-30, \nF1/F2/F3 on ALE300/400, \nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nOnly set the progkey 124: programmed with the Emergency function on position 2,and the lock parameter is disabled\nPhone update the config file then check the file![](index.php?/attachments/get/44225)",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey121\"\" value=\"\"0,121,1,position2,xxx,0,0\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon display at the upper left corner of the screen\nALE-300/400: The i icon display at the upper right corner of the screen\nThe left of the options all display the radio button,\nF2 hard key name is light the other key is grey\nOnly F2 hard key is selected and the edit icon is displayed on the right\nALE-30:\ntwo options: hold icon button/On hold and transfer cap icon/Emergency\nALE-300/400:\nthree options: hold cap icon/On hold and Red cap icon/Emergency and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/On hold and Circle cap icon/Emergency and Square cap icon/Low power"
+        },
+        {
+          "step_no": 3,
+          "action": "Long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon display at the upper left corner of the screen\nALE-300/400: The i icon display at the upper right corner of the screen\nThe left of the options all display the radio button,\nF2 hard key name is light the other key is grey\nOnly F2 hard key is selected and the edit icon is displayed on the right\nALE-30:\ntwo options: hold icon button/On hold and transfer cap icon/Emergency\nALE-300/400:\nthree options: hold cap icon/On hold and Red cap icon/Emergency and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/On hold and Circle cap icon/Emergency and Square cap icon/Low power"
+        },
+        {
+          "step_no": 4,
+          "action": "check the f1/f2/f3 function of the ALE-500",
+          "expected_result": "F1: hold\nF2: transfer\nF3: conference"
+        },
+        {
+          "step_no": 5,
+          "action": "ALE-500:\nCheck the Triangle /Circle/Square key",
+          "expected_result": "The three keys name display correctly(emergency is red color)\nand press the hard key:\nTriangle :Will Return to the previous interface\nCircle: Will makes the outgoing call to Emergency\nSquare :The screen brightness will decreased"
+        },
+        {
+          "step_no": 6,
+          "action": "ALE-500:\nPhone establish a call with phone B then press the Circle key",
+          "expected_result": "Will makes the second outgoing call to Emergency"
+        },
+        {
+          "step_no": 7,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off\nthen press the F2 key",
+          "expected_result": "ALE-30/300/400:\nMakes the outgoing call to the emergency\nand the screen display correctly"
+        },
+        {
+          "step_no": 8,
+          "action": "Phone establish a normal call. \nDuring the converstiaon then press the F2 key",
+          "expected_result": "ALE-30/300/400:\nMakes the new outgoing call to the emergency\nand the screen display correctly"
+        },
+        {
+          "step_no": 9,
+          "action": "Phone establish a normal call the led of the F1 is on\nthen press the F1 key",
+          "expected_result": "ALE-30/300/400:\nwill hold the call, and led of the F1 key is breath"
+        },
+        {
+          "step_no": 10,
+          "action": "Phone establish two normal calls the led of the F1/F3 is on\nthen press the F3 key",
+          "expected_result": "ALE-300/400:\nwill make the conference call,and led of the F3 key is breath"
+        },
+        {
+          "step_no": 11,
+          "action": "OXE: user---program key\nset the progkey 124 :Not Assigned",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey121\"\" value=\"\"0,121,0,,,0,0\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 12,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys\nor long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nradio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500: \nthree options: Triangle cap icon/Back  and Circle cap icon/Home  and Square cap icon/Low power"
+        }
+      ]
+    },
+    {
+      "case_id": "C10408658",
+      "title": "RQPLEIAD_180_44_Hard_Key_OXE_Define_Key3_Unlock",
+      "description": "F1/F2 on ALE-30, \nF1/F2/F3 on ALE300/400, \nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nOnly set the progkey 124: programmed with the Guard function on position 3,and the lock parameter is disabled\nPhone update the config file then check the file![](index.php?/attachments/get/44226)",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey121\"\" value=\"\"0,121,1,position3,xxx,0,0\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon display at the upper left corner of the screen\nALE-300/400: The i icon display at the upper right corner of the screen\nThe left of the options all display the radio button,\nF3 hard key name is light the other key is grey\nOnly F3 hard key is selected and the edit icon is displayed on the right\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and F1 cap icon/Guard\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Guard"
+        },
+        {
+          "step_no": 3,
+          "action": "Long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon display at the upper left corner of the screen\nALE-300/400: The i icon display at the upper right corner of the screen\nThe left of the options all display the radio button,\nF3 hard key name is light the other key is grey\nOnly F3 hard key is selected and the edit icon is displayed on the right\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and F1 cap icon/Guard\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Guard"
+        },
+        {
+          "step_no": 4,
+          "action": "check the f1/f2/f3 function of the ALE-500",
+          "expected_result": "F1: hold\nF2: transfer\nF3: conference"
+        },
+        {
+          "step_no": 5,
+          "action": "ALE-500:\nCheck the Triangle /Circle/Square key",
+          "expected_result": "The three keys name display correctly\nand press the hard key:\nTriangle : Will Return to the previous interface\nCircle: will turn to the dashboard\nSquare :will makes the outgoing call to guard"
+        },
+        {
+          "step_no": 6,
+          "action": "ALE-500:\nPhone establish a call with phone B then press the Square  key",
+          "expected_result": "Will makes the second outgoing call to guard"
+        },
+        {
+          "step_no": 7,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off\nthen press the F3 key",
+          "expected_result": "ALE-300/400:\nMakes the outgoing call to the guard\nand the screen display correctly"
+        },
+        {
+          "step_no": 8,
+          "action": "Phone establish a normal call.\nDuring the converstiaon then press the F3",
+          "expected_result": "ALE-300/400:\nMakes the new outgoing call to the guard\nand the screen display correctly"
+        },
+        {
+          "step_no": 9,
+          "action": "Phone establish a normal call the led of the F1 is on\nthen press the F1 key",
+          "expected_result": "ALE-30/300/400:\nwill hold the call, and led of the F1 key is breath"
+        },
+        {
+          "step_no": 10,
+          "action": "Phone establish two normal calls the led of the F1/F2 is on, the led of the F3 is off\nthen press the F2 key",
+          "expected_result": "ALE-30/300/400:\nwill exit these two calls"
+        },
+        {
+          "step_no": 11,
+          "action": "OXE: user---program key\nset the progkey 124 :Not Assigned",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey121\"\" value=\"\"0,121,0,,,0,0\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 12,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys\nor long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nradio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500: \nthree options: Triangle cap icon/Back  and Circle cap icon/Home  and Square cap icon/Low power"
+        }
+      ]
+    },
+    {
+      "case_id": "C10408659",
+      "title": "RQPLEIAD_180_45_Hard_Key_OXE_Define_Key 1&2_Lock",
+      "description": "F1/F2 on ALE-30, \nF1/F2/F3 on ALE300/400, \nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nset the progkey 123: programmed with the Emergency function on position 1\nset the progkey 124: programmed with the Guard function on position 2\nAnd the lock parameter are enabled\nPhone update the config file then check the file",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey120\"\" value=\"\"0,120,1,position1,xxx,0,1\"\" override=\"\"true\"\"/>\n<setting id=\"\"SIPUseDeviceKey121\"\" value=\"\"0,121,1,position2,xxx,0,1\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"All keys defined by Admin\"\"\nThe reset to default icon is grey\nOnly F1 and F2 hard key display the radio button and selected, \nhard key names are all grey\nALE-30:\ntwo options: Hold cap icon/Emergency and Transfer cap icon/Guard\nALE-300/400:\nthree options: Red cap icon/ Emergency and F1 cap icon/ Guard and conference cap icon/Conference\nALE-500: \nthree options: Triangle cap icon/ Emergency and Circle cap icon/ Guard and Square cap icon/ Conference\n\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 3,
+          "action": "Long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"\"All keys defined by Admin\"\"\nThe reset to default icon is grey\nOnly F1 and F2 hard key display the radio button and selected, \nhard key names are all grey\nALE-30:\ntwo options: Hold cap icon/Emergency and Transfer cap icon/Guard\nALE-300/400:\nthree options: Red cap icon/ Emergency and F1 cap icon/ Guard and conference cap icon/Conference\nALE-500: \nthree options: Triangle cap icon/ Emergency and Circle cap icon/ Guard and Square cap icon/ Conference\n\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 4,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off\nenable or disable the lock\nthen press the F1 key",
+          "expected_result": "ALE-30/300/400:\nMakes the outgoing call to the emergency\nand the screen display correctly"
+        },
+        {
+          "step_no": 5,
+          "action": "Phone establish a normal call.\nDuring the converstiaon then press the F1 key",
+          "expected_result": "ALE-30/300/400:\nWill makes the new outgoing call to the emergency\nand the screen display correctly"
+        },
+        {
+          "step_no": 6,
+          "action": "Phone is idle then press the F2 Key",
+          "expected_result": "ALE-30/300/400:\nMakes the outgoing call to the guard"
+        },
+        {
+          "step_no": 7,
+          "action": "Phone establish a normal call.\nDuring the converstiaon then press the F2 key",
+          "expected_result": "ALE-30/300/400:\nWill makes the new outgoing call to the guard\nand the screen display correctly"
+        },
+        {
+          "step_no": 8,
+          "action": "Phone establish two normal calls,\nthe led of the F3 is on,the led of the F1/F2 is off\nthen press the F3 key",
+          "expected_result": "ALE-300/400:\nwill make the conference call,and led of the F3 key is breath"
+        },
+        {
+          "step_no": 9,
+          "action": "ALE-500:\nCheck the Triangle /Circle/Square key",
+          "expected_result": "The three keys name display correctly(emergency is red color)\nand press the hard key:\nTriangle :Will makes the outgoing call to emergency\nCircle: Will makes the outgoing call to guard\nSquare :The screen brightness will decreased"
+        },
+        {
+          "step_no": 10,
+          "action": "ALE-500:\nPhone establish a call with phone B then press the Triangle/Circle key",
+          "expected_result": "Will makes the second outgoing call to emergency/guard"
+        },
+        {
+          "step_no": 11,
+          "action": "check the f1/f2/f3 function of the ALE-500",
+          "expected_result": "F1: hold\nF2: transfer\nF3: conference"
+        },
+        {
+          "step_no": 12,
+          "action": "OXE: user---program key\nset the progkey 123 and 124 : Not Assigned",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey120\"\" value=\"\"0,120,0,,,0,0\"\" override=\"\"true\"\"/>\n<setting id=\"\"SIPUseDeviceKey121\"\" value=\"\"0,121,0,,,0,0\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 13,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys\nor long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nradio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+        }
+      ]
+    },
+    {
+      "case_id": "C10408660",
+      "title": "RQPLEIAD_180_46_Hard_Key_OXE_Define_Key 2_Lock_Key 3_Unlock",
+      "description": "F1/F2 on ALE-30, \nF1/F2/F3 on ALE300/400, \nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nset the progkey 123: programmed with the Emergency function on position 3,the lock parameter is disabled\nset the progkey 124: programmed with the Guard function on position 2,the lock paramter is enabled\nPhone update the config file then check the file",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey120\"\" value=\"\"0,120,1,position3,xxx,0,0\"\" override=\"\"true\"\"/>\n<setting id=\"\"SIPUseDeviceKey121\"\" value=\"\"0,121,1,position2,xxx,0,1\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button,\nF2&F3 hard key name is light the F1 key name is grey\nF2 and F3 hard keys are selected but only F3: the edit icon is displayed on the right\nALE-30:\ntwo options: hold cap icon/On hold and Transfer cap icon/Guard\nALE-300/400:\nthree options: hold cap icon/On hold and F1 cap icon/ Guard and Red cap icon/Emergency\nALE-500: \nthree options: Triangle cap icon/ On hold and Circle cap icon/ Guard and Square cap icon/ Emergency\n\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 3,
+          "action": "Long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button,\nF2&F3 hard key name is light the F1 key name is grey\nF2 and F3 hard keys are selected but only F3: the edit icon is displayed on the right\nALE-30:\ntwo options: hold cap icon/On hold and Transfer cap icon/Guard\nALE-300/400:\nthree options: hold cap icon/On hold and F1 cap icon/ Guard and Red cap icon/Emergency\nALE-500: \nthree options: Triangle cap icon/ On hold and Circle cap icon/ Guard and Square cap icon/ Emergency\n\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 4,
+          "action": "ALE-300/400/500:\npress the hard key is not  selected",
+          "expected_result": "will popup\"\"only 2 keys allowed,deselect one key first\"\""
+        },
+        {
+          "step_no": 5,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off\nthen press the F2 key",
+          "expected_result": "ALE-30/300/400:\nMakes the outgoing call to the Guard \nand the screen display corectly"
+        },
+        {
+          "step_no": 6,
+          "action": "Phone establish a normal call then press the F2 key",
+          "expected_result": "ALE-30/300/400:\nMakes the new outgoing call to the Guard \nand the screen display corectly"
+        },
+        {
+          "step_no": 7,
+          "action": "Phone is idle then press the F3 key",
+          "expected_result": "ALE-300/400:\nMakes the outgoing call to the Emergency \nand the screen display corectly"
+        },
+        {
+          "step_no": 8,
+          "action": "Phone establish a normal call then press the F3 key",
+          "expected_result": "ALE-300/400:\nMakes the new outgoing call to the Emergency \nand the screen display corectly"
+        },
+        {
+          "step_no": 9,
+          "action": "Phone establish a normal call the led of the F1 is on\nthen press the F1 key",
+          "expected_result": "ALE-30/300/400:\nwill hold the call, and led of the F1 key is breath"
+        },
+        {
+          "step_no": 10,
+          "action": "Phone establish two normal calls",
+          "expected_result": "the led of the F1 is on, the led of the F2/F3 is off"
+        },
+        {
+          "step_no": 11,
+          "action": "ALE-500:\nCheck the Triangle /Circle/Square key",
+          "expected_result": "The three keys name display correctly(emergency is red color)\nand press the hard key:\nTriangle :Will Return to the previous interface\nCircle: Will makes the outgoing call to guard\nSquare :Will makes the outgoing call to emergency"
+        },
+        {
+          "step_no": 12,
+          "action": "ALE-500:\nPhone establish a call with phone B then press the Triangle/Circle key",
+          "expected_result": "Will makes the second outgoing call to guard/emergency"
+        },
+        {
+          "step_no": 13,
+          "action": "check the f1/f2/f3 function of the ALE-500",
+          "expected_result": "F1: hold\nF2: transfer\nF3: conference"
+        },
+        {
+          "step_no": 14,
+          "action": "OXE: user---program key\nset the progkey 123 and 124 :Not Assigned",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey120\"\" value=\"\"0,120,0,,,0,0\"\" override=\"\"true\"\"/>\n<setting id=\"\"SIPUseDeviceKey121\"\" value=\"\"0,121,0,,,0,0\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 15,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys\nor long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nradio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+        }
+      ]
+    },
+    {
+      "case_id": "C10408661",
+      "title": "RQPLEIAD_180_47_Hard_Key_OXE_Define_Key 1&3_Unlock",
+      "description": "F1/F2 on ALE-30, \nF1/F2/F3 on ALE300/400, \nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nset the progkey 123: programmed with the Emergency function on position 1\nset the progkey 124: programmed with the Guard function on position 3\nAnd the lock parameter are all disabled\nPhone update the config file then check the file",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey120\"\" value=\"\"0,120,1,position1,xxx,0,0\"\" override=\"\"true\"\"/>\n<setting id=\"\"SIPUseDeviceKey121\"\" value=\"\"0,121,1,position3,xxx,0,0\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button,\nF1 and F3 hard key names are light the F2 key name is grey\nF1 and F3 hard keys are selected and the edit icon is displayed on the right\nALE-30:\ntwo options: Hold cap icon/Emergency and transfer cap icon/Transfer\nALE-300/400:\nthree options: Red cap icon/ Emergency and transfer cap icon/Transfer and F1 cap icon/Guard\nALE-500: \nthree options: Triangle cap icon/ Emergency and Circle cap icon/Home and Square cap icon/Guard\n\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 3,
+          "action": "Long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button,\nF1 and F3 hard key names are light the F2 key name is grey\nF1 and F3 hard keys are selected and the edit icon is displayed on the right\nALE-30:\ntwo options: Hold cap icon/Emergency and transfer cap icon/Transfer\nALE-300/400:\nthree options: Red cap icon/ Emergency and transfer cap icon/Transfer and F1 cap icon/Guard\nALE-500: \nthree options: Triangle cap icon/ Emergency and Circle cap icon/Home and Square cap icon/Guard\n\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 4,
+          "action": "ALE-300/400/500:\npress the hard key is not selected",
+          "expected_result": "will popup\"\"only 2 keys allowed,deselect one key first\"\""
+        },
+        {
+          "step_no": 5,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off\nenable or disable the lock\nthen press the F1 key",
+          "expected_result": "ALE-30/300/400:\nMakes the outgoing call to the emergency\nand screen display correctly"
+        },
+        {
+          "step_no": 6,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off\nthen press the F3 key",
+          "expected_result": "ALE-300/400:\nMakes the outgoing call to the Guard\nand screen display correctly"
+        },
+        {
+          "step_no": 7,
+          "action": "Phone establish one normal calls,the led of the F1/F2/F3 IS OFF\nthen press the F1 key",
+          "expected_result": "ALE-30/300/400:\nMakes the new outgoing call to the emergency\nand screen display correctly"
+        },
+        {
+          "step_no": 8,
+          "action": "Phone establish one normal calls,the led of the F1/F2/F3 IS OFF\nthen press the F3 key",
+          "expected_result": "ALE-300/400:\nMakes the new outgoing call to the Guard\nand screen display correctly"
+        },
+        {
+          "step_no": 9,
+          "action": "Phone establish two normal calls, the led of the F2 is on,the led of F1/F3 is off\nthen press the F2 key",
+          "expected_result": "ALE-30/300/400:\nwill exit these two calls"
+        },
+        {
+          "step_no": 10,
+          "action": "ALE-500:\nCheck the Triangle Triangle/Square key",
+          "expected_result": "The three keys name display correctly(emergency is red color)\nand press the hard key:\nTriangle :Will makes the outgoing call to emergency\nCircle: will turn to the homepage\nSquare :Will makes the outgoing call to guard"
+        },
+        {
+          "step_no": 11,
+          "action": "ALE-500:\nPhone establish a call with phone B then press the Triangle/Square key",
+          "expected_result": "Will makes the second outgoing call to emergency/guard"
+        },
+        {
+          "step_no": 12,
+          "action": "check the f1/f2/f3 function of the ALE-500",
+          "expected_result": "F1: hold\nF2: transfer\nF3: conference"
+        },
+        {
+          "step_no": 13,
+          "action": "OXE: user---program key\nset the progkey 123 and 124 :Not Assigned",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey120\"\" value=\"\"0,120,0,,,0,0\"\" override=\"\"true\"\"/>\n<setting id=\"\"SIPUseDeviceKey121\"\" value=\"\"0,121,0,,,0,0\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 14,
+          "action": "Phone Enter the hard keys menu:\nUser/Device/Hard keys\nor long press the F1/F2/F3/Triangle/Circle/Square key",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nradio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+        }
+      ]
+    },
+    {
+      "case_id": "C10408662",
+      "title": "RQPLEIAD_180_48_Hard_Key_OXE_Define_Two_Lock_Hard_Key",
+      "description": "F1/F2 on ALE-30, \nF1/F2/F3 on ALE300/400, \nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nset the progkey 123 and 124, \nand \"\"Lock\"\" parameter is enable",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey120\"\" value=\"\"0,120,1,positionx,xxx,0,1\"\" override=\"\"true\"\"/>\n<setting id=\"\"SIPUseDeviceKey121\"\" value=\"\"0,121,1,positionx,xxx,0,1\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 2,
+          "action": "Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"All keys defined by Admin\"\"\nThe reset to default icon is grey\nOnly the defined key displays the radio button and selected, \nhard key names are all grey\nAnd the cap icon/hard key name display correctly\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 3,
+          "action": "ALE-30: Long press the F1/F2\nALE-300/400: Long press the F1/F2/F3\nALE-500:Long press Triangle/Circle/Square",
+          "expected_result": "Title \"\"All keys defined by Admin\"\"\nThe reset to default icon is grey\nOnly the defined key displays the radio button and selected, \nhard key names are all grey\nAnd the cap icon/hard key name display correctly\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 4,
+          "action": "check the function of the two keys",
+          "expected_result": "the function is correctly"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356998",
+      "title": "RQPLEIAD_180_49_Hard_Key_OXE_Define_One_Lock_Hard_Key_Update",
+      "description": "F1/F2 on ALE-30, \nF1/F2/F3 on ALE300/400, \nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nonly define one of progkey 123 or 124\nand \"\"Lock\"\" parameter is enabled",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey12x\"\" value=\"\"0,12x,1,positionx,xxx,0,1\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 2,
+          "action": "Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"  \nThe reset to default icon is grey\nThe left of the options all display the radio button, but only defined hard key is selected\nhard key names are all grey\nAnd the cap icon/hard key name display correctly\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 3,
+          "action": "ALE-30: Long press the F1/F2\nALE-300/400: Long press the F1/F2/F3\nALE-500:Long press Triangle/Circle/Square",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"  \nThe reset to default icon is grey\nThe left of the options all display the radio button, but only defined hard key is selected\nhard key names are all grey\nAnd the cap icon/hard key name display correctly\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 4,
+          "action": "check the function of the defined key",
+          "expected_result": "the function is correctly"
+        },
+        {
+          "step_no": 5,
+          "action": "Enter the hard keys menu: User/Device/Hard keys\nor long press the hard key\n\nselect one undefined key then press the + button",
+          "expected_result": "will display the key type choine screen\n\nand the choices all display correctly"
+        },
+        {
+          "step_no": 6,
+          "action": "select one key type then save",
+          "expected_result": "Can define the key successfully, and the key is selected and the edit icon is displayed on the right.\ncap icon is F1 or F2(ALE-300/400)\nAnd the reset to default icon display at the upper left corner of the screen\nand enter hard keys menu :display correctly\nlong press the hard key :display correctly"
+        },
+        {
+          "step_no": 7,
+          "action": "check the new function of the hard key",
+          "expected_result": "the fucntion is correctly"
+        },
+        {
+          "step_no": 8,
+          "action": "Check the defined key of the OXE",
+          "expected_result": "This key is defined and content display correctly\n\nlock paramter is unlocked"
+        }
+      ]
+    },
+    {
+      "case_id": "C10408664",
+      "title": "RQPLEIAD_180_50_Hard_Key_OXE_Define_One_Lock_Hard_Key_One_Unlock_Hard_Key_Modify",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nset the progkey 123 and 124,\none key is locked and one key is unlocked",
+          "expected_result": "lock key:\n<setting id=\"\"SIPUseDeviceKey12x\"\" value=\"\"0,12x,1,positionx,xxx,0,1\"\" override=\"\"true\"\"/>\nunlocked key:\n<setting id=\"\"SIPUseDeviceKey12x\"\" value=\"\"0,12x,1,positionx,xxx,0,0\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 2,
+          "action": "Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\" \nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button, but only defined hard key is selected\nUndefined key and lock key are grey, the unlock defined key name is light\nAnd the cap icon/hard key name display correctly\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 3,
+          "action": "ALE-30: Long press the F1/F2\nALE-300/400: Long press the F1/F2/F3\nALE-500:Long press Triangle/Circle/Square",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"  \nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button, but only defined hard key is selected\nUndefined key and lock key are grey, the unlock defined key name is light\nAnd the cap icon/hard key name display correctly\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 4,
+          "action": "Enter the hard keys menu: User/Device/Hard keys\nor long press the hard key\n\nSelect  the defined key which is unlocked and press the + button",
+          "expected_result": "can't modify the label\nonly can modify the value of the number"
+        },
+        {
+          "step_no": 5,
+          "action": "Update the value of the number then save",
+          "expected_result": "can save the configuration successfully"
+        },
+        {
+          "step_no": 6,
+          "action": "press the the hard key when phone is idle",
+          "expected_result": "The function is correctly"
+        },
+        {
+          "step_no": 7,
+          "action": "Enter the hard key settings screen\nPress the edit button then press the delete button",
+          "expected_result": "This key will back to default\n(display and function)"
+        }
+      ]
+    },
+    {
+      "case_id": "C10356999",
+      "title": "RQPLEIAD_180_51_Hard_Key_OXE_Define_One_Lock_Hard_Key_One_Unlock_Hard_Key_Reset_To_Default",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nset the progkey 123 and 124,\none key is locked and one key is unlocked",
+          "expected_result": "lock key:\n<setting id=\"\"SIPUseDeviceKey12x\"\" value=\"\"0,12x,1,positionx,xxx,0,1\"\" override=\"\"true\"\"/>\nunlocked key:\n<setting id=\"\"SIPUseDeviceKey12x\"\" value=\"\"0,12x,1,positionx,xxx,0,0\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 2,
+          "action": "Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"  \nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button, but only defined hard key is selected\nUndefined key and lock key are grey, the unlock defined key name is light\nAnd the cap icon/hard key name display correctly\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 3,
+          "action": "ALE-30: Long press the F1/F2\nALE-300/400: Long press the F1/F2/F3\nALE-500:Long press Triangle/Circle/Square",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\" \nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button, but only defined hard key is selected\nUndefined key and lock key are grey, the unlock defined key name is light\nAnd the cap icon/hard key name display correctly\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 4,
+          "action": "Press the reset to default icon",
+          "expected_result": "The lock defined key:  Not affected\nthe unlock defined key: return to the default"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413077",
+      "title": "RQPLEIAD_180_52_Hard_Key_OXE_Define_Two_Unlock_Hard_Key_Modify",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nset the progkey 123 and 124,\nthe lock paramter are all disabled",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey120\"\" value=\"\"0,120,1,positionx,xxx,0,0\"\" override=\"\"true\"\"/>\n<setting id=\"\"SIPUseDeviceKey121\"\" value=\"\"0,121,1,positionx,xxx,0,0\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 2,
+          "action": "Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button, but only defined hard key is selected and the edit icon is displayed on the right\nUndefined key is grey, the unlock defined key name is light\n\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 3,
+          "action": "ALE-30: Long press the F1/F2\nALE-300/400: Long press the F1/F2/F3\nALE-500:Long press Triangle/Circle/Square",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button, but only defined hard key is selected and the edit icon is displayed on the right\nUndefined key is grey, the unlock defined key name is light\n\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 4,
+          "action": "Enter the hard keys menu: User/Device/Hard keys\nor long press the hard key\npress the edit button of the defined key which is unlocked",
+          "expected_result": "can't modify the label\nonly can modify the value of the number"
+        },
+        {
+          "step_no": 5,
+          "action": "Update the value of the number then save",
+          "expected_result": "can save the configuration successfully"
+        },
+        {
+          "step_no": 6,
+          "action": "press the the hard key when phone is idle",
+          "expected_result": "the fucntion is correctly"
+        },
+        {
+          "step_no": 7,
+          "action": "Check the defined key of the OXE",
+          "expected_result": "This key is defined and content display correctly\n\nlock paramter is unlocked"
+        },
+        {
+          "step_no": 8,
+          "action": "Enter the hard key settings screen\nPress the edit button then press the delete button",
+          "expected_result": "This key will back to default\n(display and function)"
+        },
+        {
+          "step_no": 9,
+          "action": "Check the defined key of the OXE",
+          "expected_result": "This key is not defined"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413082",
+      "title": "RQPLEIAD_180_53_Hard_Key_OXE_Define_Two_Unlock_Hard_Key_Reset_To_Default",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: user---program key\nset the progkey 123 and 124,\nthe lock paramter are all disabled",
+          "expected_result": "<setting id=\"\"SIPUseDeviceKey120\"\" value=\"\"0,120,1,positionx,xxx,0,0\"\" override=\"\"true\"\"/>\n<setting id=\"\"SIPUseDeviceKey121\"\" value=\"\"0,121,1,positionx,xxx,0,0\"\" override=\"\"true\"\"/>"
+        },
+        {
+          "step_no": 2,
+          "action": "Enter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button, but only defined hard key is selected and the edit icon is displayed on the right\nUndefined key is grey, the unlock defined key name is light\n\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 3,
+          "action": "ALE-30: Long press the F1/F2\nALE-300/400: Long press the F1/F2/F3\nALE-500:Long press Triangle/Circle/Square",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button, but only defined hard key is selected and the edit icon is displayed on the right\nUndefined key is grey, the unlock defined key name is light\n\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 4,
+          "action": "Press the reset to default icon",
+          "expected_result": "all hard key display the default content"
+        },
+        {
+          "step_no": 5,
+          "action": "Check the defined key of the OXE",
+          "expected_result": "These keys are not defined"
+        }
+      ]
+    },
+    {
+      "case_id": "C10408667",
+      "title": "RQPLEIAD_180_54_Hard_Key_Phone_Define_Key1",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: Doesn't configure the hard keys \nand these hard key hasn't defined before\n\nALE-30: long press the F1/F2\nALE-300/400: long press the F1/F2/F3\nALE-500: Long press the Triangle/Circle/Square key\n\nor \nEnter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nradio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+        },
+        {
+          "step_no": 2,
+          "action": "Define F1 key :\nSelect the F1 key and press the + button",
+          "expected_result": "will display the key type choine screen\n\nand the choices all display correctly"
+        },
+        {
+          "step_no": 3,
+          "action": "select one key type then save",
+          "expected_result": "Can define the key successfully, and the key is selected and the edit icon is displayed on the right. \ncap icon is F1(ALE-300/400)\nThe reset to default icon display at the upper left corner of the screen\nand enter hard keys menu :display correctly\nlong press the hard key :display correctly"
+        },
+        {
+          "step_no": 4,
+          "action": "ALE-300/400:\nPress the i icon",
+          "expected_result": "display the help screen:  change the physical button\nand wait about 5s the scrren will exited automatically"
+        },
+        {
+          "step_no": 5,
+          "action": "Check the defined key of the OXE",
+          "expected_result": "first defined hard key: is the key 123 on OXE side\nand parameter of the lock: disabled"
+        },
+        {
+          "step_no": 6,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off\nthen press the F1 key\neven the lock feature is enabled\n\nALE-500: press the Triangle",
+          "expected_result": "The function is the new defined."
+        },
+        {
+          "step_no": 7,
+          "action": "Phone establish a call.",
+          "expected_result": "ALE-30/300/400:\nThe led of the F1 is off"
+        }
+      ]
+    },
+    {
+      "case_id": "C10408685",
+      "title": "RQPLEIAD_180_55_Hard_Key_Phone_Define_Key2",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: Doesn't configure the hard keys\nand these hard key hasn't defined before\n\nALE-30: long press the F1/F2\nALE-300/400: long press the F1/F2/F3\nALE-500: Long press the Triangle/Circle/Square key\n\nor\nEnter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nradio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+        },
+        {
+          "step_no": 2,
+          "action": "Define F2 key :\nSelect the F2 key and press the + button",
+          "expected_result": "will display the key type choine screen\n\nand the choices all display correctly"
+        },
+        {
+          "step_no": 3,
+          "action": "select one key type then save",
+          "expected_result": "Can define the key successfully, and the key is selected and the edit icon is displayed on the right. \ncap icon is F1(ALE-300/400)\nThe reset to default icon display at the upper left corner of the screen\nand enter hard keys menu :display correctly\nlong press the hard key :display correctly"
+        },
+        {
+          "step_no": 4,
+          "action": "ALE-300/400:\nPress the i icon",
+          "expected_result": "display the help screen: change the physical button\nand wait about 5s the scrren will exited automatically"
+        },
+        {
+          "step_no": 5,
+          "action": "Check the defined key of the OXE",
+          "expected_result": "first defined hard key: is the key 123 on OXE side\nand parameter of the lock: disabled"
+        },
+        {
+          "step_no": 6,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off\nthen press the F2 key\n\nALE-500: Press the Triangle",
+          "expected_result": "The function is the new defined."
+        },
+        {
+          "step_no": 7,
+          "action": "Phone establish two calls.",
+          "expected_result": "ALE-30/300/400:\nThe led of the F2 is off"
+        }
+      ]
+    },
+    {
+      "case_id": "C10408687",
+      "title": "RQPLEIAD_180_56_Hard_Key_Phone_Define_Key3",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: Doesn't configure the hard keys\nand these hard key hasn't defined before\n\nALE-30: long press the F1/F2\nALE-300/400: long press the F1/F2/F3\nALE-500: Long press the Triangle/Circle/Square key\n\nor\nEnter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nradio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+        },
+        {
+          "step_no": 2,
+          "action": "Define F3  key :\nSelect the F3 key and press the + button",
+          "expected_result": "will display the key type choine screen\n\nand the choices all display correctly"
+        },
+        {
+          "step_no": 3,
+          "action": "select one key type then save",
+          "expected_result": "Can define the key successfully, and the key is selected and the edit icon is displayed on the right. \ncap icon is F1(ALE-300/400)\nThe reset to default icon display at the upper left corner of the screen\nand enter hard keys menu :display correctly\nlong press the hard key :display correctly"
+        },
+        {
+          "step_no": 4,
+          "action": "ALE-300/400:\nPress the i icon",
+          "expected_result": "display the help screen: change the physical button\nand wait about 5s the scrren will exited automatically"
+        },
+        {
+          "step_no": 5,
+          "action": "Check the defined key of the OXE",
+          "expected_result": "first defined hard key: is the key 123 on OXE side\nand parameter of the lock: disabled"
+        },
+        {
+          "step_no": 6,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off\nthen press the F3 key\n\nALE-500: Press the Square button",
+          "expected_result": "The function is the new defined."
+        },
+        {
+          "step_no": 7,
+          "action": "Phone establish two calls.",
+          "expected_result": "ALE-300/400:\nThe led of the F3 is off"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413731",
+      "title": "RQPLEIAD_180_57_Hard_Key_Phone_Define_Key 1&2",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: Doesn't configure the hard keys\nand these hard key hasn't defined before\n\nALE-30: long press the F1/F2\nALE-300/400: long press the F1/F2/F3\nALE-500: Long press the Triangle/Circle/Square key\n\nor\nEnter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nradio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+        },
+        {
+          "step_no": 2,
+          "action": "Define F2 key :\nSelect the F2 key and press the + button",
+          "expected_result": "will display the key type choine screen\n\nand the choices all display correctly"
+        },
+        {
+          "step_no": 3,
+          "action": "select one key type then save",
+          "expected_result": "Can define the key successfully, and the key is selected and the edit icon is displayed on the right. \ncap icon is F1(ALE-300/400)\nThe reset to default icon display at the upper left corner of the screen\nand enter hard keys menu :display correctly\nlong press the hard key :display correctly"
+        },
+        {
+          "step_no": 4,
+          "action": "Define F1 key :\nSelect the F1 key and press the + button",
+          "expected_result": "will display the key type choine screen\n\nand the choices all display correctly"
+        },
+        {
+          "step_no": 5,
+          "action": "select one key type then save",
+          "expected_result": "Can define the key successfully, and the key is selected and the edit icon is displayed on the right. \ncap icon is F2(ALE-300/400)\nThe reset to default icon display at the upper left corner of the screen\nand enter hard keys menu :display correctly\nlong press the hard key :display correctly"
+        },
+        {
+          "step_no": 6,
+          "action": "ALE-300/400:\nPress the i icon",
+          "expected_result": "display the help screen: change the physical button\nand wait about 5s the scrren will exited automatically"
+        },
+        {
+          "step_no": 7,
+          "action": "Check the defined key of the OXE",
+          "expected_result": "first defined hard key: is the key 123 on OXE side\nThe second defined hard key: is the key 124 on OXE side\nand parameter of the lock: disabled"
+        },
+        {
+          "step_no": 8,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off\nthen press the F1 or F2 key\neven the lock feature is enabled\n\nALE-500: Press the Triangle/Circle button",
+          "expected_result": "The function is the new defined."
+        },
+        {
+          "step_no": 9,
+          "action": "Phone establish a call.",
+          "expected_result": "ALE-30/300/400:\nThe led of the F1 is off"
+        },
+        {
+          "step_no": 10,
+          "action": "Phone establish two calls.",
+          "expected_result": "ALE-30/300/400:\nThe led of the F2 is off"
+        }
+      ]
+    },
+    {
+      "case_id": "C10408665",
+      "title": "RQPLEIAD_180_58_Hard_Key_Phone_Define_Key 2&3",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: Doesn't configure the hard keys\nand these hard key hasn't defined before\n\nALE-30: long press the F1/F2\nALE-300/400: long press the F1/F2/F3\nALE-500: Long press the Triangle/Circle/Square key\n\nor\nEnter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nradio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+        },
+        {
+          "step_no": 2,
+          "action": "Define F2 key :\nSelect the F2 key and press the + button",
+          "expected_result": "will display the key type choine screen\n\nand the choices all display correctly"
+        },
+        {
+          "step_no": 3,
+          "action": "select one key type then save",
+          "expected_result": "Can define the key successfully, and the key is selected and the edit icon is displayed on the right. \ncap icon is F1(ALE-300/400)\nThe reset to default icon display at the upper left corner of the screen\nand enter hard keys menu :display correctly\nlong press the hard key :display correctly"
+        },
+        {
+          "step_no": 4,
+          "action": "Define F3 key :\nSelect the F3 key and press the + button",
+          "expected_result": "will display the key type choine screen\n\nand the choices all display correctly"
+        },
+        {
+          "step_no": 5,
+          "action": "select one key type then save",
+          "expected_result": "Can define the key successfully, and the key is selected and the edit icon is displayed on the right. \ncap icon is F2(ALE-300/400)\nThe reset to default icon display at the upper left corner of the screen\nand enter hard keys menu :display correctly\nlong press the hard key :display correctly"
+        },
+        {
+          "step_no": 6,
+          "action": "ALE-300/400:\nPress the i icon",
+          "expected_result": "display the help screen: change the physical button\nand wait about 5s the scrren will exited automatically"
+        },
+        {
+          "step_no": 7,
+          "action": "Check the defined key of the OXE",
+          "expected_result": "first defined hard key: is the key 123 on OXE side\nThe second defined hard key: is the key 124 on OXE side\nand parameter of the lock: disabled"
+        },
+        {
+          "step_no": 8,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off\nthen press the F2 or F3 key\n\nALE-500: press the Circle/Square button",
+          "expected_result": "The function is the new defined."
+        },
+        {
+          "step_no": 9,
+          "action": "Phone establish two calls.",
+          "expected_result": "ale-300/400:\nThe led of the F2 and F3 is off"
+        }
+      ]
+    },
+    {
+      "case_id": "C10414157",
+      "title": "RQPLEIAD_180_59_Hard_Key_Phone_Define_Key 1&3",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "OXE: Doesn't configure the hard keys\nand these hard key hasn't defined before\n\nALE-30: long press the F1/F2\nALE-300/400: long press the F1/F2/F3\nALE-500: Long press the Triangle/Circle/Square key\n\nor\nEnter the hard keys menu:\nUser/Device/Hard keys",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon is grey\nradio button + default cap icon + grey hard key name\nALE-30:\ntwo options: hold cap icon/On hold and transfer cap icon/Transfer\nALE-300/400:\nthree options: hold cap icon/On hold and transfer cap icon/Transfer and conference cap icon/Conference\nALE-500:\nthree options: Triangle cap icon/Back and Circle cap icon/Home and Square cap icon/Low power"
+        },
+        {
+          "step_no": 2,
+          "action": "Define F1 key :\nSelect the F1 key and press the + button",
+          "expected_result": "will display the key type choine screen\n\nand the choices all display correctly"
+        },
+        {
+          "step_no": 3,
+          "action": "select one key type then save",
+          "expected_result": "Can define the key successfully, and the key is selected and the edit icon is displayed on the right. \ncap icon is F1(ALE-300/400)\nThe reset to default icon display at the upper left corner of the screen\nand enter hard keys menu :display correctly\nlong press the hard key :display correctly"
+        },
+        {
+          "step_no": 4,
+          "action": "Define F3 key :\nSelect the F3 key and press the + button",
+          "expected_result": "will display the key type choine screen\n\nand the choices all display correctly"
+        },
+        {
+          "step_no": 5,
+          "action": "select one key type then save",
+          "expected_result": "Can define the key successfully, and the key is selected and the edit icon is displayed on the right. \ncap icon is F2(ALE-300/400)\nThe reset to default icon display at the upper left corner of the screen\nand enter hard keys menu :display correctly\nlong press the hard key :display correctly"
+        },
+        {
+          "step_no": 6,
+          "action": "ALE-300/400:\nPress the i icon",
+          "expected_result": "display the help screen: change the physical button\nand wait about 5s the scrren will exited automatically"
+        },
+        {
+          "step_no": 7,
+          "action": "Check the defined key of the OXE",
+          "expected_result": "first defined hard key: is the key 123 on OXE side\nThe second defined hard key: is the key 124 on OXE side\nand parameter of the lock: disabled"
+        },
+        {
+          "step_no": 8,
+          "action": "Phone is idle mode the led of the F1/F2/F3 is off\nthen press the F1 or F3 key\neven the lock feature is enabled\n\nALE-500: Press the Triangle/Square button",
+          "expected_result": "The function is the new defined."
+        },
+        {
+          "step_no": 9,
+          "action": "Phone establish a call.",
+          "expected_result": "ALE-30/300/400:\nThe led of the F1 is off"
+        },
+        {
+          "step_no": 10,
+          "action": "Phone establish two calls.",
+          "expected_result": "ALE-300/400:\nThe led of the F3 is off"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413096",
+      "title": "RQPLEIAD_180_60_Hard_Key_Defined_Default_Funtcion",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Enter the hard keys menu:\nUser/Device/Hard keys  or long press the hard key",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button, but only two defined hard key is selected and the edit icon is displayed on the right\nUndefined key is grey, the defined key name is light\n\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 2,
+          "action": "Select the one key\nDefine the key to the function (hold /transfer/conference)",
+          "expected_result": "the hard key is selected\ncap icon is hold/transfer/conference\nthe hard key name is light"
+        },
+        {
+          "step_no": 3,
+          "action": "Phone establish a call or two calls\n\nPress the hard key:\n F1/F2 on ALE-30, \nF1/F2/F3 on ALE300/400, \nTriangle/Circle/Square on ALE500",
+          "expected_result": "The function is the correctly\n\ncan hold/transfer/conference the call"
+        },
+        {
+          "step_no": 4,
+          "action": "Phone establish a call or two calls\ncheck the led",
+          "expected_result": "led status is correctly"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413101",
+      "title": "RQPLEIAD_180_61_Hard_Key_Defined_Cap_Icon_Function",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "When the hard key is not defined\ncheck the cap icon",
+          "expected_result": "ALE-30/300/400:\nHold cap icon\nTransfer cap icon\nConference cap icon\nALE-500:\nTriangle cap icon\nCircle cap icon\nSquare cap icon"
+        },
+        {
+          "step_no": 2,
+          "action": "Define the key to Hold/Transfer/Conference\ncheck the cap icon and function",
+          "expected_result": "ALE-30/300/400:  Hold/Transfer/Conference cap icon\nALE-500:\nTriangle/Circle/Square cap icon\nPress the hard key:\nthe function of the key is correctly"
+        },
+        {
+          "step_no": 3,
+          "action": "Define the key to Emergency(Emergency call/ number: emergency number/911/112)\ncheck the cap icon and function",
+          "expected_result": "ALE-300/400:  Red cap icon\nALE-500:\nTriangle/Circle/Square cap icon, and the font color of the dashboard is red\nPress the hard key:\nWill makes the outgoing call to Emergency\nALE-30: Hold/transfer"
+        },
+        {
+          "step_no": 4,
+          "action": "Define the key to phone number/Immediate forward/Deactivate forward\"\"Welcome desk/Operator/Voicemail/\"\"Redial/ Last caller/Cleaning mode/Meet me/Guard/Do not disturb/Lock/Auto answer/Hunting group\n\ncheck the cap icon and function",
+          "expected_result": "ALE-30:  f1 hold/  f2 transfer\nALE-500:  Triangle/Circle/Square Cap icon\n\nALE-300/400:\njust define one key: any position display F1 cap icon\nwhen there are 2 hardkeys configured \n F1 for the 1st one (position 1 or position 2) and F2 for the 2nd one (position 2 or position 3)"
+        },
+        {
+          "step_no": 5,
+          "action": null,
+          "expected_result": "![](index.php?/attachments/get/44682)"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413097",
+      "title": "RQPLEIAD_180_62_Hard_Key_Defined_Unselected",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone configure two hard keys.\nEnter the hard keys menu:\nUser/Device/Hard keys or long press the hard key",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button, but only two defined hard key is selected and the edit icon is displayed on the right\nUndefined key is grey, the defined key name is light\n\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 2,
+          "action": "press the the radio button of the key is not selected",
+          "expected_result": "will popup\"\"only 2 keys allowed,deselect one key first\"\""
+        },
+        {
+          "step_no": 3,
+          "action": "Unselected the two defined keys",
+          "expected_result": "The two keys ard not selected and hard key name is grey\n(display the default function)"
+        },
+        {
+          "step_no": 4,
+          "action": "Check the function of these hard key",
+          "expected_result": "The function is the default:\nF1:hold\nF2L transfer\nF3: conference\nTriangle : back\nCircle: home\nSquare:low power"
+        },
+        {
+          "step_no": 5,
+          "action": "Reset the phone, after phoen start up check the hard keys screen",
+          "expected_result": "The hard key is unselected"
+        },
+        {
+          "step_no": 6,
+          "action": "Select the two leys defined again",
+          "expected_result": "The two keys ard selected and hard key name is light\nand display the function defined before"
+        },
+        {
+          "step_no": 7,
+          "action": "Press the two hard keys",
+          "expected_result": "The function is the defined before"
+        }
+      ]
+    },
+    {
+      "case_id": "C10408686",
+      "title": "RQPLEIAD_180_63_Hard_Key_Phone_Define_Edit",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Phone configure two hard keys\nPhone Enter the hard keys menu:\nUser/Device/Hard keys or long press the hard key",
+          "expected_result": "Title \"\"Edit maximum 2 keys\"\"\nThe reset to default icon display at the upper left corner of the screen\nThe left of the options all display the radio button, but only two defined hard key is selected and the edit icon is displayed on the right\nUndefined key is grey, the defined key name is light\n\nALE-300/400: The i icon display at the upper right corner of the screen"
+        },
+        {
+          "step_no": 2,
+          "action": "Press the edit button",
+          "expected_result": "can't modify the label\nonly can modify the value of the number"
+        },
+        {
+          "step_no": 3,
+          "action": "Update the value of the number then save",
+          "expected_result": "can save the configuration successfully\ncheck the key name display correctly"
+        },
+        {
+          "step_no": 4,
+          "action": "press the the hard key when phone is idle",
+          "expected_result": "The function is correctly"
+        },
+        {
+          "step_no": 5,
+          "action": "Enter the hard key settings screen\nPress the edit button then press the delete button",
+          "expected_result": "This key will back to default \n(display and function)"
+        }
+      ]
+    },
+    {
+      "case_id": "C10413073",
+      "title": "RQPLEIAD_180_64_Hard_Key_Phone_Define_Reset_To_Default",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Enter the hard keys menu:\nconfigure one hard key, and the key is selected.\nthen press the \"\"reset to default\"\" icon",
+          "expected_result": "all hard keys are the default function\n\nand check the 123/124 of the Server: not defined"
+        },
+        {
+          "step_no": 2,
+          "action": "Enter the hard keys menu:\nconfigure two hard keys, and one the key is selected.\nthen press the \"\"reset to default\"\" icon",
+          "expected_result": "all hard keys are the default function\n\nand check the 123/124 of the Server: not defined"
+        },
+        {
+          "step_no": 3,
+          "action": "Enter the hard keys menu:\nconfigure two hard keys, and two keys are selected.\nthen press the \"\"reset to default\"\" icon",
+          "expected_result": "all hard keys are the default function\n\nand check the 123/124 of the Server: not defined"
+        },
+        {
+          "step_no": 4,
+          "action": "Enter the hard keys menu:\nconfigure three hard keys, and one the key is selected.\nthen press the \"\"reset to default\"\" icon",
+          "expected_result": "all hard keys are the default function\n\nand check the 123/124 of the Server: not defined"
+        },
+        {
+          "step_no": 5,
+          "action": "Enter the hard keys menu:\nconfigure three hard keys, and two the key are selected.\nthen press the \"\"reset to default\"\" icon",
+          "expected_result": "all hard keys are the default function\n\nand check the 123/124 of the Server: not defined"
+        }
+      ]
+    },
+    {
+      "case_id": "C10408663",
+      "title": "RQPLEIAD_180_65_Hard_Key_Reset",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "There are 2 defined hard keys.\n\nShort/long press the defined hard key and check the hard key menu",
+          "expected_result": "short press:  the function works normaly\nlong press hard key/enter the hard key menu: The function is display correctly"
+        },
+        {
+          "step_no": 2,
+          "action": "Restart the phone \nthen\nShort/long press the defined hard key and check the hard key menu",
+          "expected_result": "short press:  the function works normaly\nlong press/enter the hard key menu: The function is display correctly"
+        }
+      ]
+    },
+    {
+      "case_id": "C10408666",
+      "title": "RQPLEIAD_180_66_Hard_Key_Reset_To_Factory",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "There are 2 defined hard keys. \nShort/long press the defined hard key and check the hard key menu",
+          "expected_result": "short press:  the function works normaly\nlong press the hard key /enter the hard key menu: The function is display correctly"
+        },
+        {
+          "step_no": 2,
+          "action": "Phone reset flash, then the phone connects the OXE again\nShort/long press the defined hard key and check the hard key menu",
+          "expected_result": "These hard keys will not affected:\n\nshort press:  the function works normaly\nlong press the hard key /enter the hard key menu: The function is display correctly"
+        },
+        {
+          "step_no": 3,
+          "action": "check the undefined key",
+          "expected_result": "Still the default function"
+        }
+      ]
+    },
+    {
+      "case_id": "C10414163",
+      "title": "RQPLEIAD_180_67_Hard_Key_Lock",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "Lock the phone then long press the hard key\neven the hard key has defined the function or not",
+          "expected_result": "Phone no action \ncan't open the hard key setting screen"
+        },
+        {
+          "step_no": 2,
+          "action": "If define the hard key: the Emergency function.\nLock the phone then press the hard key",
+          "expected_result": "phone will makes the outgoing call to the Emergency"
+        },
+        {
+          "step_no": 3,
+          "action": "If define the hard key: except for the Emergency function.\nLock the phone then press the hard key",
+          "expected_result": "ALE-500:\nTriangle--Back;  Circle---homepage ; Square---low power\nALE-30:\nF1: lock/hold F2:transfer\nALE-300/300:\nF1:lock/hold  f2:Transfer; F3：conferen"
+        }
+      ]
+    },
+    {
+      "case_id": "C10414164",
+      "title": "RQPLEIAD_180_68_Hard_Key_During_The_Conversation_Enable_Hard_Key",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "The hard key hasn defined or not\n\nPhone establish a call or two calls",
+          "expected_result": "During the converstaion ,the led display correctly"
+        },
+        {
+          "step_no": 2,
+          "action": "During the converstaion,long press the hard keys",
+          "expected_result": "no action, can't enter the hard keys setting screen"
+        },
+        {
+          "step_no": 3,
+          "action": "During the converstaion,\nsettings---user---device",
+          "expected_result": "The \"\"hard keys\"\"  is gray out"
+        }
+      ]
+    },
+    {
+      "case_id": "C10414171",
+      "title": "RQPLEIAD_180_69_Hard_Key_UPgarde",
+      "description": "F1/F2 on ALE-30,\nF1/F2/F3 on ALE300/400,\nTriangle/Circle/Square on ALE500",
+      "preconditions": null,
+      "steps": [
+        {
+          "step_no": 1,
+          "action": "There are 2 defined hard keys.\n\nShort/long press the defined hard key and check the hard key menu",
+          "expected_result": "short press: the function works normaly\nlong press hard key/enter the hard key menu: The function is display correctly"
+        },
+        {
+          "step_no": 2,
+          "action": "Upgarde the phone",
+          "expected_result": "short press: the function works normaly\nlong press hard key/enter the hard key menu: The function is display correctly"
+        },
+        {
+          "step_no": 3,
+          "action": "Short/long press the defined hard key and check the hard key menu",
+          "expected_result": null
+        }
+      ]
+    }
+  ]
+}
