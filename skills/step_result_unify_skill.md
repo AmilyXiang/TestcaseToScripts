@@ -69,27 +69,72 @@ AAO field requirements:
 - aao.object: primary target entity/state focus, otherwise ""
 - aao.params: object for structured details (for example: {"line": 1, "button": "new_call", "tone": "on_hold"})
 
+## AAO Action Canonicalization
+- aao.action should be a short, lower_snake_case verb or verb phrase that captures the core action.
+- Do not force a fixed set of actions; use the most natural verb from the step.
+- For state descriptions (expected results), use state verbs like "be_in_call", "be_on_hold", "display_icon", "be_locked", "be_idle", "play_tone".
+
+## Allowed Action Examples (not exhaustive)
+dial, answer, hold, resume, switch, mute, unmute, transfer, conference, 
+press, select, navigate, open, close, 
+create, delete, modify, configure, set, enable, disable, 
+verify, check, wait, reboot, power_cycle, lock, unlock, enter_pin, 
+and any other verb that accurately describes the step.
+
 ## Atomic Split Rules
 1. One sub-step must express one main action.
 2. If action text contains multiple operations, split into multiple sub-steps.
 3. If expected_result contains multiple checkpoints, distribute checkpoints to the most relevant sub-steps.
 4. Keep temporal order from source.
 5. If action_substeps exists, treat it as primary split guidance.
-6. If expected_checkpoints exists, treat it as primary assertion guidance.
+6. If expected_checkpoints exists, treat it as primary assertion guidance. **Each checkpoint should become a separate sub-step** if it describes a distinct state after an action, or attached to the corresponding action sub-step.
 7. Each split sub-step must have its own AAO object.
 
-## Empty Field Rules
+## Handling of expected_checkpoints (IMPROVED)
+When expected_checkpoints is provided as an array, you MUST generate a separate sub-step for each checkpoint under the following rules:
+
+- If the checkpoint describes a state that occurs immediately after an action sub-step, you can merge it into the same sub-step as the action (keeping normalized_action non-empty and normalized_expected_result containing the checkpoint).
+- If the checkpoint describes a pure observation without any new action, create a sub-step with:
+  - normalized_action: "" (empty)
+  - normalized_expected_result: the checkpoint sentence
+  - aao.action: a suitable state verb (e.g., "be_in_call", "be_on_hold", "display_icon", "be_idle")
+  - aao.object: the device or element being observed
+- Never leave normalized_expected_result empty when a checkpoint exists; each checkpoint must be captured in some sub-step's normalized_expected_result.
+
+## Empty Field Rules (ENHANCED)
 Use these strict rules:
 
 - normalized_action can be empty only when the sub-step is a pure verification checkpoint and no new action is performed.
 - normalized_expected_result can be empty only when the sub-step is a pure operation and no explicit checkpoint applies.
 - Both fields cannot be empty simultaneously.
-- For expected-only sub-steps, keep aao.action as a state/assertion action when possible (for example: be_in_call, be_on_hold). If not derivable, use empty strings and keep params as {}.
+- For expected-only sub-steps (pure verification), you MUST:
+  - Set normalized_action = ""
+  - Set normalized_expected_result = the checkpoint sentence
+  - Provide a meaningful aao with action = state verb (e.g., "be_in_call", "be_on_hold", "be_locked", "display_icon") and object = the relevant device or UI element.
+
+## Action vs Expected Field Assignment (CRITICAL)
+
+**normalized_action** must contain ONLY imperative actions — a human or device actively does something.
+Signs it is an action: starts with or contains a clear imperative verb (press, dial, answer, put, hold, transfer, enter, send, create, delete, modify, switch, navigate, configure, make, call).
+
+**normalized_expected_result** must contain ONLY observable states or outcomes — something that IS or BECOMES true after the action.
+Signs it is an expected result: passive voice ("is put on hold", "is notified", "is displayed"), state verbs ("rings", "plays", "is busy", "is idle", "is established"), or third-person state sentences without an imperative.
+
+**NEVER** put a state sentence like the following in normalized_action:
+- "phone B is notified that there is a call back request."  ← belongs in normalized_expected_result
+- "phone B plays the on hold tone."                         ← belongs in normalized_expected_result
+- "communication is established between phone A and phone B." ← belongs in normalized_expected_result
+
+If a source step contains ONLY a state outcome and no operator action, produce a sub-step with:
+- normalized_action: ""   (must be empty)
+- normalized_expected_result: "<the state sentence>"
+- aao.action: appropriate state verb (e.g., "be_notified", "play_tone", "be_established")
 
 Examples:
 - Allowed: action non-empty and expected empty.
 - Allowed: action empty and expected non-empty.
 - Forbidden: action empty and expected empty.
+- Forbidden: a state/passive sentence placed in normalized_action.
 
 ## Canonical Sentence Rules
 1. Use simple present tense.
@@ -140,6 +185,8 @@ Before returning JSON, verify:
 5. No object has both normalized_action and normalized_expected_result empty.
 6. Keywords are normalized and deduplicated.
 7. Semantically equivalent actions and assertions use canonical phrasing and stable AAO actions.
+8. normalized_action does NOT contain any passive/state sentence (e.g. "is notified", "is established", "plays", "rings"). If found, move it to normalized_expected_result and set normalized_action to "".
+9. If expected_checkpoints were provided, each checkpoint is captured in exactly one sub-step's normalized_expected_result, and no checkpoint is lost.
 
 ## Positive Example
 

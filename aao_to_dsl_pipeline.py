@@ -91,59 +91,27 @@ def load_synonym_maps(path: Path) -> tuple[Dict[str, str], Dict[str, str], Dict[
     return phrase_to_intent_action, phrase_to_intent_assertion, action_primitive, assertion_primitive
 
 
+# Only match "phone <single-letter>" or "phone <digit>" identifiers (e.g. phone A, phone B, phone 1).
+# This avoids false positives like "phone or", "phone and", "phone in".
+_DEVICE_RE = re.compile(r"\bphone\s+([a-z]|[0-9])\b")
+
+
 def extract_devices(text: str) -> List[str]:
-    return re.findall(r"\bphone\s+[a-z0-9]+\b", text.lower())
+    return [m.group(0) for m in _DEVICE_RE.finditer(text.lower())]
 
 
-def infer_action_intent(action_text: str, phrase_to_intent_action: Dict[str, str]) -> tuple[str, str]:
-    text = action_text.strip().lower()
-    if not text:
-        return "no_action", "empty_action"
-
-    for phrase, intent in phrase_to_intent_action.items():
-        if phrase and phrase in text:
-            return intent, f"phrase:{phrase}"
-
-    # lightweight semantic fallback
-    if "dial" in text or "call" in text:
-        return "call by number", "semantic:dial_or_call"
-    if "answer" in text or "take call" in text:
-        return "answer incoming call", "semantic:answer"
-    if "hang up" in text or "end" in text or "release" in text:
-        return "end active call", "semantic:end_call"
-
-    return "unknown_action", "no_phrase_or_semantic_match"
-
-
-def infer_assertion_intent(expected_text: str, phrase_to_intent_assertion: Dict[str, str]) -> tuple[str, str]:
-    text = expected_text.strip().lower()
-    if not text:
-        return "no_expected", "empty_expected"
-
-    for phrase, intent in phrase_to_intent_assertion.items():
-        if phrase and phrase in text:
-            return intent, f"phrase:{phrase}"
-
-    if any(k in text for k in ["in conversation", "communication is established", "connected"]):
-        return "validate connected conversation", "semantic:conversation"
-    if "rings" in text or "ringing" in text:
-        return "validate ringing call setup", "semantic:ringing"
-    if "idle" in text or "is idle" in text or "are idle" in text:
-        return "validate idle state", "semantic:idle"
-
-    return "unknown_assertion", "no_phrase_or_semantic_match"
-
-
-def build_dsl_entry(entry: Dict[str, Any], phrase_to_intent_action: Dict[str, str], phrase_to_intent_assertion: Dict[str, str]) -> Dict[str, Any]:
+def build_dsl_entry(entry: Dict[str, Any]) -> Dict[str, Any]:
+    """Build DSL entry as a pure passthrough — no hardcoded intent inference.
+    Intent resolution is fully delegated to the LLM in compile_dsl_to_schema."""
     action_text = str(entry.get("normalized_action", "") or "")
     expected_text = str(entry.get("normalized_expected_result", "") or "")
-
-    action_intent, action_evidence = infer_action_intent(action_text, phrase_to_intent_action)
-    assertion_intent, assertion_evidence = infer_assertion_intent(expected_text, phrase_to_intent_assertion)
 
     devices = extract_devices(action_text)
     actor = devices[0] if devices else "current_device"
     target = devices[1] if len(devices) > 1 else ""
+
+    action_intent = "no_action" if not action_text.strip() else "pending_llm"
+    expected_intent = "no_expected" if not expected_text.strip() else "pending_llm"
 
     return {
         "case_id": entry.get("case_id"),
@@ -155,12 +123,10 @@ def build_dsl_entry(entry: Dict[str, Any], phrase_to_intent_action: Dict[str, st
                 "actor": actor,
                 "target": target,
                 "text": action_text,
-                "evidence": action_evidence,
             },
             "expected": {
-                "intent": assertion_intent,
+                "intent": expected_intent,
                 "text": expected_text,
-                "evidence": assertion_evidence,
             },
             "trace": {
                 "title": entry.get("title"),
@@ -170,163 +136,25 @@ def build_dsl_entry(entry: Dict[str, Any], phrase_to_intent_action: Dict[str, st
     }
 
 
-def primitive_name(path: str | None) -> str:
-    if not isinstance(path, str) or "." not in path:
-        return ""
-    return path.split(".")[-1].strip()
-
-
-# Keyword → candidate keys pre-filter table (order matters: more specific first)
-_ACTION_KEYWORD_GROUPS: List[Tuple[str, List[str]]] = [
-    ("call back|callback|call-back|redial|redials|redial physical key|call back key",
-     ["bis", "call_last_caller_from_call_log", "call_last_callee_from_call_log"]),
-    ("answers the call|takes the call|pick up|answer incoming|answering the call",
-     ["take_call", "take_call_by_soft_key", "take_second_call", "handsfree"]),
-    ("does not answer the call|not answer the call|no answer",
-     ["reject_call", "silence_call", "on_no_answer_by_key_to_number", "on_no_answer_by_key_to_voicemail"]),
-    ("presses the new call|new call key|new call and calls",
-     ["new_call"]),
-    ("calls phone|calls the phone|dials|direct dial|off hook dial|handsfree dial",
-     ["direct_dial", "handsfree_dial", "off_hook_dial", "new_call", "call_by_name",
-      "handsfree_off_hook_dial", "off_hook_handsfree_dial"]),
-    ("hang up|hangs up|end call|ends the call|releases the call|puts down",
-     ["release_call", "end_call", "cancel_call"]),
-    ("puts on hold|hold the call|holds the call",
-     ["hold_call", "hold_call_by_softkey"]),
-    ("retrieves the call|retrieve the call|unhold",
-     ["retrieve_call", "retrieve_call_by_softkey"]),
-    ("blind transfer",
-     ["blind_transfer", "blind_transfer_by_softkey"]),
-    ("transfers the call|transfer call|transfer softkey",
-     ["transfer_call", "transfer_call_by_softkey", "blind_transfer", "blind_transfer_by_softkey", "transfer_conference"]),
-    ("switches the active call|broker|switch between",
-     ["broker"]),
-    ("conference|start conference|3-way",
-     ["start_conference", "start_conference_by_softkey", "end_conference", "transfer_conference"]),
-    ("mute|unmute|mutes the call",
-     ["mute", "unmute"]),
-    ("forward|call forward|diverts",
-     ["immediate_by_key_to_number", "immediate_by_key_to_voicemail", "deactivate_forward",
-      "on_busy_by_key_to_number", "on_no_answer_by_key_to_number",
-      "activate_do_not_disturb", "deactivate_do_not_disturb"]),
-    ("voicemail|voice mail",
-        ["immediate_by_key_to_voicemail", "create_voicemail_prog_key_by_menu", "message"]),
-        ("text message|messages|send a text|read a text|read text message|tries to read",
-        ["message", "send_to_create", "send_predefined", "to_complete_text_msg", "to_predefined_text_msg"]),
-        ("password|lock prefix|change password|secret code|bad password",
-        ["enter", "menu_key", "press_softkey", "ok"]),
-    ("create contact|add contact|save contact",
-     ["create_contact_basic_infos", "create_contact_full_infos"]),
-    ("call contact|call by name|contact name",
-     ["call_contact", "call_by_name"]),
-    ("delete contact",
-     ["delete_contact"]),
-    ("call log",
-     ["to_call_log", "to_incoming_call_log", "to_missed_call_log",
-      "to_outgoing_call_log", "delete_call_log"]),
-    ("settings|parameters|configuration",
-     ["to_settings", "to_phone_settings", "to_audio_settings", "to_homepage_settings"]),
-    ("progkeys|programmable key|prog key",
-     ["to_progkeys", "create_prog_key", "del_prog_key_by_label", "use_progkey"]),
-        (r"programming page|emplacement|already defined key|suppression button|update key|newly modified key|choose number|choose\s+\"?number\"?",
-         ["to_progkeys", "create_prog_key_by_menu", "create_call_prog_key_by_menu", "modify_call_prog_key_by_menu",
-            "del_prog_key_by_label", "use_progkey", "press_specific_progkey"]),
-        ("call park|retrieve park|parked call|park using",
-         ["hold_call", "retrieve_call", "retrieve_call_by_softkey", "use_progkey"]),
-        ("search screen|search result|types the first|browse the menu|browses the menu",
-         ["search", "search_and_press", "search_and_press_in_page", "menu_key", "directory"]),
-        ("idle state|is idle|becomes idle|wait until.*idle",
-         ["on_hook", "to_homepage", "hook"]),
-        ("headset.*plugged|connected to a headset",
-         ["switch_handsfree_to_headset", "handsfree"]),
-        ("switches the audio mode|switch from handset|switch from handsfree|group-listening-mode",
-         ["switch_handsfree_to_headset", "handsfree", "hook"]),
-        ("volume level|volume up|volume down",
-         ["volume_up", "volume_down", "set_ringing_volume"]),
-    ("clean|reset|reboot|restart the phone|prepare",
-     ["clean_device", "reset_phone", "prepare_device"]),
-    ("silence|silent ringing",
-     ["silence_call", "silence_second_call", "activate_silent_ringing"]),
-    ("reject|refuses the call",
-     ["reject_call", "reject_second_call"]),
-    ("deflect|deflects to vm",
-     ["deflect_call_to_VM", "deflect_second_call_to_VM"]),
-    ("handsfree|speaker",
-     ["handsfree", "handsfree_dial", "handsfree_off_hook_dial", "switch_handsfree_to_headset"]),
-    ("interphony",
-     ["interphony_on", "interphony_off", "deactivate_interphony"]),
-]
-
-_ASSERTION_KEYWORD_GROUPS: List[Tuple[str, List[str]]] = [
-    ("in conversation|communication is established|connected|talking",
-     ["are_in_conversation", "are_in_conversation_contact", "are_in_conversation_stress_tests"]),
-    ("calling and receiving|setting up the call|ringing|is ringing|rings",
-     ["are_calling_and_receiving", "are_calling_and_receiving_second_call", "is_ringing"]),
-    ("on hold|put on hold|hold tone",
-     ["is_on_hold"]),
-    ("conference|3-way call",
-     ["are_in_conference", "has_initiate_conference"]),
-    ("mute led|mute indicator",
-     ["is_mute_led_active", "is_mute_led_on_idle"]),
-    ("handsfree|speaker mode",
-     ["is_voicemode_handsfree"]),
-    ("headset mode",
-     ["is_voicemode_headset"]),
-    ("handset mode",
-     ["is_voicemode_handset"]),
-    ("idle|no call",
-     ["is_voicemode_idle"]),
-    ("missed call|missed calls",
-     ["has_missed_call", "has_missed_calls_or_messages"]),
-    ("has called|outgoing call|has dialed",
-     ["has_called", "has_dialed"]),
-    ("has received|incoming call log",
-     ["has_received_call"]),
-    ("forward.*ok|forward is active|forward is set",
-     ["forward_definition_OK"]),
-    ("forward.*error|forward failed",
-     ["forward_definition_error"]),
-    ("display|screen shows|text displayed|shown on screen",
-     ["is_text_on_screen", "text_displayed_on_sreen", "is_default_homepage_displayed"]),
-    ("voice message|voicemail message",
-     ["has_voice_messages"]),
-    ("transferred|being transferred",
-     ["are_being_transfered"]),
-    ("interphony active",
-     ["is_interphony_active"]),
-    ("silent|no sound",
-     ["is_silent"]),
-    ("busy|line busy",
-     ["distant_is_busy"]),
-]
-
-
-def _prefilter_candidates(
-    text: str,
-    allowed: set[str],
-    groups: List[Tuple[str, List[str]]],
-    top_n: int = 30,
-) -> set[str]:
-    """Return a smaller candidate set based on keyword matching."""
-    text_lower = text.lower()
-    candidates: set[str] = set()
-    for keywords_raw, keys in groups:
-        matched = False
-        try:
-            matched = re.search(keywords_raw, text_lower) is not None
-        except re.error:
-            matched = False
-        if not matched:
-            for kw in keywords_raw.split("|"):
-                if kw.strip() and kw.strip() in text_lower:
-                    matched = True
-                    break
-        if matched:
-            candidates.update(k for k in keys if k in allowed)
-    # If too few candidates, fall back to full list
-    if len(candidates) < 3:
-        return allowed
-    return candidates
+def _format_capability_list(keys: set[str], labels: Dict[str, str]) -> str:
+    """Format capability keys grouped by category for a structured LLM prompt.
+    Labels are expected in the form '[Category] description'."""
+    from collections import defaultdict
+    by_category: Dict[str, List[str]] = defaultdict(list)
+    for k in sorted(keys):
+        label = labels.get(k, k)
+        if "]" in label:
+            cat = label.split("]")[0].lstrip("[")
+            desc = label.split("]", 1)[1].strip()
+        else:
+            cat = "Other"
+            desc = label
+        by_category[cat].append(f"  - {k}: {desc}")
+    lines: List[str] = []
+    for cat in sorted(by_category.keys()):
+        lines.append(f"[{cat}]")
+        lines.extend(by_category[cat])
+    return "\n".join(lines)
 
 
 def _looks_like_state_step(text: str) -> bool:
@@ -348,30 +176,31 @@ def llm_pick_action(
     action_text: str,
     allowed_actions: set[str],
     action_labels: Dict[str, str] | None = None,
+    cache: Dict[str, str] | None = None,
 ) -> str:
+    """Use LLM to map a normalized action text to the best matching capability key.
+    No hardcoded keyword pre-filtering — the full capability registry is always used.
+    cache: optional shared dict {action_text -> key} to avoid duplicate LLM calls."""
     if client is None or not action_text.strip():
         return "custom_action"
 
-    # Step 1: pre-filter to manageable candidate set
-    candidates = _prefilter_candidates(action_text, allowed_actions, _ACTION_KEYWORD_GROUPS)
+    if cache is not None and action_text in cache:
+        return cache[action_text]
 
-    labels = action_labels or {}
-    lines = [f"- {k}: {labels.get(k, k)}" for k in sorted(candidates) if k]
-    choices = "\n".join(lines)
+    choices = _format_capability_list(allowed_actions, action_labels or {})
 
     system_msg = (
-        "You are an expert at mapping IP phone test steps to capability function names.\n"
+        "You are an expert at mapping test step descriptions to automation capability function names.\n"
         "Rules:\n"
         "1. Return ONLY valid JSON {\"action\": \"chosen_key\"}.\n"
-        "2. chosen_key MUST be one of the listed keys (exact match, case-sensitive).\n"
-        "3. Use 'custom_action' ONLY if the step truly doesn't match any listed key.\n"
-        "4. Ignore device names like 'phone A', 'phone B' — focus on the VERB/ACTION.\n"
-        "5. Examples: 'calls phone B' → direct_dial; 'answers the call' → take_call; "
-        "'puts on hold' → hold_call; 'switches active call' → broker."
+        "2. chosen_key MUST exactly match one of the listed keys (exact match, case-sensitive).\n"
+        "3. Use 'custom_action' ONLY if no listed key is semantically appropriate.\n"
+        "4. Focus on the VERB/ACTION being performed; ignore device names (e.g. 'phone A').\n"
+        "5. Choose the most specific matching key available."
     )
     user_msg = (
         f"Test step: {action_text}\n\n"
-        f"Candidate capability keys (key: description):\n{choices}\n\n"
+        f"Available capability keys (grouped by category):\n{choices}\n\n"
         "Which key best matches the test step action? Return JSON."
     )
 
@@ -389,9 +218,15 @@ def llm_pick_action(
         obj = json.loads(content)
         action = str(obj.get("action", "custom_action") or "custom_action").strip()
         if action in allowed_actions:
+            if cache is not None:
+                cache[action_text] = action
             return action
     except Exception:
+        if cache is not None:
+            cache[action_text] = "custom_action"
         return "custom_action"
+    if cache is not None:
+        cache[action_text] = "custom_action"
     return "custom_action"
 
 
@@ -401,30 +236,31 @@ def llm_pick_assertion(
     expected_text: str,
     allowed_assertions: set[str],
     assertion_labels: Dict[str, str] | None = None,
+    cache: Dict[str, str] | None = None,
 ) -> str:
+    """Use LLM to map a normalized expected result to the best matching assertion key.
+    No hardcoded keyword pre-filtering — the full assertion registry is always used.
+    cache: optional shared dict {expected_text -> key} to avoid duplicate LLM calls."""
     if client is None or not expected_text.strip():
         return ""
 
-    # Step 1: pre-filter to manageable candidate set
-    candidates = _prefilter_candidates(expected_text, allowed_assertions, _ASSERTION_KEYWORD_GROUPS)
+    if cache is not None and expected_text in cache:
+        return cache[expected_text]
 
-    labels = assertion_labels or {}
-    lines = [f"- {k}: {labels.get(k, k)}" for k in sorted(candidates) if k]
-    choices = "\n".join(lines)
+    choices = _format_capability_list(allowed_assertions, assertion_labels or {})
 
     system_msg = (
-        "You are an expert at mapping IP phone test expected results to assertion function names.\n"
+        "You are an expert at mapping test expected results to assertion function names.\n"
         "Rules:\n"
         "1. Return ONLY valid JSON {\"assertion\": \"chosen_key\"}.\n"
-        "2. chosen_key MUST be one of the listed keys (exact match, case-sensitive).\n"
-        "3. Use empty string if nothing fits: {\"assertion\": \"\"}.\n"
-        "4. Ignore device names — focus on the STATE being verified.\n"
-        "5. Examples: 'communication is established' → are_in_conversation; "
-        "'phone is ringing' → is_ringing; 'put on hold' → is_on_hold."
+        "2. chosen_key MUST exactly match one of the listed keys (exact match, case-sensitive).\n"
+        "3. Return {\"assertion\": \"\"} if no key is semantically appropriate.\n"
+        "4. Focus on the STATE being verified; ignore device names.\n"
+        "5. Choose the most specific matching key available."
     )
     user_msg = (
         f"Expected result: {expected_text}\n\n"
-        f"Candidate assertion keys (key: description):\n{choices}\n\n"
+        f"Available assertion keys (grouped by category):\n{choices}\n\n"
         "Which key best matches? Return JSON."
     )
 
@@ -442,42 +278,43 @@ def llm_pick_assertion(
         obj = json.loads(content)
         assertion = str(obj.get("assertion", "") or "").strip()
         if assertion in allowed_assertions:
+            if cache is not None:
+                cache[expected_text] = assertion
             return assertion
     except Exception:
+        if cache is not None:
+            cache[expected_text] = ""
         return ""
+    if cache is not None:
+        cache[expected_text] = ""
     return ""
 
 
 def compile_dsl_to_schema(
     dsl_entry: Dict[str, Any],
-    action_primitive_map: Dict[str, str],
-    assertion_primitive_map: Dict[str, str],
     allowed_actions: set[str],
     allowed_assertions: set[str],
     client: OpenAI | None,
     model: str,
     action_labels: Dict[str, str] | None = None,
     assertion_labels: Dict[str, str] | None = None,
+    action_cache: Dict[str, str] | None = None,
+    assertion_cache: Dict[str, str] | None = None,
 ) -> Dict[str, Any]:
     dsl = dsl_entry.get("dsl", {})
     act_block = dsl.get("action", {}) if isinstance(dsl, dict) else {}
     exp_block = dsl.get("expected", {}) if isinstance(dsl, dict) else {}
 
-    action_intent = str(act_block.get("intent", "") or "")
     action_text = str(act_block.get("text", "") or "")
     actor = str(act_block.get("actor", "") or "")
     target = str(act_block.get("target", "") or "")
 
     if client is not None and action_text.strip():
-        # LLM-first: directly pick from full capability list with descriptions
-        action = llm_pick_action(client, model, action_text, allowed_actions, action_labels)
+        action = llm_pick_action(client, model, action_text, allowed_actions, action_labels, cache=action_cache)
         pick_path = "llm_direct"
     else:
-        # Fallback: primitive map (synonym_map.json) when no LLM
-        action = primitive_name(action_primitive_map.get(action_intent))
-        if action not in allowed_actions or action == "":
-            action = "custom_action"
-        pick_path = "primitive_map"
+        action = "custom_action" if action_text.strip() else ""
+        pick_path = "no_llm_fallback"
 
     params = {}
     if actor:
@@ -485,14 +322,13 @@ def compile_dsl_to_schema(
     if target:
         params["target"] = target
 
-    assertion_intent = str(exp_block.get("intent", "") or "")
     expected_text = str(exp_block.get("text", "") or "")
     expected_items: List[Dict[str, Any]] = []
     if expected_text:
         if client is not None:
-            assertion = llm_pick_assertion(client, model, expected_text, allowed_assertions, assertion_labels)
+            assertion = llm_pick_assertion(client, model, expected_text, allowed_assertions, assertion_labels, cache=assertion_cache)
         else:
-            assertion = primitive_name(assertion_primitive_map.get(assertion_intent))
+            assertion = ""
         if assertion and assertion in allowed_assertions:
             expected_items.append({"action": assertion, "params": {}})
         else:
@@ -502,7 +338,7 @@ def compile_dsl_to_schema(
     if action == "custom_action" and _looks_like_state_step(action_text):
         promoted_assertion = ""
         if client is not None:
-            promoted_assertion = llm_pick_assertion(client, model, action_text, allowed_assertions, assertion_labels)
+            promoted_assertion = llm_pick_assertion(client, model, action_text, allowed_assertions, assertion_labels, cache=assertion_cache)
         if promoted_assertion and promoted_assertion in allowed_assertions:
             expected_items.insert(0, {"action": promoted_assertion, "params": {}})
         elif not expected_items:
@@ -516,8 +352,6 @@ def compile_dsl_to_schema(
         "expected": expected_items,
         "_meta": {
             "path": pick_path,
-            "dsl_action_intent": action_intent,
-            "dsl_expected_intent": assertion_intent,
         },
     }
 
@@ -548,42 +382,55 @@ def run(
     input_path: Path,
     dsl_output_path: Path,
     action_output_path: Path,
-    synonym_map_path: Path,
     capability_registry_path: Path,
     model: str,
     api_key: str | None,
     base_url: str,
+    synonym_map_path: Path | None = None,  # kept for CLI backward-compat, not used for routing
 ) -> None:
     payload = load_json(input_path)
     entries = payload.get("entries", []) if isinstance(payload, dict) else []
     if not isinstance(entries, list):
         raise ValueError("Input must contain entries list")
 
-    phrase_to_intent_action, phrase_to_intent_assertion, action_primitive_map, assertion_primitive_map = load_synonym_maps(synonym_map_path)
     allowed_actions = load_registry(capability_registry_path, "action", default_extra={"custom_action"})
     allowed_assertions = load_registry(capability_registry_path, "assertion")
     action_labels = load_capability_labels(capability_registry_path, "action")
     assertion_labels = load_capability_labels(capability_registry_path, "assertion")
     client = OpenAI(api_key=api_key, base_url=base_url) if api_key else None
-    
+
+    # Shared LLM result caches — keyed by normalized text, guarded by a lock for thread safety.
+    # Any identical text across sub_steps hits the cache instead of calling the LLM again.
+    import threading
+    _cache_lock = threading.Lock()
+    _action_cache: Dict[str, str] = {}
+    _assertion_cache: Dict[str, str] = {}
+
+    def _cached_action(text: str) -> str:
+        with _cache_lock:
+            if text in _action_cache:
+                return _action_cache[text]
+        result = llm_pick_action(client, model, text, allowed_actions, action_labels, cache=None)
+        with _cache_lock:
+            _action_cache[text] = result
+        return result
+
+    def _cached_assertion(text: str) -> str:
+        with _cache_lock:
+            if text in _assertion_cache:
+                return _assertion_cache[text]
+        result = llm_pick_assertion(client, model, text, allowed_assertions, assertion_labels, cache=None)
+        with _cache_lock:
+            _assertion_cache[text] = result
+        return result
+
     # Initialize DSL validator
     dsl_registry_path = capability_registry_path.parent / "dsl_registry.json"
     dsl_validator = DSLValidator(dsl_registry_path, capability_registry_path)
     print(f"DSL Validator: {dsl_validator.get_stats()}")
 
-    dsl_rows = [build_dsl_entry(e, phrase_to_intent_action, phrase_to_intent_assertion) for e in entries]
-    
-    # Validate and auto-supplement DSL entries
-    for i, row in enumerate(dsl_rows):
-        dsl = row.get("dsl", {})
-        action_intent = dsl.get("action", {}).get("intent", "")
-        assertion_intent = dsl.get("expected", {}).get("intent", "")
-        
-        if action_intent:
-            dsl_validator.get_or_create_dsl(action_intent, "action", "Custom", dsl.get("action", {}).get("text", ""))
-        if assertion_intent:
-            dsl_validator.get_or_create_dsl(assertion_intent, "assertion", "Custom", dsl.get("expected", {}).get("text", ""))
-    
+    dsl_rows = [build_dsl_entry(e) for e in entries]
+
     dsl_payload = {
         "meta": {
             "source": str(input_path),
@@ -601,16 +448,28 @@ def run(
 
     def _compile_one(idx_row: Tuple[int, Dict[str, Any]]) -> Tuple[int, Dict[str, Any]]:
         idx, r = idx_row
+        dsl = r.get("dsl", {})
+        action_text = str(dsl.get("action", {}).get("text", "") or "")
+        expected_text = str(dsl.get("expected", {}).get("text", "") or "")
+
+        # Pre-populate cache entries via the thread-safe wrappers before calling compile.
+        # compile_dsl_to_schema will read from the cache dicts directly (no lock needed
+        # at that point because the value is already present).
+        if client is not None and action_text.strip():
+            _cached_action(action_text)
+        if client is not None and expected_text.strip():
+            _cached_assertion(expected_text)
+
         return idx, compile_dsl_to_schema(
             r,
-            action_primitive_map,
-            assertion_primitive_map,
             allowed_actions,
             allowed_assertions,
             client,
             model,
             action_labels=action_labels,
             assertion_labels=assertion_labels,
+            action_cache=_action_cache,
+            assertion_cache=_assertion_cache,
         )
 
     with ThreadPoolExecutor(max_workers=max_workers) as pool:
@@ -638,17 +497,17 @@ def run(
     print(f"Action output: {action_output_path}")
     print(f"Rows: {len(compiled_rows)}")
     print(f"Custom action: {custom_count} ({(custom_count / len(compiled_rows) * 100 if compiled_rows else 0):.1f}%)")
+    print(f"LLM cache: {len(_action_cache)} unique action texts, {len(_assertion_cache)} unique assertion texts")
     print(f"DSL Validator final: {dsl_validator.get_stats()}")
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Demo pipeline: AAO -> DSL -> Action Schema (with DSL auto-validation)")
+    parser = argparse.ArgumentParser(description="AAO -> DSL -> Action Schema (fully LLM-driven, no hardcoded rules)")
     parser.add_argument("--input", type=Path, required=True, help="Input normalized_kb JSON")
     parser.add_argument("--dsl-output", type=Path, required=True, help="Output DSL JSON")
     parser.add_argument("--action-output", type=Path, required=True, help="Output action schema JSON")
-    parser.add_argument("--synonym-map", type=Path, default=Path("resource/synonym_map.json"))
+    parser.add_argument("--synonym-map", type=Path, default=None, help="[deprecated, no longer used for routing]")
     parser.add_argument("--capability-registry", type=Path, default=Path("resource/capability_registry.json"))
-    parser.add_argument("--dsl-registry", type=Path, default=None, help="DSL registry path (auto-discovered if not specified)")
     parser.add_argument("--model", type=str, default="deepseek-chat")
     parser.add_argument("--api-key", type=str, default=None)
     parser.add_argument("--base-url", type=str, default="https://api.deepseek.com")
@@ -658,7 +517,6 @@ def main() -> None:
         input_path=args.input,
         dsl_output_path=args.dsl_output,
         action_output_path=args.action_output,
-        synonym_map_path=args.synonym_map,
         capability_registry_path=args.capability_registry,
         model=args.model,
         api_key=args.api_key,
