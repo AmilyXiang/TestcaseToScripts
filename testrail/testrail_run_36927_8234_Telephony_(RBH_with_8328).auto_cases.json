@@ -1,0 +1,463 @@
+{
+  "run_id": 36927,
+  "run_name": "8234 Telephony (RBH with 8328)",
+  "auto_case_count": 12,
+  "cases": [
+    {
+      "id": 274744731,
+      "case_id": 10172155,
+      "run_id": 36927,
+      "status_id": 1,
+      "title": "US001-02_01_Block_mode_dialing_8262_SIP",
+      "custom_category": 2,
+      "custom_level": 1,
+      "type_id": 7,
+      "priority_id": 2,
+      "refs": "None",
+      "custom_description": "<h1>A) Objective :</h1>\r\n\r\n<p>The aim of this test is to check the user story :<br />\r\n <strong>US001-02 -</strong> As a user, I want to be able to dial a number in block mode or<br />in overlap mode.</p>\r\n\r\n<p>The aim of this test is to check that a call can be made in <strong>block mode dialing</strong>.<br />\r\nNumbers are dialed locally and sent to the call server upon off hook key&nbsp;&nbsp;</p>\r\n\r\n<p>Select on the system the required codec used for the base:<br />\r\n <strong>\\- G711</strong> (law a or ?)<br />\r\n <strong>\\- G729</strong> (A or AB)&nbsp;&nbsp;</p>\r\n\r\n<p><em>Note : Only one codec G726 is used in the DECT mobile ; it is not modifiable.</em>&nbsp;&nbsp;</p>\r\n\r\n<h1>B) Equipment and system configuration</h1>\r\n\r\n<p>\\- 1 System (Rainbow office, Rainbow hub, OXE or OXO)<br />\r\n\\- 1 Base station : DECT Base Station (any kind of base station)<br />\\- 1 DECT mobile : 8214 DECT = DUT (Device Under Test)<br />\r\n\\- 1 DECT charger&nbsp;&nbsp;</p>\r\n",
+      "custom_preconds": null,
+      "custom_steps_separated": [
+        {
+          "content": "<p><strong>Start dialing without off-hooking then press \"green\" key</strong></p><p>\\- use the different audio modes to talk to the distant set (handset and handsfree)<br>\\- set the volume level in each audio mode<br>\\- release the call by \"on-hook\"<br><strong>In CAT IQ</strong> mode the pressing on the OK key gives the possibility to save the dialed number to the local directory.</p><p>The user must press the off hook key to lauch the number dialed in block mode.</p>",
+          "expected": "<p>\\- be carefull about the tons (dial, routing, alerting ...)<br>-a bi directionnal call<br>-a good audio quality<br>-no perturbation can be heard during the transition phases between two audio modes<br>-volume level changes are operating<br>-the display is good<br>-the communication has been released&nbsp;&nbsp;</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>Start dialing without off-hooking then press \"green\" key<br>(For CatIq mode on OXO system this action should be:Start dialing without off-hooking then press \"off-hooking button\")&nbsp;&nbsp;</p><p>Release the communication by on-hook during the distant set is ringing.</p>",
+          "expected": "<p>-the call has been released<br>-the set is available again when you off-hook</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p><strong>Start dialing without off-hooking then press \"green\" key</strong> &nbsp;</p><p><strong>Release the communication by on-hook before the distant set rings.</strong> &nbsp;</p>",
+          "expected": "<p>-the call has been released<br>-the set is available again when you off-hook&nbsp;&nbsp;</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        }
+      ],
+      "custom_keywords": null
+    },
+    {
+      "id": 274744732,
+      "case_id": 10172156,
+      "run_id": 36927,
+      "status_id": 1,
+      "title": "US001-03_01_Outgoing_call_by_personal_directory_8262_SIP",
+      "custom_category": 2,
+      "custom_level": 1,
+      "type_id": 7,
+      "priority_id": 2,
+      "refs": "None",
+      "custom_description": "<h1>A) Objective :</h1>\r\n\r\n<p>The aim of this test is to check the user story :<br />\r\n <strong>US001-03 -</strong> As a user, I want to be able to made a call using the personal directory </p>\r\n\r\n<p>Select on the system the required codec used for the base :<br />\r\n <strong>\\- G711</strong> (law a or ?)<br />\r\n <strong>\\- G729</strong> (A or AB)&nbsp;&nbsp;</p>\r\n\r\n<p><em>Note : Only one codec G726 is used in the DECT mobile ; it is not modifiable.</em>&nbsp;&nbsp;</p>\r\n\r\n<h1>B) Equipment and system configuration</h1>\r\n\r\n<p>\\- 1 System (Rainbow office, Rainbow hub, OXE or OXO)<br />\r\n\\- 1 Base station : DECT Base Station (any kind of base station)<br />\\- 1 DECT mobile : 8214 DECT = DUT (Device Under Test)<br />\r\n\\- 1 DECT charger&nbsp;&nbsp;</p>\r\n",
+      "custom_preconds": null,
+      "custom_steps_separated": [
+        {
+          "content": "<p><strong>Create a personal directory</strong> in the contact list of the phone under test.&nbsp;&nbsp;</p><p>Create some entries with internal numbers and some with external</p>",
+          "expected": "<p>\\- Entered contacts are listed at local contacts app. opening</p><p>\\- Each contact can be scrolled and validated</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>Initiate an outgoing call using the personal directory for an <strong>internal number</strong></p>",
+          "expected": "<p>Check that the call can be established correctly.</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        }
+      ],
+      "custom_keywords": null
+    },
+    {
+      "id": 274744733,
+      "case_id": 10172157,
+      "run_id": 36927,
+      "status_id": 1,
+      "title": "US001-05_01_Emergency_call_handset_locked_8262_SIP",
+      "custom_category": 2,
+      "custom_level": 1,
+      "type_id": 7,
+      "priority_id": 2,
+      "refs": "None",
+      "custom_description": "<h1>A) Objective :</h1>\r\n\r\n<p>The aim of this test is to check the user story :<br />\r\n <strong>US001-05 -&nbsp;&nbsp; As a user, I want to be able to directly call one of the emergency numbers even if the set is \"call server locked\".</strong></p>\r\n\r\n<p>Select on the system the required codec used for the base :<br />\r\n <strong>\\- G711</strong> (law a or ?)<br />\r\n <strong>\\- G729</strong> (A or AB)&nbsp;&nbsp;</p>\r\n\r\n<p><em>Note : Only one codec G726 is used in the DECT mobile ; it is not modifiable.</em>&nbsp;&nbsp;</p>\r\n\r\n<h1>B) Equipment and system configuration</h1>\r\n\r\n<p>\\- 1 System (Rainbow office, Rainbow hub, OXE or OXO)<br />\r\n\\- 1 Base station : DECT Base Station (any kind of base station)<br />\\- 1 DECT mobile : 8214 DECT = DUT (Device Under Test)<br />\r\n\\- 1 DECT charger&nbsp;&nbsp;</p>\r\n",
+      "custom_preconds": null,
+      "custom_steps_separated": [
+        {
+          "content": "<p><strong>Lock the DUT with the handset MMI services (call server lock).</strong></p><p>On the DUT, try to dial an emergency destination number.</p>",
+          "expected": "<p>It's possible to make an emergency call.</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        }
+      ],
+      "custom_keywords": null
+    },
+    {
+      "id": 274744734,
+      "case_id": 10172158,
+      "run_id": 36927,
+      "status_id": 1,
+      "title": "US001-04_02_Outgoing_call_by_system_directory_8262_SIP",
+      "custom_category": 2,
+      "custom_level": 1,
+      "type_id": 7,
+      "priority_id": 2,
+      "refs": "None",
+      "custom_description": "<h1>A) Objective :</h1>\r\n\r\n<p>The aim of this test is to check the user story :<br />\r\n <strong>US001-04 -</strong> As a user, I want to be able to made a call using the system directory </p>\r\n\r\n<p>Select on the system the required codec :<br />\r\n <strong>\\- G711</strong> (law a or ?)<br />\r\n <strong>\\- G729</strong> (A or AB)&nbsp;&nbsp;</p>\r\n\r\n<p><em>Note : Only one codec G726 is used in the DECT mobile ; it is not modifiable.</em>&nbsp;&nbsp;</p>\r\n\r\n<h1>B) Equipment and system configuration</h1>\r\n\r\n<p>\\- 1 System (Rainbow office, Rainbow hub, OXE or OXO)<br />\r\n\\- 1 Base station : DECT Base Station (any kind of base station)<br />\\- 1 DECT mobile : 8214 DECT = DUT (Device Under Test)<br />\r\n\\- 1 DECT charger&nbsp;&nbsp;</p>\r\n",
+      "custom_preconds": null,
+      "custom_steps_separated": [
+        {
+          "content": "<p>In idle, press SK2 Central directory icon (if central directory is configured in the base)<br>Or enter the menu “Central Directory\"</p>",
+          "expected": "<p>Check that the search in the system directory is done correctly.&nbsp;&nbsp;</p><p>The navigation in the list is correctly working.</p><p>The navigation in the fields of the names is correctly working.</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>Send the call with the selected name</p>",
+          "expected": "<p>Check that the call can be established correctly.</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>Redo step 1 &amp; 2 with different names</p>",
+          "expected": "<p>same results as step 1 &amp; 2</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        }
+      ],
+      "custom_keywords": null
+    },
+    {
+      "id": 274744735,
+      "case_id": 10172160,
+      "run_id": 36927,
+      "status_id": 1,
+      "title": "US002-02_01_Calling_Line_Identification_Presentation_CLIP_8262_SIP",
+      "custom_category": 2,
+      "custom_level": 1,
+      "type_id": 7,
+      "priority_id": 2,
+      "refs": "None",
+      "custom_description": "<h1>A) Objective :</h1>\r\n\r\n<p>The aim of this test is to check the user story : <br /><strong>US002-02</strong> -As a user, I want to be able to see the calling number if the name is not available during ringing phase and conversation.</p>\r\n\r\n<p>Select on the system the required codec used for the base :<br />\r\n <strong>\\- G711</strong> (law a or ?)<br />\r\n <strong>\\- G729</strong> (A or AB)&nbsp;&nbsp;</p>\r\n\r\n<p><em>Note : Only one codec G726 is used in the DECT mobile ; it is not modifiable.</em></p>\r\n\r\n<p>_<br />\r\n_</p>\r\n\r\n<p><strong>remind :</strong><br />\r\nCalling Line Identification Presentation ( <strong>CLIP</strong> ) <strong>A == > calls B</strong><br />\r\n=> identification of caller ( <strong>A</strong> ) displayed on called (B)&nbsp;&nbsp;</p>\r\n\r\n<p>Calling Line Identification Restriction ( <strong>CLIR</strong> ) <strong>A == > calls B</strong><br />\r\n=> no identification of caller ( <strong>A</strong> ) displayed on called (B)&nbsp;&nbsp;</p>\r\n\r\n<p>Connected Line Identification Presentation ( <strong>COLP</strong> ) <strong>A == > calls B</strong><br />\r\n=> identification of called ( <strong>B</strong> ) displayed on caller (A)&nbsp;&nbsp;</p>\r\n\r\n<p>Connected Line Identification Restriction ( <strong>COLR</strong> ) <strong>A == > calls B</strong><br />\r\n=> no identification of called ( <strong>B</strong> ) displayed on caller (A)<br />\r\nremarks :</p>\r\n\r\n<ul>\r\n<li>the CLIP/CLIR is a user feature,</li>\r\n<li>the COLP/COLR is a PABX feature. </li>\r\n</ul>\r\n\r\n<h1>B) Equipment and system configuration</h1>\r\n\r\n<p>\\- 1 System (Rainbow office, Rainbow hub, OXE or OXO)<br />\r\n\\- 1 Base station : DECT Base Station (any kind of base station)<br />\\- 1 DECT mobile : 8214 DECT = DUT (Device Under Test)<br />\r\n\\- 1 DECT charger&nbsp;&nbsp;</p>\r\n",
+      "custom_preconds": null,
+      "custom_steps_separated": [
+        {
+          "content": "<p>Phone B activated CLIP<br>Initiate an incoming call from a distant phone \" <strong>B</strong> \" to the device under test \"&nbsp;<strong>A</strong> \" .<br>The number of the phone \" <strong>B</strong> \" is not present in any contact list of the DUT \"&nbsp;<strong>A</strong> \".<br>Watch the call presentation on the screen of the DUT during the ringing phase.</p>",
+          "expected": "<p>Number of the phone \" <strong>B</strong> \" is displayed on the DUT \" <strong>A</strong> \" during the ringing <strong>.</strong></p><p>(OXE/OXO internal calls : B's <strong>Displayed Name</strong> )</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>Initiate an incoming call from a distant phone \" <strong>B</strong> \" to the device under test \"&nbsp;<strong>A</strong> \" .<br>The number of the phone \" <strong>B</strong> \" is not present in any contact list of the DUT \" <strong>A</strong> \".</p><p>DUT takes the incoming call.<br>Watch the call presentation on the screen of the DUT during the ringing phase and after in conversation state.</p>",
+          "expected": "<p>Number of the phone \" <strong>B</strong> \" is displayed on the DUT \" <strong>A</strong> \" during the conversation.</p><p>(OXE/OXO internal calls : B's <strong>Displayed Name</strong> )</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        }
+      ],
+      "custom_keywords": null
+    },
+    {
+      "id": 274744736,
+      "case_id": 10172162,
+      "run_id": 36927,
+      "status_id": 1,
+      "title": "US002-06_01_Calling_Name_Identification_Presentation_CNIP_8262_SIP",
+      "custom_category": 2,
+      "custom_level": 1,
+      "type_id": 7,
+      "priority_id": 2,
+      "refs": "None",
+      "custom_description": "<h1>A) Objective :</h1>\r\n\r\n<p>The aim of this test is to check the user story :<br />\r\n <strong>US002-06</strong> \\- As a user, I want to be able to see the calling name during<br />ringing phase and conversation.</p>\r\n\r\n<p>Select on the system and on the DAP manager (with IP-DECT), the required codec<br />used for the base (or the DAP) :<br />\r\n <strong>\\- G711</strong> (law a or ?)<br />\r\n <strong>\\- G729</strong> (A or AB)&nbsp;&nbsp;</p>\r\n\r\n<p><em>Note : Only one codec G726 is used in the DECT mobile ; it is not\r\nmodifiable.</em>&nbsp;&nbsp;</p>\r\n\r\n<h1>B) Equipment and system configuration</h1>\r\n\r\n<p>\\- 1 System (Rainbow office, Rainbow hub, OXE or OXO)<br />\r\n\\- 1 Base station : DECT Base Station (any kind of base station)<br />\\- 1 DECT mobile : 8214 DECT = DUT (Device Under Test)<br />\r\n\\- 1 DECT charger&nbsp;&nbsp;</p>\r\n",
+      "custom_preconds": null,
+      "custom_steps_separated": [
+        {
+          "content": "<p>Give a name to DUT handset <strong>A</strong>.</p><p>Make a call from the handset <strong>A</strong> to other handset <strong>B</strong>.</p>",
+          "expected": "<p>Name of the DUT <strong>A</strong> is displayed on the handset&nbsp;<strong>B</strong> during the ringing<br><strong>.</strong></p><p>Establish the call.</p><p>Name of the DUT <strong>A</strong> is displayed on the handset <strong>B</strong> during conversation.</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>Make a call from the handset <strong>B</strong> to the DUT <strong>A</strong>.</p>",
+          "expected": "<p>Call is established.</p><p>Name of the DUT <strong>A</strong> is displayed on the handset <strong>B.</strong></p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        }
+      ],
+      "custom_keywords": null
+    },
+    {
+      "id": 274744737,
+      "case_id": 10172163,
+      "run_id": 36927,
+      "status_id": 1,
+      "title": "US002-08_02_Automatic_Answer_8262_SIP",
+      "custom_category": 2,
+      "custom_level": 1,
+      "type_id": 7,
+      "priority_id": 2,
+      "refs": "None",
+      "custom_description": "<h1>A) Objective :</h1>\r\n\r\n<p>The aim of this test is to check the user story :<br />\r\n <strong>US002-08</strong> -&nbsp;&nbsp;As a user, I want my handset to automatically answer if a<br />specific setting is done </p>\r\n\r\n<h1>B) Equipment and system configuration</h1>\r\n\r\n<p>\\- 1 System (Rainbow office, Rainbow hub, OXE or OXO)<br />\r\n\\- 1 Base station : DECT Base Station (any kind of base station)<br />\\- 1 DECT mobile : 8214 DECT = DUT (Device Under Test)<br />\r\n\\- 1 DECT charger&nbsp;&nbsp;</p>\r\n\r\n<p>\\- 1 white listed corded headset&nbsp;&nbsp;(Plantronics_HW251NA, Plantronics_M175R)</p>\r\n",
+      "custom_preconds": null,
+      "custom_steps_separated": [
+        {
+          "content": "<p>On DUT to active this feature in local MMI by settings/Auto answer&nbsp;&nbsp;</p><p>Select \"Any key\"&nbsp;&nbsp;with up/down navigator keys and validate with OK key.</p><p>Make a call to DUT and press any key to answer this incoming call</p>",
+          "expected": "<p>The DUT can answer the incoming call with any keys.</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>On DUT to active this feature in local MMI by settings/Auto answer&nbsp;&nbsp;</p><p>Select \"Automatic\"&nbsp;&nbsp;with up/down navigator keys and validate with OK key.</p>",
+          "expected": "<p>The incoming call can be auto answered with handset voice mode.</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>On DUT to deactive this feature in local MMI by settings/Auto answer&nbsp;&nbsp;</p><p>Select \"Normal\"&nbsp;&nbsp;with up/down navigator keys and validate with OK key.</p><p>Make a call to DUT.</p>",
+          "expected": "<p>To check this incoming call can't be answered automatically.</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        }
+      ],
+      "custom_keywords": null
+    },
+    {
+      "id": 274744738,
+      "case_id": 10172165,
+      "run_id": 36927,
+      "status_id": 1,
+      "title": "US002-10_01_Incoming_call_lock_state_8262_SIP",
+      "custom_category": 2,
+      "custom_level": 3,
+      "type_id": 7,
+      "priority_id": 2,
+      "refs": "None",
+      "custom_description": "<h1>A) Objective :</h1>\r\n\r\n<p>The aim of this test is to check the user story :<br />\r\n <strong>US002-10</strong> -&nbsp;&nbsp; As a user, I want to be able to answer an incoming call even if the handset is locked.</p>\r\n\r\n<p>Select on the system the required codec used for the base :<br />\r\n <strong>\\- G711</strong> (law a or ?)<br />\r\n <strong>\\- G729</strong> (A or AB)&nbsp;&nbsp;</p>\r\n\r\n<p><em>Note : Only one codec G726 is used in the DECT mobile ; it is not modifiable.</em>&nbsp;&nbsp;</p>\r\n\r\n<h1>B) Equipment and system configuration</h1>\r\n\r\n<p>\\- 1 System (Rainbow office, Rainbow hub, OXE or OXO)<br />\r\n\\- 1 Base station : DECT Base Station (any kind of base station)<br />\\- 1 DECT mobile : 8214 DECT = DUT (Device Under Test)<br />\r\n\\- 1 DECT charger&nbsp;&nbsp;</p>\r\n",
+      "custom_preconds": null,
+      "custom_steps_separated": [
+        {
+          "content": "<p>Make an incoming call on DUT when the local lock is active.&nbsp;&nbsp;</p>",
+          "expected": "<p>Answering is possible and transfer to another set is also possible.&nbsp;&nbsp;</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>After hangup, DUT returns in idle state.<br>Verify the lock state immediately after.&nbsp;&nbsp;</p>",
+          "expected": "<p>DUT returns back in lock state.&nbsp;&nbsp;</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        }
+      ],
+      "custom_keywords": null
+    },
+    {
+      "id": 274744739,
+      "case_id": 10172166,
+      "run_id": 36927,
+      "status_id": 1,
+      "title": "US002-12_01_Stop_Ring_then_Reject_Call_8262_SIP",
+      "custom_category": 2,
+      "custom_level": 1,
+      "type_id": 7,
+      "priority_id": 2,
+      "refs": "None",
+      "custom_description": "<h1>A) Objective :</h1>\r\n\r\n<p>The aim of this test is to check the user story :<br />\r\n <strong>US002-12</strong> \\- As a user I want to stop ring first, then reject the call.</p>\r\n\r\n<h1>B) Equipment and system configuration</h1>\r\n\r\n<p>\\- 1 System (Rainbow office, Rainbow hub, OXE or OXO)<br />\r\n\\- 1 Base station : DECT Base Station (any kind of base station)<br />\\- 1 DECT mobile : 8214 DECT = DUT (Device Under Test)<br />\r\n\\- 1 DECT charger&nbsp;&nbsp;</p>\r\n",
+      "custom_preconds": null,
+      "custom_steps_separated": [
+        {
+          "content": "<p>Initiate an incoming call to the mobile not on charger</p>",
+          "expected": "<p>The mobile rings</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>Press the release key</p>",
+          "expected": "<p>The mobile stops ringing and call is released</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>Initiate an incoming call to the mobile</p>",
+          "expected": "<p>The mobile rings</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>Press the right softkey “Reject”,</p>",
+          "expected": "<p>The mobile stops ringing and call is released</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>Repeat step 1 to 4 with <strong>DUT on charger</strong> (single or dual)</p>",
+          "expected": "<p>Idem step 1 to 4</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        }
+      ],
+      "custom_keywords": null
+    },
+    {
+      "id": 274744746,
+      "case_id": 10172178,
+      "run_id": 36927,
+      "status_id": 3,
+      "title": "US004-03_03_Message_waiting_indicator_Text_message_CAT-iq_8262_SIP",
+      "custom_category": 2,
+      "custom_level": 1,
+      "type_id": 7,
+      "priority_id": 2,
+      "refs": "None",
+      "custom_description": "<h1>A) Objective :</h1>\r\n\r\n<p>The aim of this test is to check the user story :<br />\r\n <strong>US004-03</strong> -&nbsp;&nbsp; As a user, I want to be notified on the notification bar that I have unread voicemails/missed calls.</p>\r\n\r\n<p>Select on the system the required codec used for the base :<br />\r\n <strong>\\- G711</strong> (law a or ?)<br />\r\n <strong>\\- G729</strong> (A or AB)&nbsp;&nbsp;</p>\r\n\r\n<p><em>Note : Only one codec G726 is used in the DECT mobile ; it is not modifiable.</em></p>\r\n\r\n<h1>B) Equipment and system configuration</h1>\r\n\r\n<p>\\- 1 System (Rainbow office, Rainbow hub, OXE or OXO)<br />\r\n\\- 1 Base station : DECT Base Station (any kind of base station)<br />\\- 1 DECT mobile : 8214 DECT = DUT (Device Under Test)<br />\r\n\\- 1 DECT charger&nbsp;&nbsp;</p>\r\n",
+      "custom_preconds": null,
+      "custom_steps_separated": [
+        {
+          "content": "<p>From Distant Device (default or defined by system config) edit one or more Text message(s) and sent it to DUT.</p><p>On distant device&nbsp;&nbsp;choose the Fixed message from list to send to DUT.&nbsp;&nbsp;</p>",
+          "expected": "<p>Message sent</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>Check on DUT the text message icon presence (and message number).</p>",
+          "expected": "<p>ALU message icon is displayed on notification top bar and the number is right (gap mode)<br>Only ALU message icon is displayed without number of unread messages.</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>By any method, open text message screen, if not already opened and go back homepage</p>",
+          "expected": "<p>Alu message icon dissapears</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        }
+      ],
+      "custom_keywords": null
+    },
+    {
+      "id": 274744753,
+      "case_id": 10172222,
+      "run_id": 36927,
+      "status_id": 3,
+      "title": "US014-07_01_CallLog_All_Calls_8262_SIP",
+      "custom_category": 2,
+      "custom_level": 1,
+      "type_id": 7,
+      "priority_id": 2,
+      "refs": "None",
+      "custom_description": "<h1>A) Objective :</h1>\r\n\r\n<p>The aim of this test is to check CAT-iq (GAP) call log feature : All calls part</p>\r\n\r\n<h1> B) Equipment and system configuration</h1>\r\n\r\n<ul>\r\n<li>System (Rainbow office, Rainbow hub, OXE or OXO)</li>\r\n<li>Base station : DECT Base Station (any kind of base station)</li>\r\n<li>1 DECT mobile : 8214 DECT = DUT (Device Under Test)</li>\r\n<li>1 DECT charger </li>\r\n<li>Distant Device (NOE_IP,UA, Analog, 8242dect, etc...)</li>\r\n</ul>\r\n",
+      "custom_preconds": null,
+      "custom_steps_separated": [
+        {
+          "content": "<p>\\- CallLog is empty on any tab (delete if not)</p><p>Launch&nbsp;&nbsp;internal and external answered and not answered outgoing and incoming calls to/from different distant devices : UA Noe 8232dect 8242dect etc...(some present in contacts)</p>",
+          "expected": "<p>Calls done as expected</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>Enter CallLog app via:</p><ul><li><p>Homepage SK3 key (CallLog icon): CallLog, All calls&nbsp;&nbsp; tab (call log icon)</p></li><li><p>Menu screen: CallLog, All calls tab (call log icon)</p></li></ul>",
+          "expected": "<p><strong>On display:</strong></p><ul><li><p>List can be scrolled</p></li><li><p>Each log with: <strong>Icon</strong> \\+ <strong>Number</strong> / <strong>name</strong> (central dir or contact)</p></li><li><p>Date and time ordered, latest&nbsp;&nbsp;on top</p></li><li><p><strong>Empty</strong> if no related logs</p></li><li><p>Bottom purple SW key banner with: SK1 Call&nbsp;&nbsp;&nbsp;&nbsp;SK2 View&nbsp;&nbsp;&nbsp;&nbsp; SK3 More</p></li></ul>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>In all calls tab select any log:</p><ul><li>Press <strong>SK2 View</strong> key</li></ul>",
+          "expected": "<p><strong>On display:</strong></p><p>In white area:</p><p>1st line Name ex <strong>Pat HERBST</strong> :</p><ul><li><p><strong>Central directory's one</strong> (Surname and Name) if not in contacts</p></li><li><p><strong>Contact's name</strong> if in contacts</p></li><li><p><strong>None in some cases</strong> not in contacts&nbsp;&nbsp; (8212)</p></li></ul><p>2nd line: Number ex <strong>129</strong> (internal or external with prefix)</p><p>3th line: Line number</p><p>4th line: <strong>Dialed</strong> and duration ex <strong>00:00:45</strong></p><p>(8212 only: <strong>Time</strong> \\+ <strong>AM</strong> or <strong>PM</strong> if AM/PM activated)</p><p>5rd line: Date and time ex <strong>10-Sep-2014 17:21</strong> (8212 only the <strong>date</strong> )&nbsp;&nbsp;</p><p>In bottom purple banner:</p><p>SK1 <strong>Call</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SK3 <strong>More</strong></p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<ul><li><p>Try <strong>SK1 Call key</strong></p></li><li><p>Get to the same screen and try <strong>SK3 More</strong> key&nbsp;&nbsp;</p></li><li><p>Try successively each option</p></li></ul>",
+          "expected": "<ul><li><p>Call is successful</p></li><li><p>On display (More screen):&nbsp;&nbsp;</p><p>1 View details<br>2 Save as contact<br>3 Append to contact<br>4 Send message</p><p>(greyed if not supported on distant)</p><p>5 Edit before call<br>6 Delete item<br>7 Delete all items</p></li><li><p>Each option working as expected</p></li></ul>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>Repeat step 2 to 3 but:</p><ul><li><p>Press <strong>SK3 More</strong> key or <strong>OK</strong> key</p></li><li><p>Try successively each option</p></li></ul>",
+          "expected": "<ul><li><p>On display (More screen):&nbsp;&nbsp;</p><p>1 View details<br>2 Save contact<br>3 Append to contact<br>4 Send message</p><p>(greyed if not supported on distant)</p><p>5 Edit before call<br>6 Delete item<br>7 Delete all items</p></li><li><p>Each option working as expected</p></li></ul>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        }
+      ],
+      "custom_keywords": null
+    },
+    {
+      "id": 274744754,
+      "case_id": 10172225,
+      "run_id": 36927,
+      "status_id": 3,
+      "title": "US014-07_04_CallLog_Missed_Incoming_Calls_8262_SIP",
+      "custom_category": 2,
+      "custom_level": 1,
+      "type_id": 7,
+      "priority_id": 2,
+      "refs": "None",
+      "custom_description": "<h1>A) Objective :</h1>\r\n\r\n<p>The aim of this test is to check CAT-iq (GAP) call log feature : Incoming not<br />answered (missed) call part</p>\r\n\r\n<h1> B) Equipment and system configuration</h1>\r\n\r\n<ul>\r\n<li>System (Rainbow office, Rainbow hub, OXE or OXO)</li>\r\n<li>Base station : DECT Base Station (any kind of base station)</li>\r\n<li>1 DECT mobile : 8214 DECT = DUT (Device Under Test)</li>\r\n<li>1 DECT charger </li>\r\n<li>Distant Device (NOE_IP,UA, Analog, 8242dect, etc...)</li>\r\n</ul>\r\n",
+      "custom_preconds": null,
+      "custom_steps_separated": [
+        {
+          "content": "<p>\\- CallLog is empty on any tab (delete if not)</p><p>Launch&nbsp;&nbsp;internal and external not answered outgoing calls&nbsp;&nbsp;to different distant devices : UA Noe 8232dect 8242dect etc...( some present in contacts)</p>",
+          "expected": "<p>\\- Calls done as expected</p><p>\\- Missed call icon on top notif bar</p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>Enter CallLog app via:</p><p>Homepage SK3 key (CallLog icon): CallLog, Missed tab</p><p>Menu screen: CallLog, Missed tab</p>",
+          "expected": "<p><strong>On display:</strong></p><ul><li><p>Missed call list can be scrolled</p></li><li><p>Each log with: Missed call <strong>Icon</strong> \\+ <strong>Number</strong> / <strong>name</strong> (central dir or contact)</p></li><li><p>Date and time ordered, latest&nbsp;&nbsp;on top</p></li><li><p><strong>Empty</strong> if no related logs</p></li><li><p>Bottom purple SW key banner with: SK1 Call&nbsp;&nbsp; SK2 View&nbsp;&nbsp;&nbsp;&nbsp;SK3 More</p></li></ul>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>\\- Select any log:</p><p>\\- Press <strong>SK2 View</strong> key</p>",
+          "expected": "<p><strong>On display:</strong></p><p>In white area:</p><p>1st line Name ex <strong>Pat HERBST</strong> :</p><ul><li><p><strong>Central directory's one</strong> (Surname and Name) if not in contacts</p></li><li><p><strong>Contact's name</strong> if in contacts</p></li><li><p><strong>None in some cases</strong> not in contacts&nbsp;&nbsp; (8212)</p></li></ul><p>2nd line: Number ex <strong>129</strong> (internal or external with prefix</p><p>3th line:Line number</p><p>4th line: Number of caller's missed calls ex <strong>Missed calls:2</strong></p><p>5rd line: Text <strong>Last call missed:</strong></p><p>6rd line: the date <strong>28-07-2017 07:02</strong></p><p>In bottom purple banner:</p><p>SK1 <strong>Call</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SK3 <strong>More</strong></p>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>\\- Try <strong>SK1 Call key</strong></p><hr><ul><li><p>Get to the same screen and try <strong>SK3 More</strong> key</p></li><li><p>Try successively each option</p></li></ul>",
+          "expected": "<ul><li>Call is successful</li></ul><p>1 View details<br>2 Save contact<br>3 Append to contact<br>4 Send message<br>(greyed if not supported on distant)</p><p>5 Edit before call<br>6 Delete item<br>7 Delete all items</p><ul><li>Each option working as expected</li></ul>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        },
+        {
+          "content": "<p>Repeat step 2 to 3 but:</p><ul><li><p>Press <strong>SK3 More</strong> key or <strong>OK</strong> key</p></li><li><p>Try successively each option</p></li></ul>",
+          "expected": "<p>On display (More screen):<br>1 View details<br>2 Save contact<br>3 Append to contact<br>4 Send message<br>(greyed if not supported on distant)</p><p>5 Edit before call<br>6 Delete item<br>7 Delete all items</p><ul><li>Each option working as expected</li></ul>",
+          "additional_info": "",
+          "refs": "",
+          "markdown_editor_id": 1
+        }
+      ],
+      "custom_keywords": null
+    }
+  ]
+}
