@@ -2,6 +2,7 @@ import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
 import os
+import re
 import time
 from pathlib import Path
 from typing import Any, Dict, List
@@ -219,6 +220,82 @@ def fallback_normalize_case(case: Dict[str, Any]) -> List[Dict[str, Any]]:
     """Deterministic fallback when LLM JSON is repeatedly invalid."""
     fallback_steps: List[Dict[str, Any]] = []
 
+    bullet_prefix_re = re.compile(r"^\s*(?:\\?-|[-*•]+|\d+[\.)]|[A-Za-z][\.)])\s*")
+    action_follow_verbs = (
+        "press", "select", "set", "release", "answer", "open", "create", "delete", "modify",
+        "change", "make", "dial", "call", "put", "hold", "resume", "switch", "enter", "launch",
+        "read", "choose", "connect", "disconnect", "enable", "disable", "lock", "unlock", "wait",
+        "go", "navigate", "scroll", "start", "use", "move", "watch", "check", "take",
+    )
+
+    def strip_list_prefix(text: str) -> str:
+        return bullet_prefix_re.sub("", text).strip()
+
+    def dedupe_keep_order(items: List[str]) -> List[str]:
+        seen = set()
+        output: List[str] = []
+        for item in items:
+            token = item.strip()
+            if not token or token in seen:
+                continue
+            seen.add(token)
+            output.append(token)
+        return output
+
+    def atomize_action_text(text: Any) -> List[str]:
+        if not isinstance(text, str) or not text.strip():
+            return []
+
+        normalized = clean_step_text(text)
+        if not isinstance(normalized, str) or not normalized.strip():
+            return []
+
+        parts: List[str] = []
+        for line in normalized.split("\n"):
+            segment = strip_list_prefix(line)
+            if not segment:
+                continue
+
+            fragments = [segment]
+            splitters = [
+                r"\s+\b(?:and then|then)\b\s+",
+                r"\s+\band\s+(?=(?:with\b[^,.;]{0,80}\b)?(?:" + "|".join(action_follow_verbs) + r")\b)",
+                r"\s+\band\s+(?=(?:you\b[^,.;]{0,20}\b)?(?:do not|don't)?\s*(?:" + "|".join(action_follow_verbs) + r")\b)",
+                r"\s+\band\s+(?=(?:" + "|".join(action_follow_verbs) + r")\b)",
+            ]
+            for splitter in splitters:
+                expanded: List[str] = []
+                for fragment in fragments:
+                    expanded.extend(re.split(splitter, fragment, flags=re.IGNORECASE))
+                fragments = expanded
+
+            for fragment in fragments:
+                cleaned_fragment = strip_list_prefix(fragment)
+                if cleaned_fragment:
+                    parts.append(cleaned_fragment)
+
+        return dedupe_keep_order(parts)
+
+    def atomize_expected_text(text: Any) -> List[str]:
+        if not isinstance(text, str) or not text.strip():
+            return []
+
+        normalized = clean_step_text(text)
+        if not isinstance(normalized, str) or not normalized.strip():
+            return []
+
+        parts: List[str] = []
+        for line in normalized.split("\n"):
+            segment = strip_list_prefix(line)
+            if not segment:
+                continue
+            for fragment in re.split(r"\s*;\s*", segment):
+                cleaned_fragment = strip_list_prefix(fragment)
+                if cleaned_fragment:
+                    parts.append(cleaned_fragment)
+
+        return dedupe_keep_order(parts)
+
     for step in case.get("steps", []):
         if not isinstance(step, dict):
             continue
@@ -233,10 +310,34 @@ def fallback_normalize_case(case: Dict[str, Any]) -> List[Dict[str, Any]]:
         raw_action = clean_step_text(step.get("action"))
         raw_expected = clean_step_text(step.get("expected_result"))
 
-        count = max(len(action_substeps), len(expected_checkpoints), 1)
-        for idx in range(count):
-            normalized_action = action_substeps[idx] if idx < len(action_substeps) else (raw_action if idx == 0 else "")
-            normalized_expected = expected_checkpoints[idx] if idx < len(expected_checkpoints) else (raw_expected if idx == 0 else "")
+        action_atoms: List[str] = []
+        for action_item in action_substeps:
+            action_atoms.extend(atomize_action_text(action_item))
+        if not action_atoms:
+            action_atoms = atomize_action_text(raw_action)
+
+        expected_atoms: List[str] = []
+        for expected_item in expected_checkpoints:
+            expected_atoms.extend(atomize_expected_text(expected_item))
+        if not expected_atoms:
+            expected_atoms = atomize_expected_text(raw_expected)
+
+        pair_count = min(len(action_atoms), len(expected_atoms))
+        total_count = max(len(action_atoms), len(expected_atoms), 1)
+
+        for idx in range(total_count):
+            normalized_action = action_atoms[idx] if idx < len(action_atoms) else ""
+            normalized_expected = expected_atoms[idx] if idx < len(expected_atoms) else ""
+
+            if idx >= pair_count:
+                if idx < len(action_atoms):
+                    normalized_expected = ""
+                if idx < len(expected_atoms) and idx >= len(action_atoms):
+                    normalized_action = ""
+
+            if not normalized_action and not normalized_expected:
+                continue
+
             fallback_steps.append(
                 {
                     "step_no": step_no,
@@ -252,7 +353,7 @@ def fallback_normalize_case(case: Dict[str, Any]) -> List[Dict[str, Any]]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Build normalized step/expected-result knowledge base from parsed TestRail JSON using DeepSeek API."
+        description="Build normalized step/expected-result knowledge base from parsed TestRail JSON using DeepSeek API or local fallback normalization."
     )
     parser.add_argument("--input", type=Path, default=Path("parsed_testrail.json"))
     parser.add_argument("--skill", type=Path, default=Path("skills/step_result_unify_skill.md"))
@@ -263,9 +364,6 @@ def main() -> None:
     args = parser.parse_args()
 
     api_key = args.api_key or os.getenv("DEEPSEEK_API_KEY")
-    if not api_key:
-        raise EnvironmentError("Missing DEEPSEEK_API_KEY environment variable")
-
     base_url = os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
     parsed_payload = load_json(args.input)
     skill_text = args.skill.read_text(encoding="utf-8")
@@ -284,6 +382,19 @@ def main() -> None:
     total_jobs = len(jobs)
     max_workers = max(1, min(args.max_workers, total_jobs or 1))
     print(f"Scheduling {total_jobs} cases with max_workers={max_workers}")
+
+    if not api_key:
+        print("DEEPSEEK_API_KEY not set; using deterministic fallback normalization for all cases.")
+        for sheet_name, case in jobs:
+            case_id = case.get("case_id")
+            normalized_payload[sheet_name][case_id] = fallback_normalize_case(case)
+            print(f"Fallback normalized case: {case_id}")
+
+        kb = build_knowledge_base(parsed_payload, normalized_payload)
+        save_json(args.output, kb)
+        print(f"Output KB: {args.output}")
+        print(f"Total entries: {kb['meta']['total_entries']}")
+        return
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         future_to_case = {

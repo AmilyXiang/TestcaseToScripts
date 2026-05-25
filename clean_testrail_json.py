@@ -23,7 +23,69 @@ def _derive_list_field(text: Any) -> List[str]:
     return points if len(points) > 1 else []
 
 
+def _worksheet_from_auto_cases(payload: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Map raw TestRail auto_cases export into the normalized Worksheet shape."""
+    cases = payload.get("cases", [])
+    if not isinstance(cases, list):
+        return []
+
+    worksheet: List[Dict[str, Any]] = []
+    for case in cases:
+        if not isinstance(case, dict):
+            continue
+
+        raw_steps = case.get("custom_steps_separated", [])
+        if not isinstance(raw_steps, list):
+            raw_steps = []
+
+        steps: List[Dict[str, Any]] = []
+        for index, step in enumerate(raw_steps, start=1):
+            if not isinstance(step, dict):
+                continue
+
+            steps.append(
+                {
+                    "step_no": index,
+                    "action": step.get("content"),
+                    "expected_result": step.get("expected"),
+                }
+            )
+
+        worksheet.append(
+            {
+                "case_id": str(case.get("case_id") or case.get("id") or ""),
+                "title": case.get("title"),
+                "description": case.get("custom_description") or case.get("description"),
+                "preconditions": case.get("custom_preconds") or case.get("preconditions"),
+                "steps": steps,
+            }
+        )
+
+    return worksheet
+
+
+def _normalize_payload(payload: Dict[str, Any]) -> Dict[str, Any]:
+    """Accept either normalized Worksheet payloads or raw TestRail auto_cases exports."""
+    worksheet = payload.get("Worksheet")
+    if isinstance(worksheet, list):
+        return payload
+
+    normalized: Dict[str, Any] = {
+        "Worksheet": _worksheet_from_auto_cases(payload),
+        "meta": {
+            "source": {
+                "format": "testrail_auto_cases",
+                "run_id": payload.get("run_id"),
+                "run_name": payload.get("run_name"),
+                "auto_case_count": payload.get("auto_case_count"),
+            }
+        },
+    }
+    return normalized
+
+
 def clean_testrail_payload(payload: Dict[str, Any]) -> Dict[str, Any]:
+    payload = _normalize_payload(payload)
     worksheet = payload.get("Worksheet", [])
     if not isinstance(worksheet, list):
         worksheet = []

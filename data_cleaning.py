@@ -130,9 +130,11 @@ def split_numbered_points(text: Any) -> List[str]:
         return []
 
     normalized = clean_step_text(text)
-    # When multiple numbered points are packed in one line, insert line breaks before each index.
-    normalized = re.sub(r"\s+(?=(?:\d+|[A-Za-z])[\.)]\s+)", "\n", normalized)
-    normalized = re.sub(r"\s+(?=(?:\d+|[A-Za-z])\\\.\s+)", "\n", normalized)
+    # Only split packed inline numbering when the full text is itself a single-line numbered list.
+    # This avoids false positives such as "volume 6." inside regular sentences.
+    if "\n" not in normalized and re.match(r"^\s*(?:\d+|[A-Za-z])(?:\\\.|[\.)])\s+", normalized):
+        normalized = re.sub(r"\s+(?=(?:\d+|[A-Za-z])[\.)]\s+)", "\n", normalized)
+        normalized = re.sub(r"\s+(?=(?:\d+|[A-Za-z])\\\.\s+)", "\n", normalized)
 
     points = [_normalize_leading_index(line) for line in normalized.split("\n")]
     points = [point.strip() for point in points if point and point.strip()]
