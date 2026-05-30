@@ -14,6 +14,8 @@ class PromptManager:
 			"prompt.filter_chapter": "prompt.filter_chapter.md",
 			"prompt.feature.copilot": "prompt.feature.copilot.md",
 			"prompt.sub_feature.copilot": "prompt.sub_feature.copilot.md",
+			"prompt.case_to_action.copilot": "prompt.case_to_action.copilot.md",
+			"prompt.actions_to_stepfile.copilot": "prompt.actions_to_stepfile.copilot.md",
 			"prompt.user_story.copilot": "prompt.user_story.copilot.md",
 			"prompt.test_case.copilot": "prompt.test_case.copilot.md",
 		}

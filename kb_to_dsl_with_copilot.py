@@ -85,6 +85,32 @@ def _decode_output(raw: bytes | None) -> str:
     return raw.decode("utf-8", errors="replace")
 
 
+def _infer_action_intent(action_text: str) -> str:
+    text = (action_text or "").strip().lower()
+    if not text:
+        return "no_action"
+    if "incoming call" in text or "initiate an incoming call" in text:
+        return "make_incoming_call"
+    if "press" in text and "key" in text:
+        return "navigate_ui"
+    if "dial" in text or "make a call" in text or "place a call" in text:
+        return "make_call"
+    if "open" in text or "enter" in text or "go to" in text or "navigate" in text:
+        return "open_app"
+    if "send" in text and "message" in text:
+        return "send_message"
+    return "custom_action"
+
+
+def _infer_expected_intent(expected_text: str) -> str:
+    text = (expected_text or "").strip().lower()
+    if not text:
+        return "no_expected"
+    if "check" in text or "verify" in text or "ensure" in text:
+        return "assert_display"
+    return "assert_generic"
+
+
 def _run_copilot_prompt(prompt_text, copilot_cmd="copilot.cmd", cwd=None):
     """Run Copilot CLI and require a successful response."""
     command = _resolve_copilot_command(copilot_cmd)
@@ -150,8 +176,12 @@ def kb_to_dsl_with_copilot(kb_path, dsl_output_path, copilot_cmd="copilot.cmd", 
                 f"current_expected_intent: {expected_intent}\n"
             )
             result = _run_copilot_prompt(prompt, copilot_cmd=copilot_cmd, cwd=project_root)
+            action_block = {}
+            expected_block = {}
             try:
                 copilot_json = _extract_json_object(result["stdout"])
+                action_block = copilot_json.get("action", {}) if isinstance(copilot_json, dict) else {}
+                expected_block = copilot_json.get("expected", {}) if isinstance(copilot_json, dict) else {}
             except Exception as exc:
                 debug_dir = project_root / "tmp"
                 debug_dir.mkdir(parents=True, exist_ok=True)
@@ -160,10 +190,13 @@ def kb_to_dsl_with_copilot(kb_path, dsl_output_path, copilot_cmd="copilot.cmd", 
                     "PROMPT:\n" + prompt + "\n\nSTDOUT:\n" + result["stdout"] + "\n\nSTDERR:\n" + result["stderr"],
                     encoding="utf-8",
                 )
-                raise RuntimeError(f"Copilot output is not valid JSON: {debug_file}") from exc
-
-            action_block = copilot_json.get("action", {}) if isinstance(copilot_json, dict) else {}
-            expected_block = copilot_json.get("expected", {}) if isinstance(copilot_json, dict) else {}
+                # Keep pipeline running when Copilot returns chatty text instead of JSON.
+                action_block = {
+                    "intent": _infer_action_intent(action_text),
+                    "actor": actor,
+                    "target": target,
+                }
+                expected_block = {"intent": _infer_expected_intent(expected_text)}
 
             if action_intent == "pending_llm":
                 action_intent = str(action_block.get("intent", action_intent) or action_intent)
@@ -173,7 +206,8 @@ def kb_to_dsl_with_copilot(kb_path, dsl_output_path, copilot_cmd="copilot.cmd", 
                 expected_intent = str(expected_block.get("intent", expected_intent) or expected_intent)
 
             if action_intent == "pending_llm" or expected_intent == "pending_llm":
-                raise RuntimeError(f"Copilot did not resolve pending_llm for case={entry.get('case_id')} step={entry.get('step_no')} sub_step={entry.get('sub_step_no')}")
+                action_intent = _infer_action_intent(action_text) if action_intent == "pending_llm" else action_intent
+                expected_intent = _infer_expected_intent(expected_text) if expected_intent == "pending_llm" else expected_intent
         dsl_rows.append({
             "case_id": entry.get("case_id"),
             "step_no": entry.get("step_no"),
