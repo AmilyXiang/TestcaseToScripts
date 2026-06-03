@@ -1,0 +1,1 @@
+Read the file {prompt_file_path} carefully. Execute all instructions in that file exactly as specified, and write the output JSON to the path given in the file's instructions. Do not ask for clarification — just complete the task.

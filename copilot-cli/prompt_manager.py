@@ -16,6 +16,7 @@ class PromptManager:
 			"prompt.sub_feature.copilot": "prompt.sub_feature.copilot.md",
 			"prompt.case_to_action.copilot": "prompt.case_to_action.copilot.md",
 			"prompt.actions_to_stepfile.copilot": "prompt.actions_to_stepfile.copilot.md",
+			"prompt.intent_refine.copilot": "prompt.intent_refine.copilot.md",
 			"prompt.user_story.copilot": "prompt.user_story.copilot.md",
 			"prompt.test_case.copilot": "prompt.test_case.copilot.md",
 		}

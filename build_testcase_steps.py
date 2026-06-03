@@ -48,7 +48,8 @@ def build_simple_stepflow(input_action_file: Path, output_step_file: Path) -> Di
         execute_action = [True] * n
         execute_expected = [True] * n
 
-        # Rule A: consecutive different actions with same expected -> expected only on last row.
+        # Rule A: consecutive rows with same expected -> expected only on last row of group.
+        # Applies regardless of whether actions are same or different.
         i = 0
         while i < n:
             j = i
@@ -57,15 +58,14 @@ def build_simple_stepflow(input_action_file: Path, output_step_file: Path) -> Di
                 j += 1
 
             if j > i:
-                action_chain = _uniq_keep_order([steps[k]["action_intent"] for k in range(i, j + 1)])
-                if len(action_chain) > 1:
-                    for k in range(i, j):
-                        execute_expected[k] = False
-                    execute_expected[j] = True
+                for k in range(i, j):
+                    execute_expected[k] = False
+                execute_expected[j] = True
 
             i = j + 1
 
-        # Rule B: consecutive same action with different expected -> action only on first row.
+        # Rule B: consecutive rows with same action -> action only on first row of group.
+        # Applies regardless of whether expected values are same or different.
         i = 0
         while i < n:
             j = i
@@ -74,20 +74,17 @@ def build_simple_stepflow(input_action_file: Path, output_step_file: Path) -> Di
                 j += 1
 
             if j > i:
-                expected_chain = _uniq_keep_order([steps[k]["expected_intent"] for k in range(i, j + 1)])
-                if len(expected_chain) > 1:
-                    execute_action[i] = True
-                    for k in range(i + 1, j + 1):
-                        execute_action[k] = False
+                for k in range(i + 1, j + 1):
+                    execute_action[k] = False
 
             i = j + 1
-
-        preconditions = _uniq_keep_order([s["precondition_intent"] for s in steps if s["precondition_intent"]])
-        precondition_line = " ; ".join(preconditions) if preconditions else "None"
 
         out_steps: List[Dict] = []
         for i, step in enumerate(steps):
             out_row: Dict[str, str] = {"step_number": step["step_number"]}
+            # Precondition belongs to this specific step, placed before action/expected.
+            if step["precondition_intent"]:
+                out_row["precondition_intent"] = step["precondition_intent"]
             if execute_action[i]:
                 out_row["action_intent"] = step["action_intent"]
             if execute_expected[i]:
@@ -99,7 +96,6 @@ def build_simple_stepflow(input_action_file: Path, output_step_file: Path) -> Di
         testcase_blocks.append(
             {
                 "case_id": case_id,
-                "precondition_intent": precondition_line,
                 "steps": out_steps,
             }
         )

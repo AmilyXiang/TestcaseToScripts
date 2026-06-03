@@ -21,6 +21,9 @@ Provide a stable and auditable mapping standard for expected_intent, aligned wit
 - assert_displayed_alu_message
 - assert_displayed_alu_message_disappear
 - assert_displayed_hold_call
+- assert_ringing
+- assert_call_released
+- assert_call_rejected
 - assert_generic
 
 ## Core Mapping Principle
@@ -52,13 +55,21 @@ Choose the dominant checkpoint semantics expressed by expected_text.
 - "Alu message icon dissapears" -> assert_displayed_alu_message_disappear
 - "dectB is hold. Screen display on A and B are correct" -> assert_displayed_hold_call
 - "Contact can be created or appended with name ... and nb from selected call log" -> assert_contact_valid
+- "The mobile rings" / "DUT is ringing" / "mobile rings" (phone in incoming-ring state, not yet answered) -> assert_ringing
+- "The mobile stops ringing and call is released" (after release key action) -> assert_call_released
+- "The mobile stops ringing and call is released" (after reject softkey action) -> assert_call_rejected
+- "call is rejected" / "incoming call rejected" -> assert_call_rejected
+- "same results as step N" / "same results as step N & M" / "same results as above" / "same as above" (Redo/Repeat context) -> inherit expected_intent from the last expected_intent of the referenced step(s); if multiple steps referenced, use the expected_intent of the final referenced step
 - Fallback when no strong semantic hit exists -> assert_generic
 
 ## Conflict Resolution
 - If one expected_text contains multiple checks, choose the dominant observable validation target.
 - Prefer assert_call_established over assert_generic for successful call outcome wording.
 - Prefer display-specific intents (for example assert_displayed_number_of_phone / assert_displayed_incoming_call) over generic display labels.
+- Prefer assert_ringing over assert_displayed_incoming_call when expected_text focuses on the phone ringing/bell state rather than the on-screen presentation of caller info.
+- Prefer assert_call_rejected over assert_call_released when the action was an explicit reject/decline (reject softkey, decline key); use assert_call_released when the action was release key on a ringing or active call.
 - If legacy label assert_call_state appears, normalize to assert_call_established.
+- For Redo/Repeat rows ("same results as step N"), the expected_intent inherits from the referenced step — this mirrors R34 in the action_intent template. Do NOT map to assert_generic for these rows.
 
 ## Guardrails
 - Preserve first: if no high-confidence mapping applies, keep existing expected_intent unchanged.

@@ -10,3 +10,5 @@ __pycache__/
 SKILL.md
 .cursor/
 testrail/
+log/
+tmp/

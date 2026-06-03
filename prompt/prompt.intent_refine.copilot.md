@@ -49,7 +49,10 @@ B) expected_intent
   - Resolve intent with same-case context: review neighboring steps/sub-steps in the same case_id before final mapping.
   - If one expected_text contains multiple assertions, choose the dominant validation target for that row.
   - Prefer assert_call_established for successful call setup/conversation outcomes even when phrased indirectly (for example "call is possible", "call is OK").
+  - If expected_text focuses on phone ring state ("The mobile rings", "DUT is ringing"), map to assert_ringing — do NOT map to assert_displayed_incoming_call (which covers on-screen caller presentation, not ringing state).
   - If expected_text validates identity/number/name visibility during conversation, map to explicit display intent (for example assert_displayed_name_of_phone / assert_displayed_number_of_phone), not assert_ringing.
+  - If expected_text is "same results as step N" / "same results as step N & M" / "same results as above" (Redo/Repeat row): inherit the expected_intent from the last expected_intent of the referenced step(s) in the same case_id — do NOT map to assert_generic.
+- Same-text consistency (MANDATORY): scan all rows in the batch. If multiple rows share an identical expected_text string, they MUST be assigned the same expected_intent. When a conflict exists across those rows, apply majority-wins: use the most frequently assigned expected_intent for that text and update all minority rows to match it.
 
 C) precondition_intent
 - Use docs/precondition_intent_mapping_template.md as the authoritative precondition_intent mapping source.
