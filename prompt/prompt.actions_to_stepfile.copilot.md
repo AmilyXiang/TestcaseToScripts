@@ -32,14 +32,14 @@ Mandatory constraints:
   -> output: step1: A + E1 | step2: E2 only | step3: E3 only
 
 Field mapping:
-- precondition uses precondition_intent.
-- step action uses action_intent.
-- step expected uses expected_intent.
+- precondition uses precondition_intent; precondition actor uses precondition_actor.
+- step action uses action_intent; action actor uses action_actor.
+- step expected uses expected_intent; expected actor uses expected_actor.
 
 Precondition rules:
 1. precondition_intent belongs to the specific sub-step (row) that declares it.
-2. In the output step object, add precondition_intent field ONLY for steps that have a non-empty precondition_intent.
-3. precondition_intent must appear as the first field in that step object (before action_intent and expected_intent).
+2. In the output step object, add precondition_actor and precondition_intent fields ONLY for steps that have a non-empty precondition_intent.
+3. precondition_actor and precondition_intent must appear as the first fields in that step object (before action_actor/action_intent and expected_actor/expected_intent).
 4. Do NOT collect all preconditions to a case-level field.
 
 Output format (JSON):
@@ -54,8 +54,11 @@ Output format (JSON):
       "steps": [
         {
           "step_number": "<step_no>_<sub_step_no>",
-          "precondition_intent": "<intent>",   // only present when this step has a precondition
+          "precondition_actor": "<A|B|C|D|E|SYS>",  // only present when this step has a precondition
+          "precondition_intent": "<intent>",          // only present when this step has a precondition
+          "action_actor": "<A|B|C|D|E|SYS>",
           "action_intent": "<action_intent_if_execute_now>",
+          "expected_actor": "<A|B|C|D|E|SYS>",
           "expected_intent": "<expected_intent_if_execute_now>"
         }
       ]
@@ -67,10 +70,10 @@ Formatting rules:
 1. Output JSON only.
 2. Steps must be in numeric order.
 3. When Rule A or Rule B applies, keep output clean:
-- Rule A: omit expected_intent from all steps except the last in a same-expected group.
-- Rule B: omit action_intent from all steps except the first in a same-action group.
+- Rule A: omit expected_actor and expected_intent from all steps except the last in a same-expected group.
+- Rule B: omit action_actor and action_intent from all steps except the first in a same-action group.
 - Do not output execute_after_* or reuse_from_* tags.
-4. precondition_intent appears only in the step that declares it; omit the field if the step has no precondition.
+4. precondition_actor and precondition_intent appear only in the step that declares them; omit both fields if the step has no precondition.
 5. Do not output explanations.
 6. Write output to {output_step_file}.
 

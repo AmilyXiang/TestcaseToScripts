@@ -131,8 +131,8 @@ Batch 划分（当前 18 个 case 分 4 批）：
 原子化规则（`prompt.atomize_to_actions.copilot.md` 8 条规则，关键摘要）：
 - **Rule 2**：`and` 连接两个不同交互目标的动词短语 → 拆分为独立行；连接名词/形容词/时间扩展 → 不拆
 - **Rule 3**：`"By any method"`、`"In any of tab:"` 等 qualifier 行必须附加到下一个具体动作，不得独立成行
-- **Rule 4**：语义配对检查点——导航/设置动作禁止与通话结果断言（`assert_call_established`、`assert_ringing`）配对
-- **Rule 5**：前置条件提取——`"When <state>"`、`"In idle"`、`"After hangup"` 等模式自动提取为 `precondition_text`
+- **Rule 4**：语义配对检查点——导航/设置类**可执行祈使句**保留为 testcase 前部 action，禁止被折叠进 `precondition_text`
+- **Rule 5**：`precondition_text` 仅保留**状态/上下文句**（如 `"When <state>"`、`"In idle"`、`"After hangup"`、`"During the conversation"`）；普通 action 禁止写入 `precondition_text`
 
 ---
 

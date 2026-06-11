@@ -95,6 +95,7 @@ A run is accepted only if all are true:
 - Letting generic rules run before specific rules
 - Mixing setting-selection with runtime action (example: select any key vs press any key to answer)
 - Silent introduction of new intent labels
+- Missing `actor` field when action_text names a specific device (e.g. "dectA", "handset B", "DUT A") — always add `"actor": "A"/"B"` after `action_intent` in those rows; omitting it loses multi-device execution context
 
 ## Practical recommendation
 Always run Mode A (read-only) first, review, then run Mode B (write output). This is the safest path for stable intent refinement.

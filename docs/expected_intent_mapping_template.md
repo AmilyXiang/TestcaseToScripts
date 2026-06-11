@@ -16,6 +16,7 @@ Provide a stable and auditable mapping standard for expected_intent, aligned wit
 - assert_call_established
 - assert_lock_state
 - assert_displayed_missed_call
+- assert_missed_call_disappear
 - assert_displayed_call_menu
 - assert_message_sent
 - assert_displayed_alu_message
@@ -49,7 +50,7 @@ Choose the dominant checkpoint semantics expressed by expected_text.
 - "DUT returns back in lock state" -> assert_lock_state
 - "A missed call message icon is displayed on the top bar" -> assert_displayed_missed_call
 - "All calls menu display" -> assert_displayed_call_menu
-- "Check the missed call is right, the missed call icon disappear on top bar" -> assert_displayed_missed_call
+- "Check the missed call is right, the missed call icon disappear on top bar" -> assert_missed_call_disappear
 - "Message sent" -> assert_message_sent
 - "Only ALU message icon is displayed without number of unread messages" -> assert_displayed_alu_message
 - "Alu message icon dissapears" -> assert_displayed_alu_message_disappear
@@ -60,6 +61,7 @@ Choose the dominant checkpoint semantics expressed by expected_text.
 - "The mobile stops ringing and call is released" (after reject softkey action) -> assert_call_rejected
 - "call is rejected" / "incoming call rejected" -> assert_call_rejected
 - "same results as step N" / "same results as step N & M" / "same results as above" / "same as above" (Redo/Repeat context) -> inherit expected_intent from the last expected_intent of the referenced step(s); if multiple steps referenced, use the expected_intent of the final referenced step
+- "Answering is possible and transfer to another set is also possible." -> assert_generic (multi-capability assertion; validates that both answer and transfer features remain functional — not a single call-established event)
 - Fallback when no strong semantic hit exists -> assert_generic
 
 ## Conflict Resolution

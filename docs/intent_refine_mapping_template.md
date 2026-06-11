@@ -26,7 +26,7 @@ This template standardizes action intent refinement so that different wording wi
 - take_call
 - assign_name
 - auto_answer_active
-- select_any_key
+- select_menu_option
 - press_ok_key
 - press_any_key
 - auto_answer_deactive
@@ -49,6 +49,9 @@ This template standardizes action intent refinement so that different wording wi
 - check_number_in_contact_or_not
 - navigate_to_settings_menu
 - navigate_to_language_menu
+- navigate_to_menu
+- clear_calllog
+- setup_call_scenario
 
 ## Rule Table (R01-R33)
 
@@ -69,7 +72,7 @@ This template standardizes action intent refinement so that different wording wi
 | R13 | take_call | phone B takes call from DUT A; the phone "B" takes the call from the DUT "A" | ringing only check | High |
 | R14 | assign_name | give handset/DUT a name | display name check | High |
 | R15 | auto_answer_active | activate auto answer feature in local MMI | deactivate auto answer | High |
-| R16 | select_any_key | select "Any key" option | press any key to answer | High |
+| R16 | select_menu_option | select a named menu option/setting using navigator keys; Select "Any key"; Select "Automatic"; Select "Normal"; Select "X" where X is a named setting value | press any key to answer; generic navigate | High |
 | R17 | press_ok_key | validate/confirm with OK key | press SK3 | High |
 | R18 | press_any_key | press any key to answer incoming call | select "Any key" setting | High |
 | R19 | auto_answer_deactive | deactivate auto answer feature in local MMI | activate auto answer | High |
@@ -97,6 +100,16 @@ This template standardizes action intent refinement so that different wording wi
 | R41 | check_number_in_contact_or_not | The number/name of phone X is not present in any contact list of DUT Y; number not in contact list; not present in any contact | check lock state; dial number | High |
 | R42 | navigate_to_settings_menu | go to the application menu screen, select the Settings menu; go to Settings menu; open Settings menu; navigate to Settings | Central Directory; call log | High |
 | R43 | navigate_to_language_menu | select and active the language menu; select language menu; open Language menu; navigate to Language settings | navigate to settings (without language) | High |
+| R44 | navigate_to_menu | go to the application menu screen; open the application menu; go to main menu; navigate to menu screen (without specifying a sub-menu target) | navigate to Settings; navigate to Language | High |
+
+## Summary / Conclusion Step Pattern
+Some action_text rows describe a post-menu verification summary rather than a discrete executable step.
+These MUST NOT be mapped to `needs_review`. Use `assert_generic` instead.
+
+Recognition patterns:
+- "Try each option successively" (or equivalent) after a SK3 More menu step → `assert_generic`
+- "Each option works as expected" — this is the expected side; action side is the "try" step
+- Any "try / verify / check each item one by one" that follows a menu-display step → `assert_generic`
 
 ## Context-Statement Rows (NOT actions — keep needs_review)
 Some action_text rows describe a background condition or precondition context rather than an executable action.
@@ -114,6 +127,8 @@ These are optional but recommended for stable naming in call-log flows.
 
 | Rule ID | Canonical action_intent | Trigger examples | Priority |
 |---|---|---|---|
+| R45 | clear_calllog | ensure CallLog is empty; delete all entries if needed; ensure all tabs are empty; delete entries if needed | navigate calllog | High |
+| R46 | setup_call_scenario | launch/make multiple outgoing and/or incoming calls (mixed: internal/external, answered/unanswered/rejected) as batch setup; "Launch internal and external answered and unanswered outgoing calls..."; "Launch internal outgoing and incoming calls, including answered and unanswered" | single outgoing call; receive single incoming call | High |
 | E01 | press_sk1_key | Try SK1 Call key | Medium |
 | E02 | press_sk2_key | Press SK2 View key | Medium |
 | E03 | press_sk3_key | Press SK3 More key; Press SK3 More key or OK key | Medium |
@@ -152,7 +167,7 @@ When existing intent is generic but context is explicit, refine to specific inte
 ## Conflict Resolution
 Use first-match-wins with strict order:
 1. R19 before R15 (deactive must win before active)
-2. R18 before R16 when phrase contains "answer incoming call"
+2. R18 before R16 when phrase contains "answer incoming call" (R18 = press_any_key wins over select_menu_option)
 3. R25 before generic navigator rules
 4. R24/E03 before generic press_key rules
 

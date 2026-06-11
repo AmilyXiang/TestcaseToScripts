@@ -35,6 +35,7 @@ Testcase action conversion rules:
 - Build candidate pairs using semantic cues: same actor/device (DUT/A/B), same object/feature (call log, directory, lock, ringing, display, key press), same state transition (idle/ringing/in-call/hold), and compatible intent families (for example initiate_outgoing_call -> assert_call_established/assert_ringing/assert_displayed in call context).
 - Prefer one-to-one semantic matching before any fallback.
 - Only if semantic evidence is insufficient, use positional fallback (index order) and repeat the last checkpoint on the shorter side.
+ - Exception removed: do NOT carry executable leading setup substeps into `precondition_text`. Keep those setup operations as ordered action rows before the later causative step. Only true state/context clauses may populate `precondition_text`.
 7. For multi-checkpoint assertions, assign each checkpoint to the most relevant action atom; do not attach unrelated UI/display checks to setup-only actions.
 8. Semantic split rule for coordinated clauses (mandatory):
 - Do not blindly split by conjunction words (and/then/after/before/while/comma).
@@ -47,40 +48,61 @@ Testcase action conversion rules:
 - Do not pair a navigation/setup action with a call-establishment checkpoint unless the action actually initiates/answers/continues the call.
 - Do not pair observation/watch/check actions with setup checkpoints when a later display/assert checkpoint is a better match.
 - If one checkpoint is global for several consecutive actions, attach it to the closest causative action and reuse only when truly shared.
+- If consecutive leading actions are executable setup operations ("go to menu", "select settings", "activate language menu") for a later incoming/outgoing call action, keep them as standalone ordered action rows; only non-executable state/context clauses may be treated as preconditions.
 10. Each row must include:
 - case_id
 - title
 - step_no
 - sub_step_no
+- action_actor
 - action_text
-- expected_text
 - action_intent
+- expected_actor
+- expected_text
 - expected_intent
+- precondition_actor
 - precondition_text
 - precondition_intent
 - precondition_required
 11. Intent constraints:
 - action_intent must not be empty; use custom_action when unrecognized.
 - expected_intent must not be empty; use assert_generic when unrecognized.
+- Use `clear_calllog` when action_text instructs to ensure a list (e.g. CallLog) is empty and delete entries if not.
+- Use `setup_call_scenario` when action_text instructs launching a batch of mixed outgoing/incoming calls (various types: internal/external, answered/unanswered/rejected) as a test precondition setup step. Do NOT split into multiple dial rows.
+- Use `assert_generic` for summary-conclusion steps such as "Try each option successively" that follow a menu-display step. These are NOT executable per-option actions.
 12. Repeat/Redo expansion rule:
 - If action_text contains repeat/redo semantics (for example: "Repeat step 2 to 3", "Redo step 1 & 2"), do not keep that sentence as a final action row.
 - Expand it into concrete atomic action rows by copying all atomic actions from the referenced steps in the same case.
 - Keep expansion order identical to the referenced steps and their sub_step_no order.
 - Expanded rows must still satisfy one-action + one-checkpoint per row.
-13. Output JSON only. No explanations.
-14. Precondition extraction and normalization rules:
-- Extract precondition only when the clause is a true setup/context/condition that must hold before executing the action (for example: "In idle", "After hangup", "if central directory is configured").
-- Treat temporal adverbials such as "during ...", "before ...", "after ...", "when ..." as precondition candidates when they describe execution phase/state constraints.
-- Apply this globally to both action_text and expected_text sources: if a phrase like "during the ringing phase" or "during the conversation" appears, move it into precondition_text and keep the remaining action/assertion sentence atomic.
-- Do not extract broken trailing fragments as precondition (for example: "if not)", ")", "if"):
-  keep these fragments inside action_text and rewrite to a complete sentence if needed.
-- Never extract "On the DUT ..." (including "On the DUT \"A\"") into precondition_text; keep it in action_text as device context wording.
-- Do not extract generic context like "On the DUT" (without concrete device/state constraint) as precondition; keep it in action_text and set precondition_required=false.
-- Do not treat ordinary verbs/words as device identifiers after "On the DUT" (for example: "try", "press", "open").
-- If content is state-only (pure condition with no executable action), keep it as precondition on the nearest executable row and do not create placeholder action rows such as "[state-only precondition]".
-- When no valid precondition exists, set precondition_text="", precondition_intent="", precondition_required=false.
-- When a valid precondition exists, set precondition_required=true and classify precondition_intent by type:
-  device_context | ui_context | sequence_state | condition_state | data_state | custom_precondition.
+13. Actor assignment rule:
+- Every row must include three actor fields: `action_actor`, `expected_actor`, `precondition_actor`.
+  Each identifies which physical device performs / observes / must satisfy that specific part of the step.
+  These three actors can differ within the same row (e.g., A dials → B rings; precondition on B being idle).
+- Actor label convention (applies to all three fields):
+  - `A` — DUT (Device Under Test): primary device. Use `A` when text refers to "DUT", "the DUT", "DUT \"A\"", "handset A", "phone A", "device A", or when no specific device is mentioned (default).
+  - `B` — Remote/far-end device. Use `B` when text refers to "phone B", "handset B", "device B", "remote set", "another set", "the other end", "calling party" / "called party" (when not the DUT).
+  - `C`, `D`, `E`, … — Additional devices: use the corresponding letter when mentioned explicitly.
+  - `SYS` — System/infrastructure: use when the action/result is performed/generated by DECT base, PBX, server, or network.
+- Extraction rules (priority order, applied independently to each of the three fields):
+  1. Explicit label: device letter (A/B/C/D/E) with a device word (phone, handset, DUT, device, set) → use that letter.
+  2. Alias: "remote set", "other end", "calling party" (when not DUT) → `B`.
+  3. System alias: "base", "PBX", "server", "network" as performer/observer → `SYS`.
+  4. Default: `A`.
+- Cross-field examples:
+  - action_text "A dials B" → action_actor=A; expected_text "B rings" → expected_actor=B
+  - action_text "receive incoming call" → action_actor=A; expected "ringing on DUT" → expected_actor=A
+  - precondition "B is in idle" → precondition_actor=B; no precondition → precondition_actor=A (default)
+- Do NOT use `"DUT"` as any actor value — always resolve DUT to `"A"`.
+14. Output JSON only. No explanations.
+15. Precondition handling:
+- `precondition_text` is only for true state/context constraints, not ordinary executable actions.
+- Preconditions from the input case's `preconditions` field (case-level) remain valid and should be carried to the FIRST row of that case when non-empty.
+- Explicit non-executable state/context clauses may also be represented as `precondition_text` (for example: "When <state>", "In idle", "After hangup", "During the conversation").
+- Do NOT place executable imperative sentences into `precondition_text`.
+- Do NOT move executable setup/navigation/configuration/data-entry steps into `precondition_text`; keep them as ordered action rows.
+- If a sentence contains concrete tester operations such as `dial`, `press`, `move`, `enter`, `select`, `open`, `navigate`, `go to`, `activate`, or `deactivate`, treat it as `action_text`, not as precondition.
+- If no real precondition exists for a row: set precondition_text="", precondition_intent="", precondition_required=false.
 
 Output requirements:
 - JSON only (no explanatory text).

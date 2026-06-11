@@ -19,9 +19,25 @@ Mandatory constraints:
 - expected_intent
 - precondition_intent
 - precondition_required (must be true when precondition_text is non-empty, else false)
+- actor (add this field when the action explicitly names the executing device, see rule below)
+- multiplicity (add this field when action_text implies multiple iterations of the same action, see rule below)
 5. For rows in skip_case_ids, do not modify any field.
+6. Actor field rule:
+- If action_text explicitly identifies the executing device (e.g. "DUT A", "handset A", "handset B", "dectA", "dectB", "phone \"B\""), add `"actor": "<label>"` immediately after `action_intent`, where `<label>` is the normalized device identifier (e.g. "A" or "B").
+- If action_text does not specify a named actor, do NOT add the `actor` field (absence means the default DUT / single-device context).
+- Never fabricate an actor from the expected_text or precondition_text — source is action_text only.
+7. Multiplicity field rule:
+- If action_text implies the same action is performed multiple times (e.g. "some entries", "several contacts", "Create some X and some Y"), add `"multiplicity": "multiple"` immediately after `action_intent`.
+- If action_text describes a single instance of the action, do NOT add the `multiplicity` field (absence means single execution).
+- The `action_intent` stays unchanged (e.g. `create_number_entry`) — `multiplicity` is an annotation, not a separate intent.
 
 Intent refinement rules:
+
+**ABSOLUTE CONSTRAINTS (override all other rules):**
+- NEVER modify `action_text`, `expected_text`, or `precondition_text` fields — copy them VERBATIM from the input row. These are read-only source data.
+- NEVER write `needs_review` into `action_intent` or `expected_intent` in the output JSON. If you are uncertain, keep the existing value unchanged. `needs_review` in the output JSON is a hard error.
+- NEVER delete, insert, or reorder rows. The output array MUST contain exactly the same number of rows as the input, in the same order, with identical `case_id`, `step_no`, and `sub_step_no` values. Any mismatch in row count or step identifiers is a hard error.
+
 A) action_intent
 - Use docs/intent_refine_mapping_template.md as the authoritative action_intent mapping source.
 - Apply meaning-first matching with fixed rule priority and conflict resolution defined in the template.
@@ -34,7 +50,7 @@ A) action_intent
   - If no high-confidence rule is matched, keep existing action_intent unchanged.
   - Do NOT downgrade an existing specific action_intent into a more generic one.
   - Do NOT invent new action_intent values outside the approved canonical list.
-- If uncertain after template matching, keep existing action_intent and mark the row as needs_review in reporting.
+- If uncertain after template matching, keep existing action_intent as-is.
 
 B) expected_intent
 - Use docs/expected_intent_mapping_template.md as the authoritative expected_intent mapping source.
@@ -53,6 +69,14 @@ B) expected_intent
   - If expected_text validates identity/number/name visibility during conversation, map to explicit display intent (for example assert_displayed_name_of_phone / assert_displayed_number_of_phone), not assert_ringing.
   - If expected_text is "same results as step N" / "same results as step N & M" / "same results as above" (Redo/Repeat row): inherit the expected_intent from the last expected_intent of the referenced step(s) in the same case_id — do NOT map to assert_generic.
 - Same-text consistency (MANDATORY): scan all rows in the batch. If multiple rows share an identical expected_text string, they MUST be assigned the same expected_intent. When a conflict exists across those rows, apply majority-wins: use the most frequently assigned expected_intent for that text and update all minority rows to match it.
+- **Causal consistency for shared expected_text (MANDATORY, overrides same-text consistency for sub_steps):**
+  When multiple sub_steps within the same step_no share the same expected_text (because the original TestRail step had one expected field for all sub-actions), do NOT blindly assign all sub_steps the same expected_intent derived from the shared expected_text.
+  Instead, for EACH sub_step, infer expected_intent from the direct causal result of its own action_intent:
+  - The expected_intent must represent the UI state or outcome that THIS specific action directly produces — not the final goal described by the shared expected_text.
+  - The shared expected_text only tells you the scenario's end goal; it does NOT mean every intermediate sub_step produces that final state.
+  - Example: if sub_step_1 action is `initiate_outgoing_call` (device enters dialing screen), its expected_intent must be `assert_outgoing_dialing`, NOT `assert_displayed_incoming_call` — even if the step's shared expected_text mentions "incoming call is presented". The incoming call only arrives via a later sub_step.
+  - Only the sub_step whose action directly triggers the final described outcome should map to that outcome's expected_intent.
+  - This rule takes precedence over same-text consistency within a step_no group.
 
 C) precondition_intent
 - Use docs/precondition_intent_mapping_template.md as the authoritative precondition_intent mapping source.

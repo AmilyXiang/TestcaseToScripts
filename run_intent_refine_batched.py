@@ -138,8 +138,22 @@ def run_ps1(ps1_path: str, project_root: str) -> int:
     return proc.returncode
 
 
+def _detect_existing_batches(tmp_dir: str) -> int:
+    """Return count of contiguous batchN_output.json files starting at N=1."""
+    n = 0
+    while os.path.exists(os.path.join(tmp_dir, f"batch{n + 1}_output.json")):
+        n += 1
+    return n
+
+
 def merge_batches(all_rows: list, tmp_dir: str, n_batches: int) -> dict:
-    """Load all batchN_output.json files and build the merged row map."""
+    """Load all batchN_output.json files and build the merged row map.
+
+    n_batches=0 means auto-detect by scanning the tmp directory.
+    """
+    if n_batches == 0:
+        n_batches = _detect_existing_batches(tmp_dir)
+        print(f"  [AUTO] Detected {n_batches} batch output file(s) in {tmp_dir}")
     refined_map: dict = {}
     for batch_idx in range(1, n_batches + 1):
         output_path = os.path.join(tmp_dir, f"batch{batch_idx}_output.json")
@@ -197,7 +211,7 @@ def main():
     # ------------------------------------------------------------------ merge-only
     if args.merge_only:
         print("\n[MERGE-ONLY] Skipping Copilot, merging existing batch outputs...")
-        result = merge_batches(all_rows, tmp_dir, len(batches))
+        result = merge_batches(all_rows, tmp_dir, 0)   # 0 = auto-detect
         _write_final(full_data, result, final_path)
         return
 

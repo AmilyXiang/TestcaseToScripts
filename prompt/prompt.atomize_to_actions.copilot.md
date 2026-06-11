@@ -49,10 +49,13 @@ Write a single JSON file with this exact structure:
       "title": "string",
       "step_no": integer,
       "sub_step_no": integer,
+      "action_actor": "string",
       "action_text": "string",
-      "expected_text": "string",
       "action_intent": "string",
+      "expected_actor": "string",
+      "expected_text": "string",
       "expected_intent": "string",
+      "precondition_actor": "string",
       "precondition_text": "string",
       "precondition_intent": "string",
       "precondition_required": boolean
@@ -94,6 +97,9 @@ interaction target or independent operation goal.
   → ONE row. "After in conversation state" is a time extension of the same observation, not a new action.
 - "Launch internal **and** external answered **and** unanswered outgoing calls."
   → ONE row. All "and" here connect call-type nouns, not separate verb actions.
+  → `action_intent: setup_call_scenario` — this is a batch setup step, not multiple atomic dial actions.
+- "Ensure the CallLog is empty on every tab; delete entries if needed."
+  → ONE row. The second clause is the method to achieve the first. `action_intent: clear_calllog`.
 
 ---
 
@@ -109,6 +115,9 @@ These MUST NOT become standalone rows.
 - Any substep ending with `:` that names a context rather than performing an action
 - Any substep consisting entirely of a parenthetical note, e.g. "(this is a missed call or not answered call)"
   → This is a clarification note: either skip it or merge it into the preceding row as a note.
+- "Try each option successively" (or equivalent) after a menu-display step
+  → This is a summary-conclusion step. Keep it as ONE row with `action_intent: assert_generic`. Do NOT expand or split further.
+  → It represents a tester-level intent to exercise all listed options, NOT a separate concrete action per option.
 
 **How to handle:**
 1. When a qualifier substep Q is followed by a concrete substep C: prepend Q to C's action_text.
@@ -127,7 +136,8 @@ Use **semantic pairing** instead:
 
 #### Step 1 — Classify each substep
 Assign each substep to one of:
-- **setup**: navigation, configuration, feature activation, state setup — does NOT directly produce the observable result
+- **setup_action**: an executable imperative setup step (navigation, configuration, feature activation, data entry) that the tester must actually perform before a later causative step
+- **state_context**: a non-executable state/context clause that constrains when the action happens (for example "In idle", "When locked", "After hangup", "During the conversation")
 - **causative**: the action that directly causes the observable result (incoming call arrives, call is established, key press produces output)
 - **observation**: watch/check/verify what is displayed — acts as confirmation
 
@@ -149,7 +159,9 @@ Use these semantic signals:
 - Assign each checkpoint to the substep it most directly describes (Step 2 result).
 - If a checkpoint applies to multiple consecutive substeps (e.g., all substeps in a navigation sequence), assign it to the LAST substep in that group where the observable result first appears.
 - **FORBIDDEN**: pairing a pure setup/navigation substep with a call-result checkpoint (assert_ringing, assert_call_established, assert_displayed_incoming_call) unless that substep IS the call action itself.
-- If a setup substep genuinely has no dedicated checkpoint, repeat the first applicable checkpoint from the sequence (prefer the most global/final result of the step group).
+- **FORBIDDEN**: moving an executable imperative substep into `precondition_text`. Executable imperative setup must stay as ordered `action_text` rows at the front of the testcase.
+- Only `state_context` content may become `precondition_text`.
+- Keep an executable `setup_action` as its own row in execution order, even when it only prepares a later causative step.
 
 #### Example — WRONG vs CORRECT:
 ```
@@ -169,40 +181,34 @@ WRONG (positional/carry-forward):
   Row 3: substep3 → checkpoint 2
   Row 4: substep4 → checkpoint 2
 
-CORRECT (semantic pairing):
-  Row 1: substep1 → checkpoint 1  (setup prepares for the incoming call test; global result applies)
-  Row 2: substep2 → checkpoint 1  (still setup; same global context)
-  Row 3: substep3 → checkpoint 1  (CAUSATIVE: receiving call directly triggers the display/ring assertion)
-  Row 4: substep4 → checkpoint 2  (OBSERVATION: checking call confirms answer capability)
+CORRECT (semantic pairing while preserving executable setup actions):
+  Row 1:
+    action = "On the DUT (mono or multiline) go to the application menu screen, select the Settings menu."
+  Row 2:
+    action = "Select and active the language menu."
+  Row 3:
+    action = "In the same time the DUT receives an incoming call."
+    checkpoint = 1
+  Row 4:
+    action = "Check that incoming call is presented on the DUT."
+    checkpoint = 2
 ```
 
 ---
 
-### Rule 5 — Precondition extraction
-Extract a precondition when the text contains a true setup/context clause that must hold BEFORE
-executing the action.
+### Rule 5 — Precondition handling
+`precondition_text` is reserved for true state/context constraints, not ordinary actions.
 
-**Patterns to extract:**
-- Leading clause: `"When <state>, <action>"` → precondition = "When <state>", action = "<action>"
-- Leading clause: `"In idle, <action>"` → precondition = "In idle", action = "<action>"
-- Embedded trailing state: `"<action> when <state-condition>"` where state-condition contains
-  words like: is active, is locked, is configured, is enabled, is set, lock is, state is
-  → extract "when <state-condition>" as precondition
-- Sequential: `"After hangup, <action>"` → precondition = "After hangup", action = "<action>"
-- Temporal: `"Before the end of the dialing, ..."` → precondition = "Before the end of the dialing"
-- Case-level preconditions (from `preconditions` field): carry to the FIRST row of each case only
-  when no step-level precondition overrides it.
-
-**Do NOT extract:**
-- "On the DUT ..." — device context, keep in action_text
-- "In the same time ..." — concurrent event, NOT a precondition, keep as action_text
-
-**Precondition intent classification:**
-- `ui_context` → idle screen, specific menu opened
-- `condition_state` → device/feature lock, active, configured
-- `sequence_state` → after hangup, after a previous step
-- `data_state` → contact/directory entry exists
-- `custom_precondition` → other
+- Case-level `preconditions` from the input remain valid sources for `precondition_text`.
+- You may also preserve an explicit non-executable state/context clause as `precondition_text`, for example:
+  - `When <state>`
+  - `In idle`
+  - `After hangup`
+  - `During the conversation`
+- **Do NOT** place an ordinary executable imperative sentence into `precondition_text`.
+- **Do NOT** move executable setup/navigation/configuration/data-entry substeps into `precondition_text`.
+- If a sentence is an executable imperative action (for example contains concrete tester operations like `dial`, `press`, `move`, `enter`, `select`, `open`, `navigate`, `go to`, `activate`, `deactivate`), keep it as `action_text` and execute it in testcase order.
+- If `precondition_text` is empty, set `precondition_intent=""` and `precondition_required=false`.
 
 ---
 
@@ -247,12 +253,39 @@ Sort output rows by: case_id (string order) → step_no (integer) → sub_step_n
 
 ---
 
+### Rule 9 — Actor assignment
+Every row must include three actor fields: `action_actor`, `expected_actor`, and `precondition_actor`.
+Each identifies which physical device performs / observes / must satisfy that specific part of the step.
+These three actors can differ within the same row (e.g., A dials → B rings; precondition on B being idle).
+
+**Actor label convention (applies to all three fields):**
+- `A` — DUT (Device Under Test): primary device being tested. Use `A` when text refers to "DUT", "the DUT", "DUT \"A\"", "handset A", "phone A", "device A", or when no specific device is mentioned (default).
+- `B` — Remote/far-end device: the calling or called party. Use `B` when text refers to "phone B", "handset B", "device B", "remote set", "another set", "the other end", "calling party" / "called party" (when not the DUT).
+- `C`, `D`, `E`, … — Additional devices: use the corresponding letter when mentioned explicitly.
+- `SYS` — System/infrastructure: use when action/result is performed/generated by DECT base, PBX, server, or network.
+
+**Extraction rules (priority order, applied independently to each of the three fields):**
+1. Explicit label wins: device letter (A/B/C/D/E) attached to a device word (phone, handset, DUT, device, set) → use that letter.
+2. Alias match: "remote set", "other end", "calling party" (when not DUT) → `B`.
+3. System alias: "base", "PBX", "server", "network" as performer/observer → `SYS`.
+4. Default → `A`.
+
+**Cross-field inference examples:**
+- action_text: "A dials B" → `action_actor=A`; expected_text: "B rings" → `expected_actor=B`
+- action_text: "receive incoming call from B" → `action_actor=A`; expected: "ringing on handset A" → `expected_actor=A`
+- precondition: "B is in idle" → `precondition_actor=B`; "no precondition" → `precondition_actor=A` (default)
+
+**Do NOT use `"DUT"` as any actor value — always resolve DUT to `"A"`.**
+
+---
+
 ## Anti-patterns (strictly forbidden)
 1. Do NOT create a row where action_text is only a qualifier phrase ("By any method", "In any of tab:", etc.).
 2. Do NOT pair a navigation/setup action with a call-result checkpoint (assert_call_established, assert_ringing) unless that action IS the call event.
 3. Do NOT leave action_intent or expected_intent empty.
 4. Do NOT keep "same results as step N" as the expected_text — expand the referenced steps.
 5. Do NOT create rows with identical action_text appearing consecutively within the same step_no unless the step genuinely has repeated identical operations.
+6. Do NOT use `"DUT"` as any actor value — always resolve DUT to `"A"`.
 
 ---
 

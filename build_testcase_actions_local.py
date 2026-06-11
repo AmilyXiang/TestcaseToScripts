@@ -66,6 +66,8 @@ def _split_expected(step: dict[str, Any]) -> list[str]:
 
 def _action_intent(text: str) -> str:
     t = text.lower()
+    if ("check" in t or "verify" in t) and "incoming call" in t:
+        return "check_call_presentation"
     if "press any key" in t:
         return "press_any_key"
     if "sk1" in t:
@@ -76,8 +78,14 @@ def _action_intent(text: str) -> str:
         return "press_sk3_key"
     if "ok key" in t or "press ok" in t:
         return "press_ok_key"
-    if "back key" in t:
+    # Match "back key" with or without surrounding quotes (e.g. press the "Back" key)
+    if "back key" in t or '"back"' in t or "\u201cback\u201d" in t:
         return "press_back_key"
+    # dial_number must be checked before navigator, so "Dial … and … navigator keys" → dial_number
+    if "dial" in t and "number" in t:
+        return "dial_number"
+    if "outgoing" in t or "dial" in t or "make a call" in t or "call to" in t:
+        return "initiate_outgoing_call"
     if "navigator right" in t or "right navigation" in t:
         return "press_navigator_right_key"
     if "navigator" in t or "nav key" in t:
@@ -88,8 +96,6 @@ def _action_intent(text: str) -> str:
         return "take_call"
     if "missed call" in t:
         return "confirm_missed_call"
-    if "outgoing" in t or "dial" in t or "make a call" in t or "call to" in t:
-        return "initiate_outgoing_call"
     if "call log" in t or "calllog" in t:
         return "navigate_calllog"
     if "central directory" in t:
@@ -107,7 +113,13 @@ def _action_intent(text: str) -> str:
 
 def _expected_intent(text: str) -> str:
     t = text.lower()
-    if "call is established" in t or "conversation" in t:
+    # "Answering is possible AND transfer is also possible" is a multi-capability assertion -> assert_generic
+    if (
+        "call is established" in t
+        or "conversation" in t
+        or ("can answer" in t and "transfer" not in t)
+        or ("answer this incoming call" in t and "transfer" not in t)
+    ):
         return "assert_call_established"
     if "incoming call" in t and ("display" in t or "present" in t):
         return "assert_displayed_incoming_call"
@@ -124,6 +136,134 @@ def _expected_intent(text: str) -> str:
     if "number" in t and "display" in t:
         return "assert_displayed_number_of_phone"
     return "assert_generic"
+
+
+def _extract_actor(text: str) -> str:
+    """Infer the primary actor label from action_text.
+
+    Returns an uppercase letter ("A", "B", …) for named devices,
+    "DUT" for single-device actions, or "" when text is empty.
+
+    Priority (first match wins):
+      1. Sentence-initial subject: "The phone/handset X" / "Phone/Handset X"
+      2. Device the tester operates: "On the DUT/phone/handset X"
+      3. Originator in a call: "from the phone/handset X"
+      4. Any labeled device anywhere in the sentence
+      5. Default: "DUT"
+    """
+    t = (text or "").strip()
+    if not t:
+        return ""
+
+    _DEVICE_WORDS = r"(?:DUT|phone|handset|device)"
+    # Allow optional whitespace between opening quote and label letter,
+    # e.g. both `"A"` and `" A "` (TestRail export inserts spaces around quotes).
+    _LABEL = r'["\u201c\u201d]?\s*([A-Z])\s*["\u201c\u201d]?'
+
+    # Pattern 1 — "The phone X …" / "Handset X …" at start of sentence
+    m = re.match(
+        rf'^(?:the\s+)?{_DEVICE_WORDS}\s*{_LABEL}\b',
+        t, flags=re.IGNORECASE,
+    )
+    if m:
+        return m.group(1).upper()
+
+    # Pattern 2 — "On the DUT X" / "On the phone X"
+    m = re.search(
+        rf'\bon\s+the\s+{_DEVICE_WORDS}\s*{_LABEL}\b',
+        t, flags=re.IGNORECASE,
+    )
+    if m:
+        return m.group(1).upper()
+
+    # Pattern 3 — "from the phone/handset X" (caller / originator)
+    m = re.search(
+        rf'\bfrom\s+(?:the\s+|a\s+(?:distant\s+)?)?{_DEVICE_WORDS}\s*{_LABEL}\b',
+        t, flags=re.IGNORECASE,
+    )
+    if m:
+        return m.group(1).upper()
+
+    # Pattern 4 — any labeled device (first occurrence)
+    m = re.search(
+        rf'\b{_DEVICE_WORDS}\s*{_LABEL}\b',
+        t, flags=re.IGNORECASE,
+    )
+    if m:
+        return m.group(1).upper()
+
+    # Default: DUT is always the device under test = A (primary device in all test cases)
+    return "A"
+
+
+def _is_observation_action(text: str) -> bool:
+    t = (text or "").lower().strip()
+    return t.startswith(("check", "verify", "observe", "watch", "confirm"))
+
+
+def _is_eventful_action(text: str) -> bool:
+    t = (text or "").lower()
+    if _is_observation_action(text):
+        return True
+    return any(
+        token in t
+        for token in (
+            "incoming call",
+            "make a call",
+            "call to",
+            "dial",
+            "answer",
+            "reject",
+            "press ",
+            "receive message",
+            "send message",
+        )
+    )
+
+
+def _is_setup_action(text: str) -> bool:
+    t = (text or "").lower()
+    if not t or _is_eventful_action(text):
+        return False
+    return any(
+        token in t
+        for token in (
+            "menu",
+            "screen",
+            "settings",
+            "language",
+            "select ",
+            "go to",
+            "navigate",
+            "open ",
+            "activate",
+            "deactivate",
+        )
+    )
+
+
+def _fold_leading_setup_actions(actions: list[str], expects: list[str]) -> tuple[list[str], list[str]]:
+    if len(actions) <= 1:
+        return [], actions
+
+    trigger_index = None
+    for idx, action in enumerate(actions):
+        if _is_eventful_action(action):
+            trigger_index = idx
+            break
+
+    if trigger_index is None or trigger_index == 0:
+        return [], actions
+
+    leading_actions = actions[:trigger_index]
+    remaining_actions = actions[trigger_index:]
+    if not leading_actions or not all(_is_setup_action(action) for action in leading_actions):
+        return [], actions
+
+    if len(expects) < len(remaining_actions):
+        return [], actions
+
+    return leading_actions, remaining_actions
 
 
 def _merge_preconditions(base_pre: str, inline_pre: str) -> str:
@@ -192,7 +332,7 @@ def _precondition_intent(text: str) -> str:
     """
     t = (text or "").lower()
     # ui_context: UI/screen state (idle screen, specific menu, etc.)
-    if "idle" in t:
+    if "idle" in t or any(w in t for w in ("menu", "screen", "tab", "homepage")):
         return "ui_context"
     # condition_state: device or feature configuration/lock state
     if any(w in t for w in ("keylock", "lock", "active", "enabled", "configured",
@@ -224,6 +364,7 @@ def build_rows(cleaned: dict[str, Any]) -> list[dict[str, Any]]:
 
             actions = _split_action(step)
             expects = _split_expected(step)
+            carried_setup_pre, actions = _fold_leading_setup_actions(actions, expects)
             n = max(len(actions), len(expects), 1)
 
             for i in range(n):
@@ -232,9 +373,11 @@ def build_rows(cleaned: dict[str, Any]) -> list[dict[str, Any]]:
 
                 inline_pre, normalized_action = _extract_inline_precondition(a)
                 effective_action = normalized_action if normalized_action else a
-                pre_text = _merge_preconditions(pre, inline_pre)
-                pre_required = bool(inline_pre)
-                pre_intent = _precondition_intent(inline_pre) if inline_pre else ""
+                step_setup_pre = " ; ".join(carried_setup_pre) if i == 0 and carried_setup_pre else ""
+                merged_inline_pre = _merge_preconditions(step_setup_pre, inline_pre)
+                pre_text = _merge_preconditions(pre, merged_inline_pre)
+                pre_required = bool(merged_inline_pre)
+                pre_intent = _precondition_intent(merged_inline_pre) if merged_inline_pre else ""
 
                 rows.append(
                     {
@@ -242,10 +385,13 @@ def build_rows(cleaned: dict[str, Any]) -> list[dict[str, Any]]:
                         "title": title,
                         "step_no": step_no,
                         "sub_step_no": i + 1,
+                        "action_actor": _extract_actor(effective_action),
                         "action_text": effective_action,
-                        "expected_text": e,
                         "action_intent": _action_intent(effective_action),
+                        "expected_actor": _extract_actor(e),
+                        "expected_text": e,
                         "expected_intent": _expected_intent(e),
+                        "precondition_actor": _extract_actor(pre_text) if pre_text else "A",
                         "precondition_text": pre_text,
                         "precondition_intent": pre_intent,
                         "precondition_required": pre_required,

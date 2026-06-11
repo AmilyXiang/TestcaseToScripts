@@ -13,8 +13,11 @@ def cleanup_markup_text(text: Any) -> Any:
         return text
 
     normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    # Replace literal non-breaking spaces before HTML unescape.
     normalized = normalized.replace("\u3000", " ").replace("\xa0", " ")
+    # html.unescape converts &nbsp; -> U+00A0; replace again so none survive.
     normalized = html.unescape(normalized)
+    normalized = normalized.replace("\xa0", " ")
 
     # Restore over-escaped double quotes often seen in exported Excel/JSON text.
     while '""' in normalized:

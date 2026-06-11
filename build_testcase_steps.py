@@ -34,8 +34,11 @@ def build_simple_stepflow(input_action_file: Path, output_step_file: Path) -> Di
         cases[case_id].append(
             {
                 "step_number": f"{int(row.get('step_no', 0) or 0)}_{int(row.get('sub_step_no', 0) or 0)}",
+                "action_actor": (row.get("action_actor") or row.get("actor") or "A").strip(),
                 "action_intent": (row.get("action_intent") or "").strip() or "custom_action",
+                "expected_actor": (row.get("expected_actor") or row.get("actor") or "A").strip(),
                 "expected_intent": (row.get("expected_intent") or "").strip() or "assert_generic",
+                "precondition_actor": (row.get("precondition_actor") or row.get("actor") or "A").strip(),
                 "precondition_intent": (row.get("precondition_intent") or "").strip(),
                 "_index": index,
             }
@@ -84,10 +87,13 @@ def build_simple_stepflow(input_action_file: Path, output_step_file: Path) -> Di
             out_row: Dict[str, str] = {"step_number": step["step_number"]}
             # Precondition belongs to this specific step, placed before action/expected.
             if step["precondition_intent"]:
+                out_row["precondition_actor"] = step["precondition_actor"]
                 out_row["precondition_intent"] = step["precondition_intent"]
             if execute_action[i]:
+                out_row["action_actor"] = step["action_actor"]
                 out_row["action_intent"] = step["action_intent"]
             if execute_expected[i]:
+                out_row["expected_actor"] = step["expected_actor"]
                 out_row["expected_intent"] = step["expected_intent"]
 
             if len(out_row) > 1:
