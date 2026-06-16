@@ -102,6 +102,25 @@ This template standardizes action intent refinement so that different wording wi
 | R43 | navigate_to_language_menu | select and active the language menu; select language menu; open Language menu; navigate to Language settings | navigate to settings (without language) | High |
 | R44 | navigate_to_menu | go to the application menu screen; open the application menu; go to main menu; navigate to menu screen (without specifying a sub-menu target) | navigate to Settings; navigate to Language | High |
 
+## assert_action_complete (Expected Intent)
+Use `assert_action_complete` (not `assert_generic`) when the **expected_text is a direct action-echo**:
+it restates the action as completed — "X is done / saved / selected / activated / assigned" — with no
+additional observable state, display, or multi-capability check.
+
+Recognition patterns:
+- "The complete number is entered in the dialing field." (after dial_number)
+- "A name is assigned to DUT handset A." (after assign_name)
+- "CLIP is activated on phone B." (after activate CLIP action)
+- "The incoming call is answered on DUT A." (after take_call)
+- "The 'Any key' option is selected on DUT A." / "The 'Any key' auto answer mode is saved on DUT A." (after select/confirm option)
+- "The 'Automatic' / 'Normal' option is selected on DUT A." / "The 'Normal' mode is saved on DUT A."
+- "Incoming calls can be auto answered in handset voice mode." (after auto_answer_active)
+
+Must NOT use assert_action_complete:
+- When expected_text mentions a screen display, number shown, call state, lock state, or multi-capability
+- "Outgoing call dialing starts in block mode." → keep assert_generic (state observation)
+- "Calls are completed as expected." → keep assert_generic (batch flow summary)
+
 ## Summary / Conclusion Step Pattern
 Some action_text rows describe a post-menu verification summary rather than a discrete executable step.
 These MUST NOT be mapped to `needs_review`. Use `assert_generic` instead.

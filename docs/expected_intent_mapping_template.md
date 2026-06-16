@@ -25,6 +25,7 @@ Provide a stable and auditable mapping standard for expected_intent, aligned wit
 - assert_ringing
 - assert_call_released
 - assert_call_rejected
+- assert_action_complete
 - assert_generic
 
 ## Core Mapping Principle
@@ -62,6 +63,10 @@ Choose the dominant checkpoint semantics expressed by expected_text.
 - "call is rejected" / "incoming call rejected" -> assert_call_rejected
 - "same results as step N" / "same results as step N & M" / "same results as above" / "same as above" (Redo/Repeat context) -> inherit expected_intent from the last expected_intent of the referenced step(s); if multiple steps referenced, use the expected_intent of the final referenced step
 - "Answering is possible and transfer to another set is also possible." -> assert_generic (multi-capability assertion; validates that both answer and transfer features remain functional — not a single call-established event)
+- "X is done / X is saved / X is selected / X is activated / X is assigned" where X directly mirrors the subject of the preceding action_text (action-echo pattern) -> assert_action_complete
+  - Examples: "The complete number is entered in the dialing field." / "A name is assigned to DUT handset A." / "The incoming call is answered on DUT A." / "CLIP is activated on phone B." / 'The "Any key" option is selected on DUT A.' / 'The "Any key" auto answer mode is saved on DUT A.'
+  - Rule: the expected_text is a direct restatement of the action as completed — no additional observable state beyond confirming the action happened.
+  - Must NOT use assert_action_complete when the expected_text checks a display, screen, call state, lock state, or multi-capability outcome.
 - Fallback when no strong semantic hit exists -> assert_generic
 
 ## Conflict Resolution
@@ -89,7 +94,8 @@ Use a versioned patch block in output meta:
   - samples
 
 ## Review Checklist
-- assert_generic is used only when no stronger validation target is justified.
+- assert_action_complete is used only when expected_text is a direct action-echo: it restates the action as completed (X is done/saved/selected/activated/assigned) with no additional observable state or display check.
+- assert_generic is used only when no stronger validation target is justified, and the expected_text is not a simple action-echo.
 - Display-oriented expectations are separated into explicit display subtypes when wording is clear.
 - Call success expectations map to assert_call_established consistently.
 - No unrelated action_intent or precondition_intent fields changed.
