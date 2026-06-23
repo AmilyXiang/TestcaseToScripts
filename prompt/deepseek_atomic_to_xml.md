@@ -63,7 +63,7 @@
     {
       "case_id": 1017,
       "model": "8234|8254|8262|unknown",
-      "missing_type": "navigation|capability|unmapped_action|unmapped_assertion",
+      "missing_type": "navigation|capability|unmapped_action|unmapped_assertion|hardcoded_value",
       "missing_key": "settings_auto_keylock",
       "source": "enter_menu(\"Settings/Security/Automatic keylock\")",
       "suggestion": "可选建议，若无可留空字符串"
@@ -83,8 +83,10 @@
   <step type="dect" action="init" device="N" />
   <step type="dect" action="press_key" content="onhook" device="N" />
 - 每个被使用的 device，结尾必须包含：
+  <step type="dect" action="press_key" content="onhook" device="N" />
   <step type="dect" action="origin" device="N" />
   <step type="dect" action="close" device="N" />
+- 若场景末尾已明确执行过 onhook，仍需保证收尾块中存在且仅存在一条 onhook 清理（避免漏清理或重复清理）。
 
 2) 型号能力约束
 - 若 case 核心依赖特定能力（如 lock_key_long_press），把 require_cap 放在对应 init 上：
@@ -107,18 +109,44 @@
 - 有了以上两点，人工修饰时可直接在 XML 中搜索 "MISSING" 找到所有待补位置，再对照 MISSING_PROFILES 清单补充。
 
 5) Wait 策略
-- 禁止默认插入 sleep=1。
-- 只在场景语义必需时保留 wait（如振铃窗口、自动锁定超时、电源切换窗口）。
+- 禁止“无条件全局插入 wait”，但允许按以下启发式自动补齐必要 wait：
+  - 拨号后到首个通话状态校验前：sleep 1
+  - 按键切换 Hold/Retrieve 后到状态校验前：sleep 1
+  - 开关机或重启窗口：sleep 2~5（按语义选择）
+  - 自动锁定或超时类场景：按步骤文本中的显式时长（如 15/30 秒）
+- 如果上一条已是 wait，禁止连续再插入 wait。
 
 6) Verify 策略
 - verify_screen 的 content 使用 JSON 字符串，优先稳定断言：
   - 单文本：{"text":"Connected"}
   - 多文本：{"text":["Connected","{device.2.ext_number}","{device.2.ext_name}"]}
+- 通话状态名称必须使用规范词表，不得输出同义词：
+  - 振铃未接听：Alerting
+  - 主叫外呼中：Calling
+  - 已接通：Connected
+  - 禁止输出：Incoming call、In call、On call 等非规范状态名。
 - 文本数组允许正则：以 re: 前缀表示正则匹配，例如 "re:\\d{2}:\\d{2}"。
 - 涉及图标状态可用：{"text":"Connected","hold":true,"conference":true,"transfer":true}
 - 锁屏状态优先：{"lock":true}
 - 仅允许以上可执行能力：text（含 re: 正则）与图标布尔位（如 hold/conference/transfer/contacts/allCalls/lock）。
 - 不要生成其它断言结构（如数值比较、逻辑表达式、OCR 坐标、脚本表达式）。超出能力范围时，写入 MISSING_PROFILES（missing_type="unmapped_assertion"），并在 XML 对应位置输出 MISSING 注释。
+- 双设备通话场景（含 Calling/Alerting/Connected/Hold/Retrieve/Release）必须做双端配对验证：
+  - 一个状态变化至少产生 2 条 verify_screen：主端一条、对端一条。
+  - Hold 后：主端验证 Hold；对端验证 Connected + 对端身份。
+  - Retrieve 后：两端都验证 Connected + 对端身份。
+  - Release 后：两端都验证空闲主页（ext_name/ext_number + 时间日期）。
+
+6b) 参数化与硬编码防护（强制）
+- 禁止把设备实际值写死到 XML（号码、姓名、IPEI、PIN、日期、时间、SIP 地址等）。
+- 以下字段必须优先参数化：
+  - 号码/姓名：{device.N.ext_number} / {device.N.ext_name}
+  - 设备标识：{device.N.IPEI_hex} / {device.N.IPEI_dec} / {device.N.IPEI_oct}
+  - 锁屏与业务参数：{device.N.lock_pin} / {device.N.emergency_number} 等
+- 对 dial_number、verify_screen(text 数组)、navigate 参数进行硬编码检查：
+  - 若发现可替换为 {device.N.*} 的常量值，禁止直接输出该可执行 step；
+  - 在原位置输出 MISSING 注释，并写入 MISSING_PROFILES：
+    missing_type="hardcoded_value"，missing_key 写字段名，source 写原始常量。
+- 仅允许协议常量和稳定 UI 关键词保留字面量（如 "Connected"、"Alerting"、"Settings"）。
 
 --------------------------------------------------
 四、设备与参与方映射规则
@@ -155,10 +183,19 @@ B. 导航类
 
 C. 菜单类
 - enter_menu("Settings/Security")：
-  优先转为 navigate key（例如 settings_security）
+  优先采用分层导航，不允许直接跨层跳转：
+  1) 先进入父级（settings）
+  2) verify_screen 确认当前层级
+  3) 再进入子级（settings_security）
+  4) 需要时补充 press_key("ok") 完成选择
+  示例：
+  <step type="dect" action="navigate" content="settings" device="N" />
+  <step type="dect" action="verify_screen" content='{"text":"Settings"}' device="N" />
+  <step type="wait" action="sleep" content="1" />
   <step type="dect" action="navigate" content="settings_security" device="N" />
 - select_menu_item("xxx")：
   优先转为 press_key 逐步导航；若可归并到已定义 navigation key，则用 navigate。
+  - 对 Service/Test menu 同样适用分层规则（例如 service_menu -> service_ipei），禁止一步跳到深层节点。
 
 D. 呼叫类
 - make_call("{device.2.ext_number}") ->
@@ -168,6 +205,7 @@ D. 呼叫类
 - end_call() -> press_key onhook
 - hold_call() -> press_key sk1
 - retrieve_call() -> press_key sk1
+- 所有 call 状态切换后（dial/answer/hold/retrieve/end）必须紧跟双端 verify_screen（见“6) Verify 策略”配对规则）。
 
 E. 锁屏/解锁类
 - lock_handset()：
@@ -194,6 +232,7 @@ H. 断言类（来自 assertions）
   - device="1" 时：{"text":["{device.1.ext_name}","{device.1.ext_number}","re:\\d{2}:\\d{2}","re:\\d{2}/\\d{2}/\\d{4}"]}
   - device="2" 时：{"text":["{device.2.ext_name}","{device.2.ext_number}","re:\\d{2}:\\d{2}","re:\\d{2}/\\d{2}/\\d{4}"]}
 - assert_true("...") -> 仅当可等价改写为 text/re: 或图标布尔断言时才转换；否则必须记为 unmapped_assertion。
+- 若断言语义属于双端通话状态，必须同时生成另一端对称断言。
 
 I. 自定义动作
 - 若 action 为自定义函数名（不在上述映射内），优先语义映射。
@@ -242,6 +281,10 @@ I. 自定义动作
 - 无法转换为可执行 XML 的 action/assertion：
   记录 missing_type="unmapped_action" 或 "unmapped_assertion"。
 
+4) 硬编码值检测
+- 当动作或断言中出现应来自 devices.json 或 model_profiles 的常量值时（见"6b 参数化与硬编码防护"）：
+  记录 missing_type="hardcoded_value"。
+
 --------------------------------------------------
 八、场景模板优先级（生成稳定性）
 --------------------------------------------------
@@ -280,6 +323,7 @@ I. 自定义动作
 --------------------------------------------------
 - 不要输出任何解释性自然语言。
 - 不要输出 markdown 代码块围栏（```）。
+- XML 缩进必须统一为 4 个空格，不允许 2 空格/Tab/混合缩进。
 - 仅输出：
   1) ## XMLS + 各 FILE XML
   2) ## MISSING_PROFILES + JSON
