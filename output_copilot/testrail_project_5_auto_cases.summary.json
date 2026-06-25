@@ -1,0 +1,559 @@
+{
+  "scope": "project",
+  "project_id": 5,
+  "run_id": null,
+  "output_dir": "output_copilot",
+  "output_prefix": "testrail_project_5_auto_cases",
+  "summary_file": "output_copilot/testrail_project_5_auto_cases.summary.json",
+  "details_file": "output_copilot/testrail_project_5_auto_cases.details.json",
+  "total_items": 5447,
+  "auto_items": 67,
+  "auto_category_ids": [
+    2
+  ],
+  "category_mapping": {
+    "1": "Manual",
+    "2": "Auto"
+  },
+  "category_field_missing": true,
+  "errors": [],
+  "items": [
+    {
+      "case_id": 10172154,
+      "title": "US001-01_01_Dial_Digits_keying_8262_SIP",
+      "section_id": 659330,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172156,
+      "title": "US001-03_01_Outgoing_call_by_personal_directory_8262_SIP",
+      "section_id": 659330,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172159,
+      "title": "US002-01_01_Call_Answering_during_outgoing_dialing_8262_SIP",
+      "section_id": 659331,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172160,
+      "title": "US002-02_01_Calling_Line_Identification_Presentation_CLIP_8262_SIP",
+      "section_id": 659331,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172161,
+      "title": "US002-04_01_Connected_Line_Number_Presentation_COLP_8262_SIP",
+      "section_id": 659331,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172162,
+      "title": "US002-06_01_Calling_Name_Identification_Presentation_CNIP_8262_SIP",
+      "section_id": 659331,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172163,
+      "title": "US002-08_02_Automatic_Answer_8262_SIP",
+      "section_id": 659331,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172164,
+      "title": "US002-09_02_Incoming_call_while_settings_menu_8262_SIP",
+      "section_id": 659331,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172165,
+      "title": "US002-10_01_Incoming_call_lock_state_8262_SIP",
+      "section_id": 659331,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172166,
+      "title": "US002-12_01_Stop_Ring_then_Reject_Call_8262_SIP",
+      "section_id": 659331,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172177,
+      "title": "US004-03_02_Message_waiting_indicator_Missed_calls_CAT-iq_8262_SIP",
+      "section_id": 659333,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172178,
+      "title": "US004-03_03_Message_waiting_indicator_Text_message_CAT-iq_8262_SIP",
+      "section_id": 659333,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172184,
+      "title": "US005-01_01_Call_Hold_8262_SIP",
+      "section_id": 659334,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172331,
+      "title": "US006-06_01_Set_in_Language_Each_Supported_Language_8262_SIP",
+      "section_id": 659335,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172333,
+      "title": "US006-08_01_Set_in_Settings_Status_8262_SIP",
+      "section_id": 659335,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172334,
+      "title": "US006-09_01_Set_in_Settings_Reset_Settings_8262_SIP",
+      "section_id": 659335,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172339,
+      "title": "US006-01_01_In_Idle_Open_Application_Menu_then_Select_and_Launch_Each_8262_SIP",
+      "section_id": 659335,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172340,
+      "title": "US006-02_01_Set_in_Settings_Each_Answer_Mode_and_check_by_Incoming_Call_8262_SIP",
+      "section_id": 659335,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172341,
+      "title": "US006-20_01_Set_in_Settings_Time&Date_8262_SIP",
+      "section_id": 659335,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172343,
+      "title": "US006-22_01_Set_in_Settings_Power save_8262_SIP",
+      "section_id": 659335,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172344,
+      "title": "US006-23_01_Set_in_Settings_Security_8262_SIP",
+      "section_id": 659335,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172345,
+      "title": "US006-23_02_Check_Lock_PIN_Function_8262_SIP",
+      "section_id": 659335,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172346,
+      "title": "US006-24_01_Set_in_Settings_Handset_name_8262_SIP",
+      "section_id": 659335,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172347,
+      "title": "US006-25_01_Set_in_Settings_Hide_Number_8262_SIP",
+      "section_id": 659335,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172350,
+      "title": "US006-03_01_Check_Audio_Settings_8262_SIP",
+      "section_id": 659335,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172194,
+      "title": "US007-01_01_Local_Lock_activation_8262_SIP",
+      "section_id": 659336,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172195,
+      "title": "US007-01_02_Local_Unlock_8262_SIP",
+      "section_id": 659336,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10342476,
+      "title": "US007-01_03_Local_Lock_PIN_Forget_8262_SIP",
+      "section_id": 659336,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172197,
+      "title": "US007-03_01_Phone_lock_CAT-iq_8262_SIP_reboot",
+      "section_id": 659336,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172198,
+      "title": "US007-05_01_Automatic_keypad_lock_8262_SIP",
+      "section_id": 659336,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172214,
+      "title": "US010-08_01_Screen_Display_Homepage_8262_SIP",
+      "section_id": 659339,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172215,
+      "title": "US010-09_01_Screen_Display_Soft_Keys_8262_SIP",
+      "section_id": 659339,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172220,
+      "title": "US014-01_02_CallLog_Any_log_can_be_Selected_and_AddedToPersDirectory_8262_SIP",
+      "section_id": 659342,
+      "priority_id": 1,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172222,
+      "title": "US014-07_01_CallLog_All_Calls_8262_SIP",
+      "section_id": 659342,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172223,
+      "title": "US014-07_02_CallLog_Outgoing_Calls_8262_SIP",
+      "section_id": 659342,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172228,
+      "title": "US016-05_03_Serviceability_Service_Status_8262",
+      "section_id": 659344,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172229,
+      "title": "US016-05_04_Serviceability_Service_IPEI_8262",
+      "section_id": 659344,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172240,
+      "title": "US016-07_09_Serviceability_Test_and_Diagnostic_SW_Info_8262",
+      "section_id": 659344,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10349106,
+      "title": "US016-04_01_Serviceability_Service_HSlogs_OS_ErrorLog_AssertLog_8262",
+      "section_id": 659344,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172253,
+      "title": "US017-01_01_Key_On_Hook_Function_Power_Off_On_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172254,
+      "title": "US017-01_02_Key_On_Hook_Function_ReleaseCall_Back_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172255,
+      "title": "US017-03_01_Key_Off_Hook_Function_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172256,
+      "title": "US017-04_02_Key_Back_Function_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172257,
+      "title": "US017-04_03_Key_Digits_Star_Hash_to_add_text in edition_field_and_Number_in_Dialing_field_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172258,
+      "title": "US017-05_02_Key_Navigation_Function_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172259,
+      "title": "US017-05_04_Key_Software_SK1_SK2_SK3_in_call_screen_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172260,
+      "title": "US017-05_07_Key_Software_SK1_SK2_SK3_in_idle_screen_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172261,
+      "title": "US017-05_08_Key_Software_SK1_SK2_SK3_in_ringing_screen_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172262,
+      "title": "US017-05_05_Key_Software_SK1_SK2_SK3_in_configuration_screens_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 14,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172263,
+      "title": "US017-06_01_Key_Lock_Function_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172264,
+      "title": "US017-11_01_Key_Plus _and_Reduce_Function_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172870,
+      "title": "US017-12_01_Key_Menu_Function_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10173035,
+      "title": "US017-13_01_Key_Audio_Function_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10173036,
+      "title": "US017-14_01_Key_OK_Function_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10173037,
+      "title": "US017-16_01_Key_Home_Function_8262_SIP",
+      "section_id": 659345,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172265,
+      "title": "US018-01_01_Call_Duration_after_Call_Release_8262_SIP",
+      "section_id": 659346,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172267,
+      "title": "US018-04_01_Contacts_Create_First_Personal_contacts_8262_SIP",
+      "section_id": 659346,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172268,
+      "title": "US018-04_02_Contacts_Create_Several_Personal_contacts_Without_SDcard_8262_SIP",
+      "section_id": 659346,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172269,
+      "title": "US018-04_03_Contacts_Create_Maximum_Personal_contacts_8262_SIP",
+      "section_id": 659346,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10551971,
+      "title": "US018-04_04_Contacts_Create_Maximum_Speed_Dial_8262_SIP",
+      "section_id": 659346,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10551972,
+      "title": "US018-04_05_Contacts_Create_Maximum_Phone _Number _8262_SIP",
+      "section_id": 659346,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172270,
+      "title": "US018-05_01_Contacts_Modify_Personal_Contact_8262_SIP",
+      "section_id": 659346,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172271,
+      "title": "US018-05_02_Contacts_Delete_Personal_Contact_8262_SIP",
+      "section_id": 659346,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172273,
+      "title": "US018-08_01_Search_in_System_Directory_by_Name_by_Initials_by_Name_FirstName_8262_SIP",
+      "section_id": 659346,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172274,
+      "title": "US018-15_01_Contacts_Edit_Speed_Dials_via_Personal_Contacts_8262_SIP",
+      "section_id": 659346,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172275,
+      "title": "US018-16_01_Contacts_Access_via_Apps_via_SK1_Key_Personal_Contacts_8262_SIP",
+      "section_id": 659346,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    },
+    {
+      "case_id": 10172276,
+      "title": "US018-18_01_Contacts_Edit_Send_Text_Message_via_Personal_Contacts_8262_SIP",
+      "section_id": 659346,
+      "priority_id": 2,
+      "type_id": 7,
+      "category": "Auto"
+    }
+  ],
+  "fetched_at": "2026-06-25 16:29:02"
+}
