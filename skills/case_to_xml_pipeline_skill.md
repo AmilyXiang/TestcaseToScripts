@@ -1,14 +1,15 @@
 # Case to XML Pipeline Skill
 
 ## Purpose
-将 TestRail Auto cases details JSON（`output_copilot/*.details.json`）通过三步 pipeline 转换为可运行的 DECT XML 测试脚本。
+将 TestRail Run ID 通过四步 pipeline 转换为可运行的 DECT XML 测试脚本。pipeline 固定从 Step 1（TestRail 拉取）开始。
 
 **Pipeline 流程：**
 ```
-[details.json] 
-  → Step 1: 数据清洗 (deepseek_case_std.md)
-  → Step 2: 原子化 (deepseek_std_to_atomic.md)
-  → Step 3: 生成 XML (deepseek_atomic_to_xml.md)
+[run_id]
+  → Step 1: TestRail 拉取 (prompt.testrail_auto_cases_fetcher.md)
+  → Step 2: 数据清洗 (deepseek_case_std.md)
+  → Step 3: 原子化 (deepseek_std_to_atomic.md)
+  → Step 4: 生成 XML (deepseek_atomic_to_xml.md)
   → [XML 脚本文件 + missing_profiles.json]
 ```
 
@@ -16,16 +17,46 @@
 
 ## 使用方式
 
+### 方式 A — Copilot Agent 直接执行（当前对话模式）
+在 VS Code Copilot 对话中调用此 skill，由 agent 直接读取 prompt 文件并逐步执行，无需外部工具。
+
 **调用此 skill 时，向用户询问以下输入：**
 
 | 参数 | 说明 | 示例 |
 |------|------|------|
-| `input_file` | TestRail auto cases details JSON 文件路径 | `output_copilot/testrail_run_38710_auto_cases.details.json` |
+| `run_id` | TestRail Run ID | `38710` |
 | `output_dir`（可选）| XML 输出目录，默认由 `run_id` 自动推断 | `testcase/run_38710` |
 
 **测试输入（默认）：**
-- `input_file`: `output_copilot/testrail_run_38710_auto_cases.details.json`
+- `run_id`: `38710`
 - `output_dir`: `testcase/run_38710`
+
+---
+
+### 方式 B — Copilot CLI 自动化脚本执行
+使用 `run_pipeline_copilot.py` 脚本，让 Copilot CLI 子进程依次执行三个步骤，适合批量/自动化场景。
+
+**命令：**
+```powershell
+# 完整执行四步（固定从 Step 1 开始）
+python run_pipeline_copilot.py --run-id 38710
+
+# 指定输出目录
+python run_pipeline_copilot.py --run-id 38710 --output-dir testcase/run_38710
+
+# 只执行某一步（需要前置步骤的输出文件已存在）
+python run_pipeline_copilot.py --run-id 38710 --step 1
+python run_pipeline_copilot.py --run-id 38710 --step 2
+python run_pipeline_copilot.py --run-id 38710 --step 3
+python run_pipeline_copilot.py --run-id 38710 --step 4
+```
+
+**脚本行为：**
+1. 将每步的 prompt + 数据合并写入 `tmp/` 中的临时文件
+2. 通过 `copilot.cmd` 执行（复用 `copilot-cli/generator_copilot.py` 基础设施）
+3. 解析 Copilot CLI 的 stdout，提取 JSON / XML 结构
+4. 保存中间文件和最终输出，与方式 A 文件路径完全一致
+5. 每步的原始输出保存到 `tmp/pipeline_<run_id>_<step>_raw.txt` 供调试
 
 ---
 
@@ -33,22 +64,60 @@
 
 | 用途 | 路径 |
 |------|------|
-| Step 1 prompt | `prompt/deepseek_case_std.md` |
-| Step 2 prompt | `prompt/deepseek_std_to_atomic.md` |
-| Step 3 prompt | `prompt/deepseek_atomic_to_xml.md` |
+| Step 1 prompt | `prompt/prompt.testrail_auto_cases_fetcher.md` |
+| Step 2 prompt | `prompt/deepseek_case_std.md` |
+| Step 3 prompt | `prompt/deepseek_std_to_atomic.md` |
+| Step 4 prompt | `prompt/deepseek_atomic_to_xml.md` |
 | model profiles | `case2xml/model_profiles.json` |
 | devices config | `case2xml/devices.json` |
 
 ---
 
-## Step 1 — 数据清洗（Case Standardization）
+## Step 1 — TestRail 拉取（Fetch Auto Cases）
+
+### 目标
+通过 TestRail MCP 工具，拉取指定 `run_id` 下所有 `custom_category = Auto` 的用例，输出标准 details JSON 供后续步骤使用。
+
+### 输入准备
+
+用户提供以下之一：
+- `run_id`：TestRail Run ID（如 `38710`）
+- `testrail_url`：包含 run ID 的 TestRail 页面 URL（从 URL 中提取 run_id）
+
+### 执行规则
+
+读取 `prompt/prompt.testrail_auto_cases_fetcher.md` 中的 **Execution Prompt Template**，将以下占位符替换为实际值后执行：
+
+| 占位符 | 填充值 |
+|--------|--------|
+| `{{SCOPE}}` | `run` |
+| `{{RUN_ID_OR_EMPTY}}` | 用户提供的 `run_id` |
+| `{{PROJECT_ID_OR_EMPTY}}` | 留空 |
+| `{{AUTO_VALUES}}` | `"Auto"` |
+| `{{OUTPUT_DIR}}` | `output_copilot` |
+| `{{OUTPUT_PREFIX_OR_EMPTY}}` | `testrail_run_<run_id>_auto_cases` |
+| `{{MAX_RETRY}}` | `2` |
+
+### 输出
+
+保存到：`output_copilot/testrail_run_<run_id>_auto_cases.details.json`
+
+格式由 `prompt.testrail_auto_cases_fetcher.md` 定义，包含：
+- `run_id`、`scope`、`auto_items`（Auto case 数量）
+- `items[]`：每个 Auto case 的完整字段（`case_id`、`title`、`custom_steps_separated` 等）
+
+> 此文件即为 Step 2 的输入。如已有该文件，可通过 `--input` 跳过 Step 1。
+
+---
+
+## Step 2 — 数据清洗（Case Standardization）
 
 ### 目标
 将 details JSON 的 `items[]` 转换为标准化 Worksheet JSON，清理 HTML 标签，结构化 steps。
 
 ### 输入准备
 
-1. 读取用户指定的 details JSON 文件（即 `input_file`）。
+1. 读取 Step 1 输出的 details JSON 文件（`output_copilot/testrail_run_<run_id>_auto_cases.details.json`）。
 2. 提取其中的 `items` 数组和 `run_id` 字段。
 3. 将 `items` 数组包装为以下格式，供 prompt 使用：
 
@@ -105,7 +174,7 @@
 
 ---
 
-## Step 2 — 原子化（Atomization）
+## Step 3 — 原子化（Atomization）
 
 ### 目标
 将 Worksheet 每个 case 的每个 step 拆解为原子动作序列（substeps），并为每个原子动作标注后续断言。
@@ -155,7 +224,7 @@
 
 ---
 
-## Step 3 — XML 生成（XML Generation）
+## Step 4 — XML 生成（XML Generation）
 
 ### 目标
 将原子化 worksheet 转换为可运行的 DECT XML 测试脚本，并输出缺失配置清单。
@@ -194,10 +263,11 @@
 
 | 阶段 | 文件 | 说明 |
 |------|------|------|
-| Step 1 输出 | `tmp/pipeline_<run_id>_stage1_worksheet.json` | 清洗后的 Worksheet |
-| Step 2 输出 | `tmp/pipeline_<run_id>_stage2_atomic.json` | 原子化 worksheet |
-| Step 3 XML 输出 | `<output_dir>/TR_<case_id>__<title_slug>.xml` | 可运行 XML 脚本 |
-| Step 3 缺失清单 | `<output_dir>/missing_profiles.json` | 待人工补充项 |
+| Step 1 输出 | `output_copilot/testrail_run_<run_id>_auto_cases.details.json` | Auto cases 明细 |
+| Step 2 输出 | `tmp/pipeline_<run_id>_stage1_worksheet.json` | 清洗后的 Worksheet |
+| Step 3 输出 | `tmp/pipeline_<run_id>_stage2_atomic.json` | 原子化 worksheet |
+| Step 4 XML 输出 | `<output_dir>/TR_<case_id>__<title_slug>.xml` | 可运行 XML 脚本 |
+| Step 4 缺失清单 | `<output_dir>/missing_profiles.json` | 待人工补充项 |
 
 > `<run_id>` 从 input_file 的顶层 `run_id` 字段读取（如 `38710`）。
 > `<output_dir>` 默认为 `testcase/run_<run_id>`，用户可覆盖。
@@ -222,20 +292,23 @@
 ```
 Pipeline 执行摘要
 ================
-输入文件     : <input_file>
 Run ID       : <run_id>
 处理用例数   : <case_count>
 
-Step 1 (清洗)
+Step 1 (TestRail 拉取)
+  - 输出文件 : output_copilot/testrail_run_<run_id>_auto_cases.details.json
+  - Auto cases: <auto_count>
+
+Step 2 (清洗)
   - 输出文件 : tmp/pipeline_<run_id>_stage1_worksheet.json
   - 处理步骤数: <touched_steps>
 
-Step 2 (原子化)
+Step 3 (原子化)
   - 输出文件 : tmp/pipeline_<run_id>_stage2_atomic.json
   - 总 substep: <total_substeps>
   - TODO 项数 : <todo_count>
 
-Step 3 (XML 生成)
+Step 4 (XML 生成)
   - 输出目录  : <output_dir>
   - 生成 XML  : <xml_count> 个文件
   - 缺失配置  : <missing_count> 项（详见 missing_profiles.json）
