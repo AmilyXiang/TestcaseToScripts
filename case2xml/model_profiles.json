@@ -1,0 +1,71 @@
+{
+    "8262": {
+        "capabilities": ["home_key"],
+        "navigation": {
+            "settings": ["menu", "down", "right", "ok"],
+            "contacts": ["menu", "ok"],
+            "centraldirectory": ["menu", "right", "ok"],
+            "calls": ["menu", "right", "right", "ok"],
+            "connectivity": ["menu", "down", "ok"],
+            "messaging": ["menu", "down", "right", "right", "ok"],
+            "settings_security": ["down", "down", "down", "down", "down", "ok"],
+            "settings_auto_keylock": ["down", "down", "down", "down","down","ok","down", "ok"],
+            "settings_autoanswer" : ["down", "down", "down", "down", "down","down", "down","down", "down","down", "down", "ok"],
+            "settings_language": ["down","down","ok"],
+            "settings_status": ["down", "down", "down", "down","down", "down", "down", "down", "down", "down", "ok"],
+            "service_menu": ["menu", "*", "7", "3", "7", "8", "4", "2", "3", "*"],
+            "service_status": ["down", "down", "down", "down", "down", "down", "ok"],
+            "service_status_page1": ["down", "down", "down", "down", "down", "down","down"],
+            "service_status_page2": ["down", "down", "down", "down", "down", "down","down", "down", "down", "down", "down", "down", "down"],
+            "service_ipei": ["down", "down", "down", "down","down", "down", "down", "ok"],
+            "test_menu": ["menu", "*", "7", "8", "9", "*"],
+            "test_sw_info": ["down", "down", "down", "down", "down", "down", "down", "down", "down", "down", "down", "down", "ok"]
+        }
+    },
+    "8254": {
+        "capabilities": ["lock_key_long_press"],
+        "navigation": {
+            "settings": ["menu", "down", "right", "ok"],
+            "contacts": ["menu", "ok"],
+            "centraldirectory": ["menu", "right", "ok"],
+            "calls": ["menu", "right", "right", "ok"],
+            "connectivity": ["menu", "down", "ok"],
+            "audiosettings": ["menu", "down", "right", "right", "ok"],
+            "messaging": ["menu", "down", "down", "ok"],
+            "settings_security": ["down", "down", "down", "down", "ok"],
+            "settings_auto_keylock": ["down", "down", "down", "down", "ok", "down", "ok"],
+            "settings_autoanswer" : ["down", "down", "down", "down", "down","down", "down","down", "down","ok"],
+            "settings_language": ["down", "ok"],
+            "settings_status": ["down", "down", "down", "down","down", "down", "down", "down", "ok"],
+            "service_menu": ["menu", "*", "7", "3", "7", "8", "4", "2", "3", "*"],
+            "service_status": ["down", "down", "down", "ok"],
+            "service_ipei": ["down", "down", "down", "down", "ok"],
+            "test_menu": ["menu", "*", "7", "8", "9", "*"],
+            "test_sw_info": ["down", "down", "down", "down", "down", "down", "down", "ok"]    
+        }
+    },
+    "8234": {
+        "capabilities": ["menu_home_key"],
+        "navigation": {
+            "settings": ["menu", "down", "right", "ok"],
+            "contacts": ["menu", "ok"],
+            "centraldirectory": ["menu", "right", "ok"],
+            "calls": ["menu", "right", "right", "ok"],
+            "connectivity": ["menu", "down", "ok"],
+            "audiosettings": ["menu", "down", "right", "right", "ok"],
+            "messaging": ["menu", "down", "down", "ok"],
+            "settings_security": ["down", "down", "down", "down", "ok"],
+            "settings_auto_keylock": ["down", "down", "down", "down", "ok", "down", "ok"],
+            "settings_autoanswer" : ["down", "down", "down", "down", "down","down", "down","down", "down","ok"],
+            "settings_language": ["down", "ok"],
+            "settings_status": ["down", "down", "down", "down","down", "down", "down", "down", "ok"],
+            "service_menu": ["menu", "*", "7", "3", "7", "8", "4", "2", "3", "*"],
+            "service_status": ["down", "down", "down", "ok"],
+            "service_status_page1": ["down", "down", "down", "down", "down", "down","down", "down", "down"],
+            "service_status_page2": ["down", "down", "down", "down", "down", "down","down", "down", "down", "down", "down", "down", "down", "down"],
+            "service_ipei": ["down", "down", "down", "down", "ok"],
+            "test_menu": ["menu", "*", "7", "8", "9", "*"],
+            "test_sw_info": ["down", "down", "down", "down", "down", "down", "down", "ok"]            
+        }
+    }
+}

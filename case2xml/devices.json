@@ -1,0 +1,32 @@
+{
+    "1": {
+        "model": "8262",
+        "com_port": "COM5",
+        "camera_name": "camera1",
+        "exposure_time": 50000,
+        "ext_number": "166",
+        "ext_name": "WYS DECT166",
+        "emergency_number": "911",
+        "IPEI_hex": "0276F4DF6A",
+        "IPEI_dec": "10095 0319338 1",
+        "IPEI_oct": "116675157552",
+        "lock_pin": "0000",
+        "new_lock_pin": "",
+        "wrong_pin": "1234",
+        "reset_pin_code": "",
+        "silent_key": "ring"
+    },
+    "2": {
+        "model": "8262",
+        "com_port": "COM6",
+        "camera_name": "camera2",
+        "exposure_time": 65000,
+        "ext_number": "165",
+        "ext_name": "WYS DECT165",
+        "emergency_number": "911",
+        "lock_pin": "0000",
+        "new_lock_pin": "",
+        "wrong_pin": "1234",
+        "reset_pin_code": ""
+    }
+}
