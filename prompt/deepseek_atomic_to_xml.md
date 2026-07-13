@@ -33,7 +33,9 @@
 说明：
 - 你必须遍历 worksheet 中每个 case。
 - 每个 step 内的 substeps 已经是原子动作序列；你需要将这些原子动作映射成 XML step。
-- 若 substep.action 以 "#TODO:" 开头，表示无法自动映射，必须进入缺失清单。
+- **严格以 substeps 为唯一生成依据**：不允许从 original_action / original_expected 中推断或补充 substeps 之外的步骤。若 substeps 不完整，按 substeps 实际内容生成，并在 MISSING_PROFILES 中记录不完整原因。
+- 若 substep.action 以 `#TODO:` 开头，表示无法自动映射，必须进入缺失清单。
+- 若 substep.action 以 `#SCENARIO:` 开头，表示场景分隔注释，转换为 XML 注释行 `<!-- <场景名> -->`，不生成可执行 step。
 
 --------------------------------------------------
 二、输出格式（严格要求）
@@ -125,7 +127,17 @@
   - 主叫外呼中：Calling
   - 已接通：Connected
   - 禁止输出：Incoming call、In call、On call 等非规范状态名。
-- 文本数组允许正则：以 re: 前缀表示正则匹配，例如 "re:\\d{2}:\\d{2}"。
+- 文本数组允许正则：以 re: 前缀表示正则匹配，常用模式：
+  - 通话时长（MM:SS 或 HH:MM:SS）：`"re:\\d{2}:\\d{2}:\\d{2}"`
+  - 日期（DD-Mon-YYYY 或 DD-MM-YYYY）：`"re:\\d{2}-\\d{2}-\\d{4}"`
+  - 时间（HH:MM）：`"re:\\d{2}:\\d{2}"`
+- **Softkey banner 验证**：当 original_expected 或 assert 文本中出现 "Bottom banner: SK1 X SK3 Y" 或类似描述时，将 softkey 标签文字（如 "Call"、"View"、"More"）纳入 verify_screen 的 text 数组，例如：
+  `{"text":["Call", "More", "{device.2.ext_name}", "re:\\d{2}:\\d{2}", "re:\\d{2}-\\d{2}-\\d{4}"]}`
+- **Call log 详情页 verify 模板**：当验证通话记录详情视图（按 SK2 View 后）时，verify_screen 应包含：
+  - 对端名称：`{device.N.ext_name}`
+  - 通话时长（正则）：`"re:\\d{2}:\\d{2}:\\d{2}"`
+  - 日期（正则）：`"re:\\d{2}-\\d{2}-\\d{4}"`
+  - bottom banner softkey 标签：`"Call"`、`"More"`
 - 涉及图标状态可用：{"text":"Connected","hold":true,"conference":true,"transfer":true}
 - 锁屏状态优先：{"lock":true}
 - 仅允许以上可执行能力：text（含 re: 正则）与图标布尔位（如 hold/conference/transfer/contacts/allCalls/lock）。

@@ -46,8 +46,14 @@
 - 每个原子动作只做一件事。
 - 按句号、换行、分号、明显的顺序词（“然后”、“接着”、“and then”）拆分。
 - 如果 action 包含循环或条件（如“重复步骤 1-3”、“对于每个语言”），可以用简短的伪代码表示（如 `for each lang in list: select_menu_item(lang)`），但尽量保持清晰。
-- 对于 expected_result，将每个独立的检查点转换为断言，并放在对应动作之后的 assertions 数组中。如果多个检查点对应同一个动作，可以放在同一个 substep 的 assertions 中。
-
+- 对于 expected_result，将每个独立的检查点转换为断言，并放在对应动作之后的 assertions 数组中。如果多个检查点对应同一个动作，可以放在同一个 substep 的 assertions 中。- **多场景并列展开（重要）**：当 action 中列举了多个独立执行的场景（以 "and"、"or"、"以及"、"和" 连接，或列举了多种状态组合），必须将每个场景展开为独立的 substep 组，不可合并为单条 substep。
+  - 典型识别词：answered/unanswered、outgoing/incoming、each option、successively、分别。
+  - 例：*"answered and not answered outgoing and incoming calls"* → 必须展开为 4 个独立呼叫流：
+    1. outgoing answered（make_call → answer_call → end_call）
+    2. outgoing unanswered（make_call → 等待 → end_call，对端不接）
+    3. incoming answered（make_call(incoming=True) → answer_call → end_call）
+    4. incoming unanswered（make_call(incoming=True) → 等待 → 对端挂断）
+  - 每个场景组之间可用 `#SCENARIO: <场景名>` 作为注释 substep 分隔，例如 `{ "action": "#SCENARIO: outgoing answered", "assertions": [] }`。
 ## 输出格式（严格 JSON，不要添加额外解释）
 {
   "worksheet": [

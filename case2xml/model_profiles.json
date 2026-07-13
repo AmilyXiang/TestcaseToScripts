@@ -19,7 +19,8 @@
             "service_status_page2": ["down", "down", "down", "down", "down", "down","down", "down", "down", "down", "down", "down", "down"],
             "service_ipei": ["down", "down", "down", "down","down", "down", "down", "ok"],
             "test_menu": ["menu", "*", "7", "8", "9", "*"],
-            "test_sw_info": ["down", "down", "down", "down", "down", "down", "down", "down", "down", "down", "down", "down", "ok"]
+            "test_sw_info": ["down", "down", "down", "down", "down", "down", "down", "down", "down", "down", "down", "down", "ok"],
+            "calls_del_all": ["sk3", "down", "down", "down", "down", "down", "down", "ok", "sk1"]
         }
     },
     "8254": {
@@ -41,7 +42,8 @@
             "service_status": ["down", "down", "down", "ok"],
             "service_ipei": ["down", "down", "down", "down", "ok"],
             "test_menu": ["menu", "*", "7", "8", "9", "*"],
-            "test_sw_info": ["down", "down", "down", "down", "down", "down", "down", "ok"]    
+            "test_sw_info": ["down", "down", "down", "down", "down", "down", "down", "ok"],
+            "calls_del_all": ["sk3", "down", "down", "down", "down", "down", "down", "ok", "sk1"] 
         }
     },
     "8234": {
@@ -65,7 +67,10 @@
             "service_status_page2": ["down", "down", "down", "down", "down", "down","down", "down", "down", "down", "down", "down", "down", "down"],
             "service_ipei": ["down", "down", "down", "down", "ok"],
             "test_menu": ["menu", "*", "7", "8", "9", "*"],
-            "test_sw_info": ["down", "down", "down", "down", "down", "down", "down", "ok"]            
+            "test_sw_info": ["down", "down", "down", "down", "down", "down", "down", "ok"],
+            "calls_del_all": ["sk3", "down", "down", "down", "down", "down", "down", "ok", "sk1"],
+            "messaging_send_message": ["right", "ok", "2", "8", "0", "6", "7","sk1", "ok", "down", "ok"],
+            "messaging_inbox_del": ["sk3", "down", "down", "down", "ok", "sk1"]
         }
     }
 }
